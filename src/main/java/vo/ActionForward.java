@@ -1,6 +1,6 @@
 package vo;
 //넣기
-
+//2차
 //포워딩 정보를 저장하는 클래스
 public class ActionForward {
 	private String url;
