@@ -1,5 +1,6 @@
 package vo;
 //포워딩 정보를 저장하는 클래스
+//이광준
 public class ActionForward {
 	private String url;
 	private boolean redirect;
