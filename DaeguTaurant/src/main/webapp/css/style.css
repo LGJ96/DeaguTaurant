@@ -110,21 +110,22 @@ p {
 /*바닥글 배경색*/
 .dark-bg {
   background: #ffe3a8; }
-/* 홈 배경색 */
+  
+/* 상단바 배경색(로고, 로그인 구간) */
 .dark-hg{
-  background : #f6f6f5;
+  background : #f6f6f6;
 
 /*border-bottom: 1px solid #636363*/ }
 
 /*커뮤니티, 고객센터 배경색 */
 .dark-cbg{
   font-size: 60px;
-  background : #f6f6f5;
+  background : #f6f6f6;
   font-weight: bold;
   padding: 45px 0;
 
 }
-/*상단 바 스크롤 후 배경색*/
+/*상단 바 홈 스크롤 후 배경색*/
 .is-sticky {
   background: #fff;
   opacity: 1; }
@@ -133,7 +134,7 @@ p {
 .slider {
   background: url(../images/slider.jpg) no-repeat;      
   background-size: cover;
-  min-height: 500px; }
+  min-height: 490px; }
   @media (max-width: 992px) {
     .slider {
       min-height: 500px; } }
@@ -145,15 +146,15 @@ p {
  padding: 13px;
  border: #000;
  font-weight: bold;
- font-size: 25px;
-        
+ font-size: 20px;
+ 
   right : 0;
   bottom: 0;
   margin-top: 20px;
   margin-bottom: 20px;
 }     
 
-/* 홈 화면 검색 버튼 & 커뮤니티 글 작성 버튼 */
+/* 커뮤니티 글 작성 버튼 */
 .btn-form {
   margin-left: 30px;
   font-weight: 300;
@@ -172,6 +173,26 @@ p {
     .btn-form {
       width: 100%;
       border-radius: 3px;  } }
+  
+  /* 홈 화면 검색 버튼 */
+  .btn-form1 {
+  font-weight: 300;
+  font-size: 18px;
+  padding: 17px;
+  width: 18%;
+  background: #ff3a6d;
+  color: #ffffff;
+  border: none;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
+  @media (max-width: 768px) {
+    .btn-form {
+      width: auto; } }
+  @media (max-width: 576px) {
+    .btn-form {
+      width: 100%;
+      border-radius: 3px;  } }
+  
   
 /* 커뮤니티 검색버튼 폼 */
 .btn-form2 {      
@@ -212,10 +233,10 @@ th{
  @media (max-width: 576px) {
     .btn-group {
       display: block; }  }
-
-
+      
+/* Login, 가입하기, 비번찾지 버튼 색*/
 .btn-block {
-  background-color: #f4f4f4;
+  background-color: #f9f9f9;
   font-weight: bold;
   
 }
@@ -317,6 +338,7 @@ th{
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out; }
 
+
 /*상단 바*/
 .fixed {
   /*border-bottom: 1px solid #636363;*/
@@ -325,15 +347,18 @@ th{
   left: 0;
   width: 100%;
   z-index: 1; }
+  
+  /*홈화면 상단바 크기 줄었을 경우*/
   @media (max-width: 992px) {
     .fixed {
       border: none;
-      background: #252a33; } }
+      background: #f4f4f4; } }
 
 .dropdown-menu {
   background: #030303; }
 
 .dropdown-item {
+	
   color: #aaaaaa;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
