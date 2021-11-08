@@ -6,6 +6,11 @@ Author: Surjith S M
 /* ==============================================================
    GLOBAL STYLES
    ============================================================== */
+   
+  
+   
+   
+ 
 /*상단 로그인 글씨 */
 #login-text{
 font-size: 25px;
@@ -246,7 +251,12 @@ th{
  /*FOOTER
   ============================================================== */
    footer {
-    position: relative; }
+   width:100%;
+   height:100px;
+   position:relative;
+   bottom:0; 
+    
+      }
   
   .copyright {
     text-align: center; }
@@ -255,24 +265,7 @@ th{
       font-weight: 400;
       color: #ccc;
       margin: 0; }
-    .copyright ul {
-      margin: 25px 0 0;
-      padding: 0; }
-      .copyright ul li {
-        list-style: none;
-        display: inline-block; }
-        .copyright ul li a {
-          color: #ccc;
-          font-size: 22px;
-          padding: 0 10px;
-          opacity: 0.6;
-          -webkit-transition: 0.3s;
-          -o-transition: 0.3s;
-          transition: 0.3s; }
-          .copyright ul li a:hover {
-            opacity: 1;
-            text-decoration: none; }
-
+    
 /* ==============================================================
    HEADER (네비게이션)
    ============================================================== */
@@ -358,7 +351,7 @@ th{
   background: #030303; }
 
 .dropdown-item {
-	
+   
   color: #aaaaaa;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
