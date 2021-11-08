@@ -135,7 +135,18 @@
                                 <input type="email" class="form-control" id="inputType5" > 
                               </div>
                               <div class="col-md-2 showcase_content_area">
-                                <button type="submit" class="btn btn-check" > 변경하기 </button>
+                                <button a href="index.html" type="submit" class="btn btn-check" onclick="showConfirm1();"> 변경하기 </button>
+                                <script language="javascript">
+									 function showConfirm1() {
+									 if (confirm("비밀번호를 변경하시겠습니까?"))
+									  {
+									   alert("비밀번호를 변경 했습니다.");
+									  } 
+									 else {
+									   alert("취소 버튼을 눌렀습니다.");
+									 }
+									 }
+								</script>
                                </div>
                             </div>
                            
@@ -389,7 +400,17 @@
  
      <!--=============================== 회원탈퇴 =============================-->
    <div>
-       <a href="index.html" button class="btn btn-warning">회원탈퇴</a></button>
+       <a href="index.html" button class="btn btn-warning" onclick="showConfirm();">회원탈퇴</a></button>
+       <script language="javascript">
+		 function showConfirm() {
+			 if (confirm("회원 탈퇴 하시겠습니까?"))
+			  {
+			   alert("확인 버튼을 눌렀습니다.");
+			  } else {
+			   alert("취소 버튼을 눌렀습니다.");
+			  }
+			 }
+		 </script>
    </div>
 
     <!--============================= FOOTER =============================-->
