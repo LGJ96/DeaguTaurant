@@ -7,9 +7,24 @@ Author: Surjith S M
    GLOBAL STYLES
    ============================================================== */
    
-  
-   
-   
+ /*말머리 */
+ #content-head{
+ 	width : 10%;
+ 	
+ 	font-size: 20px;
+ 	text-align: center;
+ 	
+ }
+ 
+ /*커뮤니티 글 작성-글 제목 칸 */
+ #title{
+ height : 50px;
+ width : 89.63%;
+ font-size: 17px;
+ 
+ }
+ 
+ 
  
 /*상단 로그인 글씨 */
 #login-text{
@@ -52,10 +67,20 @@ margin-right: 50px;
   text-align: center;
 }
 
+/*중복확인*/
 .btn-check{
 
   font-size: 15px;
   background-color: darkorange;
+}
+
+/* 댓글 등록버튼 */
+
+.btn-check1{
+	
+	font-weight:bold;
+	height: 50px;
+	background-color: darkorange;
 }
 
 /* 제목 */
@@ -202,7 +227,7 @@ p {
 /* 커뮤니티 검색버튼 폼 */
 .btn-form2 {      
                   
-  margin-right: 30px;
+  /*margin-right: 30px;*/
   font-weight: 300;
   font-size: 18px;
   padding: 17px;
@@ -247,6 +272,38 @@ th{
 }
 
 
+/* =============별점============= */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  justify-content: space-around;
+  padding: 0 0.2em;
+  text-align: center;
+  width: 5em;
+}
+ 
+.star-rating input {
+  display: none;
+}
+ 
+.star-rating label {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-color: #2b2a29;
+  cursor: pointer;
+}
+ 
+.star-rating :checked ~ label {
+  -webkit-text-fill-color: gold;
+}
+ 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-fill-color: #fff58c;
+}
+/* =============별점 end============= */
 
  /*FOOTER
   ============================================================== */
