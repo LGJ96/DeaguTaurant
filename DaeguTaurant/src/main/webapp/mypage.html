@@ -12,7 +12,7 @@
     <!-- Favicons -->
     <link rel="shortcut icon" href="#">
     <!-- Page Title -->
-    <title>DaeguTaruant</title>
+    <title>Listing &amp; Directory Website Template</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Google Fonts -->
@@ -89,60 +89,71 @@
                     <div style="text-align:left">
                     
                     <div class="grid-body">
-          <div class="item-wrapper">
-            <div class="row mb-3">
-              <div class="col-md-8 mx-auto">
-                <div class="form-group row showcase_row_area">
-                  <div class="col-md-3 showcase_text_area">
-                    <label for="inputType1">이름</label>
-                  </div>
-                  <div class="col-md-9 showcase_content_area">
-                    <input type="text" class="form-control" id="inputType1" name="" readonly value="이름">
-                  </div>
-                </div>
-                <div class="form-group row showcase_row_area">
-                  <div class="col-md-3 showcase_text_area">
-                    <label for="inputType12">닉네임</label>
-                  </div>
-                  <div class="col-md-9 showcase_content_area">
-                    <input type="email" class="form-control" id="inputType2" name="" readonly value="닉네임">
-                  </div>
-                </div>
-                <div class="form-group row showcase_row_area">
-                  <div class="col-md-3 showcase_text_area">
-                    <label for="inputType13">아이디(이메일)</label>
-                  </div>
-                  <div class="col-md-9 showcase_content_area">
-                    <input type="email" class="form-control" id="inputType3" name="" readonly value="아이디"> 
-                  </div>
-                </div>
-                
-                <div class="form-group row showcase_row_area">
-                  <div class="col-md-3 showcase_text_area">
-                    <label for="inputType1">새 비밀번호</label>
-                  </div>
-
-                  <div class="col-md-9 showcase_content_area">
-                    <input type="password" class="form-control" id="inputType4" >
-                  </div>
-                </div>
-
-                <div class="form-group row showcase_row_area">
-                  <div class="col-md-3 showcase_text_area">
-                    <label for="inputType13">비밀번호 확인</label>
-                  </div>
-                  <div class="col-md-7 showcase_content_area">
-                    <input type="email" class="form-control" id="inputType5" > 
-                  </div>
-                  <div class="col-md-2 showcase_content_area">
-                    <button type="submit" class="btn btn-check" > 변경하기 </button>
-                   </div>
-                </div>
-               
-              </div>
-            </div>
-          </div>
-        </div>
+                      <div class="item-wrapper">
+                        <div class="row mb-3">
+                          <div class="col-md-8 mx-auto">
+                            <div class="form-group row showcase_row_area">
+                              <div class="col-md-3 showcase_text_area">
+                                <label for="inputType1">이름</label>
+                              </div>
+                              <div class="col-md-9 showcase_content_area">
+                                <input type="text" class="form-control" id="inputType1" name="" readonly value="이름">
+                              </div>
+                            </div>
+                            <div class="form-group row showcase_row_area">
+                              <div class="col-md-3 showcase_text_area">
+                                <label for="inputType12">닉네임</label>
+                              </div>
+                              <div class="col-md-9 showcase_content_area">
+                                <input type="email" class="form-control" id="inputType2" name="" readonly value="닉네임">
+                              </div>
+                            </div>
+                            <div class="form-group row showcase_row_area">
+                              <div class="col-md-3 showcase_text_area">
+                                <label for="inputType13">아이디(이메일)</label>
+                              </div>
+                              <div class="col-md-9 showcase_content_area">
+                                <input type="email" class="form-control" id="inputType3" name="" readonly value="아이디"> 
+                              </div>
+                            </div>
+                            
+                            <div class="form-group row showcase_row_area">
+                              <div class="col-md-3 showcase_text_area">
+                                <label for="inputType1">새 비밀번호</label>
+                              </div>
+            
+                              <div class="col-md-9 showcase_content_area">
+                                <input type="password" class="form-control" id="inputType4" >
+                              </div>
+                            </div>
+            
+                            <div class="form-group row showcase_row_area">
+                              <div class="col-md-3 showcase_text_area">
+                                <label for="inputType13">비밀번호 확인</label>
+                              </div>
+                              <div class="col-md-7 showcase_content_area">
+                                <input type="email" class="form-control" id="inputType5" > 
+                              </div>
+                              <div class="col-md-2 showcase_content_area">
+                                <button a href="index.html" type="submit" class="btn btn-check" onclick="showConfirm1();"> 변경하기 </button>
+                                <script language="javascript">
+									 function showConfirm1() {
+									 if (confirm("비밀번호를 변경하시겠습니까?"))
+									  {
+									   alert("비밀번호를 변경했습니다.");
+									  } 
+									 else {
+									   alert("취소 버튼을 눌렀습니다.");
+									 }
+									 }
+								</script>
+                               </div>
+                            </div>
+                           
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -156,75 +167,78 @@
          
 <!-- ============================회원 글 작성목록============================= -->     
         <div class="col-sm-9" style="float: right;">
-         <div id="accordion">
-           <div class="card card-plain" id="title-content">
+            <div id="accordion">
+            <div class="card card-plain" id="title-content">
                
-              <div class="card-body">
-                 <div class="table-responsive">
-                   <table class="table">
-                      <tbody>
-                         <tr>
-                           <td>
-                             <button class="btn btn-block btn-outline-dark" data-toggle="collapse" data-target="#faq1">     
-                                        글 작성 목록
-                             </button>
-                             <div id="faq1" class="collapse show" data-parent="#accordion">
-                                <div class="card-body">
-                                 <div class="col-sm-9" style="float: center;">
-           						 <div class="card" id="title-content">               
+                <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
-                            <thead class=" text-primary">
-                                <th colspan="1">
-                                    번호
-                                </th>
-                                <th colspan="2">
-                                    제목
-                                </th>
-                                <th  class="text-right">
-                                    작성 시간
-                                </th>
-                            </thead>
                             <tbody>
                                 <tr>
                                     <td>
-                                        1
-                                    </td>
-                                    <td colspan="2">
-                                        대구 달서구 양식 맛집 목록입니다!
-                                    <td class="text-right">
-                                        2021.11.04 15:37
-                                    </td>
-                                </tr>
-                                 <tr>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td colspan="2">
-                                        대구 중구 양식 맛집 목록입니다!
-                                    </td>
-                                    <td class="text-right">
-                                        2021.11.05 16:37
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3
-                                    </td>
-                                    <td colspan="2">
-                                        대구 북구 양식 맛집 목록입니다!
-                                    </td>
-                                    <td class="text-right">
-                                        2021.11.06 17:37
-                                    </td>
-                                </tr>
-                               
-                            </tbody>
-                        </table>
-                    </div>
-                
-            </div>
-        </div>
+                                        <button class="btn btn-block btn-outline-dark" data-toggle="collapse" data-target="#faq1">
+                                            
+                                          글 작성 목록
+                                         </button>
+                                         <div id="faq1" class="collapse show" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div class="col-sm-13" style="float: center;">
+                                          <div class="card" id="title-content">
+                                              
+                                              
+                                                  <div class="table-responsive">
+                                                      <table class="table">
+                                                          <thead class=" text-primary">
+                                                              <th colspan="1">
+                                                                  번호
+                                                              </th>
+                                                              <th colspan="2">
+                                                                  제목
+                                                              </th>
+                                                              <th  class="text-right">
+                                                                  작성 시간
+                                                              </th>
+                                                          </thead>
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td>
+                                                                      1
+                                                                  </td>
+                                                                  <td colspan="2">
+                                                                      대구 달서구 양식 맛집 목록입니다!
+                                                                  <td class="text-right">
+                                                                      2021.11.04 15:37
+                                                                  </td>
+                                                              </tr>
+                                                               <tr>
+                                                                  <td>
+                                                                      2
+                                                                  </td>
+                                                                  <td colspan="2">
+                                                                      대구 중구 양식 맛집 목록입니다!
+                                                                  </td>
+                                                                  <td class="text-right">
+                                                                      2021.11.05 16:37
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td>
+                                                                      3
+                                                                  </td>
+                                                                  <td colspan="2">
+                                                                      대구 북구 양식 맛집 목록입니다!
+                                                                  </td>
+                                                                  <td class="text-right">
+                                                                      2021.11.06 17:37
+                                                                  </td>
+                                                              </tr>
+                                                             
+                                                          </tbody>
+                                                      </table>
+                                                  </div>
+                                              
+                                          </div>
+                                      </div>
                                             </div>
                                         </div>
                                     </td>
@@ -233,69 +247,69 @@
 
                                 <tr>
                                     <td>
-                                        <button class="btn btn-block btn-outline-dark" data-toggle="collapse" data-target="#faq1">
+                                        <button class="btn btn-block btn-outline-dark" data-toggle="collapse" data-target="#faq2">
                                             
                                           회원 문의 목록
                                          </button>
-                                         <div id="faq1" class="collapse show" data-parent="#accordion">
+                                         <div id="faq2" class="collapse show" data-parent="#accordion">
                                             <div class="card-body">
-                                                <div class="col-sm-9" style="float: center;">
-            <div class="card" id="title-content">
-                
-                
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class=" text-primary">
-                                <th colspan="1">
-                                    번호
-                                </th>
-                                <th colspan="2">
-                                    제목
-                                </th>
-                                <th  class="text-right">
-                                    작성 시간
-                                </th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td colspan="2">
-                                        비밀번호 찾기 문의	
-                                    <td class="text-right">
-                                        2021.11.04 15:37
-                                    </td>
-                                </tr>
-                                 <tr>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td colspan="2">
-                                        대구 중구 양식 맛집 목록입니다!
-                                    </td>
-                                    <td class="text-right">
-                                        2021.11.05 16:37
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3
-                                    </td>
-                                    <td colspan="2">
-                                        대구 북구 양식 맛집 목록입니다!
-                                    </td>
-                                    <td class="text-right">
-                                        2021.11.06 17:37
-                                    </td>
-                                </tr>
-                               
-                            </tbody>
-                        </table>
-                    </div>
-                
-            </div>
-        </div>
+                                                <div class="col-sm-13" style="float: center;">
+                                          <div class="card" id="title-content">
+                                              
+                                              
+                                                  <div class="table-responsive">
+                                                      <table class="table">
+                                                          <thead class=" text-primary">
+                                                              <th colspan="1">
+                                                                  번호
+                                                              </th>
+                                                              <th colspan="2">
+                                                                  제목
+                                                              </th>
+                                                              <th  class="text-right">
+                                                                  작성 시간
+                                                              </th>
+                                                          </thead>
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td>
+                                                                      1
+                                                                  </td>
+                                                                  <td colspan="2">
+                                                                      비밀번호 찾기 문의   
+                                                                  <td class="text-right">
+                                                                      2021.11.04 15:37
+                                                                  </td>
+                                                              </tr>
+                                                               <tr>
+                                                                  <td>
+                                                                      2
+                                                                  </td>
+                                                                  <td colspan="2">
+                                                                      대구 중구 양식 맛집 목록입니다!
+                                                                  </td>
+                                                                  <td class="text-right">
+                                                                      2021.11.05 16:37
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td>
+                                                                      3
+                                                                  </td>
+                                                                  <td colspan="2">
+                                                                      대구 북구 양식 맛집 목록입니다!
+                                                                  </td>
+                                                                  <td class="text-right">
+                                                                      2021.11.06 17:37
+                                                                  </td>
+                                                              </tr>
+                                                             
+                                                          </tbody>
+                                                      </table>
+                                                  </div>
+                                              
+                                          </div>
+                                      </div>
                                             </div>
                                         </div>
                                     </td>
@@ -304,69 +318,69 @@
 <!-- ============================회원 리뷰 목록============================= -->     
                                  <tr>
                                     <td>
-                                        <button class="btn btn-block btn-outline-dark" data-toggle="collapse" data-target="#faq1">
+                                        <button class="btn btn-block btn-outline-dark" data-toggle="collapse" data-target="#faq3">
                                             
                                           회원 리뷰 목록
                                          </button>
-                                         <div id="faq1" class="collapse show" data-parent="#accordion">
+                                         <div id="faq3" class="collapse show" data-parent="#accordion">
                                             <div class="card-body">
-                                                <div class="col-sm-9" style="float: center;">
-            <div class="card" id="title-content">
-                
-                
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead class=" text-primary">
-                                <th colspan="1">
-                                    번호
-                                </th>
-                                <th colspan="2">
-                                    제목
-                                </th>
-                                <th  class="text-right">
-                                    작성 시간
-                                </th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        1
-                                    </td>
-                                    <td colspan="2">
-                                        대구 달서구 상인동 홍콩반점	
-                                    <td class="text-right">
-                                        2021.11.04 15:37
-                                    </td>
-                                </tr>
-                                 <tr>
-                                    <td>
-                                        2
-                                    </td>
-                                    <td colspan="2">
-                                        대구 수성구 알파시티 맘스터치
-                                    </td>
-                                    <td class="text-right">
-                                        2021.11.05 16:37
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3
-                                    </td>
-                                    <td colspan="2">
-                                        대구 북구 팔거역 버거킹
-                                    </td>
-                                    <td class="text-right">
-                                        2021.11.06 17:37
-                                    </td>
-                                </tr>
-                               
-                            </tbody>
-                        </table>
-                    </div>
-                
-            </div>
-        </div>
+                                                <div class="col-sm-13" style="float: center;">
+                                          <div class="card" id="title-content">
+                                              
+                                              
+                                                  <div class="table-responsive">
+                                                      <table class="table">
+                                                          <thead class=" text-primary">
+                                                              <th colspan="1">
+                                                                  번호
+                                                              </th>
+                                                              <th colspan="2">
+                                                                  제목
+                                                              </th>
+                                                              <th  class="text-right">
+                                                                  작성 시간
+                                                              </th>
+                                                          </thead>
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td>
+                                                                      1
+                                                                  </td>
+                                                                  <td colspan="2">
+                                                                      대구 달서구 상인동 홍콩반점   
+                                                                  <td class="text-right">
+                                                                      2021.11.04 15:37
+                                                                  </td>
+                                                              </tr>
+                                                               <tr>
+                                                                  <td>
+                                                                      2
+                                                                  </td>
+                                                                  <td colspan="2">
+                                                                      대구 수성구 알파시티 맘스터치
+                                                                  </td>
+                                                                  <td class="text-right">
+                                                                      2021.11.05 16:37
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td>
+                                                                      3
+                                                                  </td>
+                                                                  <td colspan="2">
+                                                                      대구 북구 팔거역 버거킹
+                                                                  </td>
+                                                                  <td class="text-right">
+                                                                      2021.11.06 17:37
+                                                                  </td>
+                                                              </tr>
+                                                             
+                                                          </tbody>
+                                                      </table>
+                                                  </div>
+                                              
+                                          </div>
+                                      </div>
                                             </div>
                                         </div>
                                     </td>
@@ -386,7 +400,17 @@
  
      <!--=============================== 회원탈퇴 =============================-->
    <div>
-       <a href="index.html" button class="btn btn-warning">회원탈퇴</a></button>
+       <a href="index.html" button class="btn btn-warning" onclick="showConfirm();">회원탈퇴</a></button>
+       <script language="javascript">
+		 function showConfirm() {
+			 if (confirm("회원 탈퇴 하시겠습니까?"))
+			  {
+			   alert("회원 탈퇴를 완료했습니다..");
+			  } else {
+			   alert("취소 버튼을 눌렀습니다.");
+			  }
+			 }
+		 </script>
    </div>
 
     <!--============================= FOOTER =============================-->
