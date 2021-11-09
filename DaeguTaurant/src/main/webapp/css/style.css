@@ -6,6 +6,10 @@ Author: Surjith S M
 /* ==============================================================
    GLOBAL STYLES
    ============================================================== */
+@font-face {
+
+    src : url("../fonts/Cafe24Ssurround.ttf");
+    font-family: "jua"}
    
  /*말머리 */
  #content-head{
@@ -31,7 +35,7 @@ Author: Surjith S M
 font-size: 25px;
 color: #000;
 font-weight: bold;
-
+font-family: "jua"
 }
 .ti-plus {
   font-size: 25px;
@@ -85,6 +89,7 @@ margin-right: 50px;
 
 /* 제목 */
 h1 {
+  font-family: "jua";
   font-size: 60px;
   color: #fff; 
   font-weight: bold; }
@@ -96,6 +101,7 @@ h1 {
       font-size: 40px; } }
 
 h2 {
+  font-family: "jua";
   color: #000;
   font-size: 54px;
   font-weight: bold; }
@@ -104,6 +110,7 @@ h2 {
       font-size: 34px; } }
 
 h3 {
+ font-family: "jua";
   font-weight: bold;
   margin: 30px;
   font-size: 35px; }
@@ -482,25 +489,30 @@ th{
   padding-right: 10px; }
  
 .slider-link {
+ 
   color: #909090;
   margin: 47px 0 0;
   font-size: 35px;
  font-weight: bold; }
   @media (max-width: 480px) {
     .slider-link {
+    
       margin: 18px 0 0; }
       .slider-link a,
       .slider-link span {
         display: block; } }
   .slider-link a {
+  
     color:#fff ;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s; }
     .slider-link a:hover {
+    
       color:#909090;
  text-decoration: underline; }
   .slider-link span {
+ 
     padding: 0 100px; }
 
 /* ==============================================================
