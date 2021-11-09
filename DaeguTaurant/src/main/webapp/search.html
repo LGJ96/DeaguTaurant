@@ -30,7 +30,6 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <!--============================= HEADER =============================-->
     <div class="dark-hg sticky-top">
@@ -55,75 +54,75 @@
         </div>
     </div>
     <!--//END HEADER -->
-    <!--============================= 커뮤니티 헤더 =============================-->
-    <div>
-        <!-- Swiper -->
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-12">
-                <div class="slider-title_box">
-                    <div class="row">
-                        <div class="col-md-12">
-                         <div class="dark-cbg">
-                         <h2>커뮤니티 - 글쓰기</h2>
+   
+
+    <!--============================= 검색창, 검색버튼 =============================-->
+
+    <div class="row d-flex justify-content-center"  style = "margin-bottom: 100px;">
+        <div class="col-md-8" align="right">
+            <form class="form-wrap mt-4">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <input type="text" placeholder="검색창" class="btn-group"/>
+                    <button type="submit" class="btn-form2"> 검   색</button>
+   
+                 
+                  	
+                  	
+               </div>
+           </form>
+        </div>
+  </div>
+   
+ <!--============================= 지역/테마 선택 =============================-->
+    <div class=" dark-bg" style = "margin-bottom: 100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+              		<div class = "col-xs-2"  style="float: left; margin-right: 50px;" >
+              			<h3>테마</h3>
+              		</div>
+                
+                <div class = "col-md-10" style = "margin-top: 26px;">
+                  	<input type="checkbox" id="cb1">
+   					<label for="cb1" id = "t1" >양식</label>
+   					<!-- id 수정 -->
+                    <input type="checkbox" id="cb2">
+   					<label for="cb2" id = "t1" >중식</label>
+   					
+   					<input type="checkbox" id="cb1">
+   					<label for="cb1" id = "t1" >한식</label>
+   					
+   					<input type="checkbox" id="cb1">
+   					<label for="cb1" id = "t1" >일식</label>
+   					
+   					<input type="checkbox" id="cb1">
+   					<label for="cb1" id = "t1" >디저트</label>
                        
                     </div>
                 </div>
             </div>
         </div>
-     </div>
-  </div>
-</div>
-        
+    </div>
+  
+    <!--//END FOOTER -->
     
-    <!--//END 커뮤니티 헤더 -->
     
-    <!-- 글쓰기 본문 -->
-    
-   <div class="container" style = "margin-top : 50px;" >
-	 <div class="col-lg-12">
-		<form method="post" action="writeAction.jsp">
-		
-		<div style = "border: 1px solid #dddddd " >
-		<select name = "key" title ="말머리" id = "content-head">
-			<option value = "free" > 자유 </option>
-			<option value = "Info"> 정보 </option>
-		</select>
-		<input type="text"  placeholder="글 제목" name="bbsTitle" maxlength="100" id = "title">
-		</div>
-		
-			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
-				<tbody>
-						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"></textarea></td>
-						</tr>
-					</tbody>
-				</table>
-				</form>
-				
-				<div style = "border: 1px solid #dddddd "> 
-				<input type="file" name="file" id="imageFileOpenInput" accept="image/*">
-				</div>
-			</div>
-			</div>
-			
-<!-- 글쓰기 버튼 생성 -->
-	<div align="center">
- 	<input type="submit" class="btn btn-warning"  value="등록" >
-	 <a href="comm.html"><button class="btn btn-warning" > 취소</button></a>
+   
+  
 
-	</div>
-		
- <!--============================= FOOTER =============================-->
-    <footer class="main-block dark-bg">
+
+<!--============================= FOOTER =============================-->
+    <footer class=" dark-bg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="copyright">
                         
                        
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <p>Copyright &copy; 2018 Listing. All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="servicecenter.html" target="_blank">고객센터</a></p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                       <p>풀스택 개발자 양성 과정 </p>
+                        <p>찾아오는 길 : 대구 수성구 알파시티1로31길 24-5</p> 
+                        <a href="servicecenter.html" target="_blank">고객센터</a></p>
+                        
                        
                     </div>
                 </div>
@@ -131,6 +130,9 @@
         </div>
     </footer>
     <!--//END FOOTER -->
+
+
+
 
 
     <!-- jQuery, Bootstrap JS. -->
