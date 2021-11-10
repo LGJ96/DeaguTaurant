@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,13 +83,14 @@
        function showConfirm1() {
           if (confirm("리뷰 등록을 하시겠습니까?")){
                alert("리뷰 등록을 완료했습니다.");
+               window.close();
             } 
          else{
-          alert("취소 버튼을 눌렀습니다.");
+                alert("취소 버튼을 눌렀습니다.");
             }
           }
       </script>
-  <a href="index.html" type="button"  style="color:white" class="btn btn-check">취소</a>
+  <a href="index.html" onclick="window.close();" type="button"  style="color:white" class="btn btn-check">취소</a>
 </td></tr>
   
 </form>      
