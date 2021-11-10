@@ -12,7 +12,7 @@
     <!-- Favicons -->
     <link rel="shortcut icon" href="#">
     <!-- Page Title -->
-    <title>DaeguTaruant</title>
+    <title>DaeguTaurant</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Google Fonts -->
@@ -46,7 +46,7 @@
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                
-                                <li><a href="login.html" class="btn btn-outline-light top-btn" id ="login-text"><span class="ti-plus"></span> 로그인</a></li>
+                                <li><a href="#" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> admin</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -64,34 +64,24 @@
                     <div class="row">
                         <div class="col-md-12">
                          <div class="dark-cbg">
-                         <h2>커뮤니티 - 내용조회</h2>
+                         <h2>공지사항 / FAQ 등록</h2>
                        
                     </div>
                 </div>
             </div>
-        </div>
-     </div>
-  </div>
-</div>
+        
     
     <!--//END 커뮤니티 헤더 -->
+
+  <!-- 글쓰기 본문 -->
     
-    <!-- 글쓰기 본문 -->
-    
-   <div class="container" >
-    <div class="col-lg-12" align="right">
-	 <a href="comm.html"><button class="btn btn-warning1" > 수정</button></a>
-	 <a href="comm.html"><button class="btn btn-warning1" > 삭제</button></a>
-	</div>
+   <div class="container" style = "margin-top : 50px;" >
 	 <div class="col-lg-12">
 		<form method="post" action="writeAction.jsp">
 		
 		<div style = "border: 1px solid #dddddd " >
-		<select name = "key" title ="말머리" id = "content-head">
-			<option value = "free" > 자유 </option>
-			<option value = "Info"> 정보 </option>
-		</select>
-		<input type="text"  placeholder="글 제목" name="bbsTitle" maxlength="100" id = "title">
+		
+		<input type="text"  placeholder="글 제목" name="bbsTitle" maxlength="100" id = "qtitle">
 		</div>
 		
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
@@ -102,66 +92,24 @@
 					</tbody>
 				</table>
 				</form>
-			
-			<div class="row">
-              <div class="col-lg-12">
-                <div class="form-group row ">
-                
-                  <div class="col-md-2" align="center" style = "font-size: 20px;">
-                    <label for="inputType1">댓글작성</label>
-                  </div>
-                  
-                  <div class="col-md-9 ">
-                    <textarea class="form-control" name="bbsContent" maxlength="2048" 
-                    style="height: 50px;"></textarea>
-                  </div>
-                  
-                  <div class="col-md-1" >
-                   <button type="submit" class="btn btn-check1" > 등록 </button>
-                  </div>
-                  
-                </div>
-			
+				
+				
 			</div>
-		</div>
-		
-		
-		
-		
-    <div class="col-lg-12">
-    <table class="table" style="margin-top:40px;">
-      <tbody>
-        <tr>
-          <td colspan="1">또치</td>
-          <td colspan="6">제가 가 봤는데 별로였어요</td>
-          <td colspan="1">2021.10.25 16:00</td>
-        </tr>
-		<tr>
-          <td colspan="1">희동이</td>
-          <td colspan="6">정보 감사합니다.</td>
-          <td colspan="1" >21.05.11 09:20 </td>
-          
-          <td colspan ="1"> <button type="submit" class="signup-link" style = "margin-left: 50px;" > 삭제 </button>
-          <button type="submit" class="signup-link" > 수정 </button></td>
-        </tr>
-	</tbody>
-	</table>
-	</div>
-	
-<!-- 목록 버튼 -->	
+			</div>
+			
+<!-- 글쓰기 버튼 생성 -->
+	<div align="center">
+ 	<input type="submit" class="btn btn-warning"  value="등록" >
+	 <a href="servicecenter.html"><button class="btn btn-warning" > 취소</button></a>
 
-	<div class="col-lg-12" align="right">
-	 <a href="comm.html"><button class="btn btn-warning" > 목록</button></a>
 	</div>
-	
-	
-	
-	
-	</div>
-	</div>
+ 
 
-</body>		
-   <!--============================= FOOTER =============================-->
+  
+
+
+
+    <!--============================= FOOTER =============================-->
     <footer>
        <!-- Footer Start-->
        <div class="main-block dark-bg ">
@@ -227,6 +175,7 @@
    </footer>
 
 
+
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.2.1.min.js"></script>
@@ -252,8 +201,24 @@
             },
         });
     </script>
-  
-
+    <script>
+        if ($('.image-link').length) {
+            $('.image-link').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        }
+        if ($('.image-link2').length) {
+            $('.image-link2').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        }
+    </script>
+</body>
 
 </html>
-
