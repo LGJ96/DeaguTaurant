@@ -9,7 +9,18 @@ Author: Surjith S M
 @font-face {
 
     src : url("../fonts/Cafe24Ssurround.ttf");
-    font-family: "jua"}
+    font-family: "jua"
+    }
+    
+@font-face {
+
+    src : url("../fonts/Bazzi.ttf");
+    font-family: "one"
+    }
+
+    
+    
+    
    
 /* =============파일 업로드 선택 =============*/
 .input-file-button{
@@ -44,10 +55,15 @@ input[id="cb1"] + label {
  #t1 {
  	text-align: center;
  	font-size: 30px;
- 	
+ 	font-family: "one"
  
  }  
    
+ /* 지역/테마 버튼 안 글씨체 */  
+label{
+	
+	font-family: "one"
+}   
    
    
  /*말머리 */
