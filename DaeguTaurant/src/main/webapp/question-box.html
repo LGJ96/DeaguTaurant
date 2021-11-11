@@ -54,7 +54,18 @@
 <!-- 글쓰기 버튼 생성 -->
 	<div align="center">
  	<input type="submit" class="btn btn-warning"  value="등록">
-	 <a href=servicecenter.html><button class="btn btn-warning" > 취소</button></a>
+ 	<script language="javascript">
+       function showConfirm1() {
+          if (confirm("1:1문의를 등록하시겠습니까?")){
+               alert("등록 완료.");
+               window.close();
+            } 
+         else{
+                alert("취소");
+            }
+          }
+      </script>
+	<a href="servicecenter.html" onclick="window.close();" type="button" class="btn btn-warning">취소</a>
 
 	</div>
 		

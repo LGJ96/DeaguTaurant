@@ -18,6 +18,15 @@ Author: Surjith S M
     font-family: "one"
     }
 
+/* 회원가입, 비번찾기 텍스트 크기 */
+#info-text{
+	
+	font-size: 23px;
+}
+
+
+
+
 /*지역 / 테마 식당 리스트 텍스트(표) */  
 #search-menu{
 	
@@ -137,7 +146,8 @@ input[name="cb1"] + label {
  /* 지역/테마 버튼 안 글씨체 */  
 label{
 	
-	font-family: "one"
+	font-family: "one";
+	
 	
 }   
    
@@ -183,7 +193,7 @@ font-family: "jua"
 body {
   font-family: 'Roboto', sans-serif; }
 
-/* 고객센터 표 */
+/* 마이페이지 표 */
 #title-content{
 margin: 20px;
 
@@ -194,18 +204,28 @@ margin-right: 50px;
 /* 커뮤니티 글 목록 표 */
 #comm-content{
   margin: 50px;
-  
-  margin-right: 50px;
+  margin-right: 20px;
   
   }
 
-
-/* 공지사항 텍스트 */
+/* 마이페이지 회원 정보 텍스트 */
 #title-header{
-
-  width: 250px;
+	
+ width: 250px;
   height: 50px;
   margin: 50px;
+  text-align: center;
+}
+
+
+
+/* 공지사항 텍스트 */
+#title-header1{
+   width:250px;
+     height: 50px;
+   
+	
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -374,7 +394,8 @@ p {
   
   /* 홈 화면 검색 버튼 */
   .btn-form1 {
-  font-weight: 300;
+  
+  font-weight: 300px;
   font-size: 18px;
   padding: 17px;
   width: 18%;
@@ -396,7 +417,7 @@ p {
 .btn-form2 {      
                   
   /*margin-right: 30px;*/
-  font-weight: 300;
+  font-weight: 300px;
   font-size: 18px;
   padding: 17px;
   width: 18%;
@@ -653,7 +674,7 @@ th{
   padding-right: 10px; }
  
 .slider-link {
- 
+ font-family: jua;
   color: #909090;
   margin: 47px 0 0;
   font-size: 35px;
