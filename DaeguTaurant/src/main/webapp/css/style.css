@@ -349,8 +349,11 @@ p {
 .main-block1 {
   padding: 90px 00px; }
   @media (max-width: 768px) {
-    .main-block {
+    .main-block1 {
       padding: 45px 0; } }
+      
+      
+
 
 /* 배경색 */
 .light-bg {
