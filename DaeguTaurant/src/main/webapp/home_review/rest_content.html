@@ -14,21 +14,22 @@
     <!-- Page Title -->
     <title>Listing &amp; Directory Website Template</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
-    <link rel="stylesheet" href="css/simple-line-icons.css">
+    <link rel="stylesheet" href="../css/simple-line-icons.css">
     <!-- Themify Icon -->
-    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="../css/themify-icons.css">
     <!-- Hover Effects -->
-    <link rel="stylesheet" href="css/set1.css">
+    <link rel="stylesheet" href="../css/set1.css">
     <!-- Swipper Slider -->
-    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css'/>
    
 </head>
 
@@ -39,7 +40,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="home_review/index.html"><img src="images/logo.png" alt="logo" /> </a>
+                            <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" alt="logo" /> </a>
                        
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="icon-menu"></span>
@@ -50,14 +51,14 @@
                                     <div class="btn-group" role="group" >
                                         <input type="text" placeholder="검색창" class="btn-group">
                                      
-                                        <button type="submit" class="btn-form1">검색</button>
+                                        <button type="submit" class="btn-form1"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
                                     </div>
                                 </form>
                             </div>
                         
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                                 <ul class="navbar-nav" >
-                                    <li><a href="login/login.html" class="btn btn-outline-light top-btn" id = "login-text"><span class="ti-plus" ></span> 로그인</a></li>
+                                    <li><a href="../login.html" class="btn btn-outline-light top-btn" id = "login-text"><span class="ti-plus" ></span> 로그인</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -77,32 +78,32 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
-                    <a href="images/reserve-slide2.jpg" class="grid image-link">
+                    <a href="../images/reserve-slide2.jpg" class="grid image-link">
                         <img src="images/reserve-slide2.jpg" class="img-fluid" alt="#">
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="images/reserve-slide1.jpg" class="grid image-link">
+                    <a href="../images/reserve-slide1.jpg" class="grid image-link">
                         <img src="images/reserve-slide1.jpg" class="img-fluid" alt="#">
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="images/reserve-slide3.jpg" class="grid image-link">
+                    <a href="../images/reserve-slide3.jpg" class="grid image-link">
                         <img src="images/reserve-slide3.jpg" class="img-fluid" alt="#">
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="images/reserve-slide1.jpg" class="grid image-link">
+                    <a href="../images/reserve-slide1.jpg" class="grid image-link">
                         <img src="images/reserve-slide1.jpg" class="img-fluid" alt="#">
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="images/reserve-slide2.jpg" class="grid image-link">
+                    <a href="../images/reserve-slide2.jpg" class="grid image-link">
                         <img src="images/reserve-slide2.jpg" class="img-fluid" alt="#">
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="images/reserve-slide3.jpg" class="grid image-link">
+                    <a href="../images/reserve-slide3.jpg" class="grid image-link">
                         <img src="images/reserve-slide3.jpg" class="img-fluid" alt="#">
                     </a>
                 </div>
@@ -121,19 +122,39 @@
          <div class="card" id="page-content">
                 <div class="card-body">
                   <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-9">
                           <h5>대박 레스토랑</h5>
-                          <p><span>$$$</span>$$</p>
+                           <p>조회수 (1000)</p>
+                          
+                                   <div class='RatingStar_res1'>
+                              <div class='RatingScore_res1'>
+                                 <div class='outer-star'><div class='inner-star' float="right;"></div></div>
+                                   <style>
+                                   	.inner-star::before{color: #FF9600;}
+									.outer-star {position: relative;display: inline-block;color: #CCCCCC;}
+									.inner-star {position: absolute;left: 0;top: 0;width: 0%;overflow: hidden;white-space: nowrap;}
+									.outer-star::before, .inner-star::before {content: '\f005 \f005 \f005 \f005 \f005';font-family: 'Font Awesome 5 free';font-weight: 900;}
+                                   </style>
+                                 <script>ratings = {RatingScore_res1: 3} 
+                                 totalRating = 5;table = document.querySelector('.RatingStar_res1');
+                                 function rateIt() {for (rating in ratings) {ratingPercentage = ratings[rating] / totalRating * 100;ratingRounded = Math.round(ratingPercentage / 10) * 10 + '%';
+                                 star = table.querySelector(`.${rating} .inner-star`);
+                                 numberRating = table.querySelector(`.${rating} .numberRating`);
+                                 star.style.width = ratingRounded;numberRating.innerText = ratings[rating];}}rateIt()
+                                 </script>
+                                 </div>
+                                    </div>
+                     
                           <p class="reserve-description">Innovative cooking, paired with fine wines in a modern setting.</p>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-3">
                           <div class="reserve-seat-block">
                               <div class="reserve-rating">
                                   <span>4.5</span>
                               </div>
                               <div class="review-btn">
                            <button class="btn btn-outline-danger" 
-                           onclick="window.open('home_review/reviewWrite.html','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
+                           onclick="window.open('reviewWrite.html','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
                                   <span>34 reviews</span>
                               </div>
                           </div>
@@ -268,68 +289,119 @@
                             <div class="card-body">
                               <h5>34 Reviews</h5>
                               <hr>
+                              
                               <div class="customer-review_wrap">
+                              
                                   <div class="customer-img">
                                       <img src="images/customer-img1.jpg" class="img-fluid" alt="#">
-                                      <p>Amanda G</p>
+                                      <p>귀여운 둘리</p>
                                   </div>
                                   <div class="customer-content-wrap">
                                       <div class="customer-content">
+                                          
                                           <div class="customer-review">
-                                              <h6>Best noodles in the Newyork city</h6>
-                                              <span></span>
-                                              <span></span>
-                                              <span></span>
-                                              <span></span>
-                                              <span class="round-icon-blank"></span>
-                                              <p>Reviewed 2 days ago</p>
+                                              
                                           </div>
-                                          <div class="customer-rating">8.0</div>
+                                          <div class="row">
+                                            <div class="col-md-7 responsive-wrap">
+                                               <div class='RatingStar_review1'>
+                                               <div class='RatingScore_review1'>
+                                                 <div class='outer-star'><div class='inner-star'></div></div>
+                                               </div>
+                                             </div>
+                                             
+                                             <script>ratings = {RatingScore_review1: 5} 
+	                                          totalRating = 5;
+	                                          table = document.querySelector('.RatingStar_review1');
+	                                          function rateIt() {for (rating in ratings) {ratingPercentage = ratings[rating] / totalRating * 100;ratingRounded = Math.round(ratingPercentage / 10) * 10 + '%';
+	                                          star = table.querySelector(`.${rating} .inner-star`);
+	                                          numberRating = table.querySelector(`.${rating} .numberRating`);
+	                                          star.style.width = ratingRounded;numberRating.innerText = ratings[rating];}}rateIt()
+	                                          </script>
+                                             </div>
+                                             </div>
+                              
                                       </div>
-                                      <p class="customer-text">I love the noodles here but it is so rare that I get to come here. Tasty Hand-Pulled Noodles is the best type of whole in the wall restaurant. The staff are really nice, and you should be seated quickly. I usually get the
-                                          hand pulled noodles in a soup. House Special #1 is amazing and the lamb noodles are also great. If you want your noodles a little chewier, get the knife cut noodles, which are also amazing. Their dumplings are great
-                                          dipped in their chili sauce.
+                                      <div class="container">
+                                      <div class="row">
+                                      <div class="col-md-12 responsive-wrap">
+                                      <p class="customer-text">여기 왕돈까스 너무 맛있고 푸짐합니다. 직원들도 친절하거 서비스가 좋아서 인기있는 최고의 돈까스 식당입니다. 
                                       </p>
-                                      <p class="customer-text">I love how you can see into the kitchen and watch them make the noodles and you can definitely tell that this is a family run establishment. The prices are are great with one dish maybe being $9. You just have to remember
-                                          to bring cash.
+                                      <p class="customer-text">오픈형 주방이라서 청결함을 유지하고 있고 조리과정을 볼 수 있어서 너무 좋습니다! 바삭한 일식 돈까스의 느낌이라서 너무 맛있는 맛집입니다.
                                       </p>
                                       <ul>
                                           <li><img src="images/review-img1.jpg" class="img-fluid" alt="#"></li>
                                           <li><img src="images/review-img2.jpg" class="img-fluid" alt="#"></li>
                                           <li><img src="images/review-img3.jpg" class="img-fluid" alt="#"></li>
                                       </ul>
-                                      <span>좋아요(28)</span>
+                                      <span>좋아요(10)</span>
                                       <a href="#"><span class="icon-heart"></span></a>
+                                      <p>2일 전</p>
+                                      </div>
+                                      </div>
+                                      </div>
                                   </div>
                               </div>
+                              </div>
+                              
                               <hr>
+                              <hr>
+                              
+                              <div class="card-body">
                               <div class="customer-review_wrap">
                                   <div class="customer-img">
                                       <img src="images/customer-img2.jpg" class="img-fluid" alt="#">
-                                      <p>  W</p>
+                                      <p>화난 고길동</p>
                                   </div>
                                   <div class="customer-content-wrap">
                                       <div class="customer-content">
                                           <div class="customer-review">
-                                              <h6>A hole-in-the-wall old school shop.</h6>
-                                              <span class="customer-rating-red"></span>
-                                              <span class="round-icon-blank"></span>
-                                              <span class="round-icon-blank"></span>
-                                              <span class="round-icon-blank"></span>
-                                              <span class="round-icon-blank"></span>
-                                              <p>Reviewed 3 months ago</p>
+                                              
                                           </div>
-                                          <div class="customer-rating customer-rating-red">2.0</div>
+                                          <div class="row">
+                                            <div class="col-md-7 responsive-wrap">
+                                             <div class='RatingStar_review2'>
+                                            <div class='RatingScore_review2'>
+                                              <div class='outer-star'><div class='inner-star'></div></div>
+                                            </div>
+                                          </div>
+                                          
+                                          
+                                          <script>ratings = {RatingScore_review2: 2} 
+                                          totalRating = 5;
+                                          table = document.querySelector('.RatingStar_review2');
+                                          function rateIt() {for (rating in ratings) {ratingPercentage = ratings[rating] / totalRating * 100;ratingRounded = Math.round(ratingPercentage / 10) * 10 + '%';
+                                          star = table.querySelector(`.${rating} .inner-star`);
+                                          numberRating = table.querySelector(`.${rating} .numberRating`);
+                                          star.style.width = ratingRounded;numberRating.innerText = ratings[rating];}}rateIt()
+                                          </script>
+                                          </div>
+                                          </div>
+                              
                                       </div>
-                                      <p class="customer-text">The dumplings were so greasy...the pan-fried shrimp noodles were the same. So much oil and grease it was difficult to eat. The shrimp noodles only come with 3 shrimp (luckily the dish itself is cheap) </p>
-                                      <p class="customer-text">The beef noodle soup was okay. I added black vinegar into the broth to give it some extra flavor. The soup has bok choy which I liked - it's a nice textural element. The shop itself is really unclean (which is the case
-                                          in many restaurants in Chinatown) They don't wipe down the tables after customers have eaten. If you peak into the kitchen many of their supplies are on the ground which is unsettling... </p>
+                                       <div class="container">
+                                      <div class="row">
+                                      <div class="col-md-12 responsive-wrap">
+                                      <p class="customer-text">여기 왕돈까스 너무 맛있고 푸짐합니다. 직원들도 친절하거 서비스가 좋아서 인기있는 최고의 돈까스 식당입니다. 
+                                      </p>
+                                      <p class="customer-text">오픈형 주방이라서 청결함을 유지하고 있고 조리과정을 볼 수 있어서 너무 좋습니다! 바삭한 일식 돈까스의 느낌이라서 너무 맛있는 맛집입니다.
+                                      </p>
+                                      <ul>
+                                          <li><img src="images/review-img1.jpg" class="img-fluid" alt="#"></li>
+                                          <li><img src="images/review-img2.jpg" class="img-fluid" alt="#"></li>
+                                          <li><img src="images/review-img3.jpg" class="img-fluid" alt="#"></li>
+                                      </ul>
                                       <span>좋아요(10)</span>
                                       <a href="#"><span class="icon-heart"></span></a>
+                                      <p>2일 전</p>
+                                      </div>
+                                      </div>
+                                      </div>
                                   </div>
                               </div>
-                          </div>
-                       </div>
+                            </div>
+                           </div>
+                        
                     </div>
                </div>
               </div>
@@ -338,70 +410,24 @@
   
     
 
-   <!--============================= FOOTER =============================-->
-    <footer>
-       <!-- Footer Start-->
-       <div class="main-block dark-bg ">
-           <div class="container">
-               <div class="row d-flex justify-content-between">
-               
-                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                      <div class="copyright mb-30">
-                         <!-- logo -->
-                           <a href="home_review/index.html"><img src="images/logo.png" alt="logo"></a>
-                      
-                         <div class="footer-pera">
-                              <p><script>document.write(new Date().getFullYear());</script> 대구토랑 | 2021-12-16 </p>
-                         </div>
-                      </div>
-                   </div>
-                   
-                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                               <h6>제작자</h6>
-                               <ul id = "footer-maker">
-                                   <li >김수빈</li>
-                                   <li>박태림</li>
-                                   <li>이광준</li>
-                                   <li>장용성</li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
-                  
-                   <div class="col-xl-3 col-lg-3 col-md-4  col-sm-5">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                               <h6>찾아오시는 길</h6>
-                               <ul id = "footer-maker" >
-                                   <li>대구 수성구 알파시티</li>
-                                   <li>스마트융합인재개발원</li>
-                               </ul>
-                             
-                            </div>
-                       </div>
+    <!--============================= FOOTER =============================-->
+    <footer class="main-block dark-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        
+                       
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p>Copyright &copy; 2018 Listing. All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="servicecenter.html" target="_blank">고객센터</a></p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                       
                     </div>
-                           
-                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                          	 <a href="servicecenter/servicecenter.html" target="_blank">고객센터</a>
-                               <ul id = "footer-maker" >
-                                   <li>공지사항</li>
-                                   <li>FAQ</li>
-                                   <li>1:1문의</li>
-                               </ul>
-                           
-                                
-                           </div>
-                       </div>
-                   </div>
-                       </div>
-                   </div>
-               </div>
-       <!-- Footer End-->
-   </footer>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--//END FOOTER -->
 
 
 
