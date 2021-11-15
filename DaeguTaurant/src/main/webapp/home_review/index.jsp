@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -39,15 +40,15 @@
                 <div class="row">
                     <div class="col-md-12">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="../home_review/index.html"><img src="../images/logo.png" alt="logo" /> </a>
+                            <a class="navbar-brand" href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo" /> </a>
 
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-menu"></span>
               </button>
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                                 <ul class="navbar-nav" >         
-                                    <li><a href="../login/login.html" class="btn btn-outline-light top-btn" id = "login-text"><span class="ti-plus" ></span> 로그인</a></li>
-                                    <li><a href="../mypage/mypage.html" class="btn btn-outline-light top-btn" id = "login-text">둘리</a></li>
+                                    <li><a href="../login/login.jsp" class="btn btn-outline-light top-btn" id = "login-text"><span class="ti-plus" ></span> 로그인</a></li>
+                                    <li><a href="../mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text">둘리</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -77,12 +78,28 @@
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <input type="text" placeholder="검색창" class="btn-group">
                                      
-                                        <button type="button" class="btn-form1" onclick="location.href='../home_review/search.html'; ">SEARCH</button>
+                                        <button type="button" class="btn-form1" onclick="location.href='../home_review/search.jsp'; ">SEARCH</button>
                                     </div>
                                 </form>
                                 
                                 <div class="slider-link">
-                                    <a href="../home_review/search.html">지역/테마</a> <span> </span> <a href="../comm/comm.html">커뮤니티</a>
+                                
+                                    <a href="../home_review/search.jsp">지역/테마</a>
+                                    <span> </span> 
+                                    <a href="../comm/comm.jsp">커뮤니티</a>
+                                    
+                                    <%
+										// 로그인 하지 않았을 때 보여지는 화면
+											if(userID == null){
+									%>
+									
+         	                        <!-- alert(로그인을 먼저 해주세요) -->
+         	                        
+         	                        <%
+									// 로그인이 되어 있는 상태에서 보여주는 화면
+										}else{
+									%>
+									
                                 </div>
                                 
                             </div>
@@ -98,7 +115,7 @@
 <!--============================= FEATURED PLACES =============================-->
  
 	<div class = "container" align="right" style = "margin-top: 20px;">
-	 <button class="btn" onclick="location.href='../home_review/restaurant_register.html';" > 식당 등록</button>
+	 <button class="btn" onclick="location.href='../home_review/restaurant_register.jsp';" > 식당 등록</button>
 	</div>
     <section class="main-block1 light-bg">
         <div class="container">
@@ -112,7 +129,7 @@
             <div class="row">
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <a href="detail.jsp">
                             <img src="../images/featured1.jpg" class="img-fluid" alt="#">
                             <span class="featured-rating-orange">6.5</span>
                             <div class="featured-title-box">
@@ -143,7 +160,7 @@
                 </div>
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <a href="detail.jsp">
                             <img src="../images/featured2.jpg" class="img-fluid" alt="#">
                             <span class="featured-rating-green">9.5</span>
                             <div class="featured-title-box">
@@ -174,7 +191,7 @@
                 </div>
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <a href="detail.jsp">
                             <img src="../images/featured3.jpg" class="img-fluid" alt="#">
                             <span class="featured-rating">3.2</span>
                             <div class="featured-title-box">
@@ -327,7 +344,7 @@
                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                       <div class="copyright mb-30">
                          <!-- logo -->
-                           <a href="../home_review/index.html"><img src="../images/logo.png" alt="logo"></a>
+                           <a href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo"></a>
                       
                          <div class="footer-pera">
                               <p><script>document.write(new Date().getFullYear());</script> 대구토랑 | 2021-12-16 </p>
@@ -365,7 +382,7 @@
                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
                        <div class="single-footer-caption mb-30">
                            <div class="footer-tittle">
-                          	 <a href="../servicecenter/servicecenter.html" target="_blank">고객센터</a>
+                          	 <a href="../servicecenter/servicecenter.jsp" target="_blank">고객센터</a>
                                <ul id = "footer-maker" >
                                    <li>공지사항</li>
                                    <li>FAQ</li>

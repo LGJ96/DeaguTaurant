@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -89,7 +90,7 @@
             }
           }
       </script>
-  <a href="../home_review/index.html" onclick="window.close();" type="button"  style="color:white" class="btn btn-check">취소</a>
+  <a href="../home_review/index.jsp" onclick="window.close();" type="button"  style="color:white" class="btn btn-check">취소</a>
 </td></tr>
   
 </form>      

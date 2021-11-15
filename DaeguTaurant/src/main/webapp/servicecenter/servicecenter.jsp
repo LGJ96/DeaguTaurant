@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="../home_review/index.html"><img src="../images/logo.png" alt="logo" /> </a>
+                            <a class="navbar-brand" href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo" /> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
              			 <span class="icon-menu"></span>
             			</button>
@@ -52,7 +52,7 @@
                             	<li><input type="text" placeholder="검색창" class="btn" id = "btn-search"/> </li>
                     			<li><button type="button" class="btn"> 검   색</button></li>
                     			
-                                <li><a href="../login/login.html" class="btn btn-outline-light top-btn" id ="login-text"><span class="ti-plus"></span> 로그인</a></li>
+                                <li><a href="../login/login.jsp" class="btn btn-outline-light top-btn" id ="login-text"><span class="ti-plus"></span> 로그인</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -93,7 +93,7 @@
         		
                <div class="col-md-11" style="text-align : right;">
  				<div class="container">
-       				<button class="btn" onclick="location.href='../servicecenter/center-write.html';"  > 등록</button>
+       				<button class="btn" onclick="location.href='../servicecenter/center-write.jsp';"  > 등록</button>
             </div>
             </div>
            
@@ -169,7 +169,7 @@
         
         <div class="col-md-11" style="text-align : right;">
  				<div class="container">
-       				<button class="btn" onclick="location.href='../servicecenter/center-write.html';"  > 등록</button>
+       				<button class="btn" onclick="location.href='../servicecenter/center-write.jsp';"  > 등록</button>
             </div>
             </div>
         
@@ -226,7 +226,7 @@
 <div class="col-md-11" style="text-align : right;">
  <div class="container">
  <button class="btn btn-warning"  
-  onclick="window.open('question-box.html','','width=430,height=500,location=no,status=no,scrollbars=yes');">1:1문의</button>
+  onclick="window.open('question-box.jsp','','width=430,height=500,location=no,status=no,scrollbars=yes');">1:1문의</button>
 </div>
 </div>
    <!--============================= FOOTER =============================-->
@@ -239,7 +239,7 @@
                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                       <div class="copyright mb-30">
                          <!-- logo -->
-                           <a href="../home_review/index.html"><img src="../images/logo.png" alt="logo"></a>
+                           <a href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo"></a>
                       
                          <div class="footer-pera">
                               <p><script>document.write(new Date().getFullYear());</script> 대구토랑 | 2021-12-16 </p>
@@ -277,7 +277,7 @@
                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
                        <div class="single-footer-caption mb-30">
                            <div class="footer-tittle">
-                          	 <a href="../servicecenter/servicecenter.html" target="_blank">고객센터</a>
+                          	 <a href="../servicecenter/servicecenter.jsp" target="_blank">고객센터</a>
                                <ul id = "footer-maker" >
                                    <li>공지사항</li>
                                    <li>FAQ</li>

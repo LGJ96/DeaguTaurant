@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="../home_review/index.html"><img src="../images/logo.png" alt="logo" /> </a>
+                            <a class="navbar-brand" href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo" /> </a>
                        
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="icon-menu"></span>
@@ -46,7 +46,7 @@
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                
-                                <li><a href="../home_review/index.html" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> 로그인</a></li>
+                                <li><a href="../home_review/index.jsp" class="btn btn-outline-light top-btn"><span class="ti-plus"></span> 로그인</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -79,7 +79,7 @@
    <div class="container" >
     <div class="col-lg-12" align="right">
 	
-	 <a href="../comm/comm.html"><button class="btn btn-warning1" > 삭제</button></a>
+	 <a href="../comm/comm.jsp"><button class="btn btn-warning1" > 삭제</button></a>
 	</div>
 	 <div class="col-lg-12">
 		<form method="post" action="writeAction.jsp">
@@ -105,8 +105,8 @@
 	<!-- 목록 버튼 -->	
  
 	<div class="col-lg-12" align="right">
-	 <a href="../mypage/mypage.html"><button class="btn btn-warning" > 목록</button></a>
-	<button type="submit" class="btn" onclick="location.href='../servicecenter/center-write.html';"> 답변 등록 </button>
+	 <a href="../mypage/mypage.jsp"><button class="btn btn-warning" > 목록</button></a>
+	<button type="submit" class="btn" onclick="location.href='../servicecenter/center-write.jsp';"> 답변 등록 </button>
                  
 	</div>
 	
@@ -127,7 +127,7 @@
                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                       <div class="copyright mb-30">
                          <!-- logo -->
-                           <a href="../home_review/index.html"><img src="../images/logo.png" alt="logo"></a>
+                           <a href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo"></a>
                       
                          <div class="footer-pera">
                               <p><script>document.write(new Date().getFullYear());</script> 대구토랑 | 2021-12-16 </p>
@@ -165,7 +165,7 @@
                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
                        <div class="single-footer-caption mb-30">
                            <div class="footer-tittle">
-                          	 <a href="../servicecenter/servicecenter.html" target="_blank">고객센터</a>
+                          	 <a href="../servicecenter/servicecenter.jsp" target="_blank">고객센터</a>
                                <ul id = "footer-maker" >
                                    <li>공지사항</li>
                                    <li>FAQ</li>

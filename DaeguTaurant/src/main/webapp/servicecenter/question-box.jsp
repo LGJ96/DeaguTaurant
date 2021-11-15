@@ -66,7 +66,7 @@
             }
           }
       </script>
-	<a href="../servicecenter/servicecenter.html" onclick="window.close();" type="button" class="btn btn-warning">취소</a>
+	<a href="../servicecenter/servicecenter.jsp" onclick="window.close();" type="button" class="btn btn-warning">취소</a>
 
 	</div>
 		
