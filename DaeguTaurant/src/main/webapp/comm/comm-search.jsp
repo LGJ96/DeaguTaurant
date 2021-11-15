@@ -1,6 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -80,7 +80,7 @@
             <form class="form-wrap mt-4">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <input type="text" placeholder="검색창" class="btn-group"/>
-                    <button type="button" class="btn-form2" onclick="location.href = '../comm/comm-search.html';"> 검   색</button>
+                    <button type="submit" class="btn-form2"> 검   색</button>
    
                      <button type="button" class="btn-form" onclick="location.href='../comm/comm-write.html';"> 글쓰기</button>
                   	
@@ -90,65 +90,9 @@
         </div>
   </div>
     
- </div>
-  <!--============================= 추천글, BEST 글(표) =============================-->
-    
-  <div class="card-body" >
-    <div class="col-md-6" style="float: left;">
-    <table class="table" style="margin-top:40px;">
-      <thead  class="bg-warning text-white">
-        <tr>
-            <th colspan="1">번호</th>
-            <th align="rigth" colspan="4" style = "text-align: center;" > 추천 글</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td colspan="4">제목 길게 하세요</td>
-          
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td colspan="4">Mark</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="4">Mark</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-</div>
-<div class="card-body"  >
-    <div class="col-md-6" style="float: left;">
-    <table class="table">
-      <thead  class="bg-warning text-white">
-        <tr>
-            <th colspan="1">번호</th>
-            <th align="right" colspan="4" style = "text-align: center;" > Best 글</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td colspan="4">제목 길게 하세요 제발</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td colspan="4">Mark</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="4">Mark</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-</div>
-</div>
-</div>
+ 
+
+  
 
 
  <!--============================= 글 목록 =============================-->
@@ -313,7 +257,6 @@
 </div>
 
 
-
   <!--============================= FOOTER =============================-->
     <footer>
        <!-- Footer Start-->
@@ -380,16 +323,15 @@
    </footer>
 
 
-   
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- Magnific popup JS -->
-    <script src="../js/jquery.magnific-popup.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
     <!-- Swipper Slider JS -->
-    <script src="../js/swiper.min.js"></script>
+    <script src="js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 3,
@@ -406,7 +348,5 @@
             },
         });
     </script>
-  
 </body>
-
 </html>
