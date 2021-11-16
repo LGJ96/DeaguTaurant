@@ -33,22 +33,7 @@
 </head>
 <body>
     <!--============================= HEADER =============================-->
-    <div class="dark-hg sticky-top" style = "margin-bottom:30px; ">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo" /> </a>
-                       
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="icon-menu"></span>
-            </button>
-                       
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+   <%@include file ="/common/header-login.jsp" %> 
     <!--//END HEADER -->
     
     <div class="col-lg-12">
