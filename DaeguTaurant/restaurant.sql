@@ -21,3 +21,6 @@ create table restaurant(
 	FOREIGN KEY(res_user_id)
 	REFERENCES user_Info(user_id)
 )
+
+CREATE SEQUENCE restaurant_seq;
+/* sequence : 숫자 1씩 자동증가 기능*/
