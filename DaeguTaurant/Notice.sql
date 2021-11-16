@@ -6,8 +6,10 @@ create table notice(
 	cus_notice_count INTEGER NOT NULL,
 	cus_notice_content VARCHAR2(400) NOT NULL,
 	cus_notice_list_number INTEGER NOT NULL,
-	cus_user_id varchar2(30),
-	FOREIGN KEY(cus_user_id)
+	
+	notice_user_id varchar2(30),
+	FOREIGN KEY(notice_user_id)
 	REFERENCES user_Info(user_id)
 
 )
+

@@ -12,8 +12,5 @@ create table review(
 	rev_user_id VARCHAR2(30),
 	FOREIGN KEY(rev_user_id)
 	REFERENCES user_Info(user_id)
-
-
-
 )
 
