@@ -1,6 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -33,28 +34,9 @@
 
 <body>
     <!--============================= HEADER =============================-->
-    <div class="dark-hg sticky-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="../home_review/index.html"><img src="../images/logo.png" alt="logo" /> </a>
-                       
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="icon-menu"></span>
-            </button>
-                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                            <ul class="navbar-nav">
-                               
-                                <li><a href="../login/login.html" class="btn btn-outline-light top-btn" id ="login-text"><span class="ti-plus"></span> 로그인</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+   <%@include file ="/common/header.jsp" %>
     <!--//END HEADER -->
+    
     <!--============================= 커뮤니티 헤더 =============================-->
     <div>
         <!-- Swiper -->
@@ -80,9 +62,9 @@
             <form class="form-wrap mt-4">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <input type="text" placeholder="검색창" class="btn-group"/>
-                    <button type="submit" class="btn-form2"> 검   색</button>
+                    <button type="button" class="btn-form2" onclick="location.href = '../comm/comm-search.jsp';"> 검   색</button>
    
-                     <button type="button" class="btn-form" onclick="location.href='../comm/comm-write.html';"> 글쓰기</button>
+                     <button type="button" class="btn-form" onclick="location.href='../comm/comm-write.jsp';"> 글쓰기</button>
                   	
                   	
                </div>
@@ -90,18 +72,75 @@
         </div>
   </div>
     
- 
+ </div>
+  <!--============================= 추천글, BEST 글(표) =============================-->
+    
+  <div class="col-md-10" id = "comm-content1" >
+    <div class="col-md-6" style="float: left ;"  >
+    <table class="table" >
+      <thead  class="bg-warning text-white">
+        <tr>
+            <th colspan="1">번호</th>
+            <th align="right" colspan="4" style = "text-align: center;" > 추천 글</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td colspan="4">제목 길게 하세요</td>
+          
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td colspan="4">Mark</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="4">Mark</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
 
-  
+<span>  </span>
 
+    <div class="col-md-6" style="float: left;"  >
+    <table class="table" >
+      <thead  class="bg-warning text-white">
+        <tr>
+            <th colspan="1">번호</th>
+            <th align="right" colspan="4" style = "text-align: center;" > Best 글</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td colspan="4">제목 길게 하세요 제발</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td colspan="4">Mark</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="4">Mark</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</div>
+</div>
+</div>
+</div>
 
  <!--============================= 글 목록 =============================-->
-
-    <div class="card-body">
+<div class = "col-md-10"  id ="comm-content">
+    <div class="card-body" >
         <h5 class="card-title" style="text-align:center">글 목록</h5>
-        <div class="table-responsive " id ="comm-content" >
-            <table id="zero_config" class="table">
-                <thead class ="bg-warning text-white">
+        <div class="table-responsive "  >
+            <table  class="table" >
+                <thead class ="bg-warning text-white" > 
                     <tr>
                         <th>번호</th>
                         <th>말머리</th>
@@ -256,82 +295,21 @@
 </div>
 </div>
 
-
-  <!--============================= FOOTER =============================-->
-    <footer>
-       <!-- Footer Start-->
-       <div class="main-block dark-bg ">
-           <div class="container">
-               <div class="row d-flex justify-content-between">
-               
-                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                      <div class="copyright mb-30">
-                         <!-- logo -->
-                           <a href="../home_review/index.html"><img src="../images/logo.png" alt="logo"></a>
-                      
-                         <div class="footer-pera">
-                              <p><script>document.write(new Date().getFullYear());</script> 대구토랑 | 2021-12-16 </p>
-                         </div>
-                      </div>
-                   </div>
-                   
-                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                               <h6>제작자</h6>
-                               <ul id = "footer-maker">
-                                   <li >김수빈</li>
-                                   <li>박태림</li>
-                                   <li>이광준</li>
-                                   <li>장용성</li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
-                  
-                   <div class="col-xl-3 col-lg-3 col-md-4  col-sm-5">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                               <h6>찾아오시는 길</h6>
-                               <ul id = "footer-maker" >
-                                   <li>대구 수성구 알파시티</li>
-                                   <li>스마트융합인재개발원</li>
-                               </ul>
-                             
-                            </div>
-                       </div>
-                    </div>
-                           
-                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                          	 <a href="../servicecenter/servicecenter.html" target="_blank">고객센터</a>
-                               <ul id = "footer-maker" >
-                                   <li>공지사항</li>
-                                   <li>FAQ</li>
-                                   <li>1:1문의</li>
-                               </ul>
-                           
-                                
-                           </div>
-                       </div>
-                   </div>
-                       </div>
-                   </div>
-               </div>
-       <!-- Footer End-->
-   </footer>
+     <!--============================= FOOTER =============================-->
+	<%@include file ="/common/footer.jsp" %>
+	<!-- Footer End-->
 
 
+   
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- Magnific popup JS -->
-    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="../js/jquery.magnific-popup.js"></script>
     <!-- Swipper Slider JS -->
-    <script src="js/swiper.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 3,
@@ -348,7 +326,6 @@
             },
         });
     </script>
-  
-</body>
 
+</body>
 </html>

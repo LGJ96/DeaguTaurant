@@ -1,4 +1,4 @@
-package action;
+package Info.action;
 //test2
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

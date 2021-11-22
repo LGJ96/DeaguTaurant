@@ -1,6 +1,7 @@
+<%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file ="/common/header-login.jsp" %>   
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,11 +35,13 @@
 </head>
 
 <body>
-   
+    <!--============================= HEADER =============================-->
+  <%@include file ="/common/header-login.jsp" %>
     <!--//END HEADER -->
     
-    <body>
-      <div class="row">
+   
+    
+      <div class="row" style = "min-height: 550px;">
         <div class="col-lg-5 col-md-7 col-sm-9 col-11 mx-auto">
           <div class="grid">
             <div class="grid-body">
@@ -46,22 +49,32 @@
                 <div class="col-lg-7 col-md-8 col-sm-9 col-12 mx-auto form-wrapper" style="margin-top: 30px;">
                  
                       <h2>로그인</h2>
+                      <form action="../login.dae" method = "POST" name = "login">
+                      
                     <div class="form-group input-rounded" style="margin-top: 30px;">
-                      <input type="text" class="form-control" placeholder="email" />
-                    </div>
-                    <div class="form-group input-rounded" style="margin-top: 20px;">
-                      <input type="password" class="form-control" placeholder="Password" />
+                      <input type="text" class="form-control" placeholder="email" name = "user_id" id = "user_id"/>
                     </div>
                     
-                     <a href="../home_review/index.jsp">
-                    <button type="submit" class="btn btn-warning btn-block" style="margin-top: 30px;"> Login </button></a>
+                    <div class="form-group input-rounded" style="margin-top: 20px;">
+                      <input type="password" class="form-control" placeholder="Password" name = "user_pw" id = "user_pw" />
+                    </div>
+                    
+                   
+                    <button type="submit" class="btn btn-warning btn-block" style="margin-top: 30px;"> Login </button>
                     
                 
                   <div class="signup-link" style="margin-top: 30px;" >
                    
                     <a href="../login/pwsearch.jsp"style="margin-right: 30px;" >비밀번호 찾기</a>
+                    
+                    
+                    
                     <a href="../login/Info.jsp" style="margin-right: 30px;">회원가입</a>
+                    
+                    
+                    
                   </div>
+                   </form>
                 </div>
               </div>
             </div>
@@ -70,13 +83,73 @@
       </div>
      
   
-    
+   
 
 
    <!--============================= FOOTER =============================-->
-   <%@include file ="/common/footer.jsp" %>
-   <!-- Footer End-->
-  
+    <footer>
+       <!-- Footer Start-->
+       <div class="main-block dark-bg ">
+           <div class="container">
+               <div class="row d-flex justify-content-between">
+               
+                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                      <div class="copyright mb-30">
+                         <!-- logo -->
+                           <a href="../home_review/index.html"><img src="../images/logo.png" alt="logo"></a>
+                      
+                         <div class="footer-pera">
+                              <p><script>document.write(new Date().getFullYear());</script> 대구토랑 | 2021-12-16 </p>
+                         </div>
+                      </div>
+                   </div>
+                   
+                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                       <div class="single-footer-caption mb-30">
+                           <div class="footer-tittle">
+                               <h6>제작자</h6>
+                               <ul id = "footer-maker">
+                                   <li >김수빈</li>
+                                   <li>박태림</li>
+                                   <li>이광준</li>
+                                   <li>장용성</li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+                  
+                   <div class="col-xl-3 col-lg-3 col-md-4  col-sm-5">
+                       <div class="single-footer-caption mb-30">
+                           <div class="footer-tittle">
+                               <h6>찾아오시는 길</h6>
+                               <ul id = "footer-maker" >
+                                   <li>대구 수성구 알파시티</li>
+                                   <li>스마트융합인재개발원</li>
+                               </ul>
+                             
+                            </div>
+                       </div>
+                    </div>
+                           
+                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
+                       <div class="single-footer-caption mb-30">
+                           <div class="footer-tittle">
+                          	 <a href="../servicecenter/servicecenter.html" target="_blank">고객센터</a>
+                               <ul id = "footer-maker" >
+                                   <li>공지사항</li>
+                                   <li>FAQ</li>
+                                   <li>1:1문의</li>
+                               </ul>
+                           
+                                
+                           </div>
+                       </div>
+                   </div>
+                       </div>
+                   </div>
+               </div>
+       <!-- Footer End-->
+   </footer>
 
 
 
@@ -84,13 +157,13 @@
 
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- Magnific popup JS -->
-    <script src="../js/jquery.magnific-popup.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
     <!-- Swipper Slider JS -->
-    <script src="../js/swiper.min.js"></script>
+    <script src="js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 3,
@@ -125,6 +198,5 @@
             });
         }
     </script>
-
 </body>
 </html>

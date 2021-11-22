@@ -1,7 +1,16 @@
+<%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+	 String user_id = (String)session.getAttribute("user_id");
+	String user_pw = (String)session.getAttribute("user_pw"); 
+	
+%>     
+    
 <!DOCTYPE html>
-<jsp>
+<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -33,7 +42,52 @@
 </head>
 <body>
     <!--============================= HEADER =============================-->
-     <%@include file ="/common/header.jsp" %>
+    <%--  <%@include file ="/common/header.jsp" %> --%>
+    
+    <div class="dark-hg sticky-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                            <a class="navbar-brand" href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo" /> </a>
+                       
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="icon-menu"></span>
+            </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                               
+                             <li>
+                                        
+						<%
+							if(user_id != null) {
+									
+						%> 
+						<li><a href = "../logout.dae" class="logout-text top-btn"  >로그아웃</a></li>
+											
+											
+ 						<li><a href = "../mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text"><%=loginUser.getUser_nickname()%></a></li>
+ 								
+												
+						<%
+						}
+							else{
+						%>
+						<li><a href="../login/login.jsp" class="btn btn-outline-light top-btn" id = "login-text">
+						<span class="ti-plus" ></span> 로그인</a></li>
+								
+						<%
+						}
+						%>
+                            
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    
+    </div>
     <!--//END HEADER -->
     
     <!--============================= 커뮤니티 헤더 =============================-->
@@ -50,8 +104,10 @@
                     </div>
                 </div>
             </div>
-        
-    
+        </div>
+    </div>
+    </div>
+    </div>
     <!--//END 마이페이지 헤더 -->
 
   <!--============================= 마이페이지 =============================-->
@@ -64,6 +120,9 @@
              </div>
         </div>
         <!-- =======================회원정보조회============================= -->
+        
+    
+        
         <div class="col-sm-9" style="float: right;">
             <div class="card" id="title-content">
                 <div class="card-body">
@@ -78,7 +137,7 @@
                                 <label for="inputType1">이름</label>
                               </div>
                               <div class="col-md-9 showcase_content_area">
-                                <input type="text" class="form-control" id="inputType1" name="" readonly value="이름">
+                                <input type="text" class="form-control" id="inputType1" name="" readonly value="<%=loginUser.getUser_name()%>">
                               </div>
                             </div>
                             <div class="form-group row showcase_row_area">
@@ -86,15 +145,15 @@
                                 <label for="inputType12">닉네임</label>
                               </div>
                               <div class="col-md-9 showcase_content_area">
-                                <input type="email" class="form-control" id="inputType2" name="" readonly value="닉네임">
+                                <input type="email" class="form-control" id="inputType2" name="" readonly value="<%=loginUser.getUser_nickname()%>">
                               </div>
                             </div>
                             <div class="form-group row showcase_row_area">
                               <div class="col-md-3 showcase_text_area">
-                                <label for="inputType13">아이디(이메일)</label>
+                                <label for="inputType13">아이디</label>
                               </div>
                               <div class="col-md-9 showcase_content_area">
-                                <input type="email" class="form-control" id="inputType3" name="" readonly value="아이디"> 
+                                <input type="email" class="form-control" id="inputType3" name="" readonly value="<%=loginUser.getUser_id()%>"> 
                               </div>
                             </div>
                             
@@ -730,21 +789,14 @@
         </div>
     </div>
 </div>
- 
+
      <!--=============================== 회원탈퇴 =============================-->
-   <div>
-       <a href="../home_review/index.jsp" button class="btn btn-warning" onclick="showConfirm();">회원탈퇴</a></button>
-       <script language="javascript">
-		 function showConfirm() {
-			 if (confirm("회원 탈퇴 하시겠습니까?"))
-			  {
-			   alert("회원 탈퇴를 완료했습니다..");
-			  } else {
-			   alert("취소 버튼을 눌렀습니다.");
-			  }
-			 }
-		 </script>
-   </div>
+  
+   <div class="col-md-11" style="text-align : right;">
+ 
+      <button class="btn btn-warning"  id=user_pw ">회원탈퇴</button>
+   
+	</div>
 
     <!--============================= FOOTER =============================-->
     <%@include file ="/common/footer.jsp" %>
@@ -796,7 +848,11 @@
                 }
             });
         }
+        
     </script>
+  
+    
+
 
 </body>
 </html>

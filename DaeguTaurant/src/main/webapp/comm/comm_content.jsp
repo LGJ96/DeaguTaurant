@@ -46,28 +46,10 @@
 
 
     <!--============================= HEADER =============================-->
-    <div class="dark-hg sticky-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo" /> </a>
-                       
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="icon-menu"></span>
-            </button>
-                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                            <ul class="navbar-nav">
-                               
-                                <li><a href="login.jsp" class="btn btn-outline-light top-btn" id ="login-text"><span class="ti-plus"></span> 로그인</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+   <%@include file ="/common/header.jsp" %>
     <!--//END HEADER -->
+    
+    
     <!--============================= 커뮤니티 헤더 =============================-->
     <div>
         <!-- Swiper -->
@@ -99,7 +81,7 @@
 	 <div class="col-lg-12">
 		<form method="post" action="writeAction.jsp">
 		   <div class="row">
-              <div class="col-lg-12"> 
+              <div class="col-md-12"> 
               	<div class = "cold-md-2" id = "title1">
               		자유/정보
               	</div>
@@ -118,130 +100,103 @@
 				</table>
 				
 				</form>
+	
 			
-			
-			<div class="row">
-              <div class="col-lg-12">
-                <div class="form-group row ">
+			<div class="row" >
+              <div class="col-md-12">
+                <div class="form-group row " >
                 
-                  <div class="col-md-2" align="center" style = "font-size: 20px;">
+                  <div class="col-md-2" align="center" style = "font-size: 20px;" >
                     <label for="inputType1">댓글작성</label>
                   </div>
                   
-                  <div class="col-md-9 ">
-                    <textarea class="form-control" name="bbsContent" maxlength="2048" 
-                    style="height: 50px;"></textarea>
-                  </div>
+                  <div id = "form-control2" style = "border: 1px solid #dddddd;">
                   
-                  <div class="col-md-1" >
-                   <button type="submit" class="btn btn-check1" > 등록 </button>
+                   	<textarea class="form-control" id = "form-control1" name="bbsContent" maxlength="500" ></textarea>
+                  	<button type="submit" class="btn btn-regist" style = "float: right;"> 등록 </button>
                   </div>
-                  
-                </div>
-			
-			</div>
-		</div>
-		
-		
-		
-		
-    <div class="col-lg-12">
-    <table class="table" style="margin-top:40px;">
-      <tbody>
-        <tr>
-          <td colspan="1">또치</td>
-          <td colspan="6">제가 가 봤는데 별로였어요</td>
-          <td colspan="1">2021.10.25 16:00</td>
-        </tr>
-		<tr>
-          <td colspan="1">희동이</td>
-          <td colspan="6">정보 감사합니다.</td>
-          <td colspan="1" >21.05.11 09:20 </td>
-          
-          <td colspan ="1"> <button type="submit" class="signup-link" style = "margin-left: 50px;" > 삭제 </button>
-          <button type="submit" class="signup-link" > 수정 </button></td>
-        </tr>
-	</tbody>
-	</table>
-	</div>
-	
+             </div>
+             </div>
+             
+        <!-- 댓글 내용 조회 창 -->     
+   
+             <div id = "content-table">
+             
+          		<ul >
+             		<li>
+             			<div>
+             			
+             			<div class="comment_nick_box" >
+             			<div class="comment_nick_info">
+             			<h6 class="comment_nickname">
+            				다 나가 아무도 들어오지마 댓글달지마 저리가
+        				</h6>
+        				</div>
+        				</div>
+        				
+             			<div class="comment_text_box">
+             			<p class="comment_text_view">
+             			<span class="text_comment">댓글 길이 좀 한번 볼까 얼마나 길어지나</span>
+             			</p>
+             			</div>
+             			
+             			<div class="comment_info_box">
+             			<span class="comment_info_date">2021.10.17. 00:05</span>
+             			<a href="#" role="button" class="comment_info_button" style = "float: right; margin-right: 20px;">
+        					수정  
+    					</a>
+             			<a href="#" role="button" class="comment_info_button" style = "float: right; margin-righ: 50px;">
+        					삭제   |
+    					</a>
+    					</div>
+             			
+             			</div>
+             
+             		</li>
+             		<li>
+             			<div >
+             			<div class="comment_nick_box">
+             			<div class="comment_nick_info">
+             			<h6 class="comment_nickname">
+            				다 들어오지마! 꼼짝마 당장 뒤로 돌아가!!!!!!!!!!!!!!!!!!!!!!!!!!!!11111
+        				</h6>
+        				</div>
+        				</div>
+        				
+             			<div class="comment_text_box">
+             			<p class="comment_text_view"><!---->
+             			<span class="text_comment">댓글 길이 다시 한번 볼까 어디까지 늘어나나 내가 지켜보겠어 딱 기다려</span></p><!----></div>
+             			
+             			<div class="comment_info_box">
+             			<span class="comment_info_date">2021.10.17. 00:05</span>
+             			<a href="#" role="button" class="comment_info_button" style = "float: right; margin-right: 20px;">
+        					수정  
+    					</a>
+             			<a href="#" role="button" class="comment_info_button" style = "float: right; margin-righ: 50px;">
+        					삭제   |
+    					</a>
+    					</div>
+             			
+             			</div>
+             
+             		</li>
+            	</ul>
+              </div>
+             </div>
+ 
 <!-- 목록 버튼 -->	
 
 	<div class="col-lg-12" align="right">
 	 <a href="../comm/comm.jsp"><button class="btn btn-warning" > 목록</button></a>
 	</div>
 	
-	
-	
-	
 	</div>
 	</div>
 
 </body>		
    <!--============================= FOOTER =============================-->
-    <footer>
-       <!-- Footer Start-->
-       <div class="main-block dark-bg ">
-           <div class="container">
-               <div class="row d-flex justify-content-between">
-               
-                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                      <div class="copyright mb-30">
-                         <!-- logo -->
-                           <a href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo"></a>
-                      
-                         <div class="footer-pera">
-                              <p><script>document.write(new Date().getFullYear());</script> 대구토랑 | 2021-12-16 </p>
-                         </div>
-                      </div>
-                   </div>
-                   
-                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                               <h6>제작자</h6>
-                               <ul id = "footer-maker">
-                                   <li >김수빈</li>
-                                   <li>박태림</li>
-                                   <li>이광준</li>
-                                   <li>장용성</li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
-                  
-                   <div class="col-xl-3 col-lg-3 col-md-4  col-sm-5">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                               <h6>찾아오시는 길</h6>
-                               <ul id = "footer-maker" >
-                                   <li>대구 수성구 알파시티</li>
-                                   <li>스마트융합인재개발원</li>
-                               </ul>
-                             
-                            </div>
-                       </div>
-                    </div>
-                           
-                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                          	 <a href="servicecenter.jsp" target="_blank">고객센터</a>
-                               <ul id = "footer-maker" >
-                                   <li>공지사항</li>
-                                   <li>FAQ</li>
-                                   <li>1:1문의</li>
-                               </ul>
-                           
-                                
-                           </div>
-                       </div>
-                   </div>
-                       </div>
-                   </div>
-               </div>
-       <!-- Footer End-->
-   </footer>
+	<%@include file ="/common/footer.jsp" %>
+	<!-- Footer End-->
 
 
     <!-- jQuery, Bootstrap JS. -->

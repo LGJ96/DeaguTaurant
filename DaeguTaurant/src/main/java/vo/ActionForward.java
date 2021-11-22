@@ -1,7 +1,8 @@
 package vo;
-//Æ÷¿öµù Á¤º¸¸¦ ÀúÀåÇÏ´Â Å¬·¡½º
-//ÀÌ±¤ÁØ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
+//ï¿½Ì±ï¿½ï¿½ï¿½
 public class ActionForward {
+	
 	private String url;
 	private boolean redirect;
 	

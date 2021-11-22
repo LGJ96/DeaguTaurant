@@ -6,5 +6,8 @@ CREATE TABLE user_Info(
 	user_nickname VARCHAR(15) NOT NULL
 )
 
+drop table user_Info;
+
+select * from user_Info;
 
 

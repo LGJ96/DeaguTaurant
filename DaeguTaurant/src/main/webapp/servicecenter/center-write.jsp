@@ -87,12 +87,14 @@
 	</div>
  
 
-  
+  </div>
+  </div>
 
 
-
+</div>
+</div>
     <!--============================= FOOTER =============================-->
-  	<%@include file ="/common/footer.jsp" %>
+  <%@include file ="/common/footer.jsp" %>
     <!-- Footer End-->
  
 

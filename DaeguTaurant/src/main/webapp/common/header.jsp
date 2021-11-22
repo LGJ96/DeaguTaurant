@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
 <!DOCTYPE html>
 <html>
    <div class="dark-hg sticky-top">
@@ -15,7 +16,9 @@
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                
-                                <li><a href="../login/login.jsp" class="btn btn-outline-light top-btn" id ="login-text"><span class="ti-plus"></span> 로그인</a></li>
+                             <li>
+                             
+                             </li>
                             </ul>
                         </div>
                     </nav>

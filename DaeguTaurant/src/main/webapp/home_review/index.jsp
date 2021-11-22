@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-   
+     
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +25,7 @@
     <!-- Themify Icon -->
     <link rel="stylesheet" href="../css/themify-icons.css">
     <!-- Hover Effects -->
+    
     <link rel="stylesheet" href="../css/set1.css">
     <!-- Swipper Slider -->
     <link rel="stylesheet" href="../css/swiper.min.css">
@@ -56,7 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row d-flex justify-content-center">
+                        <div class="row d-flex justify-content-center" id = "aaa">
                             <div class="col-md-10">
                                 <form class="form-wrap mt-4">
                                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -68,13 +69,12 @@
                                 
                                 <div class="slider-link">
                                 
-                                    <a href="../home_review/search.jsp">지역/테마</a>
-                                    <span> </span> 
+                                    <a href="../home_review/search.jsp" id="regtheme">지역/테마</a>
+                                    
                                     <a href="../comm/comm.jsp">커뮤니티</a>
                                    
 									
                                 </div>
-                                
                             </div>
                         </div>
                     </div>

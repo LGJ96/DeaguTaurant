@@ -1,5 +1,15 @@
+
+<%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <%
+	String user_id = (String)session.getAttribute("user_id");
+	String user_pw = (String)session.getAttribute("user_pw");
+	String user_nickname = (String)session.getAttribute("user_nickname");
+ 	UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+%>      
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -15,10 +25,34 @@
                 <span class="icon-menu"></span>
               </button>
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                                <ul class="navbar-nav" >         
-                                    <li><a href="../login/login.jsp" class="btn btn-outline-light top-btn" id = "login-text"><span class="ti-plus" ></span> 로그인</a></li>
-                                    <li><a href="../mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text">둘리</a></li>
+                            
+                            
+                                <ul class="navbar-nav" >  
+                                                       
+                                   
+						<%
+							if(user_id != null) {
+									
+						%> 
+						<li><a href = "../logout.dae" class="logout-text top-btn"  >로그아웃</a></li>
+											
+											
+ 						<li><a href = "../mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text"><%=loginUser.getUser_nickname()%></a></li>
+ 								
+												
+						<%
+						}
+							else{
+						%>
+						<li><a href="../login/login.jsp" class="btn btn-outline-light top-btn" id = "login-text">
+						<span class="ti-plus" ></span> 로그인</a></li>
+								
+						<%
+						}
+						%>
+											                               
                                 </ul>
+                                
                             </div>
                         </nav>
                     </div>
@@ -26,7 +60,6 @@
             </div>
         </div>
     </div>
-
 
 </body>
 </html>

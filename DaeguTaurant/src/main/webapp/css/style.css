@@ -4,7 +4,6 @@ Version: 1.0
 Author: Surjith S M
 -------------------------------------------------------------------*/
 /* ==============================================================
-   GLOBAL STYLES
    ============================================================== */
 @font-face {
 
@@ -18,11 +17,74 @@ Author: Surjith S M
     font-family: "one"
     }
 
+
+/* 지역/테마 선택 창 */
+ #search-chick{
+	
+	 margin-bottom: 100px;
+}
+
+@media (max-width: 768px) {
+      .search-chick  {
+        margin: 0; 
+        width: 850px;
+        font-size: 1px;
+        } 
+ }
+@media (max-width : 480px){
+	
+	#search-click{
+		width: 500px;
+		font-size: 15px;
+	}
+} 
+
+
+
+
+
+/*회원가입 창 크기 */
+
+ @media (max-width: 1980px) {
+ 
+    #Info-input {
+     width: 100%;
+    
+     }
+ }
+  @media (max-width: 900px) {
+    #Info-input {
+   
+    
+    width: 60%;
+  	float:right;
+     border-radius: 3px;  }
+     
+   #Info-info{
+   width : 30%;
+   float: left;
+   }
+   
+   #Info-check{
+   width : 10%;
+   }
+
+	#Info-content{
+	width : 40%;
+   float: left;
+	}
+}
+
+
+
+
 /* 회원가입, 비번찾기 텍스트 크기 */
 #info-text{
 	
 	font-size: 23px;
 }
+
+
  #btn-search{
 width: 100%; 
 @media (max-width: 576px) {
@@ -31,6 +93,27 @@ width: 100%;
 
 } }
 
+/*상단 로그아웃 글씨 */
+.logout-text{
+ font-family: jua;
+ color: #909090;
+ margin-right : 25px;
+ font-size: 25px;
+ font-weight: bold;
+ 
+  }
+  @media (max-width:600px) {    
+ }
+  .logout-text a {
+    color:#fff ;
+   }
+    
+  
+
+
+.ti-plus {
+  font-size: 25px;
+  padding: 0 8px 0 0; }
 
 .free{
 	
@@ -155,6 +238,8 @@ input[name="cb1"] + label {
 	display: none;
 }  
    
+
+ 
    
 /* 지역/테마 버튼 안 글씨 */    
  #t1 {
@@ -175,20 +260,40 @@ label{
    
  /*말머리 */
  #content-head{
- 	width : 10%;
- 	
- 	font-size: 20px;
+ 	width : 900px;
+ 	height: 50px;
  	text-align: center;
  	
  }
+ 	
+ @media (max-width: 1000px) {
+    #content-head {
+     width: 20%;
+     height: 50px;
+   
+     } 
+     
+  }
  
+ 	
  /*커뮤니티 글 작성-글 제목 칸 */
  #title{
  height : 50px;
- width : 89.63%;
- font-size: 17px;
- 
+ width : 75%;
+ font-size: 100%;
+ float :right;
+
  }
+
+@media (max-width: 1000px) {
+    #title {
+     width: 80%;
+     height: 50px;
+   
+     } 
+     
+  }
+
 
 /*커뮤니티 글 내용 조회 말머리 칸 */
  #title1{
@@ -200,6 +305,23 @@ label{
  font-family: one;
  }
  
+ @media(max-width : 1980px){
+	#title1{
+	
+	width :150px; 
+  	height:50px;
+	} 
+ }
+ @media(max-width : 1000px){
+	#title1{
+	
+	width :80px; 
+  	height:50px;
+	} 
+ }
+ 
+ 
+ 
  /* 커뮤니티 글 내용 조회 제목 칸 */
  #title2{
  float : right; 
@@ -209,6 +331,20 @@ label{
  font-family: one;
  }
 
+
+@media(max-width : 990px){
+	#title2{
+	
+	width : 80%;
+  	height:50px;
+	} 
+ }
+@media(max-width : 760px){
+	#title2{
+	width : 360px; 
+  	height:50px;
+	} 
+ }
 
 
  
@@ -245,10 +381,59 @@ margin-right: 50px;
 
 /* 커뮤니티 글 목록 표 */
 #comm-content{
-  margin: 50px;
-  margin-right: 20px;
-  
+  margin: auto;
+  width : 80%;
+  margin-left: auto; 
+  margin-right: auto;
+
+
+  @media (max-width: 1200px) {
+    .comm-content {
+     width: 25%;
+     height :50px;
+     padding:1%; } 
+    
+     
+     }
+  @media (max-width: 600px) {
+    .comm-content {
+      width: 25%;
+      height : 50px;
+      padding:1%;
+      border-radius: 3px;  }
+ 
   }
+  
+}
+
+
+#comm-content1{
+	
+  margin-top : 50px;
+  width : 80%;
+  margin-left: 10%; 
+  margin-right: 20%;
+  
+
+  @media (max-width: 1200px) {
+    .comm-content {
+     width: 25%;
+     height :50px;
+     padding:1%; } 
+    
+     
+     }
+  @media (max-width: 600px) {
+    .comm-content {
+      width: 25%;
+      height : 50px;
+      padding:1%;
+      border-radius: 3px;  }
+ 
+  }
+  
+}
+
 
 /* 마이페이지 회원 정보 텍스트 */
 #title-header{
@@ -274,18 +459,93 @@ margin-right: 50px;
 /*중복확인*/
 .btn-check{
 
-  font-size: 15px;
+  font-size: 13px;
   background-color: darkorange;
 }
 
-/* 댓글 등록버튼 */
 
-.btn-check1{
+/*댓글 입력 창 */
+#form-control1{
 	
-	font-weight:bold;
-	height: 50px;
-	background-color: darkorange;
+	width : 890px;
+	height : 45px;
+	border: none; 
+	resize: none;
+	border-radius: 10px;
+}  
+
+@media(max-width : 1000px){
+	
+	#form-control1{
+		width : 700px;
+	
+	}
+	
 }
+  @media(max-width : 795px){
+	
+	#form-control1{
+		width : 460px;
+	
+	}
+	
+} 
+
+/*댓글 입력창, 등록 버튼 전체 div */
+#form-control2{
+	
+	border: none; 
+	resize: none;
+	border-radius: 10px;
+}  
+
+ 
+/*댓글 내용 조회 창 */ 
+#content-table{
+	margin-top:40px;
+	width : 1200px;
+	border: 1px solid #dddddd;
+	border-radius: 10px;
+	
+}
+
+ @media(max-width : 1000px){
+	#content-table{
+	
+	width : 95%;
+  	
+	} 
+
+ }
+
+/*댓글 내용 조회 창 닉네임 설정 */
+.CommentBox .comment_text_box  {
+    position: relative;
+    font-size: 13px;
+    word-break: break-all;
+    word-wrap: break-word;
+  
+   
+}
+
+/* 댓글 내용 조회 창 탑 공백 */
+.comment_nick_info{
+	
+	margin-top: 20px;
+}
+
+
+
+/*댓글 등록 버튼 */
+.btn-regist{
+	background-color: #FFC846;
+	font-family: one;
+	font-size: 22px;
+	
+	
+}
+
+
 
 /* 제목 */
 h1 {
@@ -295,10 +555,12 @@ h1 {
   font-weight: bold; }
   @media (max-width: 1200px) {
     h1 {
-      font-size: 52px; } }
+      font-size: 50px;
+} }
   @media (max-width: 992px) {
     h1 {
-      font-size: 40px; } }
+      font-size: 40px;
+ } }
 
 h2 {
   font-family: "jua";
@@ -329,7 +591,7 @@ h5 {
 
 /*바닥글 폰트 */
 h6 {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 400;
   font-family: "one";
   color: #828282;
@@ -342,9 +604,11 @@ p {
 /* 바닥글 크기*/
 .main-block {
   padding: 30px 0px; }
-  @media (max-width: 768px) {
+   @media (max-width: 768px) {
     .main-block {
-      padding: 45px 0; } }
+      padding: 45px 0; } } 
+
+      
       
 /* 홈 화면 padding(공백 간격) */      
 .main-block1 {
@@ -386,10 +650,11 @@ p {
  /* 홈 사진 */ 
 .slider {
   background: url(../images/slider.jpg) no-repeat;      
-  background-size: cover;
+  background-size: 100% 100%;
   min-height: 490px; }
   @media (max-width: 992px) {
     .slider {
+    	
       min-height: 500px; } }
 
 
@@ -421,7 +686,7 @@ p {
 .btn-form {
   margin-left: 30px;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 100%;
   padding: 17px;
   width: 18%;
   background: #ff3a6d;
@@ -429,19 +694,34 @@ p {
   border: none;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px; }
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     .btn-form {
-      width: auto; } }
-  @media (max-width: 576px) {
+     margin-right : 50px;
+      width: 25%;
+      height : 50px;
+      padding:1%; } }
+  @media (max-width: 770px) {
     .btn-form {
-      width: 100%;
+      margin-right : 30px;
+      width: 25%;
+      height : 50px;
+      padding:1%;
       border-radius: 3px;  } }
+  
+  
+  @media screen and (min-width: 200px) and (max-width : 768px){
+  	#aaa{
+  		width : auto;
+  	}
+  }
+  
+  
   
   /* 홈 화면 검색 버튼 */
   .btn-form1 {
   
   font-weight: 300px;
-  font-size: 18px;
+  font-size: 100%;
   padding: 17px;
   width: 18%;
   background: #ff3a6d;
@@ -449,21 +729,23 @@ p {
   border: none;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px; }
-  @media (max-width: 768px) {
-    .btn-form {
-      width: auto; } }
+  @media (max-width : 768px) {
+    .btn-form1 {
+      width: 25%;
+      height : 50px;
+      padding:1%; } }
   @media (max-width: 576px) {
-    .btn-form {
-      width: 100%;
-      border-radius: 3px;  } }
+    .btn-form1 {
+      width: 25%;
+      height : 50px;
+      padding:1%;  } }
   
   
 /* 커뮤니티 검색버튼 폼 */
 .btn-form2 {      
                   
-  /*margin-right: 30px;*/
   font-weight: 300px;
-  font-size: 18px;
+  font-size: 100%;
   padding: 17px;
   width: 18%;
   background: #ff3a6d;
@@ -471,12 +753,18 @@ p {
   border: none;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px; }
-  @media (max-width: 768px) {
-    .btn-form {
-      width: auto; } }
-  @media (max-width: 576px) {
-    .btn-form {
-      width: 100%;
+  @media (max-width: 1200px) {
+    .btn-form2 {
+      margin-right : 50px;
+     width: 25%;
+      height : 50px;
+      padding:1%; } }
+  @media (max-width: 600px) {
+    .btn-form2 {
+    margin-right : 25px;
+      width: 25%;
+      height : 50px;
+      padding:1%;
       border-radius: 3px;  } }
   
 /*표*/     
@@ -494,9 +782,7 @@ th{
 .btn-group {
 
   width: 85%; }
- @media (max-width: 576px) {
-    .btn-group {
-      display: block; }  }
+
       
  
       
@@ -515,6 +801,46 @@ th{
       font-size: 18px;
       color: #828282;
       margin: 0; }
+
+/*홈 화면 지역/테마, 커뮤니티 텍스트 */
+.slider-link {
+ font-family: jua;
+ color: #909090;
+ margin: 47px 0 0;
+ font-size: 35px;
+ font-weight: bold;
+ width:85%;
+ margin-left:8%;
+ padding:1%;
+  }
+  @media (max-width:600px) {
+    .slider-link {
+  	 
+      padding:1%; 
+      font-size: 30px;
+       margin: 47px 0 0;
+       margin-left:8.5%;
+ }
+      
+      #regtheme{
+   		margin-right:10%;
+   		
+   }
+ }
+  .slider-link a {
+    color:#fff ;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s; }
+    
+   #regtheme{
+   		margin-right:20%;
+   		
+   }
+    .slider-link a:hover {
+    
+   color:#909090;
+ text-decoration: underline; }
 
 
 /* =============별점============= */
@@ -557,8 +883,7 @@ th{
    height:100px;
    position:relative;
    bottom:0; 
-    
-      }
+ }
   
 
     
@@ -716,36 +1041,10 @@ th{
       margin: 0 0 10px;
       padding: 17px; } }
 
-.search-icon {
-  font-size: 15px;
-  padding-right: 10px; }
- 
-.slider-link {
- font-family: jua;
-  color: #909090;
-  margin: 47px 0 0;
-  font-size: 35px;
- font-weight: bold; }
-  @media (max-width: 480px) {
-    .slider-link {
-    
-      margin: 18px 0 0; }
-      .slider-link a,
-      .slider-link span {
-        display: block; } }
-  .slider-link a {
+
+
   
-    color:#fff ;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s; }
-    .slider-link a:hover {
-    
-      color:#909090;
- text-decoration: underline; }
-  .slider-link span {
- 
-    padding: 0 100px; }
+
 
 /* ==============================================================
    FIND PLACES
@@ -1357,5 +1656,4 @@ th{
 
 /*# sourceMappingURL=style.css.map */
 
-
-
+ 

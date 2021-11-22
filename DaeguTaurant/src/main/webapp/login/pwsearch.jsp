@@ -34,8 +34,8 @@
     
     
       <div class="grid">
-        <h3 class="grid-header">비밀번호 찾기</h3>
-        <div class="grid-body">
+        <h3 class="grid-header" >비밀번호 찾기</h3>
+        <div class="grid-body"  style = "min-height: 400px;" >
           <div class="item-wrapper">
             <div class="row mb-3">
               <div class="col-md-8 mx-auto" id ="info-text">
