@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Info.action.Action;
+import Info.action.UserInfoDeleteAction;
+import Info.action.UserInfoDeleteProAction;
 import Info.action.UserRegistAction;
 
 import login.action.UserIdCheckAction;
@@ -97,6 +99,26 @@ public class DaeguTaurantFrontController extends HttpServlet {
 			
 			else if(command.equals("/user_nicknameCheck.dae")) {
 				action = new UserNicknameCheckAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else if(command.equals("/user_infoDelete.dae")) {
+				action = new UserInfoDeleteAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			else if(command.equals("/user_infoDeletePro.dae")) {
+				action = new UserInfoDeleteProAction();
 				
 				try {
 					forward = action.execute(request, response);

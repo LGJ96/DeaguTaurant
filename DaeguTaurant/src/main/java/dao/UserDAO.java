@@ -176,40 +176,46 @@ public class UserDAO {
 		return dbUserNickname;
 	}
 
-	public int deleteInfo(String user_id, String user_pw) {
-		   int deleteCount = 0;
-	       PreparedStatement pstmt = null;
-	       ResultSet rs = null;
-	       String sql = "";
-	       String dbPasswd = null;
-
-	       
-	       try {
-	          pstmt = con.prepareStatement("SELECT user_pw FROM user_Info WHERE user_id = ?");
-	          pstmt.setString(1, user_id);
-	          rs = pstmt.executeQuery();
-	         
-
-	          if(rs.next()) {
-	             dbPasswd = rs.getString("user_pw");
-	             if(dbPasswd.equals(user_pw)) {
-	                sql = "DELETE FROM user_Info WHERE user_id = ?";
-	                pstmt = con.prepareStatement(sql);
-	                pstmt.setString(1, user_id);
-	                deleteCount = pstmt.executeUpdate();
-
-	             }
-	          }
-	       }
-	       catch (Exception e) {
-	          e.printStackTrace();
-	       }
-	       finally {
-	          close(rs);
-	          close(pstmt);
-	       }
-	       
-	       return deleteCount;
+	public int deleteUser_Info(String user_id, String user_pw) {
+		int deleteCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		String dbPasswd = null;
+		
+		
+		try {
+			pstmt = con.prepareStatement("SELECT user_pw FROM user_Info WHERE user_id = ?");
+			pstmt.setString(1, user_id);
+			
+			
+			rs = pstmt.executeQuery();
+			
+				
+			if(rs.next()) {
+			
+				dbPasswd = rs.getString("user_pw");  //아이디와 일치한 db에 들어있는 비번 값을 dbPasswd에 넣는다.
+				if(dbPasswd.equals(user_pw)) {		//내가 입력한 비밀번호와 dbPasswd와 동일하다면...
+					
+					sql = "DELETE from user_Info "
+							+ " WHERE user_id = ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, user_id);
+					deleteCount = pstmt.executeUpdate();
+					
+				}
+			}
+		}
+			
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			close(rs);
+			close(pstmt);
+		}
+		return deleteCount;
 	}
 
 	

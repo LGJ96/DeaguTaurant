@@ -203,7 +203,7 @@
 <div class="col-md-11" style="text-align : right;">
  <div class="container">
  <button class="btn btn-warning"  
-  onclick="window.open('question-box.jsp','','width=430,height=500,location=no,status=no,scrollbars=yes');">1:1문의</button>
+  onclick="window.open('question-box.jsp','','width=430,height=400,location=no,status=no,scrollbars=yes');">1:1문의</button>
 </div>
 </div>
    <!--============================= FOOTER =============================-->

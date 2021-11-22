@@ -791,12 +791,24 @@
 </div>
 
      <!--=============================== 회원탈퇴 =============================-->
+   <div>
   
-   <div class="col-md-11" style="text-align : right;">
- 
-      <button class="btn btn-warning"  id=user_pw ">회원탈퇴</button>
+      <button type="button" class="btn btn-warning" onclick="showConfirm();">회원탈퇴</button>
+		 
+   </div>
    
-	</div>
+    <script>
+		 function showConfirm() {
+				/*alert 확인 버튼만,confirm 확인 취소 버튼 둘다 */
+			  if (confirm("회원 탈퇴 하시겠습니까?")==true) {    //확인을 누른다면                 
+				window.open("../user_infoDelete.dae?user_id=<%=user_id%>", "user_idDeleteWindow",
+				"width=300,height=200");		
+			  }   
+			  else { 
+			   return false;
+			  } 
+			 }
+		 </script>
 
     <!--============================= FOOTER =============================-->
     <%@include file ="/common/footer.jsp" %>
