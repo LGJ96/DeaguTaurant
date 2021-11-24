@@ -219,5 +219,57 @@ public class UserDAO {
 	}
 
 	
+	public String selectUserIdName(String user_id, String user_name) {
+		// TODO Auto-generated method stub
+		String dbUserId = null;
+		String dbUserName = null;
+		String pwsearchresult = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = " SELECT * FROM user_Info WHERE user_id = ? AND user_name =? ";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, user_name);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dbUserId = rs.getString("user_id"); 
+				dbUserName =rs.getString("user_name");
+				
+				if(dbUserId.equals(user_id)&&dbUserName.equals(user_name)) {		
+					
+					sql = "SELECT user_pw from user_Info "
+							+ " WHERE user_id = ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, user_id);
+					
+					pwsearchresult=rs.getString("user_pw");
+					
+					
+				}
+
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				rs.close();
+				pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return pwsearchresult;
+	}
+
+
+	
 
 }

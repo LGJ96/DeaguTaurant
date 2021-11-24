@@ -17,6 +17,14 @@ Author: Surjith S M
     font-family: "one"
     }
 
+/* 비번찾기결과화면 */
+#pwsearchresult{
+	border:1px solid;
+	margin:80px;
+	font-size:20px;
+	padding :30px;
+}
+
 
 /* 지역/테마 선택 창 */
  #search-chick{

@@ -33,6 +33,8 @@
     <!--//END HEADER -->
     
     
+    <form action="../user_pwsearchresult.dae" method = "POST" name = "pwsearch">
+   
       <div class="grid">
         <h3 class="grid-header" >비밀번호 찾기</h3>
         <div class="grid-body"  style = "min-height: 400px;" >
@@ -44,7 +46,8 @@
                     <label for="inputType1">이름</label>
                   </div>
                   <div class="col-md-9 showcase_content_area">
-                    <input type="text" class="form-control" id="inputType1" placeholder="홍길동">
+                    <input type="text" class="form-control" name= "user_name" id="user_name"  placeholder="홍길동">
+                    
                   </div>
                 </div>
                 
@@ -53,25 +56,42 @@
                     <label for="inputType12">이메일</label>
                   </div>
                   <div class="col-md-9 showcase_content_area">
-                    <input type="email" class="form-control" id="inputType2" placeholder="aaa@000.com">
+                    <input type="email" class="form-control" name= "user_id" id="user_id" placeholder="aaa@000.com">
+                   
                   </div>
                </div>
+                <button type="submit" class="btn btn-warning btn-block" style="margin-top: 30px;" onclick="pwsearchcheck()"> 확인 </button></a>
 
-                <a href="../login/login.jsp">
-                <button type="submit" class="btn btn-warning btn-block" style="margin-top: 30px;"> 확인 </button></a>
-                
               </div>
             </div>
           </div>
         </div>
       </div>
-
-    
+</form>
 
   <!--============================= FOOTER =============================-->
   <%@include file ="/common/footer.jsp" %>
   <!-- Footer End-->
+    <script>
+   function pwsearchcheck(){
+ 
+	   var user_name = document.getElementById("user_name");
+	   var user_id = document.getElementById("user_id");
+		if (user_name.value == ""){
+			alert("이름을 입력해주세요");
+			form.user_name.focus();
+			return false;
+	}
+		else if (user_id.value == "") {
+			alert("아이디를 입력해주세요");
+			form.user_id.focus();
+			return false;
+	}
+		// 만약 값이 다 넘어왔다면 전송해줘라
+		document.pwsearch.submit();
+   }
    
+   </script>
 
 
 
