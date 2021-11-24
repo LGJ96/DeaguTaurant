@@ -36,42 +36,9 @@
 
 <body>
     <!--============================= HEADER =============================-->
-    <div class="dark-hg sticky-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                            <a class="navbar-brand" href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo" /> </a>
-                       
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="icon-menu"></span>
-            </button>
-             
-                            <div class="col-md-10">
-                                <form class="form-wrap mt-4">
-                                    <div class="btn-group" role="group" >
-                                        <input type="text" placeholder="검색창" class="btn-group">
-                                     
-                                        <button type="submit" class="btn-form1"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
-                                    </div>
-                                </form>
-                            </div>
-                        
-                            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                                <ul class="navbar-nav" >
-                                    <li><a href="../login/login.jsp" class="btn btn-outline-light top-btn" id = "login-text"><span class="ti-plus" ></span> 로그인</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-
+     <%@include file ="/common/header.jsp" %>
     <!--//END HEADER -->
+    
        <!--============================= BOOKING =============================-->
     <div>
         <!-- Swiper -->
@@ -88,26 +55,18 @@
                         <img src="../images/reserve-slide1.jpg" class="img-fluid" alt="#">
                     </a>
                 </div>
+              
                 <div class="swiper-slide">
-                    <a href="../images/reserve-slide3.jpg" class="grid image-link">
-                        <img src="../images/reserve-slide3.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
-                <div class="swiper-slide">
-                    <a href="../images/reserve-slide1.jpg" class="grid image-link">
+                    <a href="../images/reserve-slide2.jpg" class="grid image-link">
                         <img src="../images/reserve-slide1.jpg" class="img-fluid" alt="#">
                     </a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="../images/reserve-slide2.jpg" class="grid image-link">
+                    <a href="../images/reserve-slide1.jpg" class="grid image-link">
                         <img src="../images/reserve-slide2.jpg" class="img-fluid" alt="#">
                     </a>
                 </div>
-                <div class="swiper-slide">
-                    <a href="../images/reserve-slide3.jpg" class="grid image-link">
-                        <img src="../images/reserve-slide3.jpg" class="img-fluid" alt="#">
-                    </a>
-                </div>
+                
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination swiper-paginFation-white"></div>
@@ -117,49 +76,50 @@
         </div>
     </div>
     <!--//END BOOKING -->
-                    <!--============================= RESERVE A SEAT =============================-->
+    
+   <!--============================= RESERVE A SEAT =============================-->
     <section class="reserve-block">
         <div class="container">
-         <div class="card" id="page-content">
-                <div class="card-body">
-                  <div class="row">
-                      <div class="col-md-9">
-                          <h5>대박 레스토랑</h5>
-                           <p>조회수 (1000)</p>
-                          
-                                   <div class='RatingStar_res1'>
-                              <div class='RatingScore_res1'>
-                                 <div class='outer-star'><div class='inner-star' float="right;"></div></div>
-                                   <style>
-                                   	.inner-star::before{color: #FF9600;}
+	      <div class="card" id="page-content">
+		      <div class="card-body">
+		          <div class="row">
+		               <div class="col-md-9">
+		                  <h5>대박 레스토랑</h5>
+		                    <p>조회수 (1000)</p>
+		                          
+		                      <div class='RatingStar_res1'>
+		                        <div class='RatingScore_res1'>
+		                         <div class='outer-star'><div class='inner-star' float="right;"></div></div>
+		                           <style>
+		                           .inner-star::before{color: #FF9600;}
 									.outer-star {position: relative;display: inline-block;color: #CCCCCC;}
 									.inner-star {position: absolute;left: 0;top: 0;width: 0%;overflow: hidden;white-space: nowrap;}
 									.outer-star::before, .inner-star::before {content: '\f005 \f005 \f005 \f005 \f005';font-family: 'Font Awesome 5 free';font-weight: 900;}
-                                   </style>
-                                 <script>ratings = {RatingScore_res1: 3} 
-                                 totalRating = 5;table = document.querySelector('.RatingStar_res1');
-                                 function rateIt() {for (rating in ratings) {ratingPercentage = ratings[rating] / totalRating * 100;ratingRounded = Math.round(ratingPercentage / 10) * 10 + '%';
-                                 star = table.querySelector(`.${rating} .inner-star`);
-                                 numberRating = table.querySelector(`.${rating} .numberRating`);
-                                 star.style.width = ratingRounded;numberRating.innerText = ratings[rating];}}rateIt()
-                                 </script>
-                                 </div>
-                                    </div>
+		                             </style>
+		                             <script>ratings = {RatingScore_res1: 3} 
+		                              totalRating = 5;table = document.querySelector('.RatingStar_res1');
+		                              function rateIt() {for (rating in ratings) {ratingPercentage = ratings[rating] / totalRating * 100;ratingRounded = Math.round(ratingPercentage / 10) * 10 + '%';
+		                               star = table.querySelector(`.${rating} .inner-star`);
+		                               numberRating = table.querySelector(`.${rating} .numberRating`);
+		                               star.style.width = ratingRounded;numberRating.innerText = ratings[rating];}}rateIt()
+		                               </script>
+		                              </div>
+		                           </div>
                      
-                          <p class="reserve-description">Innovative cooking, paired with fine wines in a modern setting.</p>
-                      </div>
-                      <div class="col-md-3">
-                          <div class="reserve-seat-block">
-                              <div class="reserve-rating">
-                                  <span>4.5</span>
-                              </div>
-                              <div class="review-btn">
-                           <button class="btn btn-outline-danger" 
-                           onclick="window.open('reviewWrite.jsp','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
-                                  <span>34 reviews</span>
-                              </div>
+               <p class="reserve-description">Innovative cooking, paired with fine wines in a modern setting.</p>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="reserve-seat-block">
+                        <div class="reserve-rating">
+                           <span>4.5</span>
                           </div>
+                          <div class="review-btn">
+                        <button class="btn btn-outline-danger" 
+                       onclick="window.open('reviewWrite.jsp','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
+                      <span>34 reviews</span>
+                       </div>
                       </div>
+                	  </div>
                   </div>
                </div>
             </div>
@@ -169,22 +129,20 @@
 
 
 
-            <!--============================= 상세정보 =============================-->
-            <section class="light-bg booking-details_wrap">
+  <!--============================= 상세정보 =============================-->
+     <section class="light-bg booking-details_wrap">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 responsive-wrap">
                  <div class="card" id="page-content">
                    <div class="card-body">
                        <div style="text-align:left">
-                          <table class="info
-                    no_menu
-                    ">
+                          <table class="info no_menu">
                     <caption>식당 상세 정보</caption>
       
                     <tbody>
                     
-                      <tr class="only-desktop">
+                <tr class="only-desktop">
                   
                   <tr>
                         <th>지역</th>
@@ -232,8 +190,7 @@
                           </ul>
                         </td>
                       </tr>
-                        
-                                                              <tr>
+                     <tr>
                         <th style="vertical-align:top;">영업시간</th>
                         <td>11:30 - 21:00</td>
                       </tr>
@@ -249,9 +206,6 @@
                             <span class="Restaurant__InfoAddress--Text">서울시 마포구 서교동 395-154</span>
                         </td>
                       
-      
-   
-                  
                     </tbody>
                   </table>
       
@@ -259,12 +213,12 @@
                       업데이트
                       : 2021. 6. 4
                     </p>
-                       </div>
+                   </div>
                     </div>
                 </div>
              </div>
                     
-                    <!-- ============================== MAP ============================== -->
+      <!-- ============================== MAP ============================== -->
       
       <div class="col-md-6">
        <div class="card" id="page-content">
@@ -280,7 +234,7 @@
      </div>
                     
                     
-                    <!-- ====================== 리 뷰 ======================== -->
+   <!-- ====================== 리 뷰 ======================== -->
              
              <div id="reviewListFocusId"></div>
                <div class="container">
@@ -411,71 +365,10 @@
   
     
 
-    <!--============================= FOOTER =============================-->
-    <footer>
-       <!-- Footer Start-->
-       <div class="main-block dark-bg ">
-           <div class="container">
-               <div class="row d-flex justify-content-between">
-               
-                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                      <div class="copyright mb-30">
-                         <!-- logo -->
-                           <a href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo"></a>
-                      
-                         <div class="footer-pera">
-                              <p><script>document.write(new Date().getFullYear());</script> 대구토랑 | 2021-12-16 </p>
-                         </div>
-                      </div>
-                   </div>
-                   
-                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                               <h6>제작자</h6>
-                               <ul id = "footer-maker">
-                                   <li >김수빈</li>
-                                   <li>박태림</li>
-                                   <li>이광준</li>
-                                   <li>장용성</li>
-                               </ul>
-                           </div>
-                       </div>
-                   </div>
-                  
-                   <div class="col-xl-3 col-lg-3 col-md-4  col-sm-5">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                               <h6>찾아오시는 길</h6>
-                               <ul id = "footer-maker" >
-                                   <li>대구 수성구 알파시티</li>
-                                   <li>스마트융합인재개발원</li>
-                               </ul>
-                             
-                            </div>
-                       </div>
-                    </div>
-                           
-                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
-                       <div class="single-footer-caption mb-30">
-                           <div class="footer-tittle">
-                          	 <a href="../servicecenter/servicecenter.jsp" target="_blank">고객센터</a>
-                               <ul id = "footer-maker" >
-                                   <li>공지사항</li>
-                                   <li>FAQ</li>
-                                   <li>1:1문의</li>
-                               </ul>
-                           
-                                
-                           </div>
-                       </div>
-                   </div>
-                       </div>
-                   </div>
-               </div>
-       
-   </footer>
-<!-- Footer End-->
+   <!--============================= FOOTER =============================-->
+     
+	<%@include file ="/common/footer.jsp" %>
+       <!-- Footer End-->
 
 
 
@@ -491,8 +384,8 @@
     <script src="../js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
             loop: true,
             loopFillGroupWithBlank: true,
             pagination: {

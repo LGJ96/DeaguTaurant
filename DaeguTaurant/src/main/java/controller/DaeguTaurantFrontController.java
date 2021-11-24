@@ -13,12 +13,12 @@ import Info.action.Action;
 import Info.action.UserInfoDeleteAction;
 import Info.action.UserInfoDeleteProAction;
 import Info.action.UserRegistAction;
-
 import login.action.UserIdCheckAction;
 import login.action.UserLoginAction;
 import login.action.UserLogoutAction;
 import login.action.UserNicknameCheckAction;
 
+import rest.action.RestRegistAction;
 import vo.ActionForward;
 
 /**
@@ -128,7 +128,18 @@ public class DaeguTaurantFrontController extends HttpServlet {
 				}
 			}
 			
+		//========================식당 등록==============================
 			
+			 else if(command.equals("/rest_Regist.dae")) {
+		        	action = new RestRegistAction();
+		        	
+		        	try {
+		        		forward = action.execute(request, response);
+		        	} catch (Exception e) {
+		        		// TODO Auto-generated catch block
+		        		e.printStackTrace();
+		        	}
+		        }
 		
 		
 		

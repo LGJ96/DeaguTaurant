@@ -46,12 +46,16 @@
             <div class="row mb-3">
               <div class="col-md-8 mx-auto" id ="info-text">
               
+      <form method="POST" encType = "multipart/form-data" 
+       action="../rest_Regist.dae">
+              
+              
                 <div class="form-group row showcase_row_area">
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType1">식당이름</label>
                   </div>
                   <div class="col-md-5 showcase_content_area">
-                    <input type="text" class="form-control" id="inputType1">
+                    <input type="text" class="form-control" name="res_name" id="res_name">
                   </div>
                 </div>
                 <div class="form-group row showcase_row_area">
@@ -59,7 +63,7 @@
                     <label for="inputType1">지역</label>
                   </div>
                   <div class="col-md-5 showcase_content_area">
-                    <input type="text" class="form-control" id="inputType1">
+                    <input type="text" class="form-control" name="res_Addr1" id="res_Addr1">
                   </div>
                 </div>
                 <div class="form-group row showcase_row_area">
@@ -67,15 +71,15 @@
                     <label for="inputType1">테마</label>
                   </div>
                   <div class="col-md-5 showcase_content_area">
-                    <input type="text" class="form-control" id="inputType1">
+                    <input type="text" class="form-control" name="res_category" id="res_category">
                   </div>
                 </div>
                 <div class="form-group row showcase_row_area">
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType1">메인메뉴</label>
                   </div>
-                  <div class="col-md-5 showcase_content_area">
-                    <input type="text" class="form-control" id="inputType1">
+                 <div class="col-md-6 showcase_content_area">
+                    <textarea class="form-control" placeholder="메뉴" name="res_mainmenu" id="res_mainmenu" maxlength="1000" style="height: 100px;"></textarea>
                   </div>
                 </div>
                 
@@ -84,7 +88,7 @@
                     <label for="inputType1">전화번호</label>
                   </div>
                   <div class="col-md-5 showcase_content_area">
-                    <input type="text" class="form-control" id="inputType1">
+                    <input type="text" class="form-control" name="res_number" id="res_number">
                   </div>
                 </div>
                 <div class="form-group row showcase_row_area">
@@ -92,7 +96,7 @@
                     <label for="inputType12">주소</label>
                   </div>
                   <div class="col-md-5 showcase_content_area">
-                    <input type="email" class="form-control" id="inputType2">
+                    <input type="text" class="form-control" name="res_Addr2" id="res_Addr2">
                   </div>
 
                   <div class="col-md-1 showcase_content_area">
@@ -104,34 +108,29 @@
                     <label for="inputType1">영업시간</label>
                   </div>
                   <div class="col-md-5 showcase_content_area">
-                    <input type="text" class="form-control" id="inputType1">
+                    <input type="text" class="form-control" name="res_hours" id="res_hours">
                   </div>
                 </div>
 
-               <div class="form-group row showcase_row_area">
-                  <div class="col-md-3 showcase_text_area">
-                    <label for="inputType1">메뉴</label>
-                  </div>
-                  <div class="col-md-6 showcase_content_area">
-                    <textarea class="form-control" placeholder="메뉴" name="menuContent" maxlength="1000" style="height: 100px;"></textarea>
-                  </div>
-                </div>
+               
                 <div class="form-group row showcase_row_area">
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType1">이미지</label>
                   </div>
                   <div class="col-md-5 showcase_content_area">
                     <div style = "border: 1px solid #dddddd "> 
-						<input type="file" name="file" id="imageFileOpenInput" accept="image/*">
+						<input type="file" name="res_pic" id="res_pic1" accept="image/*">
+						<input type="file" name="res_pic" id="res_pic2" accept="image/*">
 					</div>
                   </div>
                 </div>
                 
                <div align="center">
  				<input type="submit" class="btn btn-warning"  value="등록" >
-				<a href="../home_review/index.jsp"><button class="btn btn-warning" > 취소</button></a>
+				<button class="btn btn-warning" > 취소</button>
 			   </div>
              
+             </form>
               </div>
             </div>
           </div>
