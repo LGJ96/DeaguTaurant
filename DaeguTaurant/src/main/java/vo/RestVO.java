@@ -6,7 +6,7 @@ public class RestVO {
 
 	private int res_id;
 	private String res_name;
-	private double res_score;
+	private int res_score;
 	private int res_readcount;
 	private String res_pic;
 	private String res_category;
@@ -17,7 +17,9 @@ public class RestVO {
 	private String res_hours;
 	private int res_ref;
 	private int res_re_step;
+	private int res_Addr1_ref;
 	private Timestamp res_notice_date;
+	private String res_pic1;
 	
 	
 	public int getRes_id() {
@@ -35,7 +37,7 @@ public class RestVO {
 	public double getRes_score() {
 		return res_score;
 	}
-	public void setRes_score(double res_score) {
+	public void setRes_score(int res_score) {
 		this.res_score = res_score;
 	}
 	public int getRes_readcount() {
@@ -44,12 +46,16 @@ public class RestVO {
 	public void setRes_readcount(int res_readcount) {
 		this.res_readcount = res_readcount;
 	}
-	public String getRes_pic() {
-		return res_pic;
-	}
-	public void setRes_pic(String res_pic) {
-		this.res_pic = res_pic;
-	}
+
+	
+	 public String getRes_pic() { 
+		 return res_pic; 
+		 } 
+	 public void setRes_pic(String res_pic) { 
+		 this.res_pic = res_pic; 
+		 }
+	 
+	
 	public String getRes_category() {
 		return res_category;
 	}
@@ -103,6 +109,18 @@ public class RestVO {
 	}
 	public void setRes_notice_date(Timestamp res_notice_date) {
 		this.res_notice_date = res_notice_date;
+	}
+	public int getRes_Addr1_ref() {
+		return res_Addr1_ref;
+	}
+	public void setRes_Addr1_ref(int res_Addr1_ref) {
+		this.res_Addr1_ref = res_Addr1_ref;
+	}
+	public String getRes_pic1() {
+		return res_pic1;
+	}
+	public void setRes_pic1(String res_pic1) {
+		this.res_pic1 = res_pic1;
 	}
 	
 	

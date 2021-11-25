@@ -18,6 +18,8 @@ import login.action.UserLoginAction;
 import login.action.UserLogoutAction;
 import login.action.UserNicknameCheckAction;
 import login.action.UserPwSearchResultAction;
+import rest.action.RestContentAction;
+import rest.action.RestIndexAction;
 import rest.action.RestRegistAction;
 import vo.ActionForward;
 
@@ -153,7 +155,26 @@ public class DaeguTaurantFrontController extends HttpServlet {
 		        	}
 		        }
 			
-			
+			 else if(command.equals("/rest_content.dae")) {
+					action = new RestContentAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/restIndex.dae")) {
+					action = new RestIndexAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 			
 		
 		
