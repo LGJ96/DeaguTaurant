@@ -53,6 +53,7 @@ public class UserDAO {
 				userVO.setUser_pw(rs.getString("user_pw"));
 				userVO.setUser_name(rs.getString("user_name"));
 				userVO.setUser_nickname(rs.getString("user_nickname"));
+				userVO.setUser_level(rs.getInt("user_level"));
 			}
 			
 			

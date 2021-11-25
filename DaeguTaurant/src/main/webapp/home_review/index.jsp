@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@taglib prefix = "c" uri ="http://java.sun.com/jsp/jstl/core" %>  
      
 <!DOCTYPE html>
 <html>
@@ -86,10 +86,14 @@
     <!--//END HEADER -->
 
 <!--============================= FEATURED PLACES =============================-->
- 
+
+ <c:if test="${loginUser.user_id != null }">
+ <c:if test="${loginUser.user_level == 9}">
 	<div class = "container" align="right" style = "margin-top: 20px;">
-	 <button class="btn" onclick="location.href='../home_review/restaurant_register.jsp';" > 식당 등록</button>
+	<a href="../rest_RegistForm.dae" > 식당 등록</a>
 	</div>
+</c:if> 
+</c:if>
     <section class="main-block1 light-bg">
         <div class="container">
             <div class="row justify-content-center">

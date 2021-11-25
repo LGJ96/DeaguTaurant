@@ -6,6 +6,7 @@ public class UserVO {
 	private String user_pw;
 	private String user_name;
 	private String user_nickname;
+	private int user_level;
 	
 	public String getUser_id() {
 		return user_id;
@@ -31,14 +32,14 @@ public class UserVO {
 	public void setUser_nickname(String user_nickname) {
 		this.user_nickname = user_nickname;
 	}
+	public int getUser_level() {
+		return user_level;
+	}
+	public void setUser_level(int user_level) {
+		this.user_level = user_level;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 
 }
