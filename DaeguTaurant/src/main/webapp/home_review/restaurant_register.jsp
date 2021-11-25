@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +38,9 @@
     <!--============================= HEADER =============================-->
      <%@include file ="/common/header.jsp" %>
     <!--//END HEADER -->
-    
+    	<form action="../rest_Regist.dae" method="POST" name = "registform" enctype = "multipart/form-data">
+    	
+    	
     <div class="col-lg-12">
       <div class="grid">
         <h3 class="grid-header">식당등록</h3>
@@ -46,9 +49,12 @@
             <div class="row mb-3">
               <div class="col-md-8 mx-auto" id ="info-text">
               
-      <form method="POST" encType = "multipart/form-data" 
-       action="../rest_Regist.dae">
-              
+      	
+            
+            <input type="hidden" name="res_id" value="${replyVO.res_id }">
+			<input type="hidden" name="res_ref" value="${replyVO.res_ref }">
+			<input type="hidden" name="res_re_step" value="${replyVO.res_re_step }">
+		
               
                 <div class="form-group row showcase_row_area">
                   <div class="col-md-3 showcase_text_area">
@@ -113,24 +119,23 @@
                 </div>
 
                
-                <div class="form-group row showcase_row_area">
+                 <div class="form-group row showcase_row_area">
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType1">이미지</label>
                   </div>
                   <div class="col-md-5 showcase_content_area">
                     <div style = "border: 1px solid #dddddd "> 
-						<input type="file" name="res_pic" id="res_pic1" accept="image/*">
-						<input type="file" name="res_pic" id="res_pic2" accept="image/*">
+						<input type="file" name="res_pic" id="res_pic" accept="image/*">
+						<input type="file" name="res_pic1" id="res_pic1" accept="image/*">
 					</div>
                   </div>
-                </div>
+                </div> 
                 
                <div align="center">
  				<input type="submit" class="btn btn-warning"  value="등록" >
 				<button class="btn btn-warning" > 취소</button>
 			   </div>
              
-             </form>
               </div>
             </div>
           </div>
@@ -138,6 +143,7 @@
       </div>
     </div>
 
+             </form>
 
     <!--============================= FOOTER =============================-->
      
@@ -161,8 +167,8 @@
     <script src="../js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
+            slidesPerView: 2,
+            slidesPerGroup: 2,
             loop: true,
             loopFillGroupWithBlank: true,
             pagination: {
@@ -192,7 +198,9 @@
                 }
             });
         }
-    </script>
+    </script> 
+    
+  
 
 </body>
 </html>

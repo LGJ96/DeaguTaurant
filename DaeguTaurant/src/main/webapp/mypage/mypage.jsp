@@ -811,7 +811,7 @@
 		 </script>
 
     <!--============================= FOOTER =============================-->
-    <%@include file ="/common/footer.jsp" %>
+    <%@include file ="/common/footer-center.jsp" %>
     <!-- Footer End-->
   
 

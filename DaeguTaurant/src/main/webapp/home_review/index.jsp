@@ -1,7 +1,10 @@
+<%@page import="vo.RestVO"%>
+
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix = "c" uri ="http://java.sun.com/jsp/jstl/core" %>  
-     
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>  
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,22 +20,22 @@
     <!-- Page Title -->
    <title>DaeguTaruant</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
-    <link rel="stylesheet" href="../css/simple-line-icons.css">
+    <link rel="stylesheet" href="./css/simple-line-icons.css">
     <!-- Themify Icon -->
-    <link rel="stylesheet" href="../css/themify-icons.css">
+    <link rel="stylesheet" href="./css/themify-icons.css">
     <!-- Hover Effects -->
     
-    <link rel="stylesheet" href="../css/set1.css">
+    <link rel="stylesheet" href="./css/set1.css">
     <!-- Swipper Slider -->
-    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="./css/magnific-popup.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 
@@ -69,9 +72,9 @@
                                 
                                 <div class="slider-link">
                                 
-                                    <a href="../home_review/search.jsp" id="regtheme">지역/테마</a>
+                                    <a href="./home_review/search.jsp" id="regtheme">지역/테마</a>
                                     
-                                    <a href="../comm/comm.jsp">커뮤니티</a>
+                                    <a href="./comm/comm.jsp">커뮤니티</a>
                                    
 									
                                 </div>
@@ -86,122 +89,71 @@
     <!--//END HEADER -->
 
 <!--============================= FEATURED PLACES =============================-->
-
- <c:if test="${loginUser.user_id != null }">
+                
+<c:if test="${loginUser.user_id != null }">
  <c:if test="${loginUser.user_level == 9}">
 	<div class = "container" align="right" style = "margin-top: 20px;">
 	<a href="../rest_RegistForm.dae" > 식당 등록</a>
 	</div>
 </c:if> 
 </c:if>
+
+	<div class = "container" align="right" style = "margin-top: 20px;">
+	<a href="home_review/restaurant_register.jsp" > 식당 등록</a>
+	</div>
+	
     <section class="main-block1 light-bg">
+   	 <form action="../restIndex.dae" method="POST" name="myForm"> 
+   	 	
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <div class="styled-heading">
-                        <h3>Featured Places</h3>
+                        <h3>등록된 식당</h3>
                     </div>
                 </div>
             </div>
             <div class="row">
+             <c:forEach begin="1" end="6" var="rest" items="${restList}" varStatus="status">
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.jsp">
-                            <img src="../images/featured1.jpg" class="img-fluid" alt="#">
-                            <span class="featured-rating-orange">6.5</span>
+                   
+                         <a href = "./rest_content.dae?res_id=${rest.res_id}">
+                  			<img src ="./images/res_pic/${rest.res_pic }.jpg" class = "index" />
+              
+                            <span class="featured-rating-orange">${rest.res_score }</span>
                             <div class="featured-title-box">
-                                <h6>Burger & Lobster</h6>
-                                <p>Restaurant </p> <span>• </span>
-                                <p>3 Reviews</p> <span> • </span>
+                                <h6>${rest.res_name }</h6>
+                                <p>${rest.res_category }</p> <span>• </span>
+                                <p>조회수 : ${rest.res_readcount }</p> <span> • </span>
                                 <p><span>$$$</span>$$</p>
                                 <ul>
                                     <li><span class="icon-location-pin"></span>
-                                        <p>1301 Avenue, Brooklyn, NY 11230</p>
+                                        <p>${rest.res_Addr2 }</p>
                                     </li>
                                     <li><span class="icon-screen-smartphone"></span>
-                                        <p>+44 20 7336 8898</p>
+                                        <p>${rest.res_number }</p>
                                     </li>
-                                    <li><span class="icon-link"></span>
+                                  <!--   <li><span class="icon-link"></span>
                                         <p>https://burgerandlobster.com</p>
-                                    </li>
+                                    </li> -->
 
                                 </ul>
-                                <div class="bottom-icons">
-                                    <div class="closed-now">CLOSED NOW</div>
-                                    <span class="ti-heart"></span>
-                                    <span class="ti-bookmark"></span>
-                                </div>
-                            </div>
+                               
+                        	</div>
+                        	
                         </a>
+                    
                     </div>
+              
                 </div>
-                <div class="col-md-4 featured-responsive">
-                    <div class="featured-place-wrap">
-                        <a href="detail.jsp">
-                            <img src="../images/featured2.jpg" class="img-fluid" alt="#">
-                            <span class="featured-rating-green">9.5</span>
-                            <div class="featured-title-box">
-                                <h6>Joe’s Shanghai</h6>
-                                <p>Restaurant </p> <span>• </span>
-                                <p>3 Reviews</p> <span> • </span>
-                                <p><span>$$$</span>$$</p>
-                                <ul>
-                                    <li><span class="icon-location-pin"></span>
-                                        <p>1301 Avenue, Brooklyn, NY 11230</p>
-                                    </li>
-                                    <li><span class="icon-screen-smartphone"></span>
-                                        <p>+44 20 7336 8898</p>
-                                    </li>
-                                    <li><span class="icon-link"></span>
-                                        <p>https://burgerandlobster.com</p>
-                                    </li>
-
-                                </ul>
-                                <div class="bottom-icons">
-                                    <div class="closed-now">CLOSED NOW</div>
-                                    <span class="ti-heart"></span>
-                                    <span class="ti-bookmark"></span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 featured-responsive">
-                    <div class="featured-place-wrap">
-                        <a href="detail.jsp">
-                            <img src="../images/featured3.jpg" class="img-fluid" alt="#">
-                            <span class="featured-rating">3.2</span>
-                            <div class="featured-title-box">
-                                <h6>Tasty Hand-Pulled Noodles</h6>
-                                <p>Restaurant </p> <span>• </span>
-                                <p>3 Reviews</p> <span> • </span>
-                                <p><span>$$$</span>$$</p>
-                                <ul>
-                                    <li><span class="icon-location-pin"></span>
-                                        <p>1301 Avenue, Brooklyn, NY 11230</p>
-                                    </li>
-                                    <li><span class="icon-screen-smartphone"></span>
-                                        <p>+44 20 7336 8898</p>
-                                    </li>
-                                    <li><span class="icon-link"></span>
-                                        <p>https://burgerandlobster.com</p>
-                                    </li>
-
-                                </ul>
-                                <div class="bottom-icons">
-                                    <div class="open-now">OPEN NOW</div>
-                                    <span class="ti-heart"></span>
-                                    <span class="ti-bookmark"></span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+             </c:forEach>
             </div>
-           
         </div>
+         </form>
     </section>
-    
+   
+   <!-- ===================밑줄============================== -->
     <hr width = "60%" color = "#ccc">
     
     
@@ -288,7 +240,7 @@
    
 </section>
  
-<%@include file ="/common/footer.jsp" %>
+<%@include file ="/common/footer-home.jsp" %>
 
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -310,6 +262,22 @@
 
             };
         });
+       
+    </script>
+    
+    <script >
+    
+     $(window).bind("pageshow", function (event) {
+    	if (event.originalEvent.persisted) {
+    		// 뒤로가기로 페이지 로드 시
+    		document.myForm.submit();
+    	}
+    	else {
+    		// 새로운 페이지 로드 시
+    		document.myForm.submit();
+    	} 
+    });
+    
     </script>
 </body>
  
