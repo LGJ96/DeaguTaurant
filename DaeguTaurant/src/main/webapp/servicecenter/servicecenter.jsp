@@ -36,7 +36,7 @@
 
 <body>
     <!--============================= HEADER =============================-->
-    <%@include file ="/common/header-servicecenter.jsp" %>
+    <%@include file ="/common/header-content.jsp" %>
     <!--//END HEADER -->
     
     <!--============================= 커뮤니티 헤더 =============================-->
@@ -64,18 +64,20 @@
     <div class="row">
     <div class = "container">
       
-        <div class="col-sm-12" align="center">
+    	<div class="col-sm-12" align="center">
          
-              <div id= "title-header1" >
-                <h3> 공지사항 </h3>
-        		</div>
+           <div id= "title-header1" >
+            	<h3> 공지사항 </h3>
+        	</div>
         		
-               <div class="col-md-11" style="text-align : right;">
- 				<div class="container">
+ 	<c:if test="${loginUser.user_level == 9}">
+		<div class="col-md-11" style="text-align : right;">
+ 			<div class="container">
        				<button class="btn" onclick="location.href='../servicecenter/center-write.jsp';"  > 등록</button>
             </div>
-            </div>
-           
+        </div>
+	</c:if> 
+      
             <div class="card" id="title-content">
                 
                 <div class="card-body">
@@ -146,11 +148,13 @@
                 <h3> FAQ </h3>
         </div>
         
-        <div class="col-md-11" style="text-align : right;">
- 				<div class="container">
+       <c:if test="${loginUser.user_level == 9}">
+		<div class="col-md-11" style="text-align : right;">
+ 			<div class="container">
        				<button class="btn" onclick="location.href='../servicecenter/center-write.jsp';"  > 등록</button>
             </div>
-            </div>
+        </div>
+		</c:if> 
         
           <div id="accordion">
             <div class="card card-plain" id="title-content">

@@ -46,7 +46,7 @@
 
 
     <!--============================= HEADER =============================-->
-   <%@include file ="/common/header.jsp" %>
+   <%@include file ="/common/header-content.jsp" %>
     <!--//END HEADER -->
     
     
