@@ -102,10 +102,6 @@
 		</div>
 	</c:if> 
 </c:if>
-
-	<!-- <div class = "container" align="right" style = "margin-top: 20px;">
-	<a href="home_review/restaurant_register.jsp" > 식당 등록</a>
-	</div> -->
 	
     <section class="main-block1 light-bg">
    	 <form action="../restIndex.dae" method="POST" name="myForm"> 
@@ -123,8 +119,8 @@
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                    
-                         <a href = "./rest_content.dae?res_id=${rest.res_id}">
-                  			<img src ="./images/res_pic/${rest.res_pic }.jpg" class = "index" style = "height: 80%;"/>
+                         <a href = "./rest_content.dae?res_id=${rest.res_id}" >
+                  			<img src ="./images/res_pic/${rest.res_pic }.jpg" class = "index" />
               
                             <span class="featured-rating-orange">${rest.res_score }</span>
                             <div class="featured-title-box">
