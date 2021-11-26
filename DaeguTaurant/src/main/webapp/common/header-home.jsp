@@ -1,14 +1,15 @@
 
 <%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+    pageEncoding="UTF-8"%>        
  <%
 	String user_id = (String)session.getAttribute("user_id");
 	String user_pw = (String)session.getAttribute("user_pw");
 	String user_nickname = (String)session.getAttribute("user_nickname");
  	UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-%>      
+%>  
+    
+
 
 <!DOCTYPE html>
 <html>
@@ -21,9 +22,10 @@
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <a class="navbar-brand" href="./home_review/index.jsp"><img src="./images/logo.png" alt="logo" /> </a>
 
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="icon-menu"></span>
-              </button>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" 
+                            			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                			<span class="icon-menu"></span>
+             				 </button>
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                             
                             

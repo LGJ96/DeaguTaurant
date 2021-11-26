@@ -8,7 +8,6 @@
 //RestVO restVO = (RestVO)session.getAttribute("restVO");
 %>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,7 +85,7 @@
 
 		<div class="swiper-container">
 
-			<div class="swiper-wrapper" style="width: auto; height: 400px;">
+			<div class="swiper-wrapper" style="width: 100%; height: 400px;">
 
 			 	 <div class="swiper-slide">
 
@@ -94,25 +93,13 @@
 						class="img-fluid" alt="#" style="width: 100%;  height: 400px;">
 
 				</div> 
-				<div class="swiper-slide">
-
-					<img src="./images/res_pic/${restVO.res_pic1 }.jpg"
-						class="img-fluid" alt="#" style="width: 100%; height: 400px;">
-
-				</div> 
-
-				<div class="swiper-slide">
+			 	 <%-- <div class="swiper-slide">
 
 					<img src="./images/res_pic/${restVO.res_pic }.jpg"
-						class="img-fluid" alt="#" style="width: 100%; height: 400px;">
+						class="img-fluid" alt="#" style="width: 100%;  height: 400px;">
 
-				</div> 
-				<div class="swiper-slide">
-
-					<img src="./images/res_pic/${restVO.res_pic1 }.jpg"
-						class="img-fluid" alt="#" style="width: 100%; height: 400px;">
-
-				</div>
+				</div>  --%>
+				
 
 			</div>
 			<!-- Add Pagination -->
@@ -178,19 +165,19 @@
 
 											<tr class="only-desktop">
 											<tr>
-												<th>지역 : </th>
+												<th  width="25%"> 지역  </th>
 												<td><span>${restVO.res_Addr1 }</span></td>
 											</tr>
 
 											<tr>
-												<th>카테고리 : </th>
+												<th> 카테고리 </th>
 												<td><span> ${restVO.res_category }</span></td>
 											</tr>
 
 											<tr>
-												<th>메뉴 : </th>
+												<th> 메뉴 </th>
 												<td class="menu_td">
-												<span>${restVO.res_mainmenu }</span> 
+												<span><pre>${restVO.res_mainmenu }</pre></span> 
 															<!-- <span class="Restaurant_MenuPrice">13,000원</span> -->
 													
 												</td>
@@ -201,11 +188,11 @@
 											</tr>
 
 											<tr class="only-desktop">
-												<th>전화번호 : </th>
+												<th>전화번호  </th>
 												<td>${restVO.res_number }</td>
 											</tr>
 
-											<th>주소 : </th>
+											<th>주소  </th>
 											<td>${restVO.res_Addr2 }<br/> </td>
 
 										</tbody>
@@ -221,7 +208,7 @@
 						<div class="card" id="page-content">
 							<div class="card-body">
 								<div class="contact-info">
-									<img src="../images/map.jpg" class="img-fluid" alt="#">
+									<img src="./images/map.jpg" class="img-fluid" alt="#">
 								</div>
 								<a href="#" class="btn btn-outline-danger btn-contact">네이버 지도 이동</a>
 							</div>
@@ -275,11 +262,11 @@
 													<p class="customer-text">오픈형 주방이라서 청결함을 유지하고 있고 조리과정을 볼
 														수 있어서 너무 좋습니다! 바삭한 일식 돈까스의 느낌이라서 너무 맛있는 맛집입니다.</p>
 													<ul>
-														<li><img src="../images/review-img1.jpg"
+														<li><img src="./images/review-img1.jpg"
 															class="img-fluid" alt="#"></li>
-														<li><img src="../images/review-img2.jpg"
+														<li><img src="./images/review-img2.jpg"
 															class="img-fluid" alt="#"></li>
-														<li><img src="../images/review-img3.jpg"
+														<li><img src="./images/review-img3.jpg"
 															class="img-fluid" alt="#"></li>
 													</ul>
 													<span>좋아요(10)</span> <a href="#"><span
@@ -317,18 +304,18 @@
 
 	<!-- jQuery, Bootstrap JS. -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="../js/jquery-3.2.1.min.js"></script>
-	<script src="../js/popper.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
 	<!-- Magnific popup JS -->
-	<script src="../js/jquery.magnific-popup.js"></script>
+	<script src="${pageContext.request.contextPath }/js/jquery.magnific-popup.js"></script>
 	<!-- Swipper Slider JS -->
-	<script src="../js/swiper.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/swiper.min.js"></script>
 	
 	<script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 2,
-            slidesPerGroup: 2,
+            slidesPerGroup: 1,
             loop: true,
             loopFillGroupWithBlank: true,
             pagination: {

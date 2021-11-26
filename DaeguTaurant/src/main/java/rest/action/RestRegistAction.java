@@ -1,12 +1,15 @@
 package rest.action;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
+import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -24,7 +27,9 @@ public class RestRegistAction implements Action {
 	   public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	     
 	      String realFolder = "";//파일이 최종적으로 업로드될 물리적인 경로가 저장될 변수
+
 	      String saveFolder = "/images/res_pic";//상대경로
+	      
 	      String encType = "UTF-8";
 	      int maxSize = 5*1024*1024; //5mb
 	      
@@ -34,26 +39,23 @@ public class RestRegistAction implements Action {
 	      realFolder = context.getRealPath(saveFolder);
 	      
 	      MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType,
-	        new DefaultFileRenamePolicy());
-	      
-		 	RestVO restVO = new RestVO();
-	      
-			
-			 String fileName = multi.getFilesystemName("res_pic"); 
-			
-			
-			 int index = fileName.indexOf("."); 
-			
-			 String fileNameWithoutExt = fileName.substring(0,index);
+		           new DefaultFileRenamePolicy());
+	     
+	      RestVO restVO = new RestVO();
+     
+	      String fileName = multi.getFilesystemName("res_pic"); 
+			 
+	      int index = fileName.indexOf("."); 
+			 
+	      String fileNameWithoutExt = fileName.substring(0,index);
 		
+	      System.out.println(fileNameWithoutExt);
 			
-			 restVO.setRes_pic(fileNameWithoutExt);
-			 restVO.setRes_pic1(fileNameWithoutExt);
-		
-			
+	      restVO.setRes_pic(fileNameWithoutExt);
 	   
-			 HttpSession session = request.getSession();
-			session.setAttribute("restVO", restVO);	//필수요인(loginUser = null을 해결하기 위해)
+
+	      HttpSession session = request.getSession();
+	      session.setAttribute("restVO", restVO);	//필수요인(loginUser = null을 해결하기 위해)
 	      
 	      restVO.setRes_Addr1(multi.getParameter("res_Addr1"));
 	      restVO.setRes_Addr2(multi.getParameter("res_Addr2"));
@@ -92,6 +94,6 @@ public class RestRegistAction implements Action {
 	      
 	         
 	      return forward;
-	   }
-
+	   
+	 }
 }

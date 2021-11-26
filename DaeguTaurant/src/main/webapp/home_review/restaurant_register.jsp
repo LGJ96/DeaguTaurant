@@ -1,7 +1,14 @@
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
- 
+ <%@page import="java.util.*" %>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -125,8 +132,9 @@
                   </div>
                   <div class="col-md-5 showcase_content_area">
                     <div style = "border: 1px solid #dddddd "> 
-						<input type="file" name="res_pic" id="res_pic" accept="image/*">
-						<input type="file" name="res_pic1" id="res_pic1" accept="image/*">
+						
+						<input type="file"  name="res_pic" id="res_pic" accept="image/*">
+					
 					</div>
                   </div>
                 </div> 

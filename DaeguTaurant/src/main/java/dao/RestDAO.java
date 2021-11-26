@@ -78,8 +78,8 @@ public class RestDAO {
 		         }
 		         sql = "INSERT INTO restaurant(res_id, res_name, res_score,"
 		        		 + "res_category, res_mainmenu, res_number, res_Addr1, res_Addr2, res_hours, res_ref, "
-		        		 + "res_re_step,res_notice_date,res_Addr1_ref, res_pic, res_pic1, res_readcount) "
-		        		 + "VALUES(restaurant_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,0)";
+		        		 + "res_re_step,res_notice_date,res_Addr1_ref, res_pic, res_readcount) "
+		        		 + "VALUES(restaurant_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,0)";
 		    	
 		       pstmt = con.prepareStatement(sql);
 		       pstmt.setString(1, restVO.getRes_name());
@@ -95,7 +95,7 @@ public class RestDAO {
 		       pstmt.setTimestamp(11, restVO.getRes_notice_date());
 		       pstmt.setInt(12,res_Addr1_ref);
 		       pstmt.setString(13, restVO.getRes_pic());
-		       pstmt.setString(14, restVO.getRes_pic1());
+		       
 		    
 		      
 		       insertCount = pstmt.executeUpdate();
@@ -154,7 +154,7 @@ public class RestDAO {
 					restVO.setRes_name(rs.getString("res_name"));
 					restVO.setRes_number(rs.getString("res_number"));
 					restVO.setRes_pic(rs.getString("res_pic"));
-					restVO.setRes_pic1(rs.getString("res_pic1"));
+					
 					restVO.setRes_re_step(rs.getInt("res_re_step"));
 					restVO.setRes_readcount(rs.getInt("res_readcount"));
 					restVO.setRes_score(rs.getInt("res_score"));
@@ -211,7 +211,7 @@ public class RestDAO {
 					restVO.setRes_name(rs.getString("res_name"));
 					restVO.setRes_number(rs.getString("res_number"));
 					restVO.setRes_pic(rs.getString("res_pic"));
-					restVO.setRes_pic1(rs.getString("res_pic1"));
+					
 					restVO.setRes_re_step(rs.getInt("res_re_step"));
 					restVO.setRes_readcount(rs.getInt("res_readcount"));
 					restVO.setRes_score(rs.getInt("res_score"));

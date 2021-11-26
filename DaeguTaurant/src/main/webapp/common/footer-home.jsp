@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 
@@ -53,7 +54,7 @@
                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3">
                        <div class="single-footer-caption mb-30">
                            <div class="footer-tittle">
-                          	 <a href="./servicecenter/servicecenter.jsp" target="_blank">고객센터</a>
+                          	 <a href="${pageContext.request.contextPath }/servicecenter/servicecenter.jsp" target="_blank">고객센터</a>
                                <ul id = "footer-maker" >
                                    <li>공지사항</li>
                                    <li>FAQ</li>

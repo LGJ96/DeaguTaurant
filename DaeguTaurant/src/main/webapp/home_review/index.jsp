@@ -15,7 +15,7 @@
     <meta name="author" content="Colorlib">
     <meta name="description" content="#">
     <meta name="keywords" content="#">
-    <!-- Favicons -->
+    <!-- Favicons --> 
     <link rel="shortcut icon" href="#">
     <!-- Page Title -->
    <title>DaeguTaruant</title>
@@ -66,7 +66,7 @@
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <input type="text" placeholder="검색창" class="btn-group">
                                      
-                                        <button type="button" class="btn-form1" onclick="location.href='../home_review/search.jsp'; ">SEARCH</button>
+                                        <button type="button" class="btn-form 1" onclick="location.href='../home_review/search.jsp'; ">SEARCH</button>
                                     </div>
                                 </form>
                                 
@@ -114,12 +114,12 @@
                 </div>
             </div>
             <div class="row">
-             <c:forEach begin="1" end="6" var="rest" items="${restList}" varStatus="status">
+             <c:forEach begin="0" end="5" var="rest" items="${restList}" varStatus="status">
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                    
                          <a href = "./rest_content.dae?res_id=${rest.res_id}">
-                  			<img src ="./images/res_pic/${rest.res_pic }.jpg" class = "index" />
+                  			<img src ="./images/res_pic/${rest.res_pic }.jpg" class = "index" style = "height: 80%;"/>
               
                             <span class="featured-rating-orange">${rest.res_score }</span>
                             <div class="featured-title-box">
