@@ -74,9 +74,14 @@
                                 
                                     <a href="./home_review/search.jsp" id="regtheme">지역/테마</a>
                                     
+                                    <c:if test="${loginUser.user_id != null }">
                                     <a href="./comm/comm.jsp">커뮤니티</a>
+                                    
+                                   	</c:if>
+                                    <c:if test="${loginUser.user_id == null }">
+                                    <a href="#" onClick="alert('로그인 후 이용해 주세요')"> 커뮤니티</a>
+                                   	</c:if>
                                    
-									
                                 </div>
                             </div>
                         </div>
@@ -91,16 +96,16 @@
 <!--============================= FEATURED PLACES =============================-->
                 
 <c:if test="${loginUser.user_id != null }">
- <c:if test="${loginUser.user_level == 9}">
-	<div class = "container" align="right" style = "margin-top: 20px;">
-	<a href="../rest_RegistForm.dae" > 식당 등록</a>
-	</div>
-</c:if> 
+ 	<c:if test="${loginUser.user_level == 9}">
+		<div class = "container" align="right" style = "margin-top: 20px;">
+		<a href="home_review/restaurant_register.jsp" > 식당 등록</a>
+		</div>
+	</c:if> 
 </c:if>
 
-	<div class = "container" align="right" style = "margin-top: 20px;">
+	<!-- <div class = "container" align="right" style = "margin-top: 20px;">
 	<a href="home_review/restaurant_register.jsp" > 식당 등록</a>
-	</div>
+	</div> -->
 	
     <section class="main-block1 light-bg">
    	 <form action="../restIndex.dae" method="POST" name="myForm"> 

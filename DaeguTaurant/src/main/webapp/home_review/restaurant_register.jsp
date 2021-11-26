@@ -45,7 +45,7 @@
     <!--============================= HEADER =============================-->
      <%@include file ="/common/header.jsp" %>
     <!--//END HEADER -->
-    	<form action="../rest_Regist.dae" method="POST" name = "registform" enctype = "multipart/form-data">
+   <form action="../rest_Regist.dae" method="POST" name = "registform" enctype = "multipart/form-data">
     	
     	
     <div class="col-lg-12">

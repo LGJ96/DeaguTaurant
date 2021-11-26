@@ -29,3 +29,7 @@ drop SEQUENCE restaurant_seq;
 
 select * from RESTAURANT;
 
+
+
+
+
