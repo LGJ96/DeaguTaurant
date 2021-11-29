@@ -11,16 +11,16 @@ import vo.RestVO;
 
 public class RestListService {
 	
-	public ArrayList<RestVO> getRestList() throws Exception {
-		
+
+
+	public ArrayList<RestVO> getRestList() {
 		 Connection con = getConnection();
 		 RestDAO restDAO = RestDAO.getInstance();
 		 restDAO.setConnection(con);
-		
-	     ArrayList<RestVO> restList = restDAO.selectRestList();
-		
+		 
+		 ArrayList<RestVO> restList = restDAO.selectRestList();
+		 
 		return restList;
 	}
-	
 
 }

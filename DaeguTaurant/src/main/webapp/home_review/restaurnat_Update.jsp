@@ -81,8 +81,7 @@
                     <label for="inputType1">메인메뉴</label>
                   </div>
                  <div class="col-md-6 showcase_content_area">
-                    <textarea class="form-control" name="res_mainmenu" id="res_mainmenu" maxlength="1000" style="height: 100px;">
-                    ${restarticle.getRes_mainmenu()}</textarea>
+                	 <textarea class="form-control" name="res_mainmenu" id="res_mainmenu" maxlength="1000" style="height: 100px;">${restarticle.getRes_mainmenu()}</textarea>
                   </div>
                 </div>
                 
@@ -196,8 +195,7 @@
             });
         }
     </script> 
-    
-  
 
+  
 </body>
 </html>

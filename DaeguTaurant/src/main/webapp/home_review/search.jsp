@@ -17,21 +17,21 @@
     <!-- Page Title -->
    <title>DaeguTaruant</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
-    <link rel="stylesheet" href="../css/simple-line-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/simple-line-icons.css">
     <!-- Themify Icon -->
-    <link rel="stylesheet" href="../css/themify-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/themify-icons.css">
     <!-- Hover Effects -->
-    <link rel="stylesheet" href="../css/set1.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/set1.css">
     <!-- Swipper Slider -->
-    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/swiper.min.css">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/magnific-popup.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <body>
     <!--============================= HEADER =============================-->
@@ -128,108 +128,29 @@
     <div class="col-md-12">
       <div class="container">
    		<div class="row"  >
+   		
+   		 <c:forEach begin="0"  var="rest" items="${restsearchList}" varStatus="status">
    		<table id=search-menu>
          <tr>
             <td >
-             <img id = "img2" src ="../images/mom.jpg"/>
-              <span class="point">6.5</span>
-               <span class="point1">지역 : 남구</span>
-               <span class="point2">테마 : 양식</span>
-               <span class="point3">조회수 : 500</span>
+            <a href = "./rest_content.dae?res_id=${rest.res_id}" >
+             <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
+              <span class="point">${rest.res_score }</span>
+               <span class="point1">지역 : ${rest.res_Addr1}</span>
+               <span class="point2">테마 : ${rest.res_category}</span>
+               <span class="point3">조회수 :${rest.res_readcount }</span>
               <br>
-             	맘스터치
+             </a>
             </td>
          </tr>
          
       </table>
-      
-   		<table  id=search-menu >
-         <tr>
-            <td >
-             <img  id = "img2" src ="../images/mom.jpg"/>
-              <span class="point">9.0</span>
-              <span class="point1">지역 : 남구</span>
-               <span class="point2">테마 : 양식</span>
-               <span class="point3">조회수 : 500</span>
-              <br>
-             	맘스터치dddddddddd
-            </td>
-            
-        
-         </tr>
-      </table>
-      
-   		<table id=search-menu>
-         <tr>
-            <td >
-             <img id = "img2" src ="../images/piz.jpg" />
-             <span class="point">6.5</span>
-              <span class="point1">지역 : 남구</span>
-               <span class="point2">테마 : 양식</span>
-               <span class="point3">조회수 : 500</span>
-              <br>
-             	맘치
-            </td>
-            
-        
-         </tr>
-      </table>
+         
+      </c:forEach>
    	</div>
   </div>
 </div>
 
-
- <div class="col-md-12">
-      <div class="container">
-   		<div class="row"   >
-   		<table id = "search-menu">
-         <tr>
-            <td style = "text-align: center;">
-             <img id = "img2" src ="../images/to.jpg"/>
-             <span class="point">6.5</span>
-             <span class="point1">지역 : 남구</span>
-               <span class="point2">테마 : 양식</span>
-               <span class="point3">조회수 : 500</span>
-              <br>
-             	맘스터치
-            </td>
-         </tr>
-      </table>
-      
-   		<table id = "search-menu">
-         <tr>
-            <td style = "text-align: center;">
-             <img id = "img2" src ="../images/mom.jpg"/>
-             <span class="point">6.5</span>
-             <span class="point1">지역 : 남구</span>
-               <span class="point2">테마 : 양식</span>
-               <span class="point3">조회수 : 500</span>
-              <br>
-             	맘스터치dddddddddd
-            </td>
-            
-        
-         </tr>
-      </table>
-      
-   		<table  id = "search-menu">
-         <tr>
-            <td >
-             <img id = "img2" src ="../images/mom.jpg"/>
-             <span class="point">6.5</span>
-             <span class="point1">지역 : 남구</span>
-               <span class="point2">테마 : 양식</span>
-               <span class="point3">조회수 : 500</span>
-              <br>
-             	맘치
-            </td>
-            
-        
-         </tr>
-      </table>
-   	</div>
-  </div>
-</div>
 
   <!--============================= FOOTER =============================-->
     <%@include file ="/common/footer.jsp" %>
@@ -242,13 +163,13 @@
 
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery-3.2.1.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
     <!-- Magnific popup JS -->
-    <script src="../js/jquery.magnific-popup.js"></script>
+    <script src="${pageContext.request.contextPath }/js/jquery.magnific-popup.js"></script>
     <!-- Swipper Slider JS -->
-    <script src="../js/swiper.min.js"></script>
+    <script src="${pageContext.request.contextPath }/js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 3,
