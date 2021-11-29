@@ -120,6 +120,12 @@
 						<div class="col-md-9">
 							<h5>${restVO.res_name }</h5>
 							<p>조회수 : ${restVO.res_readcount }</p>
+							<%-- <c:if test="${loginUser.user_id != null }">
+ 							<c:if test="${loginUser.user_level == 9}"> --%>
+ 							 <input type="button" value="식당수정" 
+								onclick="document.location.href='rest_Update.dae?res_id=${restVO.res_id}'">
+							<%-- </c:if> 
+							</c:if>  --%>
 
 							<div class='RatingStar_res1'>
 								<div class='RatingScore_res1'>

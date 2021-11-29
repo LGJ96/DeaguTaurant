@@ -237,7 +237,92 @@ public class RestDAO {
 		
 		return restList;
 	}
+	public RestVO selectUpdateRestArticle(int res_id) throws Exception{
+		// TODO Auto-generated method stub
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				RestVO restarticle = null;
+				try {
+						
+					pstmt = con.prepareStatement(""
+							+ "SELECT * FROM RESTAURANT WHERE res_id = ?");
+					pstmt.setInt(1, res_id);
+					rs = pstmt.executeQuery();
+					
+					if(rs.next()) {
+						restarticle = new RestVO();
+						restarticle.setRes_Addr1(rs.getString("res_Addr1"));
+						restarticle.setRes_Addr2(rs.getString("res_Addr2"));
+						restarticle.setRes_category(rs.getString("res_category"));
+						restarticle.setRes_hours(rs.getString("res_hours"));
+						restarticle.setRes_id(rs.getInt("res_id"));
+						restarticle.setRes_mainmenu(rs.getString("res_mainmenu"));
+						restarticle.setRes_name(rs.getString("res_name"));
+						restarticle.setRes_number(rs.getString("res_number"));
+						restarticle.setRes_pic(rs.getString("res_pic"));
+					//	restVO.setRes_pic1(rs.getString("res_pic1"));
+						restarticle.setRes_re_step(rs.getInt("res_re_step"));
+						restarticle.setRes_readcount(rs.getInt("res_readcount"));
+						restarticle.setRes_score(rs.getInt("res_score"));
+						restarticle.setRes_ref(rs.getInt("res_ref"));
+						restarticle.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
+						restarticle.setRes_notice_date(rs.getTimestamp("res_notice_date"));
+					}
+					
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+				finally {
+					close(rs);
+					close(pstmt);
+				}
+				
+				return restarticle;	
+	}
+
+	public int updateRestArticle(RestVO restVO){
+		int updateCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
 	
+		try {
+			pstmt = con.prepareStatement(""
+					+ "SELECT * FROM RESTAURANT WHERE res_id = ?");
+			pstmt.setInt(1, restVO.getRes_id());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			
+					
+					sql = "UPDATE RESTAURANT SET res_name = ?, res_Addr1 = ?, res_category = ?, res_mainmenu = ?"
+							+ ",res_number = ?,res_Addr2 = ?,res_hours = ? "
+							+ " WHERE res_id = ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, restVO.getRes_name());
+					pstmt.setString(2, restVO.getRes_Addr1());
+					pstmt.setString(3, restVO.getRes_category());
+					pstmt.setString(4, restVO.getRes_mainmenu());
+					pstmt.setString(5, restVO.getRes_number());
+					pstmt.setString(6, restVO.getRes_Addr2());
+					pstmt.setString(7, restVO.getRes_hours());
+					pstmt.setInt(8, restVO.getRes_id());
+					updateCount = pstmt.executeUpdate();
+					
+				}
+		}
+			
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			close(rs);
+			close(pstmt);
+		}
+		return updateCount;
+	}
 }
 
 
