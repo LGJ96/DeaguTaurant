@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="row">
-             <c:forEach begin="0" end="5" var="rest" items="${restList}" varStatus="status">
+             <c:forEach begin="138" end ="143" var="rest" items="${restList}" varStatus="status">
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                    

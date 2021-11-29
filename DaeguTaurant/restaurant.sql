@@ -29,6 +29,9 @@ drop SEQUENCE restaurant_seq;
 
 select * from RESTAURANT;
 
+alter table restaurant modify (res_Addr2 varchar2(100));
+alter table restaurant modify (res_name varchar2(80));
+alter table restaurant modify (res_hours varchar2(80));
 
 
 
