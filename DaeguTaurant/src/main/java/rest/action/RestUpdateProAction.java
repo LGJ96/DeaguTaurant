@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Info.action.Action;
 import rest.service.RestUpdateProService;
@@ -37,8 +38,10 @@ public class RestUpdateProAction implements Action {
 				ActionForward forward = null;
 				if(modifySuccess) {
 					forward = new ActionForward();
+					
 					/*forward.setUrl("home_review/index.jsp");*/
 					forward.setUrl("rest_content.dae?res_id="+request.getParameter("res_id"));
+					
 					forward.setRedirect(true);
 				}
 				else {

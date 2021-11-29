@@ -21,6 +21,7 @@ import login.action.UserPwSearchResultAction;
 import rest.action.RestContentAction;
 import rest.action.RestIndexAction;
 import rest.action.RestRegistAction;
+import rest.action.RestSearchListAction;
 import rest.action.RestUpdateAction;
 import rest.action.RestUpdateProAction;
 import vo.ActionForward;
@@ -192,6 +193,19 @@ public class DaeguTaurantFrontController extends HttpServlet {
 			        }
 				 else if(command.equals("/rest_UpdatePro.dae")) {
 			        	action = new RestUpdateProAction();
+			        	
+			        	try {
+			        		forward = action.execute(request, response);
+			        	} catch (Exception e) {
+			        		// TODO Auto-generated catch block
+			        		e.printStackTrace();
+			        	}
+			        }
+			
+			//========================식당 검색==============================
+			
+				 else if(command.equals("/rest_Searchlist.dae")) {
+			        	action = new RestSearchListAction();
 			        	
 			        	try {
 			        		forward = action.execute(request, response);

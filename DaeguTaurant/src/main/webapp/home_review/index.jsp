@@ -20,22 +20,22 @@
     <!-- Page Title -->
    <title>DaeguTaruant</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
-    <link rel="stylesheet" href="./css/simple-line-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/simple-line-icons.css">
     <!-- Themify Icon -->
-    <link rel="stylesheet" href="./css/themify-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/themify-icons.css">
     <!-- Hover Effects -->
     
-    <link rel="stylesheet" href="./css/set1.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/set1.css">
     <!-- Swipper Slider -->
-    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/swiper.min.css">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="./css/magnific-popup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/magnific-popup.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 
 
@@ -62,11 +62,10 @@
                         </div>
                         <div class="row d-flex justify-content-center" id = "aaa">
                             <div class="col-md-10">
-                                <form class="form-wrap mt-4">
+                                <form class="form-wrap mt-4" action="../rest_Searchlist.dae" method="POST" name = "searchform">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <input type="text" placeholder="검색창" class="btn-group">
-                                     
-                                        <button type="button" class="btn-form 1" onclick="location.href='../home_review/search.jsp'; ">SEARCH</button>
+                                        <input type="text" placeholder="검색창" class="btn-group" name ="searchword" id="searchword">
+                                        <button type="button" class="btn-form 1" onclick="document.location.href='rest_Searchlist.dae?res_id=${restVO.res_id}'">SEARCH</button>
                                     </div>
                                 </form>
                                 
@@ -95,13 +94,13 @@
 
 <!--============================= FEATURED PLACES =============================-->
                 
-<c:if test="${loginUser.user_id != null }">
- 	<c:if test="${loginUser.user_level == 9}">
+<%-- <c:if test="${loginUser.user_id != null }">
+ 	<c:if test="${loginUser.user_level == 9}">--%>
 		<div class = "container" align="right" style = "margin-top: 20px;">
 		<a href="home_review/restaurant_register.jsp" > 식당 등록</a>
 		</div>
-	</c:if> 
-</c:if>
+<%--	</c:if> 
+</c:if> --%>
 	
     <section class="main-block1 light-bg">
    	 <form action="../restIndex.dae" method="POST" name="myForm"> 

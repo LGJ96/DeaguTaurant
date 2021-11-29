@@ -30,17 +30,17 @@
 	href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900"
 	rel="stylesheet">
 <!-- Simple line Icon -->
-<link rel="stylesheet" href="./css/simple-line-icons.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/simple-line-icons.css">
 <!-- Themify Icon -->
-<link rel="stylesheet" href="./css/themify-icons.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/themify-icons.css">
 <!-- Hover Effects -->
-<link rel="stylesheet" href="./css/set1.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/set1.css">
 <!-- Swipper Slider -->
-<link rel="stylesheet" href="./css/swiper.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/swiper.min.css">
 <!-- Magnific Popup CSS -->
-<link rel="stylesheet" href="./css/magnific-popup.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/magnific-popup.css">
 <!-- Main CSS -->
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 <link rel='stylesheet'
 	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css' />
 
@@ -89,7 +89,7 @@
 
 			 	 <div class="swiper-slide">
 
-					<img src="./images/res_pic/${restVO.res_pic }.jpg"
+					<img src="${pageContext.request.contextPath }/images/res_pic/${restVO.res_pic }.jpg"
 						class="img-fluid" alt="#" style="width: 100%;  height: 400px;">
 
 				</div> 

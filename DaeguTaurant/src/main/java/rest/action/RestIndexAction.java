@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import Info.action.Action;
 import rest.service.RestListService;
@@ -17,8 +15,8 @@ public class RestIndexAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	    
-	      RestListService restListService = new RestListService();
-	      
+		   RestListService restListService = new RestListService();
+
 	      ArrayList<RestVO> restList = restListService.getRestList();
 	  	  //HttpSession session = request.getSession();
 	      //session.setAttribute("restList", restList);
