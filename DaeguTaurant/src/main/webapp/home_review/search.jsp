@@ -41,13 +41,13 @@
 
     <!--============================= 검색창, 검색버튼 =============================-->
 
-    <div class="row d-flex justify-content-center"  style = "margin-bottom: 50px;">
+   <div class="row d-flex justify-content-center"  style = "margin-bottom: 50px;">
      	
         <div class="col-md-8" align="right">
             <form class="form-wrap mt-4">
                 <div class="btn-group" role="group" aria-label="Basic example">
                
-                    <input type="text" placeholder="검색창" class="btn-group"/>
+                    <input type="text" placeholder="${searchword}" class="btn-group"/>
                     <button type="button" class="btn-form2" onclick="location.href='../home_review/search.jsp'; ">검색</button>
                     
    
@@ -56,7 +56,7 @@
                </div>
            </form>
         </div>
-  </div>     
+  </div>
  <!--============================= 지역/테마 선택 =============================-->
     <div class=" dark-bg" style = "margin-bottom: 100px;">
         <div class="col-lg-12">
@@ -129,24 +129,46 @@
       <div class="container">
    		<div class="row"  >
    		
-   		 <c:forEach begin="0"  var="rest" items="${restsearchList}" varStatus="status">
+   		 <c:if test="${searchword==null}">
+   		 <c:forEach begin="0" var="rest" items="${restList}" varStatus="status">
    		<table id=search-menu>
          <tr>
-            <td >
-            <a href = "./rest_content.dae?res_id=${rest.res_id}" >
+            <td>
+            <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
              <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
-              <span class="point">${rest.res_score }</span>
+              <span class="point">${rest.res_score}</span>
                <span class="point1">지역 : ${rest.res_Addr1}</span>
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>
               <br>
+              ${rest.res_name}
              </a>
             </td>
          </tr>
-         
-      </table>
-         
-      </c:forEach>
+      	</table> 
+      	</c:forEach>
+   		</c:if>
+   		
+   		 <c:if test="${searchword != null}">
+   		 <c:forEach begin="0" var="rest" items="${restsearchword}" varStatus="status"> 
+   		<table id=search-menu>
+         <tr>
+            <td>
+            <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
+             <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
+              <span class="point">${rest.res_score}</span>
+               <span class="point1">지역 : ${rest.res_Addr1}</span>
+               <span class="point2">테마 : ${rest.res_category}</span>
+               <span class="point3">조회수 :${rest.res_readcount }</span>
+              <br>
+              ${rest.res_name}
+             </a>
+            </td>
+         </tr>
+      	</table> 
+      	</c:forEach>
+   		</c:if>
+    
    	</div>
   </div>
 </div>

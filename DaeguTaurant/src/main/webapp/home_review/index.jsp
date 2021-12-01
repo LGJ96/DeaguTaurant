@@ -62,10 +62,10 @@
                         </div>
                         <div class="row d-flex justify-content-center" id = "aaa">
                             <div class="col-md-10">
-                                <form class="form-wrap mt-4" action="../rest_Searchlist.dae" method="POST" name = "searchform">
+                                 <form class="form-wrap mt-4" action="#" method="POST" name = "searchform">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <input type="text" placeholder="검색창" class="btn-group" name ="searchword" id="searchword">
-                                        <button type="button" class="btn-form 1" onclick="document.location.href='rest_Searchlist.dae?res_id=${restVO.res_id}'">SEARCH</button>
+                                        <button type="button" class="btn-form 1" onclick="search()">SEARCH</button>
                                     </div>
                                 </form>
                                 
@@ -103,7 +103,7 @@
 </c:if> --%>
 	
     <section class="main-block1 light-bg">
-   	 <form action="../restIndex.dae" method="POST" name="myForm"> 
+   	 <form action="${pageContext.request.contextPath }/restIndex.dae" method="POST" name="myForm"> 
    	 	
         <div class="container">
             <div class="row justify-content-center">
@@ -114,7 +114,7 @@
                 </div>
             </div>
             <div class="row">
-             <c:forEach begin="119" end ="124" var="rest" items="${restList}" varStatus="status">
+             <c:forEach begin="0" end ="6" var="rest" items="${restList}" varStatus="status">
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                    
@@ -248,7 +248,7 @@
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 
-    <script>
+   <script>
         $(window).scroll(function() {
             // 100 = The point you would like to fade the nav in.
 
@@ -263,6 +263,12 @@
             };
         });
        
+        function search(){
+        	document.searchform.target = "_self";
+        	document.searchform.action="rest_Searchlist.dae";
+        	document.searchform.submit();
+        }
+        
     </script>
     
     <script >

@@ -8,28 +8,26 @@ import java.util.ArrayList;
 import dao.RestDAO;
 import vo.RestVO;
 
-public class RestListSearchService {
+public class RestSearchListService {
 
 	public ArrayList<RestVO> getRestSearchList() {
 		 Connection con = getConnection();
 		 RestDAO restDAO = RestDAO.getInstance();
 		 restDAO.setConnection(con);
 		
-	     ArrayList<RestVO> restList = restDAO.selectRestList();
+	     ArrayList<RestVO> restsearchList = restDAO.selectRestList();
 	    
 		
-		return restList;
+		return restsearchList;
 	}
 
 	public ArrayList<RestVO> getRestSearchWordList(String searchword) {
 		 Connection con = getConnection();
 		 RestDAO restDAO = RestDAO.getInstance();
 		 restDAO.setConnection(con);
-		
-	     ArrayList<RestVO> restwordList = restDAO.selectResWordtList(searchword);
+	     ArrayList<RestVO> restsearchword = restDAO.selectResWordtList(searchword);
 	    
-		
-		return restwordList;
+		return restsearchword;
 	}
 
 }
