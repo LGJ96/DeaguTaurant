@@ -11,7 +11,7 @@
         new SimpleDateFormat("yyyy-MM-dd HH:mm");
     //2021-01-12 09:17%>
 
-<%
+<%-- <%
 List<NoticeVO> articleList = (List<NoticeVO>)request.getAttribute("articleList");
 PageVO pageVO = (PageVO)request.getAttribute("pageVO");
 int count = pageVO.getCount();
@@ -20,8 +20,8 @@ int startPage = pageVO.getStartPage();
 int number = pageVO.getNumber();
 int endPage = pageVO.getEndPage();
 int pageCount = pageVO.getPageCount();
-%>
-<%-- <%
+%> --%>
+<%
 List<FaqVO> faqArticleList = (List<FaqVO>)request.getAttribute("faqArticleList");
 FaqPageVO faqPageVO = (FaqPageVO)request.getAttribute("faqPageVO");
 int faq_count = faqPageVO.getFaq_count();
@@ -30,7 +30,7 @@ int faq_startPage = faqPageVO.getFaq_startPage();
 int faq_number = faqPageVO.getFaq_number();
 int faq_endPage = faqPageVO.getFaq_endPage();
 int faq_pageCount = faqPageVO.getFaq_pageCount();
-%> --%>
+%>
 <%-- <% 
 	int cus_notice_number = (int)request.getAttribute("cus_notice_number");
 	String pageNum = (String)request.getAttribute("pageNum");
@@ -96,37 +96,21 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
 
 
 
-    <div class="col-md-12">
+    <%-- <div class="col-md-12">
     <div class="row">
     <div class = "container">
       
         <div class="col-sm-12" align="center">
          
-             	<div id= "title-header2" >
-                <h3><a href = "serviceCenterList.dae" style="color: black"> 공지사항 </a>
+              <div id= "title-header1" >
+                <h3> 공지사항 </h3>
+        		</div>
         		
-                <a> | </a> 
-                
-                <a href = "serviceCenterFaqList.dae" style="color: gray"> FAQ </a>
-                
-		        	<c:if test="${loginUser.user_id != null }">
-		 				<c:if test="${loginUser.user_level == 9}">
-		 					<a> | </a>
-				       		<a href = "serviceCenterOtoList.dae" style="color: gray"> 1:1 문의 </a></h3>
-				        </c:if>
-				    </c:if>
-				</div>
-                
-        		
-        		<c:if test="${loginUser.user_id != null }">
- 					<c:if test="${loginUser.user_level == 9}">
-			            <div class="col-md-11" style="text-align : right;">
-			 				<div class="container">
-			       				<button class="btn" onclick="location.href='notice_writeForm.dae';"  > 등록</button>
-			            	</div>
-			            </div>
-			        </c:if>
-			    </c:if>
+               <div class="col-md-11" style="text-align : right;">
+ 				<div class="container">
+       				<button class="btn" onclick="location.href='notice_writeForm.dae';"  > 등록</button>
+            </div>
+            </div>
            
             <div class="card" id="title-content">
                 
@@ -164,46 +148,31 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
                             <tbody>
                                 <tr>
                                     <td colspan="1">
-                                        <%=number--%>
+                                        <%=number%>
                                     </td>
-                                    <td colspan="2" width="750">
-                                        <a href="#?cus_notice_number=<%=article.getCus_notice_number()%>&pageNum=<%=currentPage%>" style="color: black"
+                                    <td colspan="2" width="700">
+                                        <a href="#?cus_notice_number=<%=article.getCus_notice_number()%>&pageNum=<%=currentPage%>" 
                                         id="show<%=article.getCus_notice_number()%>" onclick="if(hide<%=article.getCus_notice_number()%>.style.display=='none') {hide<%=article.getCus_notice_number()%>.style.display='';show<%=article.getCus_notice_number()%>.innerText='<%=article.getCus_notice_title()%>'} else {hide<%=article.getCus_notice_number()%>.style.display='none';show<%=article.getCus_notice_number()%>.innerText='<%=article.getCus_notice_title()%>'}">
-										<%=article.getCus_notice_title()%> </a>
+										<%=article.getCus_notice_title()%></a>
 											<div id="hide<%=article.getCus_notice_number()%>" style="display: none">
 					                           <div class="card" id="title-content">
-					                              <div class="col-sm-15">
+					                              <div class="col-sm-13">
 					                              	<div class="text-left">
-					                                    <%=article.getCus_notice_content().replaceAll("\r\n", "<BR>")%>
+					                                    <%=article.getCus_notice_content()%><br />
 					                              	</div>
-					                              		<c:if test="${loginUser.user_id != null }">
- 															<c:if test="${loginUser.user_level == 9}">
-							                                  <div class="col-sm-2" style="float: right;">
-							                                  
-							                                     <%-- <form method="post" name="notice-delete" action="notice_deletePro.dae" onsubmit="return writeSave()">
-																	<input type="hidden" name="cus_notice_number" value="<%=cus_notice_number%>">
-																	<input type="hidden" name="pageNum" value="<%=pageNum%>"> --%>
-																	
-									                             <a href="#" type="button"  style="color:black" 
-									                             onclick="window.open('notice_deleteForm.dae?cus_notice_number=<%=article.getCus_notice_number()%>&pageNum=<%=currentPage%>','','width=330,height=100,location=no,status=no,scrollbars=yes');">삭제</a>
+					                                  <div class="col-sm-2" style="float: right;">
+					                                  
+					                                     
+															
+							                             <a href="#" type="button"  style="color:black" 
+							                             onclick="window.open('notice_deleteForm.dae?cus_notice_number=<%=article.getCus_notice_number()%>&pageNum=<%=currentPage%>','','width=330,height=100,location=no,status=no,scrollbars=yes');">삭제</a>
 							                             
-								                                 <!-- <script language="javascript">
-								                                    function showConfirm_delete() {
-								                                       if (confirm("삭제 하시겠습니까?")){
-								                                           alert("삭제 완료했습니다.");
-								                                       	}else{
-								                                           alert("취소 버튼을 눌렀습니다.");
-								                                       	}
-								                                    }
-								                                  </script> -->
-								                                  <!-- </form> -->
-								                                  <a>|</a>
+							                                 
+							                                  <a>|</a>
 							                                  
-							                                 	 <a href="notice_updateForm.dae?cus_notice_number=<%=article.getCus_notice_number()%>&pageNum=<%=currentPage%>"  type="button"  style="color:black" OnClick="showConfirm_modify();">수정</a>
+							                                  <a href="notice_updateForm.dae?cus_notice_number=<%=article.getCus_notice_number()%>&pageNum=<%=currentPage%>"  type="button"  style="color:black" OnClick="showConfirm_modify();">수정</a>
 					                                           </div>
-					                                         </c:if>
-					                                       </c:if>
-					                                     </div>
+					                                       </div>
 					                                   </div>
 					                               </div>	
 				                                                      
@@ -217,22 +186,6 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
                             </tbody>
                         	<%}%>
                         </table>
-                        <%
-						    if (count > 0) {
-						        
-						        if (startPage > 10) { %>
-						        <a href="serviceCenterList.dae?pageNum=<%= startPage - 10 %>">[이전]</a>
-						<%      }
-						        for (int i = startPage ; i <= endPage ; i++) {  %>
-						        <a href="serviceCenterList.dae?pageNum=<%= i %>">[<%= i %>]</a>
-						<%
-						        }
-						        if (endPage < pageCount) { %>
-						        <a href="serviceCenterList.dae?pageNum=<%= startPage + 10 %>">[다음]</a>
-						<%
-						        }
-						    }
-						%>
                     </div>
                 </div>
             </div>
@@ -240,21 +193,35 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
         </div>
    </div>
  </div>
-</div>
+</div> --%>
 
-  <%-- <div class="col-md-12">
+  <div class="col-md-12">
     <div class="row">
     <div class = "container">
         <div class="col-sm-12" align="center">
-        <div id= "title-header1" >
-                <h3> FAQ </h3>
-        </div>
-        
-        <div class="col-md-11" style="text-align : right;">
- 				<div class="container">
-       				<button class="btn" onclick="location.href='faq_writeForm.dae';"  > 등록</button>
-            </div>
-            </div>
+        		<div id= "title-header2" >
+	                <h3><a href = "serviceCenterList.dae" style="color: gray"> 공지사항 </a>
+	        		
+	                <a> | </a> 
+	                
+	                <a href = "serviceCenterFaqList.dae" style="color: black"> FAQ </a>
+	                
+			        	<c:if test="${loginUser.user_id != null }">
+			 				<c:if test="${loginUser.user_level == 9}">
+			 					<a> | </a>
+					       		<a href = "serviceCenterOtoList.dae" style="color: gray"> 1:1 문의 </a></h3>
+					        </c:if>
+					    </c:if>
+				</div>
+        	<c:if test="${loginUser.user_id != null }">
+ 				<c:if test="${loginUser.user_level == 9}">
+		       		<div class="col-md-11" style="text-align : right;">
+		 				<div class="container">
+		       				<button class="btn" onclick="location.href='faq_writeForm.dae';"  > 등록</button>
+		            	</div>
+		            </div>
+		        </c:if>
+		    </c:if>
         
           <div id="accordion">
             <div class="card card-plain" id="title-content">
@@ -292,7 +259,20 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
                                          </button>
                                          <div id="faq<%=faqArticle.getCus_faq_number()%>" class="collapse show" data-parent="#accordion">
                                             <div class="card-body">
-                                                <%=faqArticle.getCus_faq_content()%><br>
+                                                <%=faqArticle.getCus_faq_content().replaceAll("\r\n", "<BR>")%><br>
+                                                <c:if test="${loginUser.user_id != null }">
+ 													<c:if test="${loginUser.user_level == 9}">
+	                                               	 <div class="col-sm-2" style="float: right;">
+					                                              <a href="#" type="button"  style="color:black" 
+												                           onclick="window.open('faq_deleteForm.dae?cus_faq_number=<%=faqArticle.getCus_faq_number()%>&pageNum=<%=faq_currentPage%>','','width=330,height=100,location=no,status=no,scrollbars=yes');">삭제</a>
+								                             
+								                                 
+								                                  <a>|</a>
+								                                  
+								                                  <a href="faq_updateForm.dae?cus_faq_number=<%=faqArticle.getCus_faq_number()%>&pageNum=<%=faq_currentPage%>"  type="button"  style="color:black" OnClick="showConfirm_modify();">수정</a>
+								                     </div>
+								                    </c:if>
+								                </c:if>
                                             </div>
                                         </div>
                                     </td>
@@ -300,20 +280,23 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
                                 <%}%>
                             </tbody>
                             <%}%>
-                                <tr>
-                                    <td>
-                                        <button class="btn btn-block btn-outline-dark" data-toggle="collapse" data-target="#faq2">
-                                            
-                                          회원탈퇴 하는 방법
-                                         </button>
-                                         <div id="faq2" class="collapse show" data-parent="#accordion">
-                                            <div class="card-body">
-                                                im aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                            </div>
-                                        </div>
-                                    </td>   
-                                </tr>   
                         </table>
+                        <%
+						    if (faq_count > 0) {
+						        
+						        if (faq_startPage > 10) { //첫번째 페이지 그룹이 아니면...  이전그룹의 startPage로 이동 %>
+						        <a href="serviceCenterFaqList.dae?oto_pageNum=<%= faq_startPage - 10 %>">[이전]</a>
+						<%      }
+						        for (int i = faq_startPage ; i <= faq_endPage ; i++) {  %>
+						        <a href="serviceCenterFaqList.dae?faq_pageNum=<%= i %>">[<%= i %>]</a>
+						<%
+						        }
+						        if (faq_endPage < faq_pageCount) { //현재 페이지그룹이 마지막 페이지 그룹이 아닐때 다음 페이지그룹의 startPage로 이동 %>
+						        <a href="serviceCenterFaqList.dae?faq_pageNum=<%= faq_startPage + 10 %>">[다음]</a>
+						<%
+						        }
+						    }
+						%>
                       </div>
                   </div>
             </div>
@@ -323,7 +306,7 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
   </div>
 <div>
 </div>
-</div> --%>
+</div>
 </div>
  <!--============================= 1:1문의 =============================-->
 <c:choose> 

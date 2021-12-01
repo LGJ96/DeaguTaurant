@@ -1,10 +1,8 @@
-<%@page import="vo.UserVO"%>
-<%@page import="servicecenter.vo.OtoVO"%>
+<%@page import="servicecenter.vo.FaqReplyVO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "java.text.SimpleDateFormat" %>
+
 <!DOCTYPE html>
-<html>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -33,26 +31,17 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
-<%
-   SimpleDateFormat sdf = 
-   new SimpleDateFormat("yyyy-MM-dd HH:mm");
-   OtoVO otoArticle = (OtoVO)request.getAttribute("otoArticle");
-   String oto_pageNum = (String)request.getAttribute("oto_pageNum");
-   
-      
-  	  int cus_oto_number = otoArticle.getCus_oto_number();
-	  int cus_ref=otoArticle.getCus_ref();
-	  int cus_re_step=otoArticle.getCus_re_step();
-	  int cus_re_level=otoArticle.getCus_re_level();
-	  String User_nickname=otoArticle.getUser_nickname();
-%>
-
+ <%
+ FaqReplyVO faqReplyVO = (FaqReplyVO)request.getAttribute("faqReplyVO");
+ 	int cus_faq_number = faqReplyVO.getCus_faq_number();
+ %>
 <body>
     <!--============================= HEADER =============================-->
     <%@include file ="/common/header-servicecenter.jsp" %>
     <!--//END HEADER -->
-    <!--============================= 1:1문의 내용 헤더 =============================-->
+    <!--============================= 커뮤니티 헤더 =============================-->
     <div>
         <!-- Swiper -->
         <div class="row d-flex justify-content-center">
@@ -61,76 +50,73 @@
                     <div class="row">
                         <div class="col-md-12">
                          <div class="dark-cbg">
-                         <h2>1:1 문의 내용</h2>
+                         <h2>FAQ 등록</h2>
                        
                     </div>
                 </div>
             </div>
+         </div>
+      </div>
+   </div>
+</div>
         
     
-    <!--//END 1:1문의 내용 헤더 -->
+    <!--//END 커뮤니티 헤더 -->
 
+  <!-- 글쓰기 본문 -->
+ 
     
-    <!-- 글쓰기 본문 -->
-    
-   <div class="container" >
-    <div class="col-lg-12" align="right">
-	
-	 <a href="../comm/comm.html"><button class="btn btn-warning1" > 삭제</button></a>
-	</div>
+   <div class="container" style = "margin-top : 50px;" >
 	 <div class="col-lg-12">
-		<form method="post" action="writeAction.jsp">
+	 	<form method="post" name="faq-write" action="faq_writePro.dae" onsubmit="return writeSave()">
+		<input type="hidden" name="cus_faq_number" value="<%=cus_faq_number%>">
 		
+	 
+		
+<table>
 		<div style = "border: 1px solid #dddddd " >
-	
-		<input type="text"  readonly value="<%=otoArticle.getUser_nickname()%>" name="bbsWriter" maxlength="100" id = "qtitle" >
-		</div>
-		<div style = "border: 1px solid #dddddd " >
-	
-		<input type="text"  readonly value="<%=otoArticle.getCus_oto_title() %>" name="bbsTitle" maxlength="100" id = "qtitle" >
+		
+			
+	       <input type="text" placeholder="글 제목" name="cus_faq_title" maxlength="100" id = "qtitle"></td>
+	       
+		
+		
 		</div>
 		
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 				<tbody>
 						<tr>
-							<td><div border: 1px solid #dddddd" class="text-left" readonly name="bbsContent" maxlength="2048" style = "height: 350px;"><%=otoArticle.getCus_oto_content().replaceAll("\r\n", "<BR>") %></div></td>
+							<td>
+							<textarea class="form-control" placeholder="글 내용" name="cus_faq_content" maxlength="2048" style="height: 350px;"></textarea>
+							</td>
 						</tr>
 					</tbody>
-				</table>
-				</form>
-			<div class="col-lg-12">
-               
-			</div>
-		</div>
+				
+				
 		
-	<!-- 목록 버튼 -->	
+  </table>
  
-	<div class="col-lg-12" align="right">
-	 <a href="serviceCenterOtoList.dae"><button class="btn btn-warning" > 목록</button></a>
-	<button type="submit" class="btn"
-	onclick="window.open('oto_writeForm.dae?cus_oto_number=<%=cus_oto_number %>&cus_ref=<%=cus_ref %>&cus_re_step=<%=cus_re_step%>&cus_re_level=<%=cus_re_level%>','','width=430,height=500,location=no,status=no,scrollbars=yes');"> 답변 등록 </button>
-                 
-	</div>
-	
-	
-	</div>
-	
-	</div>
-	</div>
+<!-- 글쓰기 버튼 생성 -->
+	<div align="center">
+ 	<input type="submit" class="btn btn-warning"  value="등록" />
+	<input type="button" class="btn btn-warning"  value="취소"
+ 	 OnClick="window.location='serviceCenterFaqList.dae'">
 
-</body>		
-   <!--============================= FOOTER =============================-->
+	</div>
+  </table>
+ 
+</form>
+</div>
+</div>
+
+
+
+    <!--============================= FOOTER =============================-->
     <footer>
        <!-- Footer Start-->
        <%@include file ="/common/footer-home.jsp" %>
        <!-- Footer End-->
    </footer>
-
- 
-
-
-    
-
 
 
 
@@ -177,5 +163,6 @@
             });
         }
     </script>
+
 </body>
 </html>

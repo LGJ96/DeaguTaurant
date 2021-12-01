@@ -24,6 +24,24 @@ import rest.action.RestRegistAction;
 import rest.action.RestSearchListAction;
 import rest.action.RestUpdateAction;
 import rest.action.RestUpdateProAction;
+import servicecenter.action.Faq_deleteFormAction;
+import servicecenter.action.Faq_deleteProAction;
+import servicecenter.action.Faq_updateFormAction;
+import servicecenter.action.Faq_updateProAction;
+import servicecenter.action.Faq_writeFormAction;
+import servicecenter.action.Faq_writeProAction;
+import servicecenter.action.Notice_deleteFormAction;
+import servicecenter.action.Notice_deleteProAction;
+import servicecenter.action.Notice_updateFormAction;
+import servicecenter.action.Notice_updateProAction;
+import servicecenter.action.Notice_writeFormAction;
+import servicecenter.action.Notice_writeProAction;
+import servicecenter.action.Oto_writeFormAction;
+import servicecenter.action.Oto_writeProAction;
+import servicecenter.action.ServiceCenterFaqList;
+import servicecenter.action.ServiceCenterList;
+import servicecenter.action.ServiceCenterOtoContentAction;
+import servicecenter.action.ServiceCenterOtoList;
 import vo.ActionForward;
 
 /**
@@ -145,7 +163,7 @@ public class DaeguTaurantFrontController extends HttpServlet {
 			}
 			
 			
-		//========================식당 등록==============================
+		//========================���� �깅�==============================
 			
 			 else if(command.equals("/rest_Regist.dae")) {
 		        	action = new RestRegistAction();
@@ -179,7 +197,7 @@ public class DaeguTaurantFrontController extends HttpServlet {
 					}
 				}
 			
-			//========================식당 수정==============================
+			//========================���� ����==============================
 			
 				 else if(command.equals("/rest_Update.dae")) {
 			        	action = new RestUpdateAction();
@@ -202,7 +220,7 @@ public class DaeguTaurantFrontController extends HttpServlet {
 			        	}
 			        }
 			
-			//========================식당 검색==============================
+			//========================���� 寃���==============================
 			
 				 else if(command.equals("/rest_Searchlist.dae")) {
 			        	action = new RestSearchListAction();
@@ -215,6 +233,191 @@ public class DaeguTaurantFrontController extends HttpServlet {
 			        	}
 			        }
 				
+			//======================== 공지사항 ==============================
+			
+					else if(command.equals("/notice_writeForm.dae")) {
+					action = new Notice_writeFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/notice_writePro.dae")) {
+					action = new Notice_writeProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/serviceCenterList.dae")) {
+					action = new ServiceCenterList();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				else if(command.equals("/notice_updateForm.dae")) {
+		            action = new Notice_updateFormAction();
+		            
+		            try {
+		               forward = action.execute(request, response);
+		            } catch (Exception e) {
+		               // TODO Auto-generated catch block
+		               e.printStackTrace();
+		            }
+		      }
+				else if(command.equals("/notice_updatePro.dae")) {
+		            action = new Notice_updateProAction();
+		            
+		            try {
+		               forward = action.execute(request, response);
+		            } catch (Exception e) {
+		               // TODO Auto-generated catch block
+		               e.printStackTrace();
+		            }
+		      }
+				else if(command.equals("/notice_deleteForm.dae")) {
+					action = new Notice_deleteFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/notice_deletePro.dae")) {
+					action = new Notice_deleteProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				//======================== FAQ ==============================
+				else if(command.equals("/faq_writeForm.dae")) {
+					action = new Faq_writeFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/faq_writePro.dae")) {
+					action = new Faq_writeProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/serviceCenterFaqList.dae")) {
+					action = new ServiceCenterFaqList();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/faq_updateForm.dae")) {
+					action = new Faq_updateFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/faq_updatePro.dae")) {
+					action = new Faq_updateProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/faq_deleteForm.dae")) {
+					action = new Faq_deleteFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/faq_deletePro.dae")) {
+					action = new Faq_deleteProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				//======================== 1:1 문의 ==============================
+				else if(command.equals("/oto_writeForm.dae")) {
+					action = new Oto_writeFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/oto_writePro.dae")) {
+					action = new Oto_writeProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/serviceCenterOtoList.dae")) {
+					action = new ServiceCenterOtoList();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/serviceCenterOtoContent.dae")) {
+					action = new ServiceCenterOtoContentAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 			
 		
 		
@@ -222,7 +425,7 @@ public class DaeguTaurantFrontController extends HttpServlet {
 		
 		
 		
-			//3.forward ��ü�� ������ ����ؼ� ������
+			//3.forward 占쏙옙체占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙漫占� 占쏙옙占쏙옙占쏙옙
 			if(forward != null) {
 				
 				if(forward.isRedirect()) {
