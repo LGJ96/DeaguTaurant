@@ -8,7 +8,7 @@
  <!--============================= FOOTER =============================-->
     <footer>
        <!-- Footer Start-->
-       <div class="main-block dark-bg ">
+       <div class="main-block dark-bg " style = "margin-top: 50px;">
            <div class="container">
                <div class="row d-flex justify-content-between">
                

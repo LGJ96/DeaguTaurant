@@ -34,6 +34,8 @@ alter table restaurant modify (res_name varchar2(80));
 alter table restaurant modify (res_hours varchar2(80));
 
 
+
+
 /*테이블 백업함*/
 CREATE TABLE restaurant_back AS 
 SELECT * FROM restaurant;

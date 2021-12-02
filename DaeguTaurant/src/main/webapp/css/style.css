@@ -25,6 +25,17 @@ Author: Surjith S M
 	padding :30px;
 }
 
+/* 지역 및 테마 페이지 번호 */
+#page{
+ width:300px;
+  /*   height:00px; */
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-130px;
+    margin-top:-20px;
+    margin-bottom: -100px;
+}
 
 /* 지역/테마 선택 창 */
  #search-chick{

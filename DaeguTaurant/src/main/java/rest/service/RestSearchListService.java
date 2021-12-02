@@ -1,25 +1,17 @@
 package rest.service;
 
-import static db.JdbcUtil.getConnection;
+import static db.JdbcUtil.*;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import dao.RestDAO;
 import vo.RestVO;
 
 public class RestSearchListService {
-
-	public ArrayList<RestVO> getRestSearchList() {
-		 Connection con = getConnection();
-		 RestDAO restDAO = RestDAO.getInstance();
-		 restDAO.setConnection(con);
-		
-	     ArrayList<RestVO> restsearchList = restDAO.selectRestSearchList();
-	    
-		
-		return restsearchList;
-	}
 
 	public ArrayList<RestVO> getRestSearchWordList(String searchword) {
 		 Connection con = getConnection();
@@ -28,6 +20,32 @@ public class RestSearchListService {
 	     ArrayList<RestVO> restsearchword = restDAO.selectResWordtList(searchword);
 	    
 		return restsearchword;
+	}
+
+	public int getRestCount() throws Exception {
+		Connection con = getConnection();
+		RestDAO restDAO = RestDAO.getInstance();
+		restDAO.setConnection(con);
+		 
+		int restCount = restDAO.selectRestCount();
+		close(con);
+			
+		return restCount;
+	
+	}
+
+	
+	public List<RestVO> getRestCountList(int rest_startRow, int rest_pageSize) throws Exception {
+		
+	
+		Connection con = getConnection();
+		RestDAO restDAO = RestDAO.getInstance();
+		restDAO.setConnection(con);
+		
+		List<RestVO> restListt = restDAO.selectRestCountList(rest_startRow, rest_pageSize);
+		close(con);
+		
+		return restListt;
 	}
 
 }

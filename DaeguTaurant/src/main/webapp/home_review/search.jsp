@@ -1,8 +1,24 @@
+<%@page import="vo.RestPageVO"%>
+<%@page import="vo.RestVO"%>
+<%@page import="java.util.List"%>
+
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 
+ <%
+List<RestVO> restCountList = (List<RestVO>)request.getAttribute("restCountList");
 
+RestPageVO restpageVO = (RestPageVO)request.getAttribute("restpageVO");
+int rest_number = restpageVO.getRest_number();
+int rest_count = restpageVO.getRest_count(); 
+int rest_currentPage = restpageVO.getRest_currentPage();
+int rest_pageCount = restpageVO.getRest_pageCount();
+int rest_startPage = restpageVO.getRest_startPage();
+int rest_endPage = restpageVO.getRest_endPage();
+
+%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -128,8 +144,9 @@
       <div class="container">
    		<div class="row"  >
    		
-   		 <c:if test="${searchword==null }" >
-   		 <c:forEach begin="0" var="rest" items="${restList}" varStatus="status">
+   		 <c:if test="${searchword==null }">
+   		
+   		<c:forEach begin="0" end = "8" var="rest" items="${restListt}" varStatus="status">
    		<table id=search-menu>
          <tr>
             <td>
@@ -147,9 +164,9 @@
       	</table> 
       	</c:forEach>
    		</c:if>
-   		
+   		 
    		 <c:if test="${searchword != null}">
-   		 <c:forEach begin="0" var="rest" items="${restsearchword}" varStatus="status"> 
+   		 <c:forEach begin="0"   var="rest" items="${restsearchword}" varStatus="status"> 
    		<table id=search-menu>
          <tr>
             <td>
@@ -169,9 +186,47 @@
    		</c:if>
     
    	</div>
+   	
+	 <div class="col-md-12">
+      <div class="container"  id = "page">
+   		<div class="row">
+   		
+   		
+       <%
+			if (rest_count > 0 ) {
+						        
+			if (rest_startPage > 10) { %>
+			
+			<a href="rest_Searchlist.dae?rest_pageNum=<%= rest_startPage - 10 %>">[이전]</a>
+		<%      }
+			for (int i = rest_startPage ; i <= rest_endPage ; i++) {  %>
+		
+		<a href="rest_Searchlist.dae?rest_pageNum=<%= i %>" style = "text-align: center;">[<%= i %>]</a>
+		
+		<%
+			}
+			if (rest_endPage < rest_pageCount) { %>
+			  <a href="rest_Searchlist.dae?rest_pageNum=<%= rest_startPage + 10 %>" >[다음]</a>
+			 
+		<%
+			  }
+		 }
+	%> 
+	
+	
+	
+	
+	
+	
+	
+	</div>
+	</div>
+  </div>  
+      	
+		
+  
   </div>
 </div>
-</form>
 
   <!--============================= FOOTER =============================-->
     <%@include file ="/common/footer.jsp" %>
@@ -207,14 +262,14 @@
             },
         });
     </script>
-    <script>
+     <script>
     
     function search1(){
     	document.searchform1.target = "_self";
     	document.searchform1.action="rest_Searchlist.dae";
     	document.searchform1.submit();
     }
-    </script>
+    </script> 
 
 </body>
 </html>

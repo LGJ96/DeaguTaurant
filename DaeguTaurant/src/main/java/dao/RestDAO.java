@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import vo.RestVO;
 
@@ -325,60 +326,60 @@ public class RestDAO {
 		return updateCount;
 	}
 
-	public ArrayList<RestVO> selectRestSearchList() {
+//	public ArrayList<RestVO> selectRestSearchList() {
 
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		ArrayList<RestVO> restsearchList = null;
-		String sql = "select * from RESTAURANT";
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		ArrayList<RestVO> restsearchList = null;
+//		String sql = "select * from RESTAURANT";
+//
+//		try {
+//			pstmt = con.prepareStatement(sql);
+//			rs = pstmt.executeQuery();
+//
+//			if (rs.next()) {
+//
+//				restsearchList = new ArrayList<RestVO>();
+//				RestVO restVO = null;
+//
+//				do {
+//
+//					restVO = new RestVO();
+//
+//					restVO.setRes_Addr1(rs.getString("res_Addr1"));
+//					restVO.setRes_Addr2(rs.getString("res_Addr2"));
+//					restVO.setRes_category(rs.getString("res_category"));
+//					restVO.setRes_hours(rs.getString("res_hours"));
+//					restVO.setRes_id(rs.getInt("res_id"));
+//					restVO.setRes_mainmenu(rs.getString("res_mainmenu"));
+//					restVO.setRes_name(rs.getString("res_name"));
+//					restVO.setRes_number(rs.getString("res_number"));
+//					restVO.setRes_pic(rs.getString("res_pic"));
+//
+//					restVO.setRes_re_step(rs.getInt("res_re_step"));
+//					restVO.setRes_readcount(rs.getInt("res_readcount"));
+//					restVO.setRes_score(rs.getInt("res_score"));
+//					restVO.setRes_ref(rs.getInt("res_ref"));
+//					restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
+//					restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
+//
+//					restsearchList.add(restVO);
+//
+//				} while (rs.next());
+//			}
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-
-				restsearchList = new ArrayList<RestVO>();
-				RestVO restVO = null;
-
-				do {
-
-					restVO = new RestVO();
-
-					restVO.setRes_Addr1(rs.getString("res_Addr1"));
-					restVO.setRes_Addr2(rs.getString("res_Addr2"));
-					restVO.setRes_category(rs.getString("res_category"));
-					restVO.setRes_hours(rs.getString("res_hours"));
-					restVO.setRes_id(rs.getInt("res_id"));
-					restVO.setRes_mainmenu(rs.getString("res_mainmenu"));
-					restVO.setRes_name(rs.getString("res_name"));
-					restVO.setRes_number(rs.getString("res_number"));
-					restVO.setRes_pic(rs.getString("res_pic"));
-
-					restVO.setRes_re_step(rs.getInt("res_re_step"));
-					restVO.setRes_readcount(rs.getInt("res_readcount"));
-					restVO.setRes_score(rs.getInt("res_score"));
-					restVO.setRes_ref(rs.getInt("res_ref"));
-					restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
-					restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
-
-					restsearchList.add(restVO);
-
-				} while (rs.next());
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		finally {
-
-			close(rs);
-			close(pstmt);
-		}
-
-		return restsearchList;
-	}
+//		finally {
+//
+///			close(rs);
+///			close(pstmt);
+	//	}
+//
+//		return restsearchList;
+//	}
 
 	public ArrayList<RestVO> selectResWordtList(String searchword) {
 		PreparedStatement pstmt = null;
@@ -390,8 +391,8 @@ public class RestDAO {
 		
 
 		try {
-			/*			String sql = "select * from RESTAURANT where res_name like'%" +searchword+"%'";
-			*/			
+			//sql = "select * from RESTAURANT where res_name like'%" +searchword+"%'";
+					
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+searchword+"%");
 			pstmt.setString(2, "%"+searchword+"%");
@@ -439,7 +440,89 @@ public class RestDAO {
 
 		return restsearchwordList;
 	}
+
+	public int selectRestCount() throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int restCount = 0;
+		try {
+		   pstmt = con.prepareStatement("SELECT COUNT(*) FROM restaurant");
+		   rs = pstmt.executeQuery();
+		      
+		    if(rs.next()) {
+		    	restCount = rs.getInt(1);
+		     }
+		 } catch (Exception e) {
+		      // TODO: handle exception
+		      e.printStackTrace();
+		 }
+		 return restCount;
+		 }
+
+	
+	public List<RestVO> selectRestCountList(int rest_startRow, int rest_pageSize) throws Exception {
+		 PreparedStatement pstmt = null;
+		 ResultSet rs = null;
+		 List<RestVO> restListt = null;
+		 String sql = "";
 		
+		   try {
+		      
+		      pstmt = con.prepareStatement(""
+		            + "SELECT list2.* FROM (SELECT ROWNUM r, list1.* "
+		            + " FROM (SELECT * FROM restaurant ORDER BY res_readCount DESC, res_Addr1 ASC) list1)"
+		            + " list2 WHERE r BETWEEN ? AND ?");
+		      pstmt.setInt(1, rest_startRow);
+		      pstmt.setInt(2, rest_startRow + rest_pageSize -1);
+		      rs = pstmt.executeQuery();
+		      
+		      if(rs.next()) {
+		    	  restListt = new ArrayList<RestVO>();
+		    	
+		         do {
+		        	 
+		
+		        	RestVO restVO = new RestVO();
+		        	restVO.setRes_Addr1(rs.getString("res_Addr1"));
+					restVO.setRes_Addr2(rs.getString("res_Addr2"));
+					restVO.setRes_category(rs.getString("res_category"));
+					restVO.setRes_hours(rs.getString("res_hours"));
+					restVO.setRes_id(rs.getInt("res_id"));
+					restVO.setRes_mainmenu(rs.getString("res_mainmenu"));
+					restVO.setRes_name(rs.getString("res_name"));
+					restVO.setRes_number(rs.getString("res_number"));
+					restVO.setRes_pic(rs.getString("res_pic"));
+
+					restVO.setRes_re_step(rs.getInt("res_re_step"));
+					restVO.setRes_readcount(rs.getInt("res_readcount"));
+					restVO.setRes_score(rs.getInt("res_score"));
+					restVO.setRes_ref(rs.getInt("res_ref"));
+					restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
+					restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
+					
+					restListt.add(restVO);
+		         } while (rs.next());
+		      }
+		   } catch (Exception e) {
+		      // TODO: handle exception
+		      e.printStackTrace();
+		   }
+		   finally {
+		        close(rs);
+		        close(pstmt);
+		     }
+
+		   return restListt;
+		
+	}
+	
 }
+	
+	
+	
+	
+	
+	
+
 
 
