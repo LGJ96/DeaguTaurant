@@ -36,6 +36,8 @@ import servicecenter.action.Notice_updateFormAction;
 import servicecenter.action.Notice_updateProAction;
 import servicecenter.action.Notice_writeFormAction;
 import servicecenter.action.Notice_writeProAction;
+import servicecenter.action.Oto_deleteFormAction;
+import servicecenter.action.Oto_deleteProAction;
 import servicecenter.action.Oto_writeFormAction;
 import servicecenter.action.Oto_writeProAction;
 import servicecenter.action.ServiceCenterFaqList;
@@ -418,7 +420,26 @@ public class DaeguTaurantFrontController extends HttpServlet {
 						e.printStackTrace();
 					}
 				}
-			
+				else if(command.equals("/oto_deleteForm.dae")) {
+					action = new Oto_deleteFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/oto_deletePro.dae")) {
+					action = new Oto_deleteProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 		
 		
 		

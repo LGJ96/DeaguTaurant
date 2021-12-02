@@ -19,10 +19,19 @@
                      
                             <ul class="navbar-nav">
                             
-                            	<li><input type="text" placeholder="검색창" class="btn" id = "btn-search"/> </li>
-                    			<li><button type="button" class="btn"> 검   색</button></li>
-                    			
-                                <li><a href="../login/login.jsp" class="btn btn-outline-light top-btn" id ="login-text"><span class="ti-plus"></span> 로그인</a></li>
+                    		<c:choose>
+                    		
+                    			<c:when test="${loginUser.user_id != null }">
+                    				<li><a href = "./logout.dae" class="logout-text top-btn"  >로그아웃</a></li>
+                    				<li><a href = "./mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text">${loginUser.user_nickname }</a></li>
+                    			</c:when>	
+                    				
+                    			<c:when test="${loginUser.user_id == null }">
+                                	<li><a href="./login/login.jsp" class="btn btn-outline-light top-btn" id ="login-text">
+                                	<span class="ti-plus"></span> 로그인</a></li>
+                                </c:when>
+                                
+                           	</c:choose>
                             </ul>
                         </div>
                     </nav>

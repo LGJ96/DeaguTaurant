@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="vo.UserVO"%>
 <%@page import="servicecenter.vo.OtoVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -37,6 +38,7 @@
 <%
    SimpleDateFormat sdf = 
    new SimpleDateFormat("yyyy-MM-dd HH:mm");
+   List<OtoVO> otoArticleList = (List<OtoVO>)request.getAttribute("otoArticleList");
    OtoVO otoArticle = (OtoVO)request.getAttribute("otoArticle");
    String oto_pageNum = (String)request.getAttribute("oto_pageNum");
    
@@ -76,7 +78,10 @@
    <div class="container" >
     <div class="col-lg-12" align="right">
 	
-	 <a href="../comm/comm.html"><button class="btn btn-warning1" > 삭제</button></a>
+	 <!-- <a href="../comm/comm.html"><button class="btn btn-warning1" > 삭제</button></a> -->
+	 <a href="#" type="button"  style="color:black" 
+	 onclick="window.open('oto_deleteForm.dae?cus_oto_number=<%=otoArticle.getCus_oto_number()%>&pageNum=<%=oto_pageNum%>','','width=330,height=100,location=no,status=no,scrollbars=yes');">
+	 <button class="btn btn-warning1" >삭제</button></a>
 	</div>
 	 <div class="col-lg-12">
 		<form method="post" action="writeAction.jsp">

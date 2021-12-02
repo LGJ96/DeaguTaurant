@@ -199,4 +199,37 @@ private Connection con;
         
         return otoArticle;
 	}
+
+	public int deleteArticle(int cus_oto_number) {
+		// TODO Auto-generated method stub
+		int deleteCount = 0;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    String sql = "";
+
+	    try {
+	       pstmt = con.prepareStatement("SELECT * FROM OTO WHERE cus_oto_number = ?");
+	       pstmt.setInt(1, cus_oto_number);
+	       rs = pstmt.executeQuery();
+	          
+	       if(rs.next()) {
+	    		   sql = "DELETE FROM OTO"
+	    		   		+ " WHERE cus_oto_number = ?";
+	    		   pstmt = con.prepareStatement(sql);
+	    	       pstmt.setInt(1, cus_oto_number);
+	    	       deleteCount = pstmt.executeUpdate();
+	    	       
+	    	   
+	       	}
+	    }
+	    	catch (Exception e) {
+	    		// TODO: handle exception
+	    		e.printStackTrace();
+	    	}
+	    	finally {
+	    	close(rs);
+	    	close(pstmt);
+	    }
+			return deleteCount;
+	}
 }

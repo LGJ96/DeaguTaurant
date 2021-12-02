@@ -101,6 +101,9 @@ int oto_pageCount = otoPageVO.getOto_pageCount();
 		    </c:if>
 		</div>
         
+        
+        <c:if test="${loginUser.user_id != null }">
+        <c:if test="${loginUser.user_level == 9}">
           <div class="card" id="title-content">
                 
                 <div class="card-body">
@@ -188,6 +191,28 @@ int oto_pageCount = otoPageVO.getOto_pageCount();
 </div>
 </div>
 </div>
+</c:if>
+</c:if>
+
+<c:if test="${loginUser.user_id != null }">
+<c:if test="${loginUser.user_level != 9}">
+<div class="card" id="title-content">
+<div class="card-body">
+<div class="table-responsive">
+<table class="table">
+<table width="700" border="1" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center">
+문의 등록이 완료되었습니다.<br>
+<a href ="serviceCenterList.dae">고객센터 돌아가기</a>
+</td>
+</table>
+</table>
+</div>
+</div>
+</div>
+</c:if>
+</c:if>
  <!--============================= 1:1문의 =============================-->
 <c:choose> 
 
