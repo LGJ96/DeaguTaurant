@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -58,6 +59,7 @@
         </div>
   </div>
  <!--============================= 지역/테마 선택 =============================-->
+  
     <div class=" dark-bg" style = "margin-bottom: 100px;">
         <div class="col-lg-12">
             <div class="row">
@@ -129,7 +131,7 @@
       <div class="container">
    		<div class="row"  >
    		
-   		 <c:if test="${searchword==null}">
+   		 <c:if test="${searchword==null }" >
    		 <c:forEach begin="0" var="rest" items="${restList}" varStatus="status">
    		<table id=search-menu>
          <tr>
@@ -172,7 +174,7 @@
    	</div>
   </div>
 </div>
-
+</form>
 
   <!--============================= FOOTER =============================-->
     <%@include file ="/common/footer.jsp" %>

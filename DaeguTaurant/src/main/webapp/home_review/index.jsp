@@ -71,10 +71,10 @@
                                 
                                 <div class="slider-link">
                                 
-                                    <a href="./home_review/search.jsp" id="regtheme">지역/테마</a>
+                                    <a href="${pageContext.request.contextPath }/home_review/search.jsp" id="regtheme">지역/테마</a>
                                     
                                     <c:if test="${loginUser.user_id != null }">
-                                    <a href="./comm/comm.jsp">커뮤니티</a>
+                                    <a href="${pageContext.request.contextPath }/comm/comm.jsp">커뮤니티</a>
                                     
                                    	</c:if>
                                     <c:if test="${loginUser.user_id == null }">
@@ -94,13 +94,13 @@
 
 <!--============================= FEATURED PLACES =============================-->
                 
-<%-- <c:if test="${loginUser.user_id != null }">
- 	<c:if test="${loginUser.user_level == 9}">--%>
+<c:if test="${loginUser.user_id != null }">
+ 	<c:if test="${loginUser.user_level == 9}">
 		<div class = "container" align="right" style = "margin-top: 20px;">
 		<a href="home_review/restaurant_register.jsp" > 식당 등록</a>
 		</div>
-<%--	</c:if> 
-</c:if> --%>
+</c:if> 
+</c:if> 
 	
     <section class="main-block1 light-bg">
    	 <form action="${pageContext.request.contextPath }/restIndex.dae" method="POST" name="myForm"> 
@@ -118,15 +118,15 @@
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                    
-                         <a href = "./rest_content.dae?res_id=${rest.res_id}" >
-                  			<img src ="./images/res_pic/${rest.res_pic }.jpg" class = "index" />
+                         <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
+                  			<img src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic }.jpg" class = "index" />
               
                             <span class="featured-rating-orange">${rest.res_score }</span>
                             <div class="featured-title-box">
                                 <h6>${rest.res_name }</h6>
                                 <p>${rest.res_category }</p> <span>• </span>
                                 <p>조회수 : ${rest.res_readcount }</p> <span> • </span>
-                                <p><span>$$$</span>$$</p>
+                              <!--   <p><span>$$$</span>$$</p> -->
                                 <ul>
                                     <li><span class="icon-location-pin"></span>
                                         <p>${rest.res_Addr2 }</p>

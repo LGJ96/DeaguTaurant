@@ -26,10 +26,10 @@
 							if(user_id != null) {
 									
 						%> 
-						<li><a href = "../logout.dae" class="logout-text top-btn"  >로그아웃</a></li>
+						<li><a href = "${pageContext.request.contextPath }/logout.dae" class="logout-text top-btn"  >로그아웃</a></li>
 											
 											
- 						<li><a href = "./mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text"><%=loginUser.getUser_nickname()%></a></li>
+ 						<li><a href = "${pageContext.request.contextPath }/mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text"><%=loginUser.getUser_nickname()%></a></li>
  								
 												
 						<%

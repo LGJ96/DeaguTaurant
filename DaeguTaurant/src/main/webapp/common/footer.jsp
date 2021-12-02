@@ -15,7 +15,7 @@
                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                       <div class="copyright mb-30">
                          <!-- logo -->
-                           <a href="../home_review/index.jsp"><img src="../images/logo.png" alt="logo"></a>
+                           <a href="${pageContext.request.contextPath }/home_review/index.jsp"><img src="${pageContext.request.contextPath }/images/logo.png" alt="logo"></a>
                       
                          <div class="footer-pera">
                               <p><script>document.write(new Date().getFullYear());</script> 대구토랑 | 2021-12-16 </p>

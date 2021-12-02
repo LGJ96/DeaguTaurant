@@ -15,6 +15,7 @@ public class RestSearchListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		   	String searchword = request.getParameter("searchword");
 		   
 		   	RestSearchListService restListSearchService = new RestSearchListService();
