@@ -45,15 +45,12 @@
    <div class="row d-flex justify-content-center"  style = "margin-bottom: 50px;">
      	
         <div class="col-md-8" align="right">
-            <form class="form-wrap mt-4">
+           <form class="form-wrap mt-4" action="#" method="POST" name = "searchform1">
                 <div class="btn-group" role="group" aria-label="Basic example">
                
-                    <input type="text" placeholder="${searchword}" class="btn-group"/>
-                    <button type="button" class="btn-form2" onclick="location.href='../home_review/search.jsp'; ">검색</button>
-                    
-   
-           
-                  	
+                    <input type="text" placeholder="검색" class="btn-group" name ="searchword" id="searchword"/>
+                    <button type="button" class="btn-form2" onclick="search1()">검색</button>
+      	
                </div>
            </form>
         </div>
@@ -69,28 +66,28 @@
               		</div>
                 
                 <div class = "col-ld-12" style = "margin-top: 26px;">
-                  	<input type="checkbox" id="cb1" name ="cb1">
+                  	<input type="checkbox" id="nam" name ="nam">
    					<label for="cb1"  id = "t1"  style = "margin-right: 10px;" >남구</label>
    					
-                    <input type="checkbox" id="cb2" name ="cb1">
+                    <input type="checkbox" id="dalseo" name ="dalseo">
    					<label for="cb2"  id = "t1" style = "margin-right: 10px;">달서구</label>
    					
-   					<input type="checkbox" id="cb3" name ="cb1">
+   					<input type="checkbox" id="dalseong" name ="dalseong">
    					<label for="cb3"  id = "t1" style = "margin-right: 10px;">달성군</label>
    					
-   					<input type="checkbox" id="cb4" name ="cb1">
+   					<input type="checkbox" id="dong" name ="dong">
    					<label for="cb4"  id = "t1" style = "margin-right: 10px;">동구</label>
    					
-   					<input type="checkbox" id="cb5" name ="cb1">
+   					<input type="checkbox" id="buk" name ="buk">
    					<label for="cb5"  id = "t1"style = "margin-right: 10px;" >북구</label>
    					
-   					<input type="checkbox" id="cb6" name ="cb1">
+   					<input type="checkbox" id="seo" name ="seo">
    					<label for="cb6"  id = "t1" style = "margin-right: 10px;">서구</label>
    					
-   					<input type="checkbox" id="cb7" name ="cb1">
+   					<input type="checkbox" id="suseong" name ="suseong">
    					<label for="cb7"  id = "t1"style = "margin-right: 10px;" >수성구</label>
    					
-   					<input type="checkbox" id="cb8" name ="cb1">
+   					<input type="checkbox" id="jung" name ="jung">
    					<label for="cb8"  id = "t1" style = "margin-right: 10px;">중구</label>
                        
                  </div>
@@ -209,6 +206,14 @@
                 prevEl: '.swiper-button-prev',
             },
         });
+    </script>
+    <script>
+    
+    function search1(){
+    	document.searchform1.target = "_self";
+    	document.searchform1.action="rest_Searchlist.dae";
+    	document.searchform1.submit();
+    }
     </script>
 
 </body>

@@ -15,7 +15,7 @@ public class RestSearchListService {
 		 RestDAO restDAO = RestDAO.getInstance();
 		 restDAO.setConnection(con);
 		
-	     ArrayList<RestVO> restsearchList = restDAO.selectRestList();
+	     ArrayList<RestVO> restsearchList = restDAO.selectRestSearchList();
 	    
 		
 		return restsearchList;
