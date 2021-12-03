@@ -326,60 +326,6 @@ public class RestDAO {
 		return updateCount;
 	}
 
-//	public ArrayList<RestVO> selectRestSearchList() {
-
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		ArrayList<RestVO> restsearchList = null;
-//		String sql = "select * from RESTAURANT";
-//
-//		try {
-//			pstmt = con.prepareStatement(sql);
-//			rs = pstmt.executeQuery();
-//
-//			if (rs.next()) {
-//
-//				restsearchList = new ArrayList<RestVO>();
-//				RestVO restVO = null;
-//
-//				do {
-//
-//					restVO = new RestVO();
-//
-//					restVO.setRes_Addr1(rs.getString("res_Addr1"));
-//					restVO.setRes_Addr2(rs.getString("res_Addr2"));
-//					restVO.setRes_category(rs.getString("res_category"));
-//					restVO.setRes_hours(rs.getString("res_hours"));
-//					restVO.setRes_id(rs.getInt("res_id"));
-//					restVO.setRes_mainmenu(rs.getString("res_mainmenu"));
-//					restVO.setRes_name(rs.getString("res_name"));
-//					restVO.setRes_number(rs.getString("res_number"));
-//					restVO.setRes_pic(rs.getString("res_pic"));
-//
-//					restVO.setRes_re_step(rs.getInt("res_re_step"));
-//					restVO.setRes_readcount(rs.getInt("res_readcount"));
-//					restVO.setRes_score(rs.getInt("res_score"));
-//					restVO.setRes_ref(rs.getInt("res_ref"));
-//					restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
-//					restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
-//
-//					restsearchList.add(restVO);
-//
-//				} while (rs.next());
-//			}
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-
-//		finally {
-//
-///			close(rs);
-///			close(pstmt);
-	//	}
-//
-//		return restsearchList;
-//	}
 
 	public ArrayList<RestVO> selectResWordtList(String searchword) {
 		PreparedStatement pstmt = null;
@@ -387,16 +333,16 @@ public class RestDAO {
 		ArrayList<RestVO> restsearchwordList = null;
 
 		
-		String sql = "select * from RESTAURANT where res_name like ? OR res_category like ? OR res_Addr1 like ?";
+		String sql = "select * from RESTAURANT where res_name like ? OR res_category like ? OR res_Addr1 like ? OR res_mainmenu like ?";
 		
 
 		try {
-			//sql = "select * from RESTAURANT where res_name like'%" +searchword+"%'";
-					
+			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+searchword+"%");
 			pstmt.setString(2, "%"+searchword+"%");
 			pstmt.setString(3, "%"+searchword+"%");
+			pstmt.setString(4, "%"+searchword+"%");
 
 			rs = pstmt.executeQuery();
 

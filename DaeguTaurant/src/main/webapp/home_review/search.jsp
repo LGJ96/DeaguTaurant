@@ -52,7 +52,7 @@ int rest_endPage = restpageVO.getRest_endPage();
 </head>
 <body>
     <!--============================= HEADER =============================-->
-   <%@include file ="/common/header.jsp" %>
+   <%@include file ="/common/header-content.jsp" %>
     <!--//END HEADER -->
    
 
@@ -143,7 +143,7 @@ int rest_endPage = restpageVO.getRest_endPage();
     <div class="col-md-12">
       <div class="container">
    		<div class="row"  >
-   		
+   	
    		 <c:if test="${searchword==null }">
    		
    		<c:forEach begin="0" end = "8" var="rest" items="${restListt}" varStatus="status">
@@ -184,7 +184,6 @@ int rest_endPage = restpageVO.getRest_endPage();
       	</table> 
       	</c:forEach>
    		</c:if>
-    
    	</div>
    	
 	 <div class="col-md-12">
