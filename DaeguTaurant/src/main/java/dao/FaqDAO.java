@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import servicecenter.vo.FaqVO;
+import vo.RestVO;
 
 public class FaqDAO {
 	
@@ -231,6 +232,57 @@ public class FaqDAO {
 	    	close(pstmt);
 	    }
 			return deleteCount;
+	}
+
+	public ArrayList<FaqVO> selectFaqList(String searchword1) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<FaqVO> faqsearch = null;
+
+		
+		String sql = "select * from faq where cus_faq_title like ? OR cus_faq_content like ?";
+		
+
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchword1+"%");
+			pstmt.setString(2, "%"+searchword1+"%");
+			
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				faqsearch = new ArrayList<FaqVO>();
+				FaqVO faqArticle = null;
+
+				do {
+					
+					 faqArticle = new FaqVO();
+					 
+		        	 faqArticle.setCus_faq_number(rs.getInt("cus_faq_number"));
+		        	 faqArticle.setCus_faq_title(rs.getString("cus_faq_title"));
+		        	 faqArticle.setCus_faq_date(rs.getTimestamp("cus_faq_date"));
+		        	 faqArticle.setCus_faq_content(rs.getString("cus_faq_content"));
+		        	 
+					faqsearch.add(faqArticle);
+				} while (rs.next());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+
+			close(rs);
+			close(pstmt);
+		}
+
+		return faqsearch;
+	
 	}
 
 	   

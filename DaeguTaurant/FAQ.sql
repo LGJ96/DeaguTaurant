@@ -17,3 +17,7 @@ CREATE TABLE faq(
 CREATE SEQUENCE faq_seq;
 /* sequence : 숫자 1씩 자동증가 기능
  * 			게시글 번호를 순차적으로 할당*/
+
+SELECT * FROM faq;
+
+

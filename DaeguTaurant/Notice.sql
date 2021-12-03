@@ -16,3 +16,10 @@ create table notice(
 CREATE SEQUENCE notice_seq;
 /* sequence : 숫자 1씩 자동증가 기능
  * 			게시글 번호를 순차적으로 할당*/
+
+
+select * from notice;
+
+DROP SEQUENCE notice_seq;
+
+DROP TABLE notice;

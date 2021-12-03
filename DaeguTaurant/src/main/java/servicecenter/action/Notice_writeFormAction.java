@@ -13,6 +13,7 @@ public class Notice_writeFormAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		int cus_notice_number = 0;
+		
 		if(request.getParameter("cus_notice_number") !=null) {
 			cus_notice_number = Integer.parseInt(request.getParameter("cus_notice_number"));
 			

@@ -5,7 +5,7 @@
 <%@ page import = "java.util.List" %>
 <%@ page import = "java.text.SimpleDateFormat" %>
 
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <head>
     <!-- Required meta tags -->
@@ -29,6 +29,10 @@
   	<form method="post" name="notice-delete" action="notice_deletePro.dae" onsubmit="return writeSave()">
 	<input type="hidden" name="cus_notice_number" value="<%=cus_notice_number%>">
 	<input type="hidden" name="pageNum" value="<%=pageNum%>">
+	
+	<input type="hidden" name="cus_notice_number" value="${notice.cus_notice_number }">
+	<input type="hidden" name="sea_pageNum" value="${searchPageVO.sea_pageNum }"/>
+	
    <table width="250" border = "1" cellspacing="0" cellpadding="0"
    align="center">
     <tr>

@@ -2,7 +2,7 @@
 <%@page import="servicecenter.vo.NoticeReplyVO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <head>
     <!-- Required meta tags -->
@@ -73,7 +73,10 @@
 	 <div class="col-lg-12">
 	 	<form method="post" name="notice-write" action="notice_updatePro.dae" onsubmit="return writeSave()">
 		<input type="hidden" name="cus_notice_number" value="<%=article.getCus_notice_number()%>">
-		<input type="hidden" name="pageNum" value="<%=pageNum%>">
+		<input type="hidden" name="pageNum" value="<%=pageNum%>"/>
+		
+		<input type="hidden" name="cus_notice_number" value="${notice.cus_notice_number }">
+		<input type="hidden" name="sea_pageNum" value="${searchPageVO.sea_pageNum }"/>
 		
 	 
 		
@@ -92,7 +95,7 @@
 				<tbody>
 						<tr>
 							<td>
-							<textarea class="form-control" placeholder="글 내용" name="cus_notice_content" maxlength="2048" style="height: 350px;"><%=article.getCus_notice_content()%></textarea>
+					<textarea class="form-control" placeholder="글 내용" name="cus_notice_content" maxlength="2048" style="height: 350px;"><%=article.getCus_notice_content()%></textarea>
 							</td>
 						</tr>
 					</tbody>

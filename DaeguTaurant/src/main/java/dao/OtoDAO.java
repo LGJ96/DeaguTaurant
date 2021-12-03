@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import servicecenter.vo.FaqVO;
 import servicecenter.vo.OtoVO;
 
 public class OtoDAO {
@@ -231,5 +232,58 @@ private Connection con;
 	    	close(pstmt);
 	    }
 			return deleteCount;
+	}
+
+	public ArrayList<OtoVO> selectOtoList(String searchword1) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<OtoVO> otosearchword = null;
+
+		
+		String sql = "select * from oto where cus_oto_title like ? OR cus_oto_content like ?";
+		
+
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchword1+"%");
+			pstmt.setString(2, "%"+searchword1+"%");
+			
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				otosearchword = new ArrayList<OtoVO>();
+				OtoVO otoArticle = null;
+
+				do {
+					
+					 otoArticle = new OtoVO();
+		        	 otoArticle.setCus_oto_number(rs.getInt("cus_oto_number"));
+		        	 otoArticle.setCus_oto_title(rs.getString("cus_oto_title"));
+		        	 otoArticle.setUser_nickname(rs.getString("User_nickname"));
+		        	 otoArticle.setCus_oto_date(rs.getTimestamp("cus_oto_date"));
+		        	 otoArticle.setCus_oto_content(rs.getString("cus_oto_content"));
+		        	 otoArticle.setCus_ref(rs.getInt("cus_ref"));
+		        	 otoArticle.setCus_re_step(rs.getInt("cus_re_step"));
+		        	 otoArticle.setCus_re_level(rs.getInt("cus_re_level"));
+		        	 
+		        	 otosearchword.add(otoArticle);
+				} while (rs.next());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+
+			close(rs);
+			close(pstmt);
+		}
+
+		return otosearchword;
 	}
 }

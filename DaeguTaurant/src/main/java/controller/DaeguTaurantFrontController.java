@@ -45,6 +45,8 @@ import servicecenter.action.ServiceCenterFaqList;
 import servicecenter.action.ServiceCenterList;
 import servicecenter.action.ServiceCenterOtoContentAction;
 import servicecenter.action.ServiceCenterOtoList;
+import servicecenter.action.ServiceSearchAction;
+
 import vo.ActionForward;
 
 /**
@@ -393,6 +395,7 @@ public class DaeguTaurantFrontController extends HttpServlet {
 						e.printStackTrace();
 					}
 				}
+			
 				//======================== 1:1 문의 ==============================
 				else if(command.equals("/oto_writeForm.dae")) {
 					action = new Oto_writeFormAction();
@@ -454,6 +457,21 @@ public class DaeguTaurantFrontController extends HttpServlet {
 						e.printStackTrace();
 					}
 				}
+			
+			//======================== 고객센터 검색 ==============================
+				else if(command.equals("/service_Search.dae")) {
+					action = new ServiceSearchAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			
+				
+			
 		
 		
 		

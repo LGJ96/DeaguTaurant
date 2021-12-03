@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import servicecenter.vo.NoticeVO;
+import servicecenter.vo.OtoVO;
 
 
 public class NoticeDAO {
@@ -236,5 +237,142 @@ public class NoticeDAO {
 	    }
 			return deleteCount;
 	}
+	
 
+	public ArrayList<NoticeVO> selectNoticeList(String searchword1) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<NoticeVO> noticesearchword = null;
+
+		
+		String sql = "select * from notice where cus_notice_title like ? OR cus_notice_content like ?";
+		
+
+		try {
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchword1+"%");
+			pstmt.setString(2, "%"+searchword1+"%");
+			
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				noticesearchword = new ArrayList<NoticeVO>();
+				NoticeVO article = null;
+
+				do {
+					
+					article = new NoticeVO();
+		            article.setCus_notice_number(rs.getInt("cus_notice_number"));
+		            article.setCus_notice_title(rs.getString("cus_notice_title"));
+		            article.setCus_notice_date(rs.getTimestamp("cus_notice_date"));
+		            article.setCus_notice_content(rs.getString("cus_notice_content"));
+		         
+		            noticesearchword.add(article);
+				} while (rs.next());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		finally {
+
+			close(rs);
+			close(pstmt);
+		}
+
+		return noticesearchword;
+	
+	}
+
+	public int selectSearchCount() {
+		PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    int SearchCount =0;
+	    
+	      try {
+	         pstmt = con.prepareStatement("SELECT COUNT(*) FROM Notice");
+	         rs = pstmt.executeQuery();
+	         
+	         if(rs.next()) {
+	        	 SearchCount = rs.getInt(1);
+	         }
+	         
+	      } catch (Exception e) {
+	         // TODO: handle exception
+	         e.printStackTrace();
+	      }
+	      return SearchCount;
+	   
+	}
+
+	public List<NoticeVO> selectSearchList(int sea_startRow, int sea_pageSize) {
+		PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    List<NoticeVO> articleListt = null;
+	    
+	      try {
+	      
+	         pstmt = con.prepareStatement(""
+	               + "SELECT list2.* FROM (SELECT ROWNUM r, list1.* "
+	               + " FROM (SELECT * FROM Notice ORDER BY cus_notice_number DESC, cus_notice_date ASC) list1)"
+	               + " list2 WHERE r BETWEEN ? AND ?");
+	         pstmt.setInt(1, sea_startRow);
+	         pstmt.setInt(2, sea_startRow+sea_pageSize-1);
+	         rs = pstmt.executeQuery();
+	         
+	         if(rs.next()) {
+	            articleListt = new ArrayList<NoticeVO>();
+	            do {
+	            	NoticeVO  noticeVO = new NoticeVO();
+	            	noticeVO.setCus_notice_number(rs.getInt("cus_notice_number"));
+	            	noticeVO.setCus_notice_title(rs.getString("cus_notice_title"));
+	            	noticeVO.setCus_notice_date(rs.getTimestamp("cus_notice_date"));
+	            	noticeVO.setCus_notice_content(rs.getString("cus_notice_content"));
+	               articleListt.add(noticeVO);
+	            } while (rs.next());
+	         }
+	         
+	      } catch (Exception e) {
+	         // TODO: handle exception
+	         e.printStackTrace();
+	      }
+	      finally {
+	         close(rs);
+	         close(pstmt);
+	      }
+	      return articleListt;
+	}
+
+	public NoticeVO selectSearchUpdateNotice(int cus_notice_number) {
+		PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    NoticeVO notice = null;
+	      try {
+	         
+	         pstmt = con.prepareStatement(""
+	               + "SELECT * FROM Notice WHERE cus_notice_number = ?");
+	         pstmt.setInt(1, cus_notice_number);
+	         rs = pstmt.executeQuery();
+	         if(rs.next()) {
+	        	 notice = new NoticeVO();
+	        	 notice.setCus_notice_number(rs.getInt("cus_notice_number"));
+	        	 notice.setCus_notice_title(rs.getString("cus_notice_title"));
+	        	 notice.setCus_notice_date(rs.getTimestamp("cus_notice_date"));
+	        	 notice.setCus_notice_content(rs.getString("cus_notice_content"));
+	         }
+	      } catch (Exception e) {
+	         // TODO: handle exception
+	         e.printStackTrace();
+	      }
+	      finally {
+	           close(rs);
+	           close(pstmt);
+	        }
+	      return notice;
+	}
 }
