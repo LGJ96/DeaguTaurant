@@ -18,8 +18,7 @@ public class RestSearchListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		   	String searchword = request.getParameter("searchword");
+
 		   	
 		   	RestSearchListService restListSearchService = new RestSearchListService();
 		   	
@@ -73,18 +72,9 @@ public class RestSearchListAction implements Action {
 			request.setAttribute("restpageVO", restpageVO);
 			
 			
-			
-		   
-		   ArrayList<RestVO> restsearchword = restListSearchService.getRestSearchWordList(searchword);
-		  	HttpSession session = request.getSession();
-		  	session.setAttribute("searchword", searchword);
-		
-		    session.setAttribute("restsearchword", restsearchword);
-		     
 		    ActionForward forward = new ActionForward();
 		      
 		    forward.setUrl("home_review/search.jsp");
-		    
 		    return forward;
 	}
 

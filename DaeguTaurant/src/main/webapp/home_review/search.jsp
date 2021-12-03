@@ -7,7 +7,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 
- <%
+ <%-- <%
 List<RestVO> restCountList = (List<RestVO>)request.getAttribute("restCountList");
 
 RestPageVO restpageVO = (RestPageVO)request.getAttribute("restpageVO");
@@ -18,7 +18,7 @@ int rest_pageCount = restpageVO.getRest_pageCount();
 int rest_startPage = restpageVO.getRest_startPage();
 int rest_endPage = restpageVO.getRest_endPage();
 
-%> 
+%>  --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -191,34 +191,24 @@ int rest_endPage = restpageVO.getRest_endPage();
       <div class="container"  id = "page">
    		<div class="row">
    		
-   		
-       <%
-			if (rest_count > 0 ) {
-						        
-			if (rest_startPage > 10) { %>
-			
-			<a href="rest_Searchlist.dae?rest_pageNum=<%= rest_startPage - 10 %>">[이전]</a>
-		<%      }
-			for (int i = rest_startPage ; i <= rest_endPage ; i++) {  %>
-		
-		<a href="rest_Searchlist.dae?rest_pageNum=<%= i %>" style = "text-align: center;">[<%= i %>]</a>
-		
-		<%
-			}
-			if (rest_endPage < rest_pageCount) { %>
-			  <a href="rest_Searchlist.dae?rest_pageNum=<%= rest_startPage + 10 %>" >[다음]</a>
-			 
-		<%
-			  }
-		 }
-	%> 
-	
-	
-	
-	
-	
-	
-	
+ 		<c:if test="${not empty restpageVO}">
+ 
+   		<c:if test="${restpageVO.rest_count > 0 }">
+
+       <c:if test="${restpageVO.rest_startPage > 10 }">
+        <a href="rest_Searchlist.dae?rest_pageNum=${restpageVO.rest_startPage - 10 }">[이전]</a>
+        </c:if>
+
+       <c:forEach begin = "${restpageVO.rest_startPage }" end ="${restpageVO.rest_endPage }" var = "i">
+        <a href="rest_Searchlist.dae?rest_pageNum=${i }">[${i }]</a>
+		</c:forEach>
+
+      	<c:if test="${restpageVO.rest_endPage < restpageVO.rest_pageCount  }">
+        <a href="rest_Searchlist.dae?rest_pageNum=${restpageVO.rest_startPage + 10 }">[다음]</a>
+        </c:if>
+
+	</c:if>
+	</c:if>
 	</div>
 	</div>
   </div>  
@@ -262,11 +252,12 @@ int rest_endPage = restpageVO.getRest_endPage();
             },
         });
     </script>
-     <script>
+    
+    <script>
     
     function search1(){
     	document.searchform1.target = "_self";
-    	document.searchform1.action="rest_Searchlist.dae";
+    	document.searchform1.action="rest_Search.dae";
     	document.searchform1.submit();
     }
     </script> 

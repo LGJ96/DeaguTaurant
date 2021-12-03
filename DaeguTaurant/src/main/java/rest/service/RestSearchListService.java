@@ -13,14 +13,6 @@ import vo.RestVO;
 
 public class RestSearchListService {
 
-	public ArrayList<RestVO> getRestSearchWordList(String searchword) {
-		 Connection con = getConnection();
-		 RestDAO restDAO = RestDAO.getInstance();
-		 restDAO.setConnection(con);
-	     ArrayList<RestVO> restsearchword = restDAO.selectResWordtList(searchword);
-	    
-		return restsearchword;
-	}
 
 	public int getRestCount() throws Exception {
 		Connection con = getConnection();

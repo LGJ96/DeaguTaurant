@@ -94,14 +94,14 @@
 
 <!--============================= FEATURED PLACES =============================-->
                 
-<%-- <c:if test="${loginUser.user_id != null }">
- 	<c:if test="${loginUser.user_level == 9}"> --%>
+ <c:if test="${loginUser.user_id != null }">
+ 	<c:if test="${loginUser.user_level == 9}"> 
 		<div class = "container" align="right" style = "margin-top: 20px;">
 		<a href="home_review/restaurant_register.jsp" > 식당 등록</a>
 		</div>
-<%-- </c:if> 
 </c:if> 
-	 --%>
+</c:if> 
+	 
     <section class="main-block1 light-bg">
    	 <form action="${pageContext.request.contextPath }/restIndex.dae" method="POST" name="myForm"> 
    	 	
@@ -264,9 +264,22 @@
         });
        
         function search(){
-        	document.searchform.target = "_self";
+        	var searchinputv = document.getElementById("searchword").value;
+        	/* document.searchform.target = "_self";
         	document.searchform.action="rest_Searchlist.dae";
-        	document.searchform.submit();
+        	document.searchform.submit(); */
+        	
+        	 if(searchinputv == ""){
+        		document.searchform.target = "_self";
+             	document.searchform.action="rest_Searchlist.dae";
+             	document.searchform.submit();
+        		
+        	}
+        	else{
+        		document.searchform.target = "_self";
+            	document.searchform.action="rest_Search.dae";
+            	document.searchform.submit();
+        	} 
         }
         
     </script>
