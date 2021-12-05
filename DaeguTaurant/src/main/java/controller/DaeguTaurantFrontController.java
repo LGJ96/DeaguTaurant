@@ -18,6 +18,9 @@ import login.action.UserLoginAction;
 import login.action.UserLogoutAction;
 import login.action.UserNicknameCheckAction;
 import login.action.UserPwSearchResultAction;
+import rest.action.Rest1EachCheckSearchAction;
+import rest.action.Rest2categoryCheckSearchAction;
+import rest.action.Rest3areaCheckSearchAction;
 import rest.action.RestContentAction;
 import rest.action.RestIndexAction;
 import rest.action.RestRegistAction;
@@ -250,6 +253,39 @@ public class DaeguTaurantFrontController extends HttpServlet {
 						 e.printStackTrace();
 					 }
 				 }
+			//2~3개지역
+			else if(command.equals("/rest_3areaCheckSearch.dae")) {
+						action = new Rest3areaCheckSearchAction();
+						
+						try {
+							forward = action.execute(request, response);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+			//각 지역 각 테마
+			else if(command.equals("/rest_1EachCheckSearch.dae")) {
+				action = new Rest1EachCheckSearchAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			//2개 테마
+			else if(command.equals("/rest_2categoryCheckSearch.dae")) {
+				action = new Rest2categoryCheckSearchAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 				
 			//======================== 공지사항 ==============================
 			

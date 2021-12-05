@@ -22,12 +22,11 @@ public class RestSearchAction implements Action {
 	  	
 	  	RestSearchService restSearchService = new RestSearchService();
 	  	
-	  	ArrayList<RestVO> restsearch = restSearchService.getRestSearch();
+	  	
 	  	ArrayList<RestVO> restsearchword = restSearchService.getRestSearchWordList(searchword);
 	  	
 		HttpSession session = request.getSession();
 		session.setAttribute("searchword", searchword);
-		session.setAttribute("restsearch", restsearch);
 		session.setAttribute("restsearchword", restsearchword);
 		  
 

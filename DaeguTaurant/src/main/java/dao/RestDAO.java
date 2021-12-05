@@ -327,7 +327,7 @@ public class RestDAO {
 	}
 
 
-	public ArrayList<RestVO> selectResWordtList(String searchword) {
+	public ArrayList<RestVO> selectRestWordList(String searchword) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<RestVO> restsearchwordList = null;
@@ -341,7 +341,7 @@ public class RestDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%"+searchword+"%");
 			pstmt.setString(2, "%"+searchword+"%");
-			pstmt.setString(3, "%"+searchword+"%");
+			pstmt.setString(3, searchword+"%");
 			pstmt.setString(4, "%"+searchword+"%");
 
 			rs = pstmt.executeQuery();
@@ -462,62 +462,259 @@ public class RestDAO {
 		
 	}
 
-	public ArrayList<RestVO> selectRestSearch() {
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		ArrayList<RestVO> restsearch = null;
-		
-		String sql = "select * from RESTAURANT";
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
 
-			if (rs.next()) {
+	// ======================================================테마/지역=================================================
 
-				restsearch = new ArrayList<RestVO>();
-				RestVO restVO = null;
+	// 각 식당 각 테마
+		public ArrayList<RestVO> selectRest1eachCheckSearch(String area, String category) {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<RestVO> rest1eachchecksearch = null;
+			String sql = "";
 
-				do {
+			try {
 
-					restVO = new RestVO();
-					
-		        	restVO.setRes_Addr1(rs.getString("res_Addr1"));
-					restVO.setRes_Addr2(rs.getString("res_Addr2"));
-					restVO.setRes_category(rs.getString("res_category"));
-					restVO.setRes_hours(rs.getString("res_hours"));
-					restVO.setRes_id(rs.getInt("res_id"));
-					restVO.setRes_mainmenu(rs.getString("res_mainmenu"));
-					restVO.setRes_name(rs.getString("res_name"));
-					restVO.setRes_number(rs.getString("res_number"));
-					restVO.setRes_pic(rs.getString("res_pic"));
+				if (category == null) {
+					sql = "select * from RESTAURANT where res_Addr1 like ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, area);
 
-					restVO.setRes_re_step(rs.getInt("res_re_step"));
-					restVO.setRes_readcount(rs.getInt("res_readcount"));
-					restVO.setRes_score(rs.getInt("res_score"));
-					restVO.setRes_ref(rs.getInt("res_ref"));
-					restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
-					restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
+				}
 
-					restsearch.add(restVO);
-					
-				} while (rs.next());
+				else if (area == null) {
+					sql = "select * from RESTAURANT where res_category like ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, category);
+
+				}
+
+				else {
+					sql = "select * from RESTAURANT where res_Addr1 like ? AND res_category like ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, area);
+					pstmt.setString(2, category);
+
+				}
+
+				rs = pstmt.executeQuery();
+
+				if (rs.next()) {
+
+					rest1eachchecksearch = new ArrayList<RestVO>();
+					RestVO restVO = null;
+
+					do {
+						restVO = new RestVO();
+
+						restVO.setRes_Addr1(rs.getString("res_Addr1"));
+						restVO.setRes_Addr2(rs.getString("res_Addr2"));
+						restVO.setRes_category(rs.getString("res_category"));
+						restVO.setRes_hours(rs.getString("res_hours"));
+						restVO.setRes_id(rs.getInt("res_id"));
+						restVO.setRes_mainmenu(rs.getString("res_mainmenu"));
+						restVO.setRes_name(rs.getString("res_name"));
+						restVO.setRes_number(rs.getString("res_number"));
+						restVO.setRes_pic(rs.getString("res_pic"));
+
+						restVO.setRes_re_step(rs.getInt("res_re_step"));
+						restVO.setRes_readcount(rs.getInt("res_readcount"));
+						restVO.setRes_score(rs.getInt("res_score"));
+						restVO.setRes_ref(rs.getInt("res_ref"));
+						restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
+						restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
+						rest1eachchecksearch.add(restVO);
+
+					} while (rs.next());
+
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			finally {
+
+				close(rs);
+				close(pstmt);
+			}
+
+			return rest1eachchecksearch;
 		}
 
-		finally {
+		public ArrayList<RestVO> selectRest3areaCheckSearch(String[] arealist, String[] categorylist) throws Exception {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<RestVO> rest3areachecksearch = null;
+			String sql = "";
 
-			close(rs);
-			close(pstmt);
+			try {
+				// 지역 3개
+				if (arealist.length == 3 && categorylist == null) {
+					sql = "select * from RESTAURANT where res_Addr1 like ? OR res_Addr1 like ? OR res_Addr1 like ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, arealist[0]);
+					pstmt.setString(2, arealist[1]);
+					pstmt.setString(3, arealist[2]);
+				}
+
+				// 지역 2개
+				else if (arealist.length == 2 && categorylist == null) {
+					sql = "select * from RESTAURANT where res_Addr1 like ? OR res_Addr1 like ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, arealist[0]);
+					pstmt.setString(2, arealist[1]);
+				}
+				
+				// 테마 1, 지역 2
+				else if ( arealist.length == 2 && categorylist.length == 1) {
+					sql = "select * from RESTAURANT where((res_Addr1 like ? OR res_Addr1 like ?)AND res_category like ?)";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, arealist[0]);
+					pstmt.setString(2,arealist[1]);
+					pstmt.setString(3, categorylist[0]);
+					
+
+				}
+				 
+
+				// 테마 2, 지역 2
+				else if (categorylist.length == 2 && arealist.length == 2) {
+					sql = "select * from RESTAURANT where (( res_category like ? OR res_category like ? )AND(res_Addr1 like ? OR res_Addr1 like ?))";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, categorylist[0]);
+					pstmt.setString(2, categorylist[1]);
+					pstmt.setString(3, arealist[0]);
+					pstmt.setString(4, arealist[1]);
+				}
+				
+				// 테마 2 , 지역1
+				else if (categorylist.length == 2 && arealist.length == 1) {
+					sql = "select * from RESTAURANT where ((res_category like ? OR res_category like ?) AND res_Addr1 like ?)";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, categorylist[0]);
+					pstmt.setString(2, categorylist[1]);
+					pstmt.setString(3, arealist[0]);
+
+				}
+				
+
+				rs = pstmt.executeQuery();
+
+				if (rs.next()) {
+
+					rest3areachecksearch = new ArrayList<RestVO>();
+					RestVO restVO = null;
+
+					do {
+
+						restVO = new RestVO();
+						restVO.setRes_Addr1(rs.getString("res_Addr1"));
+						restVO.setRes_Addr2(rs.getString("res_Addr2"));
+						restVO.setRes_category(rs.getString("res_category"));
+						restVO.setRes_hours(rs.getString("res_hours"));
+						restVO.setRes_id(rs.getInt("res_id"));
+						restVO.setRes_mainmenu(rs.getString("res_mainmenu"));
+						restVO.setRes_name(rs.getString("res_name"));
+						restVO.setRes_number(rs.getString("res_number"));
+						restVO.setRes_pic(rs.getString("res_pic"));
+
+						restVO.setRes_re_step(rs.getInt("res_re_step"));
+						restVO.setRes_readcount(rs.getInt("res_readcount"));
+						restVO.setRes_score(rs.getInt("res_score"));
+						restVO.setRes_ref(rs.getInt("res_ref"));
+						restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
+						restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
+
+						rest3areachecksearch.add(restVO);
+
+					} while (rs.next());
+
+				}
+
+			}
+
+			catch (Exception e) {
+				e.printStackTrace();
+
+			}
+
+			finally {
+
+				close(rs);
+				close(pstmt);
+
+			}
+
+			return rest3areachecksearch;
 		}
 
-		return restsearch;
-	}
+		public ArrayList<RestVO> selectRest2categoryCheckSearch(String[] categorylist, String[] arealist) {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<RestVO> rest2categorychecksearch = null;
+			String sql = "";
 
-	
+			try {
+				// 1.지역 3개
+				if (categorylist.length == 2 && arealist == null) {
+					sql = "select * from RESTAURANT where res_category like ? OR res_category like ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, categorylist[0]);
+					pstmt.setString(2, categorylist[1]);
+				}
+
+			
+
+				rs = pstmt.executeQuery();
+
+				if (rs.next()) {
+
+					rest2categorychecksearch = new ArrayList<RestVO>();
+					RestVO restVO = null;
+
+					do {
+
+						restVO = new RestVO();
+						restVO.setRes_Addr1(rs.getString("res_Addr1"));
+						restVO.setRes_Addr2(rs.getString("res_Addr2"));
+						restVO.setRes_category(rs.getString("res_category"));
+						restVO.setRes_hours(rs.getString("res_hours"));
+						restVO.setRes_id(rs.getInt("res_id"));
+						restVO.setRes_mainmenu(rs.getString("res_mainmenu"));
+						restVO.setRes_name(rs.getString("res_name"));
+						restVO.setRes_number(rs.getString("res_number"));
+						restVO.setRes_pic(rs.getString("res_pic"));
+
+						restVO.setRes_re_step(rs.getInt("res_re_step"));
+						restVO.setRes_readcount(rs.getInt("res_readcount"));
+						restVO.setRes_score(rs.getInt("res_score"));
+						restVO.setRes_ref(rs.getInt("res_ref"));
+						restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
+						restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
+
+						rest2categorychecksearch.add(restVO);
+
+					} while (rs.next());
+
+				}
+
+			}
+
+			catch (Exception e) {
+				e.printStackTrace();
+
+			}
+
+			finally {
+
+				close(rs);
+				close(pstmt);
+
+			}
+
+			return rest2categorychecksearch;
+		}
 }
 	
 	

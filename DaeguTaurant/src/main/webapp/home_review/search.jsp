@@ -72,7 +72,7 @@ int rest_endPage = restpageVO.getRest_endPage();
         </div>
   </div>
  <!--============================= 지역/테마 선택 =============================-->
-  
+  <form action="#" method="GET" name = "checksearch"> 
     <div class=" dark-bg" style = "margin-bottom: 100px;">
         <div class="col-lg-12">
             <div class="row">
@@ -81,29 +81,29 @@ int rest_endPage = restpageVO.getRest_endPage();
               			<h3>지역</h3>
               		</div>
                 
-                <div class = "col-ld-12" style = "margin-top: 26px;">
-                  	<input type="checkbox" id="nam" name ="nam">
+              <div class = "col-ld-12" style = "margin-top: 26px;">
+                  	<input type="checkbox" id="cb1" name ="area" value="남구" >
    					<label for="cb1"  id = "t1"  style = "margin-right: 10px;" >남구</label>
    					
-                    <input type="checkbox" id="dalseo" name ="dalseo">
+                    <input type="checkbox" id="cb2" name ="area" value="달서구" >
    					<label for="cb2"  id = "t1" style = "margin-right: 10px;">달서구</label>
    					
-   					<input type="checkbox" id="dalseong" name ="dalseong">
+   					<input type="checkbox" id="cb3" name ="area" value="달성군" >
    					<label for="cb3"  id = "t1" style = "margin-right: 10px;">달성군</label>
    					
-   					<input type="checkbox" id="dong" name ="dong">
+   					<input type="checkbox" id="cb4" name ="area" value="동구" >
    					<label for="cb4"  id = "t1" style = "margin-right: 10px;">동구</label>
    					
-   					<input type="checkbox" id="buk" name ="buk">
+   					<input type="checkbox" id="cb5" name ="area" value="북구" >
    					<label for="cb5"  id = "t1"style = "margin-right: 10px;" >북구</label>
    					
-   					<input type="checkbox" id="seo" name ="seo">
+   					<input type="checkbox" id="cb6" name ="area" value="서구" >
    					<label for="cb6"  id = "t1" style = "margin-right: 10px;">서구</label>
    					
-   					<input type="checkbox" id="suseong" name ="suseong">
+   					<input type="checkbox" id="cb7" name ="area" value="수성구" >
    					<label for="cb7"  id = "t1"style = "margin-right: 10px;" >수성구</label>
    					
-   					<input type="checkbox" id="jung" name ="jung">
+   					<input type="checkbox" id="cb8" name ="area" value="중구">
    					<label for="cb8"  id = "t1" style = "margin-right: 10px;">중구</label>
                        
                  </div>
@@ -115,35 +115,50 @@ int rest_endPage = restpageVO.getRest_endPage();
               		</div>
                 
                 <div class = "col-md-10" style = "margin-top: 20px;">
-                  	<input type="checkbox" id="cb9" name ="cb1">
+                  	<input type="checkbox" id="cb9" name ="category" value="양식" >
    					<label for="cb9"  id = "t1" >양식</label>
    					
-                    <input type="checkbox" id="cb10" name ="cb1">
+                    <input type="checkbox" id="cb10" name ="category" value="중식" >
    					<label for="cb10"  id = "t1" >중식</label>
    					
-   					<input type="checkbox" id="cb11" name ="cb1">
+   					<input type="checkbox" id="cb11" name ="category" value="한식" >
    					<label for="cb11"  id = "t1" >한식</label>
    					
-   					<input type="checkbox" id="cb12" name ="cb1">
+   					<input type="checkbox" id="cb12" name ="category" value="일식" >
    					<label for="cb12"  id = "t1" >일식</label>
    					
-   					<input type="checkbox" id="cb13" name ="cb1">
+   					<input type="checkbox" id="cb13" name ="category" value="디저트" >
    					<label for="cb13"  id = "t1" >디저트</label>
-                       
+                     <input type="button" value="확인" onclick="checka()"/>
                  </div>
                </div>                                
                 </div>
             </div>
         </div>
-
-    <!--//지역/테마선택 END -->
+          <!--//지역/테마선택 END -->
     
     <!------------------ 식당 리스트 화면--------------- -->
     
     <div class="col-md-12">
       <div class="container">
    		<div class="row"  >
+   		
+   		
+   		<c:if test="${empty restListt && empty restsearchword && empty rest1eachchecksearch && empty rest3areachecksearch &&empty rest2categorychecksearch}">
+   		
+   		<div class="col-md-12">
+   		  <div class="styled-heading">
+             <h3>등록된 식당이 없습니다.</h3>
+          </div>
+          </div>
+    
+   		</c:if>
+   		
+   		
+   		<c:if test="${!empty restListt}">
+   		
    	
+   		
    		 <c:if test="${searchword==null }">
    		
    		<c:forEach begin="0" end = "8" var="rest" items="${restListt}" varStatus="status">
@@ -164,7 +179,12 @@ int rest_endPage = restpageVO.getRest_endPage();
       	</table> 
       	</c:forEach>
    		</c:if>
-   		 
+   		
+   		</c:if>
+   		
+   		
+   		
+   		
    		 <c:if test="${searchword != null}">
    		 <c:forEach begin="0"   var="rest" items="${restsearchword}" varStatus="status"> 
    		<table id=search-menu>
@@ -184,8 +204,70 @@ int rest_endPage = restpageVO.getRest_endPage();
       	</table> 
       	</c:forEach>
    		</c:if>
-   	</div>
+
    	
+   	   		
+   		<c:forEach begin="0" var="rest" items="${rest1eachchecksearch}" varStatus="status"> 
+   		<table id=search-menu>
+         <tr>
+            <td>
+            <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
+             <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
+              <span class="point">${rest.res_score}</span>
+               <span class="point1">지역 : ${rest.res_Addr1}</span>
+               <span class="point2">테마 : ${rest.res_category}</span>
+               <span class="point3">조회수 :${rest.res_readcount }</span>
+              <br>
+              ${rest.res_name}
+             </a>
+            </td>
+         </tr>
+      	</table> 
+      	</c:forEach>
+    
+      	
+   		
+   		
+   		<c:forEach begin="0" var="rest" items="${rest3areachecksearch}" varStatus="status"> 
+   		<table id=search-menu>
+         <tr>
+            <td>
+            <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
+             <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
+              <span class="point">${rest.res_score}</span>
+               <span class="point1">지역 : ${rest.res_Addr1}</span>
+               <span class="point2">테마 : ${rest.res_category}</span>
+               <span class="point3">조회수 :${rest.res_readcount }</span>
+              <br>
+              ${rest.res_name}
+             </a>
+            </td>
+         </tr>
+      	</table> 
+      	</c:forEach>
+      	
+      	<c:forEach begin="0" var="rest" items="${rest2categorychecksearch}" varStatus="status"> 
+   		<table id=search-menu>
+         <tr>
+            <td>
+            <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
+             <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
+              <span class="point">${rest.res_score}</span>
+               <span class="point1">지역 : ${rest.res_Addr1}</span>
+               <span class="point2">테마 : ${rest.res_category}</span>
+               <span class="point3">조회수 :${rest.res_readcount }</span>
+              <br>
+              ${rest.res_name}
+             </a>
+            </td>
+         </tr>
+      	</table> 
+      	</c:forEach>
+   		
+   	</div>
+   	</div>
+   	</div>   
+   		
 	 <div class="col-md-12">
       <div class="container"  id = "page">
    		<div class="row">
@@ -208,15 +290,11 @@ int rest_endPage = restpageVO.getRest_endPage();
 
 	</c:if>
 	</c:if>
+	
 	</div>
-	</div>
-  </div>  
-      	
-		
-  
   </div>
 </div>
-
+</form>
   <!--============================= FOOTER =============================-->
     <%@include file ="/common/footer.jsp" %>
   <!-- Footer End-->
@@ -258,7 +336,101 @@ int rest_endPage = restpageVO.getRest_endPage();
     	document.searchform1.target = "_self";
     	document.searchform1.action="rest_Search.dae";
     	document.searchform1.submit();
+    	
+ 	
+    	
     }
+    
+    
+	 function checka(){
+	  		
+	  		var check_area = $('input[name="area"]:checked').length;
+	  		var check_category = $('input[name="category"]:checked').length;
+	  		
+	  		
+	  		
+	  		/* 지역 1 와 테마 1 */
+	  		  if((check_area==1) && (check_category==1)){
+	  			
+	  			document.checksearch.target = "_self";
+	       	 	document.checksearch.action="rest_1EachCheckSearch.dae";
+	       	 	document.checksearch.submit();
+	       	  
+	         }
+	  		
+	  		  else if((check_area==1) && (check_category==0)){
+		  			
+		  			document.checksearch.target = "_self";
+		       	 	document.checksearch.action="rest_1EachCheckSearch.dae";
+		       	 	document.checksearch.submit();
+		       	  
+		         }
+	  		else if((check_area==0) && (check_category==1)){
+	  			
+	  			document.checksearch.target = "_self";
+	       	 	document.checksearch.action="rest_1EachCheckSearch.dae";
+	       	 	document.checksearch.submit();
+	       	  
+	         }
+	  		
+	  	
+	  		/* 지역 2 ~3 */
+	  		  else if((check_area>=2) && (check_area<=3)&&(check_category==0)){
+	  	  		  
+	        	 document.checksearch.target = "_self";
+	        	 document.checksearch.action="rest_3areaCheckSearch.dae";
+	        	 document.checksearch.submit();
+	       
+	    	}
+	 	
+	  		/* 지역 2 와 테마 2 */
+	  		 else if((check_area==2) && (check_category==2)){
+	 	  		  
+	        	 document.checksearch.target = "_self";
+	        	 document.checksearch.action="rest_3areaCheckSearch.dae";
+	        	 document.checksearch.submit();
+	         
+	    	}
+	  		/* 지역 1 와 테마 2 */
+	  		 else if((check_area==1) && (check_category==2)){
+		  		  
+	        	 document.checksearch.target = "_self";
+	        	 document.checksearch.action="rest_3areaCheckSearch.dae";
+	        	 document.checksearch.submit();
+	         
+	    	}
+	  		/* 지역 2 와 테마 1 */
+	  		 else if((check_area==2) && (check_category==1)){
+		  		  
+	        	 document.checksearch.target = "_self";
+	        	 document.checksearch.action="rest_3areaCheckSearch.dae";
+	        	 document.checksearch.submit();
+	         
+	    	}
+	  		/* 테마 2 */
+	  		 else if((check_category==2)&&(check_area==0)){
+	  			 document.checksearch.target = "_self";
+	        	 document.checksearch.action="rest_2categoryCheckSearch.dae";
+	        	 document.checksearch.submit();
+	  		 }
+	  		
+	  		
+	  		
+	  		
+	  		 else if(check_area>=4){
+	  			 alert('지역 : 3개이하로 눌러주세요');
+	  		 }
+	  		 else if(check_category>=3){
+	  			 alert('테마 : 2개이하로 눌러주세요');
+	  		 }
+	  		 else if(((check_area>=3)&&(check_category>=2))){
+	  			 alert('지역&테마 각각 2개이하로 눌러주세요');
+	  		 }
+	  		  
+	  	
+		
+	 	
+	}
     </script> 
 
 </body>

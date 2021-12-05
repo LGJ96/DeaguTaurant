@@ -240,8 +240,8 @@ position: absolute;
 /* =============파일 업로드 선택 end=============*/
    
    
-/* 지역/테마 중복 선택 버튼 */   
-input[name="cb1"] + label {
+/* 지역 중복 선택 버튼 */   
+input[name="area"] + label {
 	display: inline-block;
 	width: 100px;
 	height:45px;
@@ -250,14 +250,31 @@ input[name="cb1"] + label {
 	margin-right: 30px;
 	border-radius: 50%;
 	}
-	input[name="cb1"]:checked + label {
+	input[name="area"]:checked + label {
 	background: #fff;
 }
-	input[name="cb1"] {
+	input[name="area"] {
 	display: none;
 }  
-   
 
+
+
+/* 테마 중복 선택 버튼 */   
+input[name="category"] + label {
+	display: inline-block;
+	width: 100px;
+	height:45px;
+	border: 2px solid #ccc;
+	cursor: pointer;
+	margin-right: 30px;
+	border-radius: 50%;
+	}
+	input[name="category"]:checked + label {
+	background: #fff;
+}
+input[name="category"] {
+	display: none;	
+}
  
    
 /* 지역/테마 버튼 안 글씨 */    

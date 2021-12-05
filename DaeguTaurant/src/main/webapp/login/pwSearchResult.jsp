@@ -56,7 +56,7 @@
 
  <div class="grid" >
         <h3 class="grid-header" >비밀번호 찾기</h3>
-        <div class="grid-body"  style = "min-height: 330px;" >
+        <div class="grid-body"  style = "min-height: 380px;" >
         <div id="pwsearchresult">
         
 <%

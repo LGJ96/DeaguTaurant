@@ -16,24 +16,13 @@ public class RestSearchService {
 		 Connection con = getConnection();
 		 RestDAO restDAO = RestDAO.getInstance();
 		 restDAO.setConnection(con);
-	     ArrayList<RestVO> restsearchword = restDAO.selectResWordtList(searchword);
+	     ArrayList<RestVO> restsearchword = restDAO.selectRestWordList(searchword);
 	    
 		return restsearchword;
 		
 		
 	}
 
-	public ArrayList<RestVO> getRestSearch() {
-		
-		Connection con = getConnection();
-		RestDAO restDAO = RestDAO.getInstance();
-		restDAO.setConnection(con);
-		 
-		 ArrayList<RestVO> restsearch = restDAO.selectRestSearch();
-		    
-			
-		return restsearch;
-		
-	}
+	
 	
 }
