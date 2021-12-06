@@ -1,4 +1,4 @@
-package rest.action;
+package review.action;
 
 import java.util.ArrayList;
 
@@ -7,27 +7,31 @@ import javax.servlet.http.HttpServletResponse;
 
 import Info.action.Action;
 import rest.service.RestListService;
+import review.service.ReviewListService;
 import vo.ActionForward;
 import vo.RestVO;
+import vo.ReviewVO;
 
-public class RestIndexAction implements Action {
+public class RestReviewListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-	    
-		  RestListService restListService = new RestListService();
+		
+		  ReviewListService reviewListService = new ReviewListService();
 
-	      ArrayList<RestVO> restList = restListService.getRestList();
-	  	  //HttpSession session = request.getSession();
-	      //session.setAttribute("restList", restList);
-	      request.setAttribute("restList", restList);
+	      ArrayList<ReviewVO> reviewList = reviewListService.getReviewList();
+	    
+	      
+
+	  
+	      request.setAttribute("reviewList", reviewList);
 	      
 	     ActionForward forward = new ActionForward();
 	      
-	      forward.setUrl("home_review/index.jsp");
+	      forward.setUrl("home_review/rest_content.jsp");
 	    
 	      return forward;
 	   }
+	}
 
 
-}

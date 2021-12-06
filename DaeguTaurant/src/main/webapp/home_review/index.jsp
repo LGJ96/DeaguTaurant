@@ -109,12 +109,12 @@
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <div class="styled-heading">
-                        <h3>등록된 식당</h3>
+                        <h3>추천 식당</h3>
                     </div>
                 </div>
             </div>
             <div class="row">
-             <c:forEach begin="0" end ="6" var="rest" items="${restList}" varStatus="status">
+             <c:forEach begin="154" end ="158" var="rest" items="${restList}" varStatus="status">
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                    

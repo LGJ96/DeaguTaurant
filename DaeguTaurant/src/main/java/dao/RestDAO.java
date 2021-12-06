@@ -84,6 +84,7 @@ public class RestDAO {
 		        		 + "VALUES(restaurant_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,0)";
 		    	
 		       pstmt = con.prepareStatement(sql);
+		       
 		       pstmt.setString(1, restVO.getRes_name());
 		       pstmt.setDouble(2, restVO.getRes_score());
 		       pstmt.setString(3, restVO.getRes_category());
@@ -715,6 +716,7 @@ public class RestDAO {
 
 			return rest2categorychecksearch;
 		}
+
 }
 	
 	

@@ -144,7 +144,7 @@
 								</div>
 								<div class="review-btn">
 									<button class="btn btn-outline-danger"
-										onclick="window.open('home_review/reviewWrite.jsp','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
+										onclick="window.open('home_review/reviewWrite.jsp?res_id=${restVO.res_id}','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
 									<span>34 reviews</span>
 								</div>
 							</div>
@@ -227,7 +227,7 @@
 
 
 			<!-- ====================== 리 뷰 ======================== -->
-
+	 <form action="${pageContext.request.contextPath }/restReviewList.dae" method="POST" name="reviewlist"> 
 			<div id="reviewListFocusId"></div>
 			<div class="container">
 				<div class="row">
@@ -236,7 +236,7 @@
 							<div class="card-body">
 								<h5>34 Reviews</h5>
 								<hr>
- 						<c:forEach var="review" items="${reviewList}" varStatus="status">
+ 						<c:forEach var="review1" items="${reviewList}" varStatus="status">
 								<div class="customer-review_wrap">
 
 								<div class="customer-img">
@@ -265,10 +265,8 @@
 										<div class="container">
 											<div class="row">
 												<div class="col-md-12 responsive-wrap">
-													<p class="customer-text">여기 왕돈까스 너무 맛있고 푸짐합니다. 직원들도
-														친절하거 서비스가 좋아서 인기있는 최고의 돈까스 식당입니다.</p>
-													<p class="customer-text">오픈형 주방이라서 청결함을 유지하고 있고 조리과정을 볼
-														수 있어서 너무 좋습니다! 바삭한 일식 돈까스의 느낌이라서 너무 맛있는 맛집입니다.</p>
+													<p class="customer-text">${review1.rev_content }</p>
+												
 													<ul>
 														<li><img src="./images/review-img1.jpg"
 															class="img-fluid" alt="#"></li>
@@ -279,7 +277,7 @@
 													</ul>
 													<span>좋아요(10)</span> <a href="#"><span
 														class="icon-heart"></span></a>
-													<p>2일 전</p>
+													<p>${review1.rev_notice_date }</p>
 												</div>
 											</div>
 										</div>
@@ -297,6 +295,7 @@
 					</div>
 				</div>
 			</div>
+			</form>
 		</section>
 	</section>
 

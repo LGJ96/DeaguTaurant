@@ -242,38 +242,38 @@ position: absolute;
    
 /* 지역 중복 선택 버튼 */   
 input[name="area"] + label {
-	display: inline-block;
-	width: 100px;
-	height:45px;
-	border: 2px solid #ccc;
-	cursor: pointer;
-	margin-right: 30px;
-	border-radius: 50%;
-	}
-	input[name="area"]:checked + label {
-	background: #fff;
+   display: inline-block;
+   width: 100px;
+   height:45px;
+   border: 2px solid #ccc;
+   cursor: pointer;
+   margin-right: 30px;
+   border-radius: 50%;
+   }
+   input[name="area"]:checked + label {
+   background: #fff;
 }
-	input[name="area"] {
-	display: none;
+   input[name="area"] {
+   display: none;
 }  
 
 
 
 /* 테마 중복 선택 버튼 */   
 input[name="category"] + label {
-	display: inline-block;
-	width: 100px;
-	height:45px;
-	border: 2px solid #ccc;
-	cursor: pointer;
-	margin-right: 30px;
-	border-radius: 50%;
-	}
-	input[name="category"]:checked + label {
-	background: #fff;
+   display: inline-block;
+   width: 100px;
+   height:45px;
+   border: 2px solid #ccc;
+   cursor: pointer;
+   margin-right: 30px;
+   border-radius: 50%;
+   }
+   input[name="category"]:checked + label {
+   background: #fff;
 }
 input[name="category"] {
-	display: none;	
+   display: none;   
 }
  
    
@@ -829,6 +829,18 @@ th{
   
 }
 
+/*지역 및 테마 확인 버튼 */
+.btn-block1 {
+  background-color: #fffdf0;
+  font-weight: bold;
+  width : 50%;
+  font-family: one;
+  font-size: 25px;
+  margin-bottom: 20px;
+  border-color: #ccc;
+  
+}
+
   .copyright {
   text-align: left;
      }
@@ -1105,6 +1117,31 @@ th{
       -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
       transform: translateX(-50%); }
+   
+      
+.styled-heading1 {
+  text-align: center;
+  margin: 0 0 0px; }
+  @media (max-width: 768px) {
+    .styled-heading {
+      margin: 0 0 0px; } }
+  .styled-heading h3 {
+    position: relative;
+    padding: 0 0 0px; }
+    .styled-heading h3:after {
+      position: absolute;
+      content: "";
+      width: 60px;
+      height: 3px;
+      background: #ff3a6d;
+      bottom: 0;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%); }      
+      
+      
+      
 
 .find-img-align {
   padding: 0 0 15px; }

@@ -108,7 +108,7 @@ int rest_endPage = restpageVO.getRest_endPage();
                        
                  </div>
                </div>    
-                    
+             
 		     	<div class="container">
               		<div class = "col-xs-2"  style="float: left; margin-right: 40px;" >
               			<h3>테마</h3>
@@ -129,11 +129,26 @@ int rest_endPage = restpageVO.getRest_endPage();
    					
    					<input type="checkbox" id="cb13" name ="category" value="디저트" >
    					<label for="cb13"  id = "t1" >디저트</label>
-                     <input type="button" value="확인" onclick="checka()"/>
+   					
                  </div>
-               </div>                                
-                </div>
+             
+               </div>
+              
+               </div>  
+                 
+                 <div class="styled-heading1">
+
+                <div class = "col-md-12" style = "margin-top: 1px;">
+                    <span><input type="button" value="확인" onclick="checka()" class = "btn btn-block1"/>             </span>      
+   					
+                 </div>
+             
+               </div>
+                 
+                 
             </div>
+            
+         
         </div>
           <!--//지역/테마선택 END -->
     

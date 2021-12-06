@@ -28,6 +28,9 @@ import rest.action.RestSearchAction;
 import rest.action.RestSearchListAction;
 import rest.action.RestUpdateAction;
 import rest.action.RestUpdateProAction;
+import review.action.RestReviewAction;
+import review.action.RestReviewListAction;
+
 import servicecenter.action.Faq_deleteFormAction;
 import servicecenter.action.Faq_deleteProAction;
 import servicecenter.action.Faq_updateFormAction;
@@ -286,9 +289,36 @@ public class DaeguTaurantFrontController extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
+			
+			//======================== 리뷰작성 ==============================
+			
+			//리뷰 작성
+			else if(command.equals("/restReview.dae")) {
+				action = new RestReviewAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			else if(command.equals("/restReviewList.dae")) {
+				action = new RestReviewListAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			
+			
 				
 			//======================== 공지사항 ==============================
-			
 					else if(command.equals("/notice_writeForm.dae")) {
 					action = new Notice_writeFormAction();
 					

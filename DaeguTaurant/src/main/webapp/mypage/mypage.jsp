@@ -106,7 +106,7 @@
                        
                     </div>
                 </div>
-            </div>
+        </div>
         </div>
     </div>
     </div>
@@ -790,16 +790,31 @@
             </div>
             </div>
         </div>
+        
     </div>
+    
 </div>
 
      <!--=============================== 회원탈퇴 =============================-->
    <div>
+        <!-- Swiper -->
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="slider-title_box">
+                    <div class="row">
+                     
+             		<div class="container" style = "margin-bottom: 20px;" >
+   		
+          			<button type="button" class="btn btn-warning" onclick="showConfirm();">회원탈퇴</button>
+  			 </div>
+        </div>
+    </div>
+    </div>
+    </div>
   
-      <button type="button" class="btn btn-warning" onclick="showConfirm();">회원탈퇴</button>
-		 
-   </div>
-   
+  
+  
+  
     <script>
 		 function showConfirm() {
 				/*alert 확인 버튼만,confirm 확인 취소 버튼 둘다 */

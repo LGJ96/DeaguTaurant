@@ -19,21 +19,22 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
-    <link rel="stylesheet" href="../css/simple-line-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/simple-line-icons.css">
     <!-- Themify Icon -->
-    <link rel="stylesheet" href="../css/themify-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/themify-icons.css">
     <!-- Hover Effects -->
-    <link rel="stylesheet" href="../css/set1.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/set1.css">
     <!-- Swipper Slider -->
-    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/swiper.min.css">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/magnific-popup.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <body>
-   <table width="400" border="1" cellspacing="0" cellpadding="0"
-   align="center">
+<form action="${pageContext.request.contextPath }/home_review/restReview.dae" method="POST" name="review" enctype = "multipart/form-data" onsubmit="return writeSave()"> 
+
+   <table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
     <tr>
     <td align="center" colspan="2">
       <div>리뷰작성하기</div> 
@@ -41,13 +42,10 @@
    </tr>
     
 <br>
-
-
-
-   <tr>
+   <!-- <tr>
     <td align="center" colspan="2">
       <div class="star-rating space-x-4 mx-auto">
-         <input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
+         <input type="radio" id="5-stars" name="rating" value="나" v-model="ratings"/>
          <label for="5-stars" class="star pr-4">★</label>
          <input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
          <label for="4-stars" class="star">★</label>
@@ -59,42 +57,68 @@
          <label for="1-star" class="star">★</label>
       </div> 
    </td>
-   </tr>
+   </tr> -->
    
+    <input type="hidden" name="rev_id" value="${reviewVO.rev_id }"/>
+	<input type="hidden" name="rev_re_step" value="${reviewVO.rev_re_step }"/>
+	
+   <tr>
+   	<td align="center" colspan="2">
+     <div class="star-rating space-x-4 mx-auto">
+     <select name = "review" title ="평점" id = "review" class = "col-sm-3" >
+			<option value = "5" > 5 </option>
+			<option value = "4"> 4 </option>
+			<option value = "3" > 3 </option>
+			<option value = "2" > 2 </option>
+			<option value = "1" > 1 </option>
+	</select>
+  	 </div>
+   	</td>
+   </tr>
+    
   
   <tr>
     <td align="center" width="100%">
-     <textarea name="content" rows="13" cols="40" class="form-control" placeholder="매장에 대한 리뷰를 작성해주세요.(필수)"></textarea></td>
+     <textarea rows="13" cols="40" class="form-control" placeholder="매장에 대한 리뷰를 작성해주세요.(필수)" id = "rev_content" name ="rev_content"></textarea></td>
   </tr> 
   <tr>
     <td  align="left" width="100%">
-       <label type="file" class ="input-file-button" for="imageFile">
-         업로드
-      <input type="file" size="40" maxlength="30" id="imageFile" name="imageFile " style = "display:none" accept="image/*">
-      </label>
+      
+      <input type="file" size="40" maxlength="30" id="rev_pic" name="rev_pic"  accept="image/*">
+     
       </td>
   </tr>
   
   <tr>      
  <td colspan=2 " align="center"> 
-  <input type="button" value="등록" style="color:white" class="btn btn-check"
-  OnClick="showConfirm1();">
-     <script language="javascript">
+   <input type="submit" value="등록" style="color:white" class="btn btn-check" OnClick="showConfirm1()" >
+  
+    <input type="button" class="btn btn-check" tyle="color:white" value="취소"
+ 	 OnClick="window.close();">
+  
+  </td></tr>
+  
+  
+</table> 
+<script >
+
+ 
        function showConfirm1() {
-          if (confirm("리뷰 등록을 하시겠습니까?")){
+          if (confirm("리뷰 등록을 하시겠습니까?") == true){
                alert("리뷰 등록을 완료했습니다.");
+            
+             
                window.close();
             } 
          else{
                 alert("취소 버튼을 눌렀습니다.");
             }
           }
-      </script>
-  <a href="../home_review/index.jsp" onclick="window.close();" type="button"  style="color:white" class="btn btn-check">취소</a>
-</td></tr>
-  
-</form>      
-</table> 
-
+</script>  
+</form>    
 </body>
+
+
+
+
 </html>
