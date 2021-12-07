@@ -634,6 +634,14 @@ h6 {
   
    }
 
+/* 홈 화면 best, new 식당 표 안 식당 이름 */
+h7{
+	font-size: 21px;
+	color : #000;
+	font-family: "one";
+}
+
+
 p {
   font-size: 15px; }
 

@@ -101,9 +101,9 @@
 		</div>
 </c:if> 
 </c:if> 
-	 
+	 	 <form action="${pageContext.request.contextPath }/restIndex.dae" method="POST" name="myForm"> 
     <section class="main-block1 light-bg">
-   	 <form action="${pageContext.request.contextPath }/restIndex.dae" method="POST" name="myForm"> 
+   
    	 	
         <div class="container">
             <div class="row justify-content-center">
@@ -150,7 +150,7 @@
              </c:forEach>
             </div>
         </div>
-         </form>
+       
     </section>
    
    <!-- ===================밑줄============================== -->
@@ -165,20 +165,32 @@
     <div class="card-body" >
     <div class="col-md-6" style="float: left;">
     <table class="table" style="margin-top:40px;">
+    
       <thead  class="bg-warning text-white">
         <tr>
-            <th colspan="1">번호</th>
-            <th align="rigth" colspan="4" style = "text-align: center;" > 추천 글</th>
+           <!--  <th colspan="1">번호</th> -->
+            <th align="rigth" colspan="6" style = "text-align: center;" > Best 식당</th>
           
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td colspan="4">제목 길게 하세요</td>
+         <!--  <th scope="row"></th> -->
+            <td colspan="6"> 
+       		<c:forEach begin="52" end ="56" var="rest" items="${restList}" varStatus="status">
+                
+                <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
+                  <div >
+                      <h7>${rest.res_name }</h7>
+              	 </div>     	
+                </a>
+                <hr>
+                    
+             </c:forEach>
+        </td>
           
         </tr>
-        <tr>
+       <!--  <tr>
           <th scope="row">2</th>
           <td colspan="4">Mark</td>
         </tr>
@@ -193,8 +205,9 @@
         <tr>
           <th scope="row">5</th>
           <td colspan="4">Mark</td>
-        </tr>
+        </tr> -->
       </tbody>
+      </a>
     </table>
     </div>
 </div>
@@ -206,29 +219,27 @@
     <table class="table">
       <thead  class="bg-warning text-white">
         <tr>
-            <th colspan="1">번호</th>
-            <th align="right" colspan="4" style = "text-align: center;" > Best 글</th>
+          
+            <th align="right" colspan="6" style = "text-align: center;" > New 식당</th>
         </tr>
       </thead>
+     
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td colspan="4">제목 길게 하세요 제발</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td colspan="4">Mark</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="4">Mark</td>
-          <tr>
-          <th scope="row">4</th>
-          <td colspan="4">Mark</td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td colspan="4">Mark</td>
+         <!--  <th scope="row"></th> -->
+            <td colspan="6"> 
+       		<c:forEach begin="84" end ="88" var="rest" items="${restList}" varStatus="status">
+                
+                <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
+                  <div >
+                      <h7>${rest.res_name }</h7>
+              	 </div>     	
+                </a>
+                <hr>
+                    
+             </c:forEach>
+        </td>
+          
         </tr>
        
       </tbody>
@@ -237,7 +248,7 @@
     </div>
     </div>
     </div>
-   
+     </form>
 </section>
  
 <%@include file ="/common/footer-home.jsp" %>
