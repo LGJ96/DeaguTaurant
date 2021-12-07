@@ -1,7 +1,7 @@
 <%@page import="servicecenter.vo.NoticeReplyVO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <head>
     <!-- Required meta tags -->
@@ -39,7 +39,7 @@
  %>
 <body>
     <!--============================= HEADER =============================-->
-    <%@include file ="/common/header.jsp" %>
+    <%@include file ="/common/header-servicecenter.jsp" %>
     <!--//END HEADER -->
     <!--============================= 커뮤니티 헤더 =============================-->
     <div>

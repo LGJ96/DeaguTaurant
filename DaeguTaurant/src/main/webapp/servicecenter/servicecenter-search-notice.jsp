@@ -139,7 +139,7 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
 										<thead class=" text-primary">
  											<th colspan="1"width="80"> 번호</th>
 											<th colspan="2" width="600">제목</th>
-											<th colspan="6" class="text-right">작성 시간</th>
+											<th colspan="12" class="text-right">작성 시간</th>
 										</thead>
 
 
@@ -150,15 +150,15 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
 
 												<td colspan="6">${notice.cus_notice_title} </td>
 	
-													<td colspan="6" class="text-right">
+													<td colspan="12" class="text-right">
 													<fmt:formatDate value="${notice.cus_notice_date }" pattern="yyy-MM-dd HH:mm:ss" /></td>
 												</tr>
 												 <tr>
-													<td colspan="6"><pre>${notice.cus_notice_content}</pre> </td>
-													<td colspan="8">
+													<td colspan="12"><pre>${notice.cus_notice_content}</pre> </td>
+													<td colspan="12">
 													<c:if test="${loginUser.user_id != null }">
 														<c:if test="${loginUser.user_level == 9}">
-														<div class="col-sm-8" style="float: right;">
+														<div class="col-sm-12" style="float: right;">
 
 															<a href="#" type="button" style="color: black"
 																onclick="window.open('notice_deleteForm.dae?cus_notice_number=${notice.cus_notice_number }&pageNum=${searchPageVO.sea_currentPage }','','width=330,height=100,location=no,status=no,scrollbars=yes');">삭제</a>

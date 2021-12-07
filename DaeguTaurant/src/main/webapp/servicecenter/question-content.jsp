@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.text.SimpleDateFormat" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -112,8 +113,9 @@
  
 	<div class="col-lg-12" align="right">
 	 <a href="serviceCenterOtoList.dae"><button class="btn btn-warning" > 목록</button></a>
-	<button type="submit" class="btn"
-	onclick="window.open('oto_writeForm.dae?cus_oto_number=<%=cus_oto_number %>&cus_ref=<%=cus_ref %>&cus_re_step=<%=cus_re_step%>&cus_re_level=<%=cus_re_level%>','','width=430,height=500,location=no,status=no,scrollbars=yes');"> 답변 등록 </button>
+	<button type="submit" class="btn btn-warning"
+	onclick="window.open('oto_writeForm.dae?cus_oto_number=<%=cus_oto_number %>&cus_ref=<%=cus_ref %>&cus_re_step=<%=cus_re_step%>&cus_re_level=<%=cus_re_level%>','','width=430,height=500,location=no,status=no,scrollbars=yes');"> 
+	답변 등록 </button>
                  
 	</div>
 	

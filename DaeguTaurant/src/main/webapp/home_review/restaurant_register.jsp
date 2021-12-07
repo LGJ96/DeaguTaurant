@@ -67,7 +67,7 @@
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType1">식당이름</label>
                   </div>
-                  <div class="col-md-5 showcase_content_area">
+                  <div class="col-md-6 showcase_content_area">
                     <input type="text" class="form-control" name="res_name" id="res_name">
                   </div>
                 </div>
@@ -75,7 +75,7 @@
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType1">지역</label>
                   </div>
-                  <div class="col-md-5 showcase_content_area">
+                  <div class="col-md-6 showcase_content_area">
                     <input type="text" class="form-control" name="res_Addr1" id="res_Addr1">
                   </div>
                 </div>
@@ -83,7 +83,7 @@
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType1">테마</label>
                   </div>
-                  <div class="col-md-5 showcase_content_area">
+                  <div class="col-md-6 showcase_content_area">
                     <input type="text" class="form-control" name="res_category" id="res_category">
                   </div>
                 </div>
@@ -100,7 +100,7 @@
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType1">전화번호</label>
                   </div>
-                  <div class="col-md-5 showcase_content_area">
+                  <div class="col-md-6 showcase_content_area">
                     <input type="text" class="form-control" name="res_number" id="res_number">
                   </div>
                 </div>
@@ -108,19 +108,16 @@
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType12">주소</label>
                   </div>
-                  <div class="col-md-5 showcase_content_area">
+                  <div class="col-md-6 showcase_content_area">
                     <input type="text" class="form-control" name="res_Addr2" id="res_Addr2">
                   </div>
 
-                  <div class="col-md-1 showcase_content_area">
-                   <button type="submit" class="btn btn-check" > 우편번호 검색 </button>
-                  </div>
                 </div>
                <div class="form-group row showcase_row_area">
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType1">영업시간</label>
                   </div>
-                  <div class="col-md-5 showcase_content_area">
+                  <div class="col-md-6 showcase_content_area">
                     <input type="text" class="form-control" name="res_hours" id="res_hours">
                   </div>
                 </div>
@@ -130,7 +127,7 @@
                   <div class="col-md-3 showcase_text_area">
                     <label for="inputType1">이미지</label>
                   </div>
-                  <div class="col-md-5 showcase_content_area">
+                  <div class="col-md-6 showcase_content_area">
                     <div style = "border: 1px solid #dddddd "> 
 						
 						<input type="file"  name="res_pic" id="res_pic" accept="image/*">
