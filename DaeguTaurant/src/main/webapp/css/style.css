@@ -16,6 +16,11 @@ Author: Surjith S M
     src : url("../fonts/onee.ttf");
     font-family: "one"
     }
+@font-face {
+
+    src : url("../fonts/so.ttf");
+    font-family: "so"
+    }
 
 /* 비번찾기결과화면 */
 #pwsearchresult{
@@ -27,7 +32,7 @@ Author: Surjith S M
 
 /* 지역 및 테마 페이지 번호 */
 #page{
- width:300px;
+ width:600px;
   /*   height:00px; */
     position:absolute;
     left:50%;
@@ -35,6 +40,7 @@ Author: Surjith S M
     margin-left:-130px;
     margin-top:-20px;
     margin-bottom: -100px;
+    color : #000;
 }
 
 /* 지역/테마 선택 창 */
@@ -170,7 +176,7 @@ position: absolute;
   text-align: center;
   margin: -33px 10px 0 0;
   font-size: 23px;
-  background: #6EE5A3;
+  background: #ffae00;
   color: #fff;
   padding: 14px;
   border-radius: 50%; 
@@ -185,7 +191,7 @@ position: absolute;
   text-align: center;
   margin: 50px 10px 0 0;
   font-size: 23px;
-  color: #000;
+  color:#828282;
   padding: 14px;
  
 }
@@ -198,7 +204,7 @@ position: absolute;
   text-align: center;
   margin: 100px 10px 0 0;
   font-size: 23px;
-  color: #000;
+  color: #828282;
   padding: 14px;
 }
 
@@ -210,7 +216,7 @@ position: absolute;
   text-align: center;
   margin: 150px 10px 0 0;
   font-size: 23px;
-  color: #000;
+  color: #828282;
   padding: 14px;
 }
 
@@ -641,6 +647,23 @@ h7{
 	font-family: "one";
 }
 
+/*지역 및 테마 pageNum */
+h8{
+	font-size: 23px;
+	font-family: so;
+	color: #969696;
+	
+}
+
+/* 지역 및 테마 식당 이름 */
+h9{
+	font-family: one;
+	font-size: 27px;
+	 
+	color : #646464;
+	background-color: #FAFAD2;
+	
+}
 
 p {
   font-size: 15px; }

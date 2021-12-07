@@ -4,7 +4,7 @@ create table notice(
 	cus_notice_title VARCHAR2(50) NOT NULL,
 	cus_notice_date TIMESTAMP NOT NULL,
 	cus_notice_count NUMBER DEFAULT 0,
-	cus_notice_content VARCHAR2(400) NOT NULL,
+	cus_notice_content VARCHAR2(800) NOT NULL,
 	cus_notice_list_number INTEGER,
 	
 	notice_user_id varchar2(30),
@@ -23,3 +23,7 @@ select * from notice;
 DROP SEQUENCE notice_seq;
 
 DROP TABLE notice;
+
+delete from notice;
+
+

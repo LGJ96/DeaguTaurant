@@ -97,7 +97,9 @@
  <c:if test="${loginUser.user_id != null }">
  	<c:if test="${loginUser.user_level == 9}"> 
 		<div class = "container" align="right" style = "margin-top: 20px;">
-		<a href="home_review/restaurant_register.jsp" > 식당 등록</a>
+		<a href="home_review/restaurant_register.jsp" >
+		<h6>식당 등록</h6>
+		</a>
 		</div>
 </c:if> 
 </c:if> 

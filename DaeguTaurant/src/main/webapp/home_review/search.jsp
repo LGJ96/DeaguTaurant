@@ -187,7 +187,7 @@ int rest_endPage = restpageVO.getRest_endPage();
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>
               <br>
-              ${rest.res_name}
+             <h9> ${rest.res_name}</h9>
              </a>
             </td>
          </tr>
@@ -212,7 +212,7 @@ int rest_endPage = restpageVO.getRest_endPage();
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>
               <br>
-              ${rest.res_name}
+             <h9> ${rest.res_name}</h9>
              </a>
             </td>
          </tr>
@@ -233,7 +233,7 @@ int rest_endPage = restpageVO.getRest_endPage();
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>
               <br>
-              ${rest.res_name}
+               <h9> ${rest.res_name}</h9>
              </a>
             </td>
          </tr>
@@ -254,7 +254,7 @@ int rest_endPage = restpageVO.getRest_endPage();
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>
               <br>
-              ${rest.res_name}
+               <h9> ${rest.res_name}</h9>
              </a>
             </td>
          </tr>
@@ -272,7 +272,7 @@ int rest_endPage = restpageVO.getRest_endPage();
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>
               <br>
-              ${rest.res_name}
+               <h9> ${rest.res_name}</h9>
              </a>
             </td>
          </tr>
@@ -292,15 +292,21 @@ int rest_endPage = restpageVO.getRest_endPage();
    		<c:if test="${restpageVO.rest_count > 0 }">
 
        <c:if test="${restpageVO.rest_startPage > 10 }">
-        <a href="rest_Searchlist.dae?rest_pageNum=${restpageVO.rest_startPage - 10 }">[이전]</a>
-        </c:if>
+        <a href="rest_Searchlist.dae?rest_pageNum=${restpageVO.rest_startPage - 10 }">
+        <h8>[이전]</h8>
+        </a>
+       </c:if>
 
        <c:forEach begin = "${restpageVO.rest_startPage }" end ="${restpageVO.rest_endPage }" var = "i">
-        <a href="rest_Searchlist.dae?rest_pageNum=${i }">[${i }]</a>
+         <a href="rest_Searchlist.dae?rest_pageNum=${i }">
+         <h8>[${i }]</h8>
+         </a>
 		</c:forEach>
 
       	<c:if test="${restpageVO.rest_endPage < restpageVO.rest_pageCount  }">
-        <a href="rest_Searchlist.dae?rest_pageNum=${restpageVO.rest_startPage + 10 }">[다음]</a>
+         <a href="rest_Searchlist.dae?rest_pageNum=${restpageVO.rest_startPage + 10 }">
+       <h8> [다음]</h8>
+        </a> 
         </c:if>
 
 	</c:if>
