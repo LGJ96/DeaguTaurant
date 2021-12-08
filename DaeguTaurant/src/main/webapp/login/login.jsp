@@ -56,7 +56,8 @@
                     </div>
                     
                     <div class="form-group input-rounded" style="margin-top: 20px;">
-                      <input type="password" class="form-control" placeholder="Password" name = "user_pw" id = "user_pw" />
+                      <input type="password" class="form-control" placeholder="Password" name = "user_pw" id = "user_pw" 
+                      onkeypress="if(event.keyCode == 13) enterkey()"/>
                     </div>
                     
                    
@@ -136,5 +137,18 @@
             });
         }
     </script>
+    
+    <script>
+    function enterkey() {
+        if (window.event.keyCode == 13) {
+        	
+             login();
+        }
+    }
+
+    </script>
+    
+    
+    
 </body>
 </html>

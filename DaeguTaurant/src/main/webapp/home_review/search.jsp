@@ -64,7 +64,8 @@ int rest_endPage = restpageVO.getRest_endPage();
            <form class="form-wrap mt-4" action="#" method="POST" name = "searchform1">
                 <div class="btn-group" role="group" aria-label="Basic example">
                
-                    <input type="text" placeholder="검색" class="btn-group" name ="searchword" id="searchword"/>
+                    <input type="text" placeholder="검색" class="btn-group" name ="searchword" id="searchword" 
+                     onkeypress="if(event.keyCode == 13) enterkey()"/>
                     <button type="button" class="btn-form2" onclick="search1()">검색</button>
       	
                </div>
@@ -139,7 +140,7 @@ int rest_endPage = restpageVO.getRest_endPage();
                  <div class="styled-heading1">
 
                 <div class = "col-md-12" style = "margin-top: 1px;">
-                    <span><input type="button" value="확인" onclick="checka()" class = "btn btn-block1"/>             </span>      
+                    <span><input type="button" value="확인" onclick="checka()" class = "btn btn-block1"/></span>      
    					
                  </div>
              
@@ -453,6 +454,17 @@ int rest_endPage = restpageVO.getRest_endPage();
 	 	
 	}
     </script> 
+
+	<script>
+    function enterkey() {
+        if (window.event.keyCode == 13) {
+        	
+        	searchform1();
+        }
+    }
+
+    </script>
+
 
 </body>
 </html>

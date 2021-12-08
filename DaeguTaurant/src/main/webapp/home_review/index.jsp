@@ -63,9 +63,10 @@
                         <div class="row d-flex justify-content-center" id = "aaa">
                             <div class="col-md-10">
                                  <form class="form-wrap mt-4" action="#" method="POST" name = "searchform">
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <input type="text" placeholder="검색창" class="btn-group" name ="searchword" id="searchword">
-                                        <button type="button" class="btn-form 1" onclick="search()">SEARCH</button>
+                                    <div class="btn-group" role="group" aria-label="Basic example" onkeypress="if(event.keyCode == 13) enterkey()">
+                                        <input type="text" placeholder="검색창" class="btn-group" name ="searchword" id="searchword" 
+                                           />
+                                        <button type="button" class="btn-form1" onclick="search()">SEARCH</button>
                                     </div>
                                 </form>
                                 
@@ -282,7 +283,8 @@
         	document.searchform.action="rest_Searchlist.dae";
         	document.searchform.submit(); */
         	
-        	 if(searchinputv == ""){
+        	
+        	 if(searchinputv == "" ){
         		document.searchform.target = "_self";
              	document.searchform.action="rest_Searchlist.dae";
              	document.searchform.submit();
@@ -309,8 +311,20 @@
     		document.myForm.submit();
     	} 
     });
-    
     </script>
+    
+  <script>
+    function enterkey() {
+        if (window.event.keyCode == 13) {
+        	
+        	document.searchform.action="rest_Search.dae";
+       
+       }
+   }
+
+    </script> 
+    
+    
 </body>
  
 </html>
