@@ -12,7 +12,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-
 <%-- <%
 List<NoticeVO> articleList = (List<NoticeVO>)request.getAttribute("articleList");
 PageVO pageVO = (PageVO)request.getAttribute("pageVO");
@@ -148,10 +147,10 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
 												<tr>
 												<td colspan="1">${notice.cus_notice_number} </td>
 
-												<td colspan="6">${notice.cus_notice_title} </td>
+												<td colspan="12">${notice.cus_notice_title} </td>
 	
 													<td colspan="12" class="text-right">
-													<fmt:formatDate value="${notice.cus_notice_date }" pattern="yyy-MM-dd HH:mm:ss" /></td>
+													<fmt:formatDate value="${notice.cus_notice_date }" pattern="yyy-MM-dd HH:mm" /></td>
 												</tr>
 												 <tr>
 													<td colspan="12"><pre>${notice.cus_notice_content}</pre> </td>
@@ -179,23 +178,24 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
 											<tbody>
 												<tr>
 											
-												<td colspan="6">${faq.cus_faq_title} </td>
+												<td colspan="12">${faq.cus_faq_title} </td>
 	
-													<td colspan="6" class="text-right">
-													<fmt:formatDate value="${faq.cus_faq_date }" pattern="yyy-MM-dd HH:mm:ss" /></td>
+													<td colspan="12" class="text-right">
+													<fmt:formatDate value="${faq.cus_faq_date }" pattern="yyy-MM-dd HH:mm" /></td>
 												</tr>
 												 <tr>
-													<td colspan="6"><pre>${faq.cus_faq_content}</pre> </td>
-													<td colspan="8">
+												 	<td colspan="1">${faq.cus_faq_number} </td>
+													<td colspan="12"><pre>${faq.cus_faq_content}</pre> </td>
+													<td colspan="12">
 													<c:if test="${loginUser.user_id != null }">
 														<c:if test="${loginUser.user_level == 9}">
-														<div class="col-sm-8" style="float: right;">
+														<div class="col-sm-12" style="float: right;">
 
 															<a href="#" type="button" style="color: black"
 																onclick="window.open('faq_deleteForm.dae?cus_faq_number=${faq.cus_faq_number }&pageNum=${searchPageVO.sea_currentPage }','','width=330,height=100,location=no,status=no,scrollbars=yes');">삭제</a>
 
 
-															<a>|</a>
+														<!-- 	<a>|</a> -->
 														<a href="faq_updateForm.dae?cus_faq_number=${faq.cus_faq_number }&pageNum=${searchPageVO.sea_currentPage }"
 													type="button" style="color: black" OnClick="showConfirm_modify();">수정</a>
 											</div>
@@ -213,11 +213,12 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
 												<td colspan="6">${oto.cus_oto_title} </td>
 	
 													<td colspan="6" class="text-right">
-													<fmt:formatDate value="${oto.cus_oto_date }" pattern="yyy-MM-dd HH:mm:ss" /></td>
+													<fmt:formatDate value="${oto.cus_oto_date }" pattern="yyy-MM-dd HH:mm" /></td>
 												</tr>
 												 <tr>
+												 	
 													<td colspan="6"><pre>${oto.cus_oto_content}</pre> </td>
-													<td colspan="8">
+													<td colspan="12">
 													<c:if test="${loginUser.user_id != null }">
 														<c:if test="${loginUser.user_level == 9}">
 														<div class="col-sm-8" style="float: right;">

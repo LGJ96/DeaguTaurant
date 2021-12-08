@@ -30,6 +30,20 @@ Author: Surjith S M
 	padding :30px;
 }
 
+/* 카카오지도 마커 */
+.balloon {
+ 
+ width:200px;
+ border-radius: 50%;
+ text-align:center;
+ padding:3px 0;	
+ font-family: "one";
+ font-size: 22px;
+
+}
+
+
+
 /* 지역 및 테마 페이지 번호 */
 #page{
  width:600px;

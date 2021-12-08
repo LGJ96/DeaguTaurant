@@ -39,7 +39,7 @@
  %>
 <body>
     <!--============================= HEADER =============================-->
-    <%@include file ="/common/header.jsp" %>
+    <%@include file ="/common/header-servicecenter.jsp" %>
     <!--//END HEADER -->
     <!--============================= 커뮤니티 헤더 =============================-->
     <div>
