@@ -11,6 +11,8 @@ public class ReviewVO {
 	private String rev_pic;
 	private String rev_content;
 	private int rev_re_step;
+	private String rev_user_id;
+	private int rev_res_id;
 	
 	
 	
@@ -56,6 +58,18 @@ public class ReviewVO {
 	}
 	public void setRev_re_step(int rev_re_step) {
 		this.rev_re_step = rev_re_step;
+	}
+	public String getRev_user_id() {
+		return rev_user_id;
+	}
+	public void setRev_user_id(String rev_user_id) {
+		this.rev_user_id = rev_user_id;
+	}
+	public int getRev_res_id() {
+		return rev_res_id;
+	}
+	public void setRev_res_id(int rev_res_id) {
+		this.rev_res_id = rev_res_id;
 	}
 	
 	

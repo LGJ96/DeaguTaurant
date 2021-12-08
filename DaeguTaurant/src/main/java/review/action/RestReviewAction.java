@@ -12,11 +12,11 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import Info.action.Action;
-import rest.service.RestRegistService;
 import review.service.RestReviewService;
 import vo.ActionForward;
 import vo.RestVO;
 import vo.ReviewVO;
+import vo.UserVO;
 
 public class RestReviewAction implements Action {
 
@@ -43,25 +43,23 @@ public class RestReviewAction implements Action {
 		           new DefaultFileRenamePolicy());
 	     
 	      ReviewVO reviewVO = new ReviewVO();
-	      RestVO restVO = new RestVO();
+	     
     
 	      String fileName = multi.getFilesystemName("rev_pic"); 
 			 
 	      int index = fileName.indexOf("."); 
 			 
 	      String fileNameWithoutExt = fileName.substring(0,index);
-		
-	      System.out.println(fileNameWithoutExt);
 			
 	      reviewVO.setRev_pic(fileNameWithoutExt);
 	   
-	      String review = multi.getParameter("review");
-	      System.out.println(review);
+	      String review = multi.getParameter("review"); //평점
+	    
 			
 	      HttpSession session = request.getSession();
-	      session.setAttribute("reviewVO", reviewVO);	//필수요인(loginUser = null을 해결하기 위해)
-	      session.setAttribute("review", review);
-	      
+	      RestVO restVO = (RestVO)session.getAttribute("restVO");
+	      UserVO userVO = (UserVO)session.getAttribute("loginUser");
+	     
 	      reviewVO.setRes_score(Double.parseDouble(review));
 	      reviewVO.setRev_content(multi.getParameter("rev_content"));
 	     // restVO.setRes_id(Integer.parseInt(request.getParameter("res_id")));
@@ -70,12 +68,14 @@ public class RestReviewAction implements Action {
 	      
 	      
 	      RestReviewService restReviewService = new RestReviewService();
-	      boolean reviewSuccess = restReviewService.reviewRest(reviewVO,review);
+	      boolean reviewSuccess = restReviewService.reviewRest(reviewVO,review,restVO,userVO);
 	      
 	      ActionForward forward = null;
 	      if(reviewSuccess) {
 	         forward = new ActionForward();
-	         forward.setUrl("home_review/rest_content.jsp");
+	         session.setAttribute("reviewVO", reviewVO);	
+		      session.setAttribute("review", review);
+	         forward.setUrl("rest_content.dae?res_id="+restVO.getRes_id());
 	         forward.setRedirect(true);
 	      }else {
 	         response.setContentType("text/html;charset=UTF-8");

@@ -21,6 +21,13 @@ Author: Surjith S M
     src : url("../fonts/so.ttf");
     font-family: "so"
     }
+    
+     /*리뷰이미지  */   
+ .img-fluid1{
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
 
 /* 비번찾기결과화면 */
 #pwsearchresult{

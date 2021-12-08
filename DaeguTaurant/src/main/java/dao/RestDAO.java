@@ -1,13 +1,11 @@
 package dao;
 
-import static db.JdbcUtil.close;
-import static db.JdbcUtil.commit;
-import static db.JdbcUtil.rollback;
+import static db.JdbcUtil.*;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -214,7 +212,6 @@ public class RestDAO {
 					restVO.setRes_name(rs.getString("res_name"));
 					restVO.setRes_number(rs.getString("res_number"));
 					restVO.setRes_pic(rs.getString("res_pic"));
-					
 					restVO.setRes_re_step(rs.getInt("res_re_step"));
 					restVO.setRes_readcount(rs.getInt("res_readcount"));
 					restVO.setRes_score(rs.getInt("res_score"));

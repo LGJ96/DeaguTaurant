@@ -104,7 +104,7 @@
 	<!--//END BOOKING -->
 
 	<!--============================= RESERVE A SEAT =============================-->
-	<section class="reserve-block">
+		<section class="reserve-block">
 		<div class="container">
 			<div class="card" id="page-content">
 				<div class="card-body">
@@ -132,11 +132,11 @@
 						<div class="col-md-3">
 							<div class="reserve-seat-block">
 								<div class="reserve-rating">
-									<span>4.5</span>
+									<span>${totalScore}</span>
 								</div>
 								<div class="review-btn">
 									<button class="btn btn-outline-danger"
-										onclick="window.open('home_review/reviewWrite.jsp?res_id=${restVO.res_id}','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
+										onclick="window.open('home_review/reviewWrite.jsp?res_id=${restVO.res_id}&user_nickname=${loginUser.user_nickname }','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
 									<span>34 reviews</span>
 								</div>
 							</div>
@@ -261,21 +261,25 @@
 
 
 			<!-- ====================== 리 뷰 ======================== -->
-	 <form action="${pageContext.request.contextPath }/restReviewList.dae" method="POST" name="reviewlist"> 
-			<div id="reviewListFocusId"></div>
+	 <form action="#" method="Get" name="reviewlikecount" > 
+	 
+	 
+			<div id="reviewListFocusId">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="card" id="page-content">
 							<div class="card-body">
-								<h5>34 Reviews</h5>
+							
+								<h5>리뷰(${restpageVO.rest_count})</h5>
 								<hr>
  						<c:forEach var="review1" items="${reviewList}" varStatus="status">
+ 						
 								<div class="customer-review_wrap">
 
 								<div class="customer-img">
 										
-								<p>닉네임 : ${userVO.user_nickname }</p>
+								<p>닉네임 : ${review1.rev_user_id}</p>
 								</div>
 									<div class="customer-content-wrap">
 										<div class="customer-content">
@@ -296,21 +300,27 @@
 											</div>
 
 										</div>
+										 
 										<div class="container">
 											<div class="row">
 												<div class="col-md-12 responsive-wrap">
 													<p class="customer-text">${review1.rev_content }</p>
 												
 													<ul>
-														<li><img src="./images/review-img1.jpg"
-															class="img-fluid" alt="#"></li>
-														<li><img src="./images/review-img2.jpg"
-															class="img-fluid" alt="#"></li>
-														<li><img src="./images/review-img3.jpg"
-															class="img-fluid" alt="#"></li>
+														<li><img src="${pageContext.request.contextPath }/images/rev_pic/${review1.rev_pic }.jpg"
+														
+															class="img-fluid1" alt="#"></li>
 													</ul>
-													<span>좋아요(10)</span> <a href="#"><span
-														class="icon-heart"></span></a>
+												 
+
+													<span>좋아요</span> 
+													
+											
+													<input type="hidden" name="rev_id" value="${review1.rev_id}">
+													<input type="button" name="likey" value="♥" onclick="location.href='restReviewlike.dae?rev_id=${review1.rev_id }'"/> <!-- </a> -->
+													${review1.rev_like}
+													
+												
 													<p>${review1.rev_notice_date }</p>
 												</div>
 											</div>
@@ -318,10 +328,10 @@
 									</div>
 								</div>
 							</c:forEach>
-							</div>
+							
+						</div>
 
-							<hr>
-							<hr>
+                    
 
 						
 						</div>
@@ -329,10 +339,45 @@
 					</div>
 				</div>
 			</div>
-			</form>
-		</section>
-	</section>
+									
+	<div class="col-md-12">
+      <div class="container"  id = "page">
+   		<div class="row">
+   		
+ 		
+ 	<c:if test="${not empty restpageVO}">
+   		<c:if test="${restpageVO.rest_count > 0 }">
 
+       <c:if test="${restpageVO.rest_startPage > 10 }">
+        <a href="rest_content.dae?&res_id=${restVO.res_id}&rest_pageNum=${restpageVO.rest_startPage - 10 }">
+        <p>[이전]</p>
+        </a>
+        </c:if>
+
+       <c:forEach begin = "${restpageVO.rest_startPage }" end ="${restpageVO.rest_endPage }" var = "i">
+        <a href="rest_content.dae?res_id=${restVO.res_id}&rest_pageNum=${i }">
+       <p>[${i }]</p>
+        </a>
+		</c:forEach>
+
+      	<c:if test="${restpageVO.rest_endPage < restpageVO.rest_pageCount  }">
+        <a href="rest_content.dae?res_id=${restVO.res_id}&rest_pageNum=${restpageVO.rest_startPage + 10 }">
+        <p>[다음]</p>
+        </a>
+        </c:if>
+
+	</c:if>
+	</c:if>
+	
+	</div>
+  </div>
+</div>
+</div>		
+			
+	
+</form>
+</section>
+</section>
 
 
 	<!--============================= FOOTER =============================-->
@@ -428,19 +473,7 @@
         star.style.width = ratingRounded;numberRating.innerText = ratings[rating];}}rateIt()
  	</script>
  	
-	  <script >
-     $(window).bind("pageshow", function (event) {
-    	if (event.originalEvent.persisted) {
-    		// 뒤로가기로 페이지 로드 시
-    		document.myForm.submit();
-    	}
-    	else {
-    		// 새로운 페이지 로드 시
-    		document.myForm.submit();
-    	} 
-    });
-    
-    </script>
+	
     
 </body>
 </html>

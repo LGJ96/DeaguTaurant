@@ -32,7 +32,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <body>
-<form action="${pageContext.request.contextPath }/home_review/restReview.dae" method="POST" name="review" enctype = "multipart/form-data" onsubmit="return writeSave()"> 
+<form action="#" method="POST" name="restreview" enctype = "multipart/form-data" > 
+
+<input type="hidden" name="rev_res_id" value="${restVO.res_id}"/>
+<input type="hidden" name="user_id" value="${loginUser.user_id}"/>
+
+	<input type="hidden" name="rev_re_step" value="${reviewVO.rev_re_step }"/>
 
    <table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
     <tr>
@@ -103,17 +108,19 @@
 <script >
 
  
-       function showConfirm1() {
-          if (confirm("리뷰 등록을 하시겠습니까?") == true){
-               alert("리뷰 등록을 완료했습니다.");
-            
-             
-               window.close();
-            } 
-         else{
-                alert("취소 버튼을 눌렀습니다.");
-            }
-          }
+function showConfirm1() {
+    if (confirm("리뷰 등록을 하시겠습니까?") == true){
+  	document.restreview.target = "${pageContext.request.contextPath }/rest_content.dae";
+   	document.restreview.action="${pageContext.request.contextPath }/restReview.dae";
+       document.restreview.submit();
+      
+       
+         window.close();
+      } 
+   else{
+          alert("취소 버튼을 눌렀습니다.");
+      }
+    }
 </script>  
 </form>    
 </body>

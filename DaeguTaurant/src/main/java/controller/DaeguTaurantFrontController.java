@@ -29,8 +29,7 @@ import rest.action.RestSearchListAction;
 import rest.action.RestUpdateAction;
 import rest.action.RestUpdateProAction;
 import review.action.RestReviewAction;
-import review.action.RestReviewListAction;
-
+import review.action.RestReviewlikeAction;
 import servicecenter.action.Faq_deleteFormAction;
 import servicecenter.action.Faq_deleteProAction;
 import servicecenter.action.Faq_updateFormAction;
@@ -292,7 +291,6 @@ public class DaeguTaurantFrontController extends HttpServlet {
 			
 			//======================== 리뷰작성 ==============================
 			
-			//리뷰 작성
 			else if(command.equals("/restReview.dae")) {
 				action = new RestReviewAction();
 				
@@ -304,8 +302,10 @@ public class DaeguTaurantFrontController extends HttpServlet {
 				}
 			}
 			
-			else if(command.equals("/restReviewList.dae")) {
-				action = new RestReviewListAction();
+			
+			
+			else if(command.equals("/restReviewlike.dae")) {
+				action = new RestReviewlikeAction();
 				
 				try {
 					forward = action.execute(request, response);
@@ -314,7 +314,6 @@ public class DaeguTaurantFrontController extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			
 			
 			
 				
