@@ -18,6 +18,8 @@ import login.action.UserLoginAction;
 import login.action.UserLogoutAction;
 import login.action.UserNicknameCheckAction;
 import login.action.UserPwSearchResultAction;
+import mypage.action.UserPwUpdateProAction;
+
 import rest.action.Rest1EachCheckSearchAction;
 import rest.action.Rest2categoryCheckSearchAction;
 import rest.action.Rest3areaCheckSearchAction;
@@ -171,7 +173,6 @@ public class DaeguTaurantFrontController extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-			
 			
 		//========================���� �깅�==============================
 			
@@ -535,7 +536,18 @@ public class DaeguTaurantFrontController extends HttpServlet {
 					}
 				}
 			
-				
+			//======================== 마이페이지 ==============================
+			
+				else if(command.equals("/userPw_UpdatePro.dae")) {
+					action = new UserPwUpdateProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 			
 		
 		

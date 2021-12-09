@@ -22,11 +22,74 @@ Author: Surjith S M
     font-family: "so"
     }
     
-     /*리뷰이미지  */   
+ /*리뷰이미지  */   
  .img-fluid1{
   width: 300px;
   height: 200px;
   object-fit: cover;
+}
+
+/* 아이디,닉네임 중복체크 안 텍스트 */
+#checkId{
+	font-family: "one";
+	font-size: 25px;
+	margin-top: 20px;
+}
+ 
+/*아이디, 닉네임 중복체크 적용 버튼 */
+#btn-checkId{
+	
+	border: 0;
+	font-family: "one";
+	background-color:#FFB900;
+	font-size: 22px;
+}
+
+
+
+/*회원탈퇴 비밀번호 입력 텍스트 */
+#pw_delete{
+	
+	font-family: "so";
+	font-size: 22px;
+	margin-top: 15px;
+}
+ 
+/*회원탈퇴 확인 버튼 */
+#deleteButton, #deletebutton{
+	
+	font-family: "one";
+	font-size: 20px;
+	margin-top: 15px;
+	border : 0;
+	background-color: #FFB900; 
+	color: #000;
+	width: 70px;
+}
+
+/*비밀번호 변경 */
+#updatePW{
+	float: left;
+	width : 20%;
+	text-align: center;
+}
+
+/* 비밀번호 변경 전체 창 */
+#pwUpdate{
+	font-size : 20px;
+	/* margin-left : 130px;  */
+	margin-top: 20px; 	
+	
+}
+
+/*비밀번호 변경 버튼 */
+#update1{
+	font-family: "one";
+	font-size: 20px;
+	margin-top: 13px;
+	background-color : #FFB900;
+	width : 180px;
+	border: 0;
 }
 
 /* 비번찾기결과화면 */
@@ -37,9 +100,10 @@ Author: Surjith S M
 	padding :30px;
 }
 
+
 /* 카카오지도 마커 */
 .balloon {
- 
+
  width:200px;
  border-radius: 50%;
  text-align:center;
@@ -680,11 +744,46 @@ h8{
 h9{
 	font-family: one;
 	font-size: 27px;
-	 
 	color : #646464;
 	background-color: #FAFAD2;
-	
 }
+
+/*비밀번호 변경 헤더 */
+h10{
+	font-family: "jua";
+	font-size: 27px;
+	text-align: center;
+
+}
+
+/* 회원 탈퇴 헤더 텍스트 */
+h11{
+	font-family: "jua";
+	font-size: 24px;
+}
+
+/*아이디 중복체크 텍스트 */
+h12{
+	font-family: "so";
+	font-size: 26px;
+	margin-bottom: 50px;
+}
+
+/*아이디 중복체크 아이디 사용 가능 시 확인 버튼 */
+h13{
+	font-family: so;
+	font-size: 28px;
+/* 	border: 1px; */
+	color : #FF8200;
+	text-decoration: none;
+}
+
+/* 아이디, 닉네임 중복체크 링크 밑줄 제거 */
+#a1{
+
+	text-decoration: none;
+}
+
 
 p {
   font-size: 15px; }

@@ -270,6 +270,46 @@ public class UserDAO {
 		return pwsearchresult;
 	}
 
+	public int updateUserPw(UserVO userVO) {
+		
+		int updateCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		try {
+			pstmt = con.prepareStatement(""
+					+ "SELECT * FROM user_Info WHERE user_id = ?");
+			pstmt.setString(1, userVO.getUser_id());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			
+					sql = " UPDATE user_Info SET user_pw = ?"
+							+ " WHERE user_id = ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, userVO.getUser_pw());
+					pstmt.setString(2, userVO.getUser_id());
+					
+					updateCount = pstmt.executeUpdate();
+					
+				}
+		}
+			
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			close(rs);
+			close(pstmt);
+		}
+	
+	
+		
+		return updateCount;
+	}
+
 
 
 }

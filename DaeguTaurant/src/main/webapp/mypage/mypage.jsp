@@ -1,7 +1,7 @@
 <%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>      
 <%
 	UserVO loginUser = (UserVO)session.getAttribute("loginUser");
 	 String user_id = (String)session.getAttribute("user_id");
@@ -162,34 +162,13 @@
                             
                             <div class="form-group row showcase_row_area">
                               <div class="col-md-3 showcase_text_area">
-                                <label for="inputType1">새 비밀번호</label>
+                                <label for="inputType1">비밀번호 변경</label>
                               </div>
             
-                              <div class="col-md-9 showcase_content_area">
-                                <input type="password" class="form-control" id="inputType4" >
-                              </div>
-                            </div>
-            
-                            <div class="form-group row showcase_row_area">
-                              <div class="col-md-3 showcase_text_area">
-                                <label for="inputType1">비밀번호 확인</label>
-                              </div>
-                              <div class="col-md-7 showcase_content_area">
-                                <input type="password" class="form-control" id="inputType5" > 
-                              </div>
-                              <div class="col-md-2 showcase_content_area">
-                                <button a href="../home_review/index.jsp" type="submit" class="btn btn-check" onclick="showConfirm1();"> 변경하기 </button>
-                                <script language="javascript">
-									 function showConfirm1() {
-									 if (confirm("비밀번호를 변경하시겠습니까?"))
-									  {
-									   alert("비밀번호를 변경했습니다.");
-									  } 
-									 else {
-									   alert("취소 버튼을 눌렀습니다.");
-									 }
-									 }
-								</script>
+                              <div class="col-md-9 showcase_content_area">    
+                                <button class="btn"  
+  								onclick="window.open('modifyPw.jsp?user_id=${loginUser.user_id}',
+  								'','width=510,height=240,location=no,status=no,scrollbars=yes,left = 1000, top = 500');">변경하기</button>
                                </div>
                             </div>
                            
@@ -820,7 +799,7 @@
 				/*alert 확인 버튼만,confirm 확인 취소 버튼 둘다 */
 			  if (confirm("회원 탈퇴 하시겠습니까?")==true) {    //확인을 누른다면                 
 				window.open("../user_infoDelete.dae?user_id=<%=user_id%>", "user_idDeleteWindow",
-				"width=300,height=200");		
+				"width=300,height=200 left = 580, top=610");		
 			  }   
 			  else { 
 			   return false;
@@ -881,7 +860,31 @@
         
     </script>
   
-   
+   <!--  <script >
+      function showConfirm1() {
+             
+    	
+        var user_pw1 = document.getElementById("user_pw1");
+        var user_pw2 = document.getElementById("user_pw2");
+
+        if (user_pw1.value == ""){
+           alert("비밀번호를 입력해주세요");
+           form.user_pw1.focus();
+           return false;
+      }
+        else if (user_pw2.value == ""){
+          alert("비밀번호를 한번 더 입력해주세요");
+          form.user_pw2.focus();
+          return false;
+     }
+                                   
+      	if(user_pw1.value != user_pw2.value){
+          form.user_pw1.focus();
+          form.user_pw2.focus();
+          return false;
+   	}
+  }
+	</script> -->
 
 
 </body>

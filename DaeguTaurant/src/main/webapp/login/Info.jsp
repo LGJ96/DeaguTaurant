@@ -181,7 +181,7 @@
 		//alert(user_id.value);
 		
 		 window.open("../user_idCheck.dae?user_id=" + user_id.value , "user_idCheckWindow",
-		"width=400,height=200");
+		"width=430,height=200,left =600, top=450");
 		 /* 중복검사하면 값이 1로바뀜 */
 		 var idCheckResult = document.getElementById("idCheckResult");
 		 var NickNameCheckResult = document.getElementById("NickNameCheckResult");
@@ -203,7 +203,7 @@
 		//alert(user_id.value);
 		
 		 window.open("../user_nicknameCheck.dae?user_nickname=" + user_nickname.value , "user_nicknameCheckWindow",
-		"width=400,height=200");
+		"width=400,height=200,left =600, top=450");
 			
 	}
 	

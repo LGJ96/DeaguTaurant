@@ -15,28 +15,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
 
 <%
 		if(user_idExist){
-	%>
-	<h4><%=user_id %>는 사용할 수 없습니다.</h4>
+%>
+	
+	<h12><%=user_id %>는 사용할 수 없습니다.</h12>
 	
 	<form action="user_idCheck.dae">
-		<label for = "user_id">아이디 : </label>
-		<input type = "text" name = "user_id" id = "user_id"/><br>
-		<input type = "submit" class="btn btn-check"  value = "적용"/>
+		<label for = "user_id" id = "checkId">아이디 : </label>
+		<input type = "text" name = "user_id" id = "user_id" style = "height: 20px; margin-top: 20px;"/>
+		<input type = "submit" class="btn" id = "btn-checkId" value = "적용"/>
 	</form>
 	<%
 		}
 		else{
 	%>
-	<h4><%=user_id %>는 사용할 수 있습니다.</h4>	
-	<a href = "javascript:closeWindow()" class="btn btn-check">확인</a>
+	<h12><%=user_id %>는 사용할 수 있습니다.</h12><Br>
+	<a href = "javascript:closeWindow()" id = "a1">
+	<h13>확인</h13>
+	</a>
 	<%
 		}
 	%>

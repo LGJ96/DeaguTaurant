@@ -15,26 +15,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/style.css">
+ <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <body>
 
 <%
 		if(user_nicknameExist){
 	%>
-	<h4><%=user_nickname %>는 사용할 수 없습니다.</h4>
+	<h12><%=user_nickname %>는 사용할 수 없습니다.</h12>
 	
 	<form action="user_nicknameCheck.dae">
-		<label for = "user_nickname">닉네임 : </label>
-		<input type = "text" name = "user_nickname" id = "user_nickname"/><br>
-		<input type = "submit" class="btn btn-check"  value = "적용"/>
+		<label for = "user_nickname" id = "checkId">닉네임 : </label>
+		<input type = "text" name = "user_nickname" id = "user_nickname" style = "height: 20px; margin-top: 20px;"/>
+		<input type = "submit" class="btn" id = "btn-checkId"  value = "적용"/>
 	</form>
 	<%
 		}
 		else{
 	%>
-	<h4><%=user_nickname %>는 사용할 수 있습니다.</h4>	
-	<a href = "javascript:closeWindow()" class="btn btn-check">확인</a>
+	<h12><%=user_nickname %>는 사용할 수 있습니다.</12>	
+	<a href = "javascript:closeWindow()" id = "a1">
+	<h13>확인</h13>
+	</a>
 	<%
 		}
 	%>
