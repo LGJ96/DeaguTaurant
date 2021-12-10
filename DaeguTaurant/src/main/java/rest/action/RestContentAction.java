@@ -1,6 +1,7 @@
 package rest.action;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +23,8 @@ public class RestContentAction implements Action {
 		
 		int res_id = Integer.parseInt(request.getParameter("res_id"));   //식당고유번호
 		String user_id = request.getParameter("user_id");
+		
+		
 		
 		int rest_pageSize = 10; //�� �������� ��µǴ� ���� ����
 		String rest_pageNum = request.getParameter("rest_pageNum");
@@ -48,12 +51,14 @@ public class RestContentAction implements Action {
 		List<ReviewVO> reviewList = null;
 		rest_count = reviewListService.getReviewCount(res_id);          //리뷰 수
 		
+		//ArrayList<String> reviewnicknameList = reviewListService.reviewNickname(user_id,res_id); //닉네임출력
+		
 		double totalScore=reviewListService.getTotalScore(res_id);
 		
 		if(rest_count > 0) {
 			reviewList = reviewListService.getReviewList(rest_startRow,rest_pageSize,res_id,reviewVO);
 		}
-		rest_number = rest_count -(rest_currentPage - 1) * rest_pageSize;
+		rest_number = rest_count - (rest_currentPage - 1) * rest_pageSize;
 		
 		
 		//����¡ó��
@@ -89,7 +94,7 @@ public class RestContentAction implements Action {
 		session.setAttribute("restVO", restVO);
 		session.setAttribute("totalScore", totalScore);
 		session.setAttribute("user_id", user_id);
-		
+	    //session.setAttribute("reviewnicknameList", reviewnicknameList);
 		
 
 		ActionForward forward = new ActionForward();

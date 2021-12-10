@@ -13,6 +13,7 @@ public class ReviewVO {
 	private int rev_re_step;
 	private String rev_user_id;
 	private int rev_res_id;
+	private String rev_writer;
 	
 	
 	
@@ -70,6 +71,12 @@ public class ReviewVO {
 	}
 	public void setRev_res_id(int rev_res_id) {
 		this.rev_res_id = rev_res_id;
+	}
+	public String getRev_writer() {
+		return rev_writer;
+	}
+	public void setRev_writer(String rev_writer) {
+		this.rev_writer = rev_writer;
 	}
 	
 	

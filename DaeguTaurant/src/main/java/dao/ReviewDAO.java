@@ -39,13 +39,13 @@ public class ReviewDAO {
 	public int insertReview(ReviewVO reviewVO, String review, RestVO restVO,UserVO userVO) {
 
 		int insertCount = 0;
-
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		int rev_id = reviewVO.getRev_id();
 		int rev_res_id = restVO.getRes_id();
 		String rev_user_id=userVO.getUser_id();
+		String rev_wirter=userVO.getUser_nickname();
 
 		int rev_re_step = reviewVO.getRev_re_step();
 		double res_score = reviewVO.getRes_score();
@@ -113,8 +113,8 @@ public class ReviewDAO {
 			}
 
 			sql = "INSERT INTO review(rev_id, res_score,"
-					+ "rev_notice_date, rev_pic,rev_res_id,rev_user_id, rev_content, rev_re_step, rev_like)"
-					+ "VALUES(review_seq.nextval,?,?,?,?,?,?,?,0)";
+					+ "rev_notice_date, rev_pic,rev_res_id,rev_user_id,rev_writer, rev_content, rev_re_step, rev_like)"
+					+ "VALUES(review_seq.nextval,?,?,?,?,?,?,?,?,0)";
 
 			pstmt = con.prepareStatement(sql);
 
@@ -123,10 +123,18 @@ public class ReviewDAO {
 			pstmt.setString(3, reviewVO.getRev_pic());
 			pstmt.setInt(4, rev_res_id);
 			pstmt.setString(5, rev_user_id);
-			pstmt.setString(6, reviewVO.getRev_content());
-			pstmt.setInt(7, reviewVO.getRev_re_step());
+			pstmt.setString(6, rev_wirter);
+			pstmt.setString(7, reviewVO.getRev_content());
+			pstmt.setInt(8, rev_re_step);
 
 			insertCount = pstmt.executeUpdate();
+			
+			
+			
+			
+			
+		
+			
 
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -174,10 +182,18 @@ public class ReviewDAO {
 				reviewVO.setRev_re_step(rs.getInt("rev_re_step"));
 				reviewVO.setRev_res_id(rs.getInt("rev_res_id"));
 				reviewVO.setRev_user_id(rs.getString("rev_user_id"));
+				reviewVO.setRev_writer(rs.getString("rev_writer"));
 
 				reviewList.add(reviewVO);
 
 			} while (rs.next());
+			
+			
+			
+			
+			
+			
+			
 		
 		}
 
@@ -265,6 +281,7 @@ public class ReviewDAO {
 				reviewVO.setRev_re_step(rs.getInt("rev_re_step"));
 				reviewVO.setRev_res_id(rs.getInt("rev_res_id"));
 				reviewVO.setRev_user_id("rev_user_id");
+				reviewVO.setRev_writer("rev_writer");
 
 
 
@@ -290,15 +307,17 @@ public class ReviewDAO {
 	}
 
 	public double selectTotalScore(int res_id) {
-		
+		double updateCount = 0.0;
+
 		// TODO Auto-generated method stub
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		//double a = Double.parseDouble(null).getRes_score();
-		
+		String sql ="";
 		double totalScore=0.00;
 
 		try {
+			
+			
 				
 			pstmt = con.prepareStatement(""
 					+"SELECT ROUND((SUM(res_score)/COUNT(*)),2) AS totalScore FROM review WHERE rev_res_id = ? GROUP BY rev_res_id");
@@ -308,14 +327,29 @@ public class ReviewDAO {
 			
 			if (rs.next()) {
 				
-				
-				
+		
 				totalScore = rs.getDouble("totalScore");
+				 
+			}
+			sql = "UPDATE restaurant SET res_score = ? WHERE res_id = ? ";
+	          
+            pstmt = con.prepareStatement(sql);
+            pstmt.setDouble(1, totalScore);
+            pstmt.setInt(2, res_id);
+        
+            updateCount= pstmt.executeUpdate();
+            if(updateCount > 0) {
+				commit(con);
 				
-			
-
 			}
 			
+			else {
+				rollback(con);
+				
+			}
+         
+		            
+		
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -332,4 +366,5 @@ public class ReviewDAO {
 		return totalScore;	
 	}
 
+	
 }

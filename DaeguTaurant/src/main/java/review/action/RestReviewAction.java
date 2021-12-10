@@ -2,6 +2,7 @@ package review.action;
 
 import java.io.PrintWriter;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -13,8 +14,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import Info.action.Action;
 import review.service.RestReviewService;
+import review.service.ReviewListService;
 import vo.ActionForward;
 import vo.RestVO;
+import vo.ReviewReplyVO;
 import vo.ReviewVO;
 import vo.UserVO;
 
@@ -22,7 +25,8 @@ public class RestReviewAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+		int res_id = Integer.parseInt(request.getParameter("res_id"));   //식당고유번호
+
 		// 평점
 		//String[] review =request.getParameterValues("rating");
 		
@@ -43,7 +47,6 @@ public class RestReviewAction implements Action {
 		           new DefaultFileRenamePolicy());
 	     
 	      ReviewVO reviewVO = new ReviewVO();
-	     
     
 	      String fileName = multi.getFilesystemName("rev_pic"); 
 			 
@@ -58,22 +61,31 @@ public class RestReviewAction implements Action {
 			
 	      HttpSession session = request.getSession();
 	      RestVO restVO = (RestVO)session.getAttribute("restVO");
-	      UserVO userVO = (UserVO)session.getAttribute("loginUser");
+	      String user_id = multi.getParameter("user_id");
+
+	     
+			 UserVO userVO = new UserVO();
+			 userVO.setUser_id(multi.getParameter("user_id"));
+			 userVO.setUser_nickname(multi.getParameter("user_nickname"));
+
+			
+	     
+	     // String user_id = request.getParameter("user_id");
+	      //System.out.println(user_id);
 	     
 	      reviewVO.setRes_score(Double.parseDouble(review));
 	      reviewVO.setRev_content(multi.getParameter("rev_content"));
-	     // restVO.setRes_id(Integer.parseInt(request.getParameter("res_id")));
 	      reviewVO.setRev_like(0);
 	      reviewVO.setRev_notice_date(new Timestamp(System.currentTimeMillis()));
-	      
-	      
+	      reviewVO.setRev_id(Integer.parseInt(multi.getParameter("rev_id")));
+	      reviewVO.setRev_re_step(Integer.parseInt(multi.getParameter("rev_re_step")));
 	      RestReviewService restReviewService = new RestReviewService();
+	
 	      boolean reviewSuccess = restReviewService.reviewRest(reviewVO,review,restVO,userVO);
 	      
 	      ActionForward forward = null;
 	      if(reviewSuccess) {
 	         forward = new ActionForward();
-	         session.setAttribute("reviewVO", reviewVO);	
 		      session.setAttribute("review", review);
 	         forward.setUrl("rest_content.dae?res_id="+restVO.getRes_id());
 	         forward.setRedirect(true);

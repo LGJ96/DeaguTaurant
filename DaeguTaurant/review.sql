@@ -19,6 +19,11 @@ create table review(
 	FOREIGN KEY(rev_res_id)
 	REFERENCES restaurant(res_id)
 )
+alter table review add rev_writer VARCHAR2(30);       /*컬럼 추가*/
+
+
+
+
 
 select * from review;
 

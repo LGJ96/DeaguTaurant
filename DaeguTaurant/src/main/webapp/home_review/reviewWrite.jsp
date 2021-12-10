@@ -15,7 +15,7 @@
     <!-- Page Title -->
    <title>DaeguTaruant</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
@@ -32,12 +32,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <body>
-<form action="#" method="POST" name="restreview" enctype = "multipart/form-data" > 
+<form action="#" method="POST" name="restreview" enctype = "multipart/form-data" onsubmit="return writeSave()" > 
 
 <input type="hidden" name="rev_res_id" value="${restVO.res_id}"/>
 <input type="hidden" name="user_id" value="${loginUser.user_id}"/>
+<input type="hidden" name="user_nickname" value="${loginUser.user_nickname}"/>
 
-	<input type="hidden" name="rev_re_step" value="${reviewVO.rev_re_step }"/>
+
+	<input type="hidden" name="rev_id" value="${reviewreplyVO.rev_id}"/>	
+	<input type="hidden" name="rev_re_step" value="${reviewreplyVO.rev_re_step}"/>	
 
    <table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
     <tr>
@@ -64,8 +67,6 @@
    </td>
    </tr> -->
    
-    <input type="hidden" name="rev_id" value="${reviewVO.rev_id }"/>
-	<input type="hidden" name="rev_re_step" value="${reviewVO.rev_re_step }"/>
 	
    <tr>
    	<td align="center" colspan="2">
@@ -105,13 +106,14 @@
   
   
 </table> 
+</form> 
 <script >
 
  
 function showConfirm1() {
     if (confirm("리뷰 등록을 하시겠습니까?") == true){
   	document.restreview.target = "${pageContext.request.contextPath }/rest_content.dae";
-   	document.restreview.action="${pageContext.request.contextPath }/restReview.dae";
+   	document.restreview.action="${pageContext.request.contextPath }/restReview.dae?res_id="+${restVO.res_id};
        document.restreview.submit();
       
        
@@ -122,7 +124,7 @@ function showConfirm1() {
       }
     }
 </script>  
-</form>    
+   
 </body>
 
 

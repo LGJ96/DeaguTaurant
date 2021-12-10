@@ -258,12 +258,10 @@
 					</div>
 				</div>
 			</div> 
-
-
+	
 			<!-- ====================== 리 뷰 ======================== -->
 	 <form action="#" method="Get" name="reviewlikecount" > 
-	 
-	 
+
 			<div id="reviewListFocusId">
 			<div class="container">
 				<div class="row">
@@ -278,8 +276,8 @@
 								<div class="customer-review_wrap">
 
 								<div class="customer-img">
-										
-								<p>닉네임 : ${review1.rev_user_id}</p>
+							<input type="hidden" name="rev_id" value="${review1.rev_id}"/>
+								<p>닉네임 :${review1.rev_writer}</p>
 								</div>
 									<div class="customer-content-wrap">
 										<div class="customer-content">

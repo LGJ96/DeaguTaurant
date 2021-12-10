@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.ReviewDAO;
 import vo.RestVO;
 import vo.ReviewVO;
+import vo.UserVO;
 
 public class ReviewListService {
 
@@ -57,13 +58,13 @@ public class ReviewListService {
 		 ReviewDAO reviewDAO = ReviewDAO.getInstance();
 		 reviewDAO.setConnection(con);
 		 
-		 double totalScore = reviewDAO.selectTotalScore(res_id);	
+		 double updateCount = reviewDAO.selectTotalScore(res_id);	
 		 
-		return totalScore;
+		return updateCount;
 	}
 
 	
-	
+
 	
 }
 
