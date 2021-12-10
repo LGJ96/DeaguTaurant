@@ -139,6 +139,11 @@
 									<button class="btn btn-outline-danger"
 										onclick="window.open('restReviewwrite.dae?','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
 								</c:if>	
+								<c:if test="${loginUser.user_id == null }">
+									<button class="btn btn-outline-danger"
+										onclick="alert('로그인 후 이용해 주세요')">평점및리뷰등록</button>
+								</c:if>
+							
 									<span> ${restpageVO.rest_count} reviews</span>
 								</div>
 							</div>
@@ -278,7 +283,6 @@
 								<div class="customer-review_wrap">
 
 								<div class="customer-img">
-							<input type="text" name="rev_id" value="${review1.rev_id}"/>
 								<p>닉네임 :${review1.rev_writer}</p>
 								</div>
 									<div class="customer-content-wrap">

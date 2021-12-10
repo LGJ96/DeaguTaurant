@@ -2,11 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@page import="vo.UserVO"%>
 <%
-	String user_id = (String)session.getAttribute("user_id");
+/* 	String user_id = (String)session.getAttribute("user_id");
 	String user_pw = (String)session.getAttribute("user_pw");
 	String user_nickname = (String)session.getAttribute("user_nickname");
- 	UserVO loginUser = (UserVO)session.getAttribute("loginUser");
+ 	UserVO loginUser = (UserVO)session.getAttribute("loginUser"); */
 %>   
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>  
+
 <!DOCTYPE html>
 <html>
    <div class="dark-hg sticky-top">
@@ -22,26 +24,20 @@
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                               
-						<%
-							if(user_id != null) {
-									
-						%> 
+						<c:if test="${loginUser.user_id != null }">
+ 
 						<li><a href = "${pageContext.request.contextPath }/logout.dae" class="logout-text top-btn"  >로그아웃</a></li>
+					
 											
-											
- 						<li><a href = "${pageContext.request.contextPath }/mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text"><%=loginUser.getUser_nickname()%></a></li>
+ 						<li><a href = "${pageContext.request.contextPath }/mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text">${loginUser.user_nickname }</a></li>
  								
-												
-						<%
-						}
-							else{
-						%>
-						<li><a href="./login/login.jsp" class="btn btn-outline-light top-btn" id = "login-text">
+						</c:if>					
+					
+						<c:if test="${loginUser.user_id == null }">
+						<li><a href="${pageContext.request.contextPath }/login/login.jsp" class="btn btn-outline-light top-btn" id = "login-text">
 						<span class="ti-plus" ></span> 로그인</a></li>
 								
-						<%
-						}
-						%>
+						</c:if>
                              <li>
                              
                              </li>

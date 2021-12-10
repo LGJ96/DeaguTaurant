@@ -22,9 +22,6 @@ create table review(
 alter table review add rev_writer VARCHAR2(30);       /*컬럼 추가*/
 
 
-
-
-
 select * from review;
 
 drop table review;
