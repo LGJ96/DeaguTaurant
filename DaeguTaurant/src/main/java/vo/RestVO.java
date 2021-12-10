@@ -6,7 +6,7 @@ public class RestVO {
 
 	private int res_id;
 	private String res_name;
-	private int res_score;
+	private double res_totalscore;
 	private int res_readcount;
 	private String res_pic;
 	private String res_category;
@@ -34,11 +34,11 @@ public class RestVO {
 	public void setRes_name(String res_name) {
 		this.res_name = res_name;
 	}
-	public double getRes_score() {
-		return res_score;
+	public double getRes_totalscore() {
+		return res_totalscore;
 	}
-	public void setRes_score(int res_score) {
-		this.res_score = res_score;
+	public void setRes_totalscore(double res_totalscore) {
+		this.res_totalscore = res_totalscore;
 	}
 	public int getRes_readcount() {
 		return res_readcount;

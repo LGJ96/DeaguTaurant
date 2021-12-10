@@ -155,7 +155,7 @@ int rest_endPage = restpageVO.getRest_endPage();
     
     <!------------------ 식당 리스트 화면--------------- -->
     
-    <div class="col-md-12">
+   <div class="col-md-12">
       <div class="container">
    		<div class="row"  >
    		
@@ -183,7 +183,7 @@ int rest_endPage = restpageVO.getRest_endPage();
             <td>
             <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
              <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
-              <span class="point">${rest.res_score}</span>
+              <span class="point">${rest.res_totalscore }</span>
                <span class="point1">지역 : ${rest.res_Addr1}</span>
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>
@@ -208,7 +208,7 @@ int rest_endPage = restpageVO.getRest_endPage();
             <td>
             <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
              <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
-              <span class="point">${rest.res_score}</span>
+              <span class="point">${rest.res_totalscore }</span>
                <span class="point1">지역 : ${rest.res_Addr1}</span>
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>
@@ -229,7 +229,7 @@ int rest_endPage = restpageVO.getRest_endPage();
             <td>
             <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
              <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
-              <span class="point">${rest.res_score}</span>
+              <span class="point">${rest.res_totalscore }</span>
                <span class="point1">지역 : ${rest.res_Addr1}</span>
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>
@@ -250,7 +250,7 @@ int rest_endPage = restpageVO.getRest_endPage();
             <td>
             <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
              <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
-              <span class="point">${rest.res_score}</span>
+              <span class="point">${rest.res_totalscore }</span>
                <span class="point1">지역 : ${rest.res_Addr1}</span>
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>
@@ -268,7 +268,7 @@ int rest_endPage = restpageVO.getRest_endPage();
             <td>
             <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
              <img id = "img2" src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic}.jpg"/>
-              <span class="point">${rest.res_score}</span>
+              <span class="point">${rest.res_totalscore }</span>
                <span class="point1">지역 : ${rest.res_Addr1}</span>
                <span class="point2">테마 : ${rest.res_category}</span>
                <span class="point3">조회수 :${rest.res_readcount }</span>

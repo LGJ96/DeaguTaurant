@@ -331,7 +331,7 @@ public class ReviewDAO {
 				totalScore = rs.getDouble("totalScore");
 				 
 			}
-			sql = "UPDATE restaurant SET res_score = ? WHERE res_id = ? ";
+			sql = "UPDATE restaurant SET res_totalscore = ? WHERE res_id = ? ";
 	          
             pstmt = con.prepareStatement(sql);
             pstmt.setDouble(1, totalScore);
@@ -366,5 +366,61 @@ public class ReviewDAO {
 		return totalScore;	
 	}
 
+	public ArrayList<UserVO> selectReviewNickname(String user_id,int res_id) {
+		
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql ="";
+		ArrayList<UserVO> reviewnicknameList=null;
+		
 	
+		try {
+			
+		
+		//sql = "SELECT A.user_nickname FROM user_info A,review B WHERE A.user_id = B.rev_user_id and B.rev_id = ?";
+		sql="select a.user_nickname from user_info a, review b where b.rev_res_id = ? and a.user_id = b.rev_user_id";
+	       
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, res_id);
+		//pstmt.setString(2, user_id);
+		rs = pstmt.executeQuery();
+		
+	
+		if (rs.next()) {
+
+			reviewnicknameList = new ArrayList<UserVO>();
+
+
+			do {
+				UserVO userVO = new UserVO();  
+				userVO.setUser_nickname(rs.getString("a.user_nickname"));
+				
+				reviewnicknameList.add(userVO);
+				
+
+
+			} while (rs.next());
+			
+			
+			System.out.println(reviewnicknameList);
+	
+		}
+		
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}
+	finally {
+		try {
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	return reviewnicknameList;	
+
+	}
 }

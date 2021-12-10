@@ -135,9 +135,11 @@
 									<span>${totalScore}</span>
 								</div>
 								<div class="review-btn">
+								<c:if test="${loginUser.user_id != null }">
 									<button class="btn btn-outline-danger"
-										onclick="window.open('home_review/reviewWrite.jsp?res_id=${restVO.res_id}&user_nickname=${loginUser.user_nickname }','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
-									<span>34 reviews</span>
+										onclick="window.open('restReviewwrite.dae?','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
+								</c:if>	
+									<span> ${restpageVO.rest_count} reviews</span>
 								</div>
 							</div>
 						</div>
@@ -276,7 +278,7 @@
 								<div class="customer-review_wrap">
 
 								<div class="customer-img">
-							<input type="hidden" name="rev_id" value="${review1.rev_id}"/>
+							<input type="text" name="rev_id" value="${review1.rev_id}"/>
 								<p>닉네임 :${review1.rev_writer}</p>
 								</div>
 									<div class="customer-content-wrap">

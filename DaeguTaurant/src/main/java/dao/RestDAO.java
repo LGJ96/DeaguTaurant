@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import vo.RestVO;
+import vo.ReviewVO;
 
 public class RestDAO {
 
@@ -33,7 +34,7 @@ public class RestDAO {
 	
 	
 	
-	public int insertRest(RestVO restVO) throws Exception{
+	public int insertRest(RestVO restVO,ReviewVO reviewVO) throws Exception{
 		
 		 int insertCount = 0;
 		 PreparedStatement pstmt = null;
@@ -44,11 +45,16 @@ public class RestDAO {
 	     int res_re_step = restVO.getRes_re_step();
 	     int res_Addr1_ref = restVO.getRes_Addr1_ref();
 	     
+	     
+	     
+	     
 	     int number = 0;
 	     String sql = "";
 		    
 		    
 		    try {
+		    	
+		    	
 		    	 pstmt = con.prepareStatement("SELECT MAX(res_id) FROM restaurant");
 		         rs = pstmt.executeQuery();
    
@@ -76,7 +82,7 @@ public class RestDAO {
 		        	 res_re_step = 0;
 		            
 		         }
-		         sql = "INSERT INTO restaurant(res_id, res_name, res_score,"
+		         sql = "INSERT INTO restaurant(res_id, res_name, res_totalscore,"
 		        		 + "res_category, res_mainmenu, res_number, res_Addr1, res_Addr2, res_hours, res_ref, "
 		        		 + "res_re_step,res_notice_date,res_Addr1_ref, res_pic, res_readcount) "
 		        		 + "VALUES(restaurant_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,0)";
@@ -84,7 +90,7 @@ public class RestDAO {
 		       pstmt = con.prepareStatement(sql);
 		       
 		       pstmt.setString(1, restVO.getRes_name());
-		       pstmt.setDouble(2, restVO.getRes_score());
+		       pstmt.setDouble(2, restVO.getRes_totalscore() );
 		       pstmt.setString(3, restVO.getRes_category());
 		       pstmt.setString(4, restVO.getRes_mainmenu());
 		       pstmt.setString(5, restVO.getRes_number());
@@ -158,7 +164,7 @@ public class RestDAO {
 					
 					restVO.setRes_re_step(rs.getInt("res_re_step"));
 					restVO.setRes_readcount(rs.getInt("res_readcount"));
-					restVO.setRes_score(rs.getInt("res_score"));
+					restVO.setRes_totalscore(rs.getDouble("res_totalscore"));
 					restVO.setRes_ref(rs.getInt("res_ref"));
 					restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
 					restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
@@ -214,7 +220,7 @@ public class RestDAO {
 					restVO.setRes_pic(rs.getString("res_pic"));
 					restVO.setRes_re_step(rs.getInt("res_re_step"));
 					restVO.setRes_readcount(rs.getInt("res_readcount"));
-					restVO.setRes_score(rs.getInt("res_score"));
+					restVO.setRes_totalscore(rs.getDouble("res_totalscore"));
 					restVO.setRes_ref(rs.getInt("res_ref"));
 					restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
 					restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
@@ -263,7 +269,7 @@ public class RestDAO {
 					//	restVO.setRes_pic1(rs.getString("res_pic1"));
 						restarticle.setRes_re_step(rs.getInt("res_re_step"));
 						restarticle.setRes_readcount(rs.getInt("res_readcount"));
-						restarticle.setRes_score(rs.getInt("res_score"));
+						restarticle.setRes_totalscore(rs.getDouble("res_totalscore"));
 						restarticle.setRes_ref(rs.getInt("res_ref"));
 						restarticle.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
 						restarticle.setRes_notice_date(rs.getTimestamp("res_notice_date"));
@@ -363,7 +369,7 @@ public class RestDAO {
 
 					restVO.setRes_re_step(rs.getInt("res_re_step"));
 					restVO.setRes_readcount(rs.getInt("res_readcount"));
-					restVO.setRes_score(rs.getInt("res_score"));
+					restVO.setRes_totalscore(rs.getDouble("res_totalscore"));
 					restVO.setRes_ref(rs.getInt("res_ref"));
 					restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
 					restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
@@ -439,7 +445,7 @@ public class RestDAO {
 
 					restVO.setRes_re_step(rs.getInt("res_re_step"));
 					restVO.setRes_readcount(rs.getInt("res_readcount"));
-					restVO.setRes_score(rs.getInt("res_score"));
+					restVO.setRes_totalscore(rs.getDouble("res_totalscore"));
 					restVO.setRes_ref(rs.getInt("res_ref"));
 					restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
 					restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
@@ -517,7 +523,7 @@ public class RestDAO {
 
 						restVO.setRes_re_step(rs.getInt("res_re_step"));
 						restVO.setRes_readcount(rs.getInt("res_readcount"));
-						restVO.setRes_score(rs.getInt("res_score"));
+						restVO.setRes_totalscore(rs.getDouble("res_totalscore"));
 						restVO.setRes_ref(rs.getInt("res_ref"));
 						restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
 						restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
@@ -619,7 +625,7 @@ public class RestDAO {
 
 						restVO.setRes_re_step(rs.getInt("res_re_step"));
 						restVO.setRes_readcount(rs.getInt("res_readcount"));
-						restVO.setRes_score(rs.getInt("res_score"));
+						restVO.setRes_totalscore(rs.getDouble("res_totalscore"));
 						restVO.setRes_ref(rs.getInt("res_ref"));
 						restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
 						restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));
@@ -686,7 +692,7 @@ public class RestDAO {
 
 						restVO.setRes_re_step(rs.getInt("res_re_step"));
 						restVO.setRes_readcount(rs.getInt("res_readcount"));
-						restVO.setRes_score(rs.getInt("res_score"));
+						restVO.setRes_totalscore(rs.getDouble("res_totalscore"));
 						restVO.setRes_ref(rs.getInt("res_ref"));
 						restVO.setRes_Addr1_ref(rs.getInt("res_Addr1_ref"));
 						restVO.setRes_notice_date(rs.getTimestamp("res_notice_date"));

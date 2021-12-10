@@ -17,6 +17,7 @@ import Info.action.Action;
 import rest.service.RestRegistService;
 import vo.ActionForward;
 import vo.RestVO;
+import vo.ReviewVO;
 
 
 
@@ -48,13 +49,12 @@ public class RestRegistAction implements Action {
 			 
 	      String fileNameWithoutExt = fileName.substring(0,index);
 		
-	      System.out.println(fileNameWithoutExt);
 			
 	      restVO.setRes_pic(fileNameWithoutExt);
 	   
 
 	      HttpSession session = request.getSession();
-	      session.setAttribute("restVO", restVO);	//필수요인(loginUser = null을 해결하기 위해)
+	      session.setAttribute("restVO", restVO);	
 	      
 	      restVO.setRes_Addr1(multi.getParameter("res_Addr1"));
 	      restVO.setRes_Addr2(multi.getParameter("res_Addr2"));
@@ -71,11 +71,12 @@ public class RestRegistAction implements Action {
 	     // restVO.setRes_score(Integer.parseInt(request.getParameter("res_score")));
 	      restVO.setRes_notice_date(new Timestamp(System.currentTimeMillis()));
 	   
-	     
-	  
+	      ReviewVO reviewVO = new ReviewVO();
+	      
+	      
 	      
 	      RestRegistService restRegistService = new RestRegistService();
-	      boolean registSuccess = restRegistService.registRest(restVO);
+	      boolean registSuccess = restRegistService.registRest(restVO,reviewVO);
 	      
 	      ActionForward forward = null;
 	      if(registSuccess) {

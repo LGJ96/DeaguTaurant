@@ -117,14 +117,14 @@
                 </div>
             </div>
             <div class="row">
-             <c:forEach begin="50" end ="55" var="rest" items="${restList}" varStatus="status">
+             <c:forEach begin="0" end ="6" var="rest" items="${restList}" varStatus="status">
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                    
                          <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
                   			<img src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic }.jpg" class = "index" />
               
-                            <span class="featured-rating-orange">${rest.res_score }</span>
+                            <span class="featured-rating-orange">${rest.res_totalscore }</span>
                             <div class="featured-title-box">
                                 <h6>${rest.res_name }</h6>
                                 <p>${rest.res_category }</p> <span>• </span>
@@ -180,7 +180,7 @@
         <tr>
          <!--  <th scope="row"></th> -->
             <td colspan="6"> 
-       		<c:forEach begin="52" end ="56" var="rest" items="${restList}" varStatus="status">
+       		<c:forEach begin="0" end ="6" var="rest" items="${restList}" varStatus="status">
                 
                 <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
                   <div >

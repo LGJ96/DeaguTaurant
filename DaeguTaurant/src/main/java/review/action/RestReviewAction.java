@@ -81,12 +81,18 @@ public class RestReviewAction implements Action {
 	      reviewVO.setRev_re_step(Integer.parseInt(multi.getParameter("rev_re_step")));
 	      RestReviewService restReviewService = new RestReviewService();
 	
+	      
+	      
+	      ReviewListService reviewListService = new ReviewListService();
+
+	      
 	      boolean reviewSuccess = restReviewService.reviewRest(reviewVO,review,restVO,userVO);
 	      
 	      ActionForward forward = null;
 	      if(reviewSuccess) {
 	         forward = new ActionForward();
 		      session.setAttribute("review", review);
+
 	         forward.setUrl("rest_content.dae?res_id="+restVO.getRes_id());
 	         forward.setRedirect(true);
 	      }else {
