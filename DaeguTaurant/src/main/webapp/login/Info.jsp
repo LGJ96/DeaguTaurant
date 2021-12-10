@@ -32,7 +32,7 @@
     <!-- Magnific Popup CSS -->
     <link rel="stylesheet" href="../css/magnific-popup.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
     
    
    
@@ -110,7 +110,7 @@
                 </div>
 
                 
-                <button type="button" class="btn btn-warning btn-block" style="margin-top: 30px;" onclick="checkInfo()"> 가입하기 </button>
+                <button type="button" class="btn btn-block" style="margin-top: 30px;" onclick="checkInfo()"> 가입하기 </button>
               </div>
             </div>
             

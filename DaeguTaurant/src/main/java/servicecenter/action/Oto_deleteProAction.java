@@ -23,7 +23,7 @@ public class Oto_deleteProAction implements Action {
 		ActionForward forward = null;
 		if(deleteSuccess) {
 			forward = new ActionForward();
-			forward.setUrl("servicecenter/question-close.jsp");
+			forward.setUrl("servicecenter/question-delete.jsp");
 			forward.setRedirect(true);
 		}
 		else {

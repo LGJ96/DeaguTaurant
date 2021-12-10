@@ -369,8 +369,7 @@ int rest_endPage = restpageVO.getRest_endPage();
 	  		var check_area = $('input[name="area"]:checked').length;
 	  		var check_category = $('input[name="category"]:checked').length;
 	  		
-	  		
-	  		
+	       
 	  		/* 지역 1 와 테마 1 */
 	  		  if((check_area==1) && (check_category==1)){
 	  			
@@ -450,7 +449,7 @@ int rest_endPage = restpageVO.getRest_endPage();
 	  		 }
 	  		  
 	  	
-		
+	        
 	 	
 	}
     </script> 

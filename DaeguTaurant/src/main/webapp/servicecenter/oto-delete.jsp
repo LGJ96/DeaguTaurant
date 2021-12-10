@@ -8,15 +8,8 @@
 
 <!DOCTYPE html>
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Colorlib">
-    <meta name="description" content="#">
-    <meta name="keywords" content="#">
-    <!-- Favicons -->
-    <link rel="shortcut icon" href="#">
+    
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
     <!-- Page Title -->
    <title>DaeguTaruant</title>
     
@@ -29,30 +22,27 @@
   	<form method="post" name="oto-delete" action="oto_deletePro.dae" onsubmit="return writeSave()">
 	<input type="hidden" name="cus_oto_number" value="<%=cus_oto_number%>">
 	<input type="hidden" name="oto_pageNum" value="<%=oto_pageNum%>">
-   <table width="250" border = "1" cellspacing="0" cellpadding="0"
-   align="center">
-    <tr>
-    <td align="center" colspan="2">
-      <div>삭제하시겠습니까?</div> 
-   </td>
-   </tr>
+   	<div align="center">
+    
+      <h14>삭제하시겠습니까?</h14> 
+  </div>
     
 <br>
-  <tr>      
- <td colspan=2 " align="center"> 
-  <input type="submit" style="color:black" class="btn btn-check" value = "삭제" onclick="pclose1();">
-  <script>
-	  function pclose1(){
-	    opener.location.reload(10);
-		}	
-  </script>
-  <input onclick="window.close();" type="button"  style="color:black" class="btn btn-check" value = "취소">
-</td>
-</tr>
+ 	<div align="center">
+  <input type="submit" id ="otodelete" class="btn" value = "삭제" onclick="pclose1();">
+ 
+  <input onclick="window.close();" type="button"  id = "otodelete" class="btn" value = "취소">
+</div>
   
-    
-</table> 
+
 </form>
 
 </body>
+
+ <script>
+	  function pclose1(){
+	    opener.location.reload(10);
+	}	
+  </script>
+  
 </html>

@@ -29,7 +29,7 @@
                            <div class="footer-tittle">
                                <h6>제작자</h6>
                                <ul id = "footer-maker">
-                                   <li >김수빈</li>
+                                   <li>김수빈</li>
                                    <li>박태림</li>
                                    <li>이광준</li>
                                    <li>장용성</li>

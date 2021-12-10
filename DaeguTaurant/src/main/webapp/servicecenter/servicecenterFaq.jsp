@@ -196,7 +196,7 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
 </div> --%>
 
   <div class="col-md-12">
-    <div class="row">
+    <div class="row" >
     <div class = "container">
         <div class="col-sm-12" align="center">
         		<div id= "title-header2" >
@@ -315,7 +315,7 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
 <div class="col-md-11" style="text-align : right;">
  <div class="container">
  <button class="btn btn-warning"  
-  onclick="window.open('oto_writeForm.dae','','width=430,height=500,location=no,status=no,scrollbars=yes');">1:1문의</button>
+  onclick="window.open('oto_writeForm.dae','','width=430,height=500,left=700,top =200,location=no,status=no,scrollbars=yes');">1:1문의</button>
 </div>
 </div>
 </c:when>

@@ -166,9 +166,9 @@
                               </div>
             
                               <div class="col-md-9 showcase_content_area">    
-                                <button class="btn"  
+                                <button class="btn" id = "changePw"  
   								onclick="window.open('modifyPw.jsp?user_id=${loginUser.user_id}',
-  								'','width=510,height=240,location=no,status=no,scrollbars=yes,left = 1000, top = 500');">변경하기</button>
+  								'','width=510,height=240,location=no,status=no,scrollbars=yes,left = 1000, top = 300');">변경하기</button>
                                </div>
                             </div>
                            
@@ -799,7 +799,7 @@
 				/*alert 확인 버튼만,confirm 확인 취소 버튼 둘다 */
 			  if (confirm("회원 탈퇴 하시겠습니까?")==true) {    //확인을 누른다면                 
 				window.open("../user_infoDelete.dae?user_id=<%=user_id%>", "user_idDeleteWindow",
-				"width=300,height=200 left = 580, top=610");		
+				"width=480,height=180, left = 650, top=50");		
 			  }   
 			  else { 
 			   return false;

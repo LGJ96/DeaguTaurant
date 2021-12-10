@@ -29,6 +29,54 @@ Author: Surjith S M
   object-fit: cover;
 }
 
+/*비밀번호 변경 버튼  */
+#changePw{
+	
+	width : 100%;
+	border-color: #dcdcdc;
+	background-color:  #dcdcdc;
+	font-family: "one";
+	font-size: 23px;
+}
+
+#changePw:hover{
+	background-color: #FFC31E;
+	border-color : #FFC31E; 
+	
+	
+}
+
+/*1:1문의 삭제 묻는 버튼 */
+#otodelete{
+	font-family: "one";
+	font-size: 20px;
+	border-color: #dcdcdc;
+	width : 30%;
+}
+
+#otodelete:hover{
+	background-color: #FFC31E;
+	border-color : #FFC31E; 
+	
+}
+
+/* 1:1문의 등록 후 확인 버튼 */
+#question-check{
+	
+	width: 50%;
+	font-family: "one";
+	font-size: 20px;
+	border-color: #dcdcdc;
+}
+
+/* 1:1문의 버튼 클릭 전 마우스 포인터 올린 직후 색상 변화 */
+#question-check:hover{
+	
+	background-color: #FFC31E;
+	border-color : #FFC31E; 
+	
+}
+
 /* 아이디,닉네임 중복체크 안 텍스트 */
 #checkId{
 	font-family: "one";
@@ -62,10 +110,18 @@ Author: Surjith S M
 	font-size: 20px;
 	margin-top: 15px;
 	border : 0;
-	background-color: #FFB900; 
+	background-color: #f2f2f2; 
 	color: #000;
 	width: 70px;
 }
+
+#deleteButton:hover, #deletebutton:hover{
+	
+	background-color: #FFC31E;
+	border-color: #FFC31E;
+}
+
+
 
 /*비밀번호 변경 */
 #updatePW{
@@ -87,9 +143,15 @@ Author: Surjith S M
 	font-family: "one";
 	font-size: 20px;
 	margin-top: 13px;
-	background-color : #FFB900;
+	background-color : #ebebeb;
 	width : 180px;
 	border: 0;
+}
+
+#update1:hover{
+	
+	border-color: #FFC31E;
+	background-color: #FFC31E;
 }
 
 /* 비번찾기결과화면 */
@@ -586,8 +648,15 @@ margin-right: 50px;
 /*중복확인*/
 .btn-check{
 
-  font-size: 13px;
-  background-color: darkorange;
+  font-family :"one";
+  font-size: 18px;
+  background-color: #FFC31E;
+  border-color: #FFC31E;
+}
+.btn-check:hover{
+	
+	background-color: #e9e9e9;
+	border-color: #e9e9e9;
 }
 
 
@@ -767,6 +836,7 @@ h12{
 	font-family: "so";
 	font-size: 26px;
 	margin-bottom: 50px;
+	color : #0078FF;
 }
 
 /*아이디 중복체크 아이디 사용 가능 시 확인 버튼 */
@@ -777,6 +847,12 @@ h13{
 	color : #FF8200;
 	text-decoration: none;
 }
+
+h14{
+	font-family: so;
+	font-size: 28px;
+}
+
 
 /* 아이디, 닉네임 중복체크 링크 밑줄 제거 */
 #a1{
@@ -975,9 +1051,15 @@ th{
       
 /* Login, 가입하기, 비번찾지 버튼 색*/
 .btn-block {
-  background-color: #f9f9f9;
+  background-color: #f6f6f6;
   font-weight: bold;
   
+}
+
+.btn-block:hover{
+	
+	background-color: #FFC31E;
+	border-color: #FFC31E;
 }
 
 /*지역 및 테마 확인 버튼 */

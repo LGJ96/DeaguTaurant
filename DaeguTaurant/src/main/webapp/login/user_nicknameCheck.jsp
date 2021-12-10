@@ -22,7 +22,7 @@
 <%
 		if(user_nicknameExist){
 	%>
-	<h12><%=user_nickname %>는 사용할 수 없습니다.</h12>
+	<h12><%=user_nickname %></h12> <h14>는 사용할 수 없습니다.<h14>
 	
 	<form action="user_nicknameCheck.dae">
 		<label for = "user_nickname" id = "checkId">닉네임 : </label>
@@ -33,7 +33,7 @@
 		}
 		else{
 	%>
-	<h12><%=user_nickname %>는 사용할 수 있습니다.</12>	
+	<h12><%=user_nickname %></h12> <h14>는 사용할 수 있습니다.</h14>	
 	<a href = "javascript:closeWindow()" id = "a1">
 	<h13>확인</h13>
 	</a>

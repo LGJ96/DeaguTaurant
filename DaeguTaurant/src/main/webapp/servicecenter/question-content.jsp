@@ -42,8 +42,7 @@
    List<OtoVO> otoArticleList = (List<OtoVO>)request.getAttribute("otoArticleList");
    OtoVO otoArticle = (OtoVO)request.getAttribute("otoArticle");
    String oto_pageNum = (String)request.getAttribute("oto_pageNum");
-   
-      
+ 
   	  int cus_oto_number = otoArticle.getCus_oto_number();
 	  int cus_ref=otoArticle.getCus_ref();
 	  int cus_re_step=otoArticle.getCus_re_step();
@@ -81,7 +80,7 @@
 	
 	 <!-- <a href="../comm/comm.html"><button class="btn btn-warning1" > 삭제</button></a> -->
 	 <a href="#" type="button"  style="color:black" 
-	 onclick="window.open('oto_deleteForm.dae?cus_oto_number=<%=otoArticle.getCus_oto_number()%>&pageNum=<%=oto_pageNum%>','','width=330,height=100,location=no,status=no,scrollbars=yes');">
+	 onclick="window.open('oto_deleteForm.dae?cus_oto_number=<%=otoArticle.getCus_oto_number()%>&pageNum=<%=oto_pageNum%>','','width=330,height=100,left=780,top =350,location=no,status=no,scrollbars=yes');">
 	 <button class="btn btn-warning1" >삭제</button></a>
 	</div>
 	 <div class="col-lg-12">
@@ -114,7 +113,7 @@
 	<div class="col-lg-12" align="right">
 	 <a href="serviceCenterOtoList.dae"><button class="btn btn-warning" > 목록</button></a>
 	<button type="submit" class="btn btn-warning"
-	onclick="window.open('oto_writeForm.dae?cus_oto_number=<%=cus_oto_number %>&cus_ref=<%=cus_ref %>&cus_re_step=<%=cus_re_step%>&cus_re_level=<%=cus_re_level%>','','width=430,height=500,location=no,status=no,scrollbars=yes');"> 
+	onclick="window.open('oto_writeForm.dae?cus_oto_number=<%=cus_oto_number %>&cus_ref=<%=cus_ref %>&cus_re_step=<%=cus_re_step%>&cus_re_level=<%=cus_re_level%>','','width=430,height=500,left=700,top =200,location=no,status=no,scrollbars=yes');"> 
 	답변 등록 </button>
                  
 	</div>

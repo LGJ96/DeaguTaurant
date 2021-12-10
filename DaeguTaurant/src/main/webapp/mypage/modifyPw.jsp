@@ -14,7 +14,7 @@
  <div align="center">
 	<h10>비밀번호 변경하기</h10>
 	
-	<form action="../userPw_UpdatePro.dae" method="POST" name = "pwUpdate" id = "pwUpdate" >
+	<form action="#" method="POST" name = "pwUpdate" id = "pwUpdate" >
 	 <div class="form-group row showcase_row_area"  >
 	 	
 	 	 
@@ -35,37 +35,47 @@
 				<input type = "password" name = "user_pw2" id = "user_pw2"/><br>
 			</div>
 		</div>
-			
-		<input type = "submit" value = "적용" name= "update1" id = "update1" onclick="pwUpdate1();">  
-		
 	</form>
+		<input type = "submit" value = "적용" name= "update1" id = "update1" onclick="pwUpdate1(); ">  
+		
+
 	
 	
  <script >		
  
       function pwUpdate1() {
-    	 
+   
         var user_pw1 = document.getElementById("user_pw1");
         var user_pw2 = document.getElementById("user_pw2");
-
-        if (user_pw1.value == ""){
+      
+        
+      	if (user_pw1.value == ""){
            alert("비밀번호를 입력해주세요");
-           form.user_pw1.focus();
-           return false;
+         	form.user_pw1.focus();
+         return false;
       }
+      
         else if (user_pw2.value == ""){
           alert("비밀번호를 한번 더 입력해주세요");
           form.user_pw2.focus();
-          return false;
+        return false; 
      }                              
         else if(user_pw1.value != user_pw2.value){
       	  alert("비밀번호가 일치하지 않습니다.");
-          form.user_pw1.focus();
+         form.user_pw1.focus();
           form.user_pw2.focus();
-          return false;
-   	}	
-        alert('변경 성공');
+        return false;
+   	}
+      
+        else {
+        	alert('변경 되었습니다.');
+      	document.pwUpdate.target = "${pageContext.request.contextPath }/mypage/mypage.jsp";
+      	document.pwUpdate.action="${pageContext.request.contextPath }/userPw_UpdatePro.dae";
+     	document.pwUpdate.submit();
+     	
         self.close();
+   
+        }
   }
      
   

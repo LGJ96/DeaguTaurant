@@ -150,7 +150,7 @@ int oto_pageCount = otoPageVO.getOto_pageCount();
 									%>
 									 <a>ㄴ</a>
 									<%}else{%>
-										<a width="<%=wid%>"/>
+										<a width="<%=wid%>"></a>
 									<%}%>
                                     	<a href="serviceCenterOtoContent.dae?cus_oto_number=<%=otoArticle.getCus_oto_number()%>&oto_pageNum=<%=oto_currentPage%>"
                                     	 style="color: black " title=""><%=otoArticle.getCus_oto_title()%></a>
@@ -184,43 +184,45 @@ int oto_pageCount = otoPageVO.getOto_pageCount();
                     </div>
                 </div>
             </div>
-         </div>      
-      </div>
+           </c:if>
+		</c:if>
+      
+
+
+<c:if test="${loginUser.user_id != null }">
+<c:if test="${loginUser.user_level != 9}">
+
+
+<div class="card" id="title-content">
+<div class="card-body" >
+<div class="table-responsive" >
+
+	<div align="center">
+		문의 등록이 완료되었습니다.<br>
+		<a href ="serviceCenterList.dae">고객센터 돌아가기</a>
+	</div>
+
+</div>
+</div>
+</div>
+</c:if>
+</c:if>
+ </div>      
+     </div>
   </div>
 <div>
 </div>
 </div>
 </div>
-</c:if>
-</c:if>
-
-<c:if test="${loginUser.user_id != null }">
-<c:if test="${loginUser.user_level != 9}">
-<div class="card" id="title-content">
-<div class="card-body">
-<div class="table-responsive">
-<table class="table">
-<table width="700" border="1" cellpadding="0" cellspacing="0">
-<tr>
-<td align="center">
-문의 등록이 완료되었습니다.<br>
-<a href ="serviceCenterList.dae">고객센터 돌아가기</a>
-</td>
-</table>
-</table>
-</div>
-</div>
-</div>
-</c:if>
-</c:if>
  <!--============================= 1:1문의 =============================-->
+
 <c:choose> 
 
 <c:when test="${loginUser.user_id != null }">
 <div class="col-md-11" style="text-align : right;">
- <div class="container">
+ <div class="container" style = "min-height: 240px;">
  <button class="btn btn-warning"  
-  onclick="window.open('oto_writeForm.dae','','width=430,height=500,location=no,status=no,scrollbars=yes');">1:1문의</button>
+  onclick="window.open('oto_writeForm.dae','','width=430,height=500,left=700,top =200,location=no,status=no,scrollbars=yes');">1:1문의</button>
 </div>
 </div>
 </c:when>
@@ -234,6 +236,7 @@ int oto_pageCount = otoPageVO.getOto_pageCount();
 </c:when>
 
 </c:choose>
+
    <!--============================= FOOTER =============================-->
     <footer>
        <!-- Footer Start-->

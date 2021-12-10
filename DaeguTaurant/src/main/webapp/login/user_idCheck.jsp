@@ -26,7 +26,7 @@
 		if(user_idExist){
 %>
 	
-	<h12><%=user_id %>는 사용할 수 없습니다.</h12>
+	<h12><%=user_id %></h12><h14>는 사용할 수 없습니다.</h14>
 	
 	<form action="user_idCheck.dae">
 		<label for = "user_id" id = "checkId">아이디 : </label>
@@ -37,7 +37,7 @@
 		}
 		else{
 	%>
-	<h12><%=user_id %>는 사용할 수 있습니다.</h12><Br>
+	<h12><%=user_id %></h12> <h14>는 사용할 수 있습니다.</h14><Br>
 	<a href = "javascript:closeWindow()" id = "a1">
 	<h13>확인</h13>
 	</a>

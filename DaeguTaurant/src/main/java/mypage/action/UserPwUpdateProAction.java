@@ -38,7 +38,7 @@ public class UserPwUpdateProAction implements Action {
 	    
 	      if(modifySuccess) {
 	         forward = new ActionForward();
-			 forward.setUrl("mypage/modifyPw.jsp");
+			 forward.setUrl("mypage/mypage.jsp");
 	         forward.setRedirect(true);
 	      }
 	      else {
