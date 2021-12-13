@@ -4,6 +4,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
+<%
+    // 줄바꿈 
+    pageContext.setAttribute("br", "<br/>");
+    pageContext.setAttribute("cn", "\n");
+%> 
+		
 <%
 //RestVO restVO = (RestVO)session.getAttribute("restVO");
 %>
@@ -137,7 +145,7 @@
 								<div class="review-btn">
 								<c:if test="${loginUser.user_id != null }">
 									<button class="btn btn-outline-danger"
-										onclick="window.open('restReviewwrite.dae?','','width=430,height=500,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
+										onclick="window.open('restReviewwrite.dae?','','width=430,height=500,left=700,top =200 ,location=no,status=no,scrollbars=yes');">평점및리뷰등록</button>
 								</c:if>	
 								<c:if test="${loginUser.user_id == null }">
 									<button class="btn btn-outline-danger"
@@ -267,88 +275,117 @@
 			</div> 
 	
 			<!-- ====================== 리 뷰 ======================== -->
-	 <form action="#" method="Get" name="reviewlikecount" > 
-
-			<div id="reviewListFocusId">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="card" id="page-content">
-							<div class="card-body">
+	
+				<div class="container">
+					<div class="row">
+					 	
+					 <div class="col-md-12 responsive-wrap">
+					 <form action="#" method="Get" name="reviewlikecount" > 
+					 	<div class="card" id="page-content"> 
+						<div class="card-body">
 							
 								<h5>리뷰(${restpageVO.rest_count})</h5>
-								<hr>
- 						<c:forEach var="review1" items="${reviewList}" varStatus="status">
+					
+ 						<c:forEach var="review1" items="${reviewList}" varStatus="status" >
  						
 								<div class="customer-review_wrap">
-
+<hr>
 								<div class="customer-img">
-								<p>닉네임 :${review1.rev_writer}</p>
+								<p1>닉네임 : ${review1.rev_writer}</p1>
 								</div>
+								<div class= "customer-img" style = "float: right;">
+								<p2>평점 : ${review1.res_score}</p2>
+								</div>
+								
+								<div class="container" >
+									<div class="row">
+									<div class="col-md-12 responsive-wrap">
 									<div class="customer-content-wrap">
-										<div class="customer-content">
+										  <div class="customer-content">
 
 											<div class="customer-review"></div>
-											<div class="row">
-												<div class="col-md-7 responsive-wrap">
+											 <div class="row">
+												<!--<div class="col-md-12 responsive-wrap">
 													<div class='RatingStar_review1'>
-														<div class='RatingScore_review1'>
+														 <div class='RatingScore_review1'>
 															<div class='outer-star'>
-																<div class='inner-star'></div>
+															<div class='inner-star'></div>
+															
 															</div>
 														</div>
 													</div>
 
 													
-												</div>
+												</div>-->
 											</div>
 
-										</div>
+										</div>  
 										 
 										<div class="container">
 											<div class="row">
 												<div class="col-md-12 responsive-wrap">
-													<p class="customer-text">${review1.rev_content }</p>
+												<%-- 	<pre><p class="customer-text">${review1.rev_content }</p></pre> --%>
+													<p class="customer-text">${fn:replace(review1.rev_content, cn, br)}</p>
+
 												
 													<ul>
 														<li><img src="${pageContext.request.contextPath }/images/rev_pic/${review1.rev_pic }.jpg"
 														
 															class="img-fluid1" alt="#"></li>
 													</ul>
-												 
-
+												 	</div>
+												 	
+											
+												<div class="col-md-12  responsive-wrap" >
 													<span>좋아요</span> 
 													
 											
 													<input type="hidden" name="rev_id" value="${review1.rev_id}">
 													<input type="button" name="likey" value="♥" onclick="location.href='restReviewlike.dae?rev_id=${review1.rev_id }'"/> <!-- </a> -->
 													${review1.rev_like}
-													
-												
-													<p>${review1.rev_notice_date }</p>
-												</div>
+									
+											</div>
 											</div>
 										</div>
-									</div>
-								</div>
-							</c:forEach>
+										</div>
+										
 							
-						</div>
-
-                    
-
+								</div>
+							</div>
+							</div>
+							</div>
+							
+							<div class="row" style ="float: right;">
+											<div class="col-md-12" style ="float: right;">
 						
+													
+													<p ><fmt:formatDate value="${review1.rev_notice_date}" pattern="yyyy-MM-dd HH:mm"/></p>
+												
+											</div>
+									</div>
+							
+							
+							
+							
+							</c:forEach>
+							   </div>
 						</div>
+					 </form>
+               	
+</div>
+						
 
 					</div>
 				</div>
 			</div>
-									
-	<div class="col-md-12">
-      <div class="container"  id = "page">
-   		<div class="row">
-   		
- 		
+						</div>			
+
+
+      <div class="container" >
+      
+   		<div class="row" >
+ 				<div class="col-md-12" style ="text-align: center;">
+ 				
  	<c:if test="${not empty restpageVO}">
    		<c:if test="${restpageVO.rest_count > 0 }">
 
@@ -376,10 +413,11 @@
 	</div>
   </div>
 </div>
-</div>		
+	
 			
 	
-</form>
+
+
 </section>
 </section>
 

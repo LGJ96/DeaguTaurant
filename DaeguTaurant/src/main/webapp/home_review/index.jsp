@@ -117,7 +117,7 @@
                 </div>
             </div>
             <div class="row">
-             <c:forEach begin="0" end ="6" var="rest" items="${restList}" varStatus="status">
+             <c:forEach begin="96" end ="101" var="rest" items="${restList}" varStatus="status">
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                    
@@ -180,7 +180,7 @@
         <tr>
          <!--  <th scope="row"></th> -->
             <td colspan="6"> 
-       		<c:forEach begin="0" end ="6" var="rest" items="${restList}" varStatus="status">
+       		<c:forEach begin="0" end ="4" var="rest" items="${restList}" varStatus="status">
                 
                 <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
                   <div >

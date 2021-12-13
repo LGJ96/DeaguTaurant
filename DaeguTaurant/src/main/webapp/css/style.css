@@ -24,8 +24,8 @@ Author: Surjith S M
     
  /*리뷰이미지  */   
  .img-fluid1{
-  width: 300px;
-  height: 200px;
+  width: 600px;
+  height: 280px;
   object-fit: cover;
 }
 
@@ -862,7 +862,20 @@ h14{
 
 
 p {
-  font-size: 15px; }
+	font-size: 15px;
+}
+  
+/*리뷰 닉네임 */  
+p1{
+	font-size: 25px;
+ 
+  font-family: "one";
+}
+
+/*리뷰 작성 칸 평점 */
+p2{
+	font-size: 20px;
+}
 
 /* 바닥글 크기*/
 .main-block {

@@ -320,7 +320,7 @@ public class ReviewDAO {
 			
 				
 			pstmt = con.prepareStatement(""
-					+"SELECT ROUND((SUM(res_score)/COUNT(*)),2) AS totalScore FROM review WHERE rev_res_id = ? GROUP BY rev_res_id");
+					+"SELECT ROUND((SUM(res_score)/COUNT(*)),1) AS totalScore FROM review WHERE rev_res_id = ? GROUP BY rev_res_id");
 			pstmt.setInt(1, res_id);
 
 			rs = pstmt.executeQuery();

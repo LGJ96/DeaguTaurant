@@ -99,7 +99,7 @@
  <td colspan=2 " align="center"> 
    <input type="submit" value="등록" style="color:white" class="btn btn-check" OnClick="showConfirm1()" >
   
-    <input type="button" class="btn btn-check" tyle="color:white" value="취소"
+    <input type="button" class="btn btn-check" style="color:white" value="취소"
  	 OnClick="window.close();">
   
   </td></tr>

@@ -20,6 +20,8 @@ create table review(
 	REFERENCES restaurant(res_id)
 )
 alter table review add rev_writer VARCHAR2(30);       /*컬럼 추가*/
+alter table review modify (rev_content varchar2(500));      /*컬럼 추가*/
+
 
 
 select * from review;
