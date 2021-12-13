@@ -18,6 +18,8 @@ import login.action.UserLoginAction;
 import login.action.UserLogoutAction;
 import login.action.UserNicknameCheckAction;
 import login.action.UserPwSearchResultAction;
+import mypage.action.MyReviewListAction;
+import mypage.action.ReviewDeleteAction;
 import mypage.action.UserPwUpdateProAction;
 
 import rest.action.Rest1EachCheckSearchAction;
@@ -562,6 +564,27 @@ public class DaeguTaurantFrontController extends HttpServlet {
 					}
 				}
 			
+				else if(command.equals("/myreviewlist.dae")) {
+					action = new MyReviewListAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			
+				else if(command.equals("/review_delete.dae")) {
+					action = new ReviewDeleteAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 		
 		
 		

@@ -29,8 +29,7 @@
 						<li><a href = "${pageContext.request.contextPath }/logout.dae" class="logout-text top-btn"  >로그아웃</a></li>
 					
 											
- 						<li><a href = "${pageContext.request.contextPath }/mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text">${loginUser.user_nickname }</a></li>
- 								
+<li><a href = "${pageContext.request.contextPath }/myreviewlist.dae?user_id=${loginUser.user_id}" class="btn btn-outline-light top-btn" id = "login-text">${loginUser.user_nickname }</a></li> 								
 						</c:if>					
 					
 						<c:if test="${loginUser.user_id == null }">

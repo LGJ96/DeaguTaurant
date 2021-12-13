@@ -1,12 +1,19 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="vo.ReviewVO"%>
 <%@page import="vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>      
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <%
 	UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-	 String user_id = (String)session.getAttribute("user_id");
+	String user_id = (String)session.getAttribute("user_id");
 	String user_pw = (String)session.getAttribute("user_pw"); 
 	
+	ArrayList<ReviewVO> reviewList = (ArrayList<ReviewVO>)session.getAttribute("reviewList");
+	String rev_id = (String)session.getAttribute("rev_id");
+
 %>     
     
 <!DOCTYPE html>
@@ -24,21 +31,21 @@
     <!-- Page Title -->
    <title>DaeguTaruant</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
-    <link rel="stylesheet" href="../css/simple-line-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/simple-line-icons.css">
     <!-- Themify Icon -->
-    <link rel="stylesheet" href="../css/themify-icons.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/themify-icons.css">
     <!-- Hover Effects -->
-    <link rel="stylesheet" href="../css/set1.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/set1.css">
     <!-- Swipper Slider -->
-    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/swiper.min.css">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/magnific-popup.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
 <body>
     <!--============================= HEADER =============================-->
@@ -441,17 +448,20 @@
                                 </tr>
 
 <!-- ============================회원 리뷰 목록============================= -->     
+
+                         <form action="#" method="POST" name = "myreviewlist">
+
                                  <tr>
                                     <td>
                                         <button class="btn btn-block btn-outline-dark" data-toggle="collapse" data-target="#faq3">
                                             
                                           회원 리뷰 목록
                                          </button>
-                                         <div id="faq3" class="collapse show" data-parent="#accordion">
-                                            <div class="card-body">
+<!--                                          <div id="faq3" class="collapse show" data-parent="#accordion">
+ -->                                            <div class="card-body">
                                                 <div class="col-sm-13" style="float: center;">
                                           <div class="card" id="title-content">
-                                              
+                                          
                                               
                                                   <div class="table-responsive">
                                                       <table class="table">
@@ -467,299 +477,104 @@
                                                               </th>
                                                           </thead>
                                                           <tbody>
+                                                          
+                                                          <c:forEach  begin="0" var="reviewList" items="${reviewList}" varStatus="status">
+                                                         
                                                               <tr>
                                                                   <td>
                                                                       1
                                                                   </td>
                                                                   <td colspan="2">
+                                                                      	<input type="text" name="rev_id" value="${reviewList.rev_id}"/>	
                                                                       
-				                                                   <a href=#none id="show_reveiw_1" onclick="if(hide_reveiw_1.style.display=='none') {hide_reveiw_1.style.display='';show_reveiw_1.innerText='대구 달서구 상인동 홍콩반점'} else {hide_reveiw_1.style.display='none';show_reveiw_1.innerText='대구 달서구 상인동 홍콩반점'}">
-				                                                   대구 달서구 상인동 홍콩반점</a>
-				                                                      <div id="hide_reveiw_1" style="display: none">
+ 																	<a href=#?rev_id=${reviewList.rev_id } id="show${reviewList.rev_id }" 
+																		onclick="if(hide${reviewList.rev_id}.style.display=='none') {hide${reviewList.rev_id}.style.display='';show${reviewList.rev_id}.innerText='${reviewList.rev_content }'} 
+																		 else {hide${reviewList.rev_id}.style.display='none';show${reviewList.rev_id}.innerText='${reviewList.rev_content }'}">
+																		 ${reviewList.rev_content }</a>
+				                                                      <div id="hide${reviewList.rev_id}" style="display: none">
 				                                                         <div class="card" id="title-content">
 				                                                            <div class="col-sm-12">
 				                                                               
-																				    <table class="col-md-12" border="1" cellspacing="0" cellpadding="0">
+																				 <table class="col-md-12" border="1" cellspacing="0" cellpadding="0"> 
 																				    <tr>
 																				    <td align="center" colspan="2">
-																				      <div>리뷰수정하기</div> 
+																				      <div> 리뷰</div> 
 																				   </td>
 																				   </tr>
-																				    
+																				    <tr>
+   	<td align="center" colspan="6">
+     <div >
+     <select name = "review" title ="평점" id = "review" class = "col-sm-3" style='background-color:#ababab'
+  onFocus='this.initialSelect = this.selectedIndex;'
+  onChange='this.selectedIndex = this.initialSelect;'>
+			<option value = "5" > ${ reviewList.res_score} </option>
+			
+	</select>
+  	 </div>
+   	</td>
+   </tr>
 																				<br>
-																				
-																				   <tr>
-																				    <td align="center" colspan="2">
-																				      <div class="star-rating space-x-4 mx-auto">
-																				         <input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
-																				         <label for="5-stars" class="star pr-4">★</label>
-																				         <input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
-																				         <label for="4-stars" class="star">★</label>
-																				         <input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
-																				         <label for="3-stars" class="star">★</label>
-																				         <input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
-																				         <label for="2-stars" class="star">★</label>
-																				         <input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-																				         <label for="1-star" class="star">★</label>
-																				      </div> 
-																				   </td>
-																				   </tr>
-																				   
+																			
 																				  <tr>
 																				    <td align="center" width="100%">
-																				     <textarea name="content" rows="13" cols="40" class="form-control" placeholder="매장에 대한 리뷰를 작성해주세요.(필수)"></textarea>
+																				      <textarea name="content" rows="13" cols="40" class="form-control" 
+																				      readonly>${reviewList.rev_content }
+																				   </textarea>
+																				     
 																				     </td>
 																				  </tr> 
 																				  <tr>
 																				    <td width="100%">
-																				  	<div style='width:100px;float: left;'>
+																				  	<!-- <div style='width:100px;float: left;'>
 																				       <label type="file" class ="input-file-button" for="imageFile">
 																				         업로드
 																				      <input type="file" size="40" maxlength="30" id="imageFile" name="imageFile " style = "display:none" accept="image/*">
-																				      </label></div>
+																				      </label></div> -->
 																				      
-																				      <div style='width:200px;float: right;'>
+																				   <div style='width:200px;float: right;'>
 																				  <input type="button" value="삭제" style="color:white" class="btn btn-check"
-																				  OnClick="showConfirm_delete();">
-																				     <script language="javascript">
-																				       function showConfirm_delete() {
-																				          if (confirm("리뷰 삭제를 하시겠습니까?")){
-																				               alert("리뷰 삭제를 완료했습니다.");
-																				            } 
-																				         else{
-																				                alert("취소 버튼을 눌렀습니다.");
-																				            }
-																				          }
-																				      </script>
+																				  OnClick="window.open('${pageContext.request.contextPath }/review_delete.dae?rev_id=${reviewList.rev_id}&user_id=<%=user_id%>', 'rev_idDeleteWindow','width=480,height=180, left = 650, top=50');">
+																				   
 																				  <input type="button" value="수정" style="color:white" class="btn btn-check"
 																				  OnClick="showConfirm_modify();">
-																				     <script language="javascript">
-																				       function showConfirm_modify() {
-																				          if (confirm("리뷰 수정을 하시겠습니까?")){
-																				               alert("리뷰 수정을 완료했습니다.");
-																				            } 
-																				         else{
-																				                alert("취소 버튼을 눌렀습니다.");
-																				            }
-																				          }
-																				      </script>
+																				    
 																				  <a href="mypage.jsp" onclick="window.close();" type="button"  style="color:white" class="btn btn-check">취소</a>
 																				  </div>
 																				  </td>
 																				  </tr>
+																				
 																				  
-																				  
-																				</form>      
+																				
 																				</table>    
 				                                                            </div>
 				                                                         </div>
 				                                                      </div>
 				                                                            
-				                                                   </div>
+				                                              
                                                                   <td class="text-right">
-                                                                      2021.11.04 15:37
+                                                                  
+                                                                ${reviewList.rev_notice_date }
+                                                                
+                                                                  <%-- <fmt:formatDate value=" ${reviewList.rev_notice_date }" pattern="yyyy-MM-dd HH:mm"/> --%>
+                                                                  
                                                                   </td>
                                                               
                                                               </tr>
-                                                               <tr>
-                                                                  <td>
-                                                                      2
-                                                                  </td>
-                                                                  <td colspan="2">
-                                                                      
-				                                                   <a href=#none id="show_reveiw_2" onclick="if(hide_reveiw_2.style.display=='none') {hide_reveiw_2.style.display='';show_reveiw_2.innerText='대구 수성구 알파시티 맘스터치'} else {hide_reveiw_2.style.display='none';show_reveiw_2.innerText='대구 수성구 알파시티 맘스터치'}">
-				                                                   대구 수성구 알파시티 맘스터치</a>
-				                                                      <div id="hide_reveiw_2" style="display: none">
-				                                                         <div class="card" id="title-content">
-				                                                            <div class="col-sm-12">
-				                                                               
-																				    <table class="col-md-12" border="1" cellspacing="0" cellpadding="0">
-																				    <tr>
-																				    <td align="center" colspan="2">
-																				      <div>리뷰수정하기</div> 
-																				   </td>
-																				   </tr>
-																				    
-																				<br>
-																				
-																				   <tr>
-																				    <td align="center" colspan="2">
-																				      <div class="star-rating space-x-4 mx-auto">
-																				         <input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
-																				         <label for="5-stars" class="star pr-4">★</label>
-																				         <input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
-																				         <label for="4-stars" class="star">★</label>
-																				         <input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
-																				         <label for="3-stars" class="star">★</label>
-																				         <input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
-																				         <label for="2-stars" class="star">★</label>
-																				         <input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-																				         <label for="1-star" class="star">★</label>
-																				      </div> 
-																				   </td>
-																				   </tr>
-																				   
-																				  <tr>
-																				    <td align="center" width="100%">
-																				     <textarea name="content" rows="13" cols="40" class="form-control" placeholder="매장에 대한 리뷰를 작성해주세요.(필수)"></textarea>
-																				     </td>
-																				  </tr> 
-																				  <tr>
-																				    <td width="100%">
-																				  	<div style='width:100px;float: left;'>
-																				       <label type="file" class ="input-file-button" for="imageFile">
-																				         업로드
-																				      <input type="file" size="40" maxlength="30" id="imageFile" name="imageFile " style = "display:none" accept="image/*">
-																				      </label></div>
-																				      
-																				      <div style='width:200px;float: right;'>
-																				  <input type="button" value="삭제" style="color:white" class="btn btn-check"
-																				  OnClick="showConfirm_delete();">
-																				     <script language="javascript">
-																				       function showConfirm_delete() {
-																				          if (confirm("리뷰 삭제를 하시겠습니까?")){
-																				               alert("리뷰 삭제를 완료했습니다.");
-																				            } 
-																				         else{
-																				                alert("취소 버튼을 눌렀습니다.");
-																				            }
-																				          }
-																				      </script>
-																				  <input type="button" value="수정" style="color:white" class="btn btn-check"
-																				  OnClick="showConfirm_modify();">
-																				     <script language="javascript">
-																				       function showConfirm_modify() {
-																				          if (confirm("리뷰 수정을 하시겠습니까?")){
-																				               alert("리뷰 수정을 완료했습니다.");
-																				            } 
-																				         else{
-																				                alert("취소 버튼을 눌렀습니다.");
-																				            }
-																				          }
-																				      </script>
-																				  <a href="mypage.jsp" onclick="window.close();" type="button"  style="color:white" class="btn btn-check">취소</a>
-																				  </div>
-																				  </td>
-																				  </tr>
-																				  
-																				  
-																				</form>      
-																				</table>    
-				                                                            </div>
-				                                                         </div>
-				                                                      </div>
-				                                                            
-				                                                   </div>
-                                                                  <td class="text-right">
-                                                                      2021.11.05 16:37
-                                                                  </td>
                                                               
-                                                              </tr>
-                                                              <tr>
-                                                                  <td>
-                                                                      3
-                                                                  </td>
-                                                                  <td colspan="2">
-                                                                      
-				                                                   <a href=#none id="show_reveiw_3" onclick="if(hide_reveiw_3.style.display=='none') {hide_reveiw_3.style.display='';show_reveiw_3.innerText='대구 북구 팔거역 버거킹'} else {hide_reveiw_3.style.display='none';show_reveiw_3.innerText='대구 북구 팔거역 버거킹'}">
-				                                                   대구 북구 팔거역 버거킹</a>
-				                                                      <div id="hide_reveiw_3" style="display: none">
-				                                                         <div class="card" id="title-content">
-				                                                            <div class="col-sm-12">
-				                                                               
-																				    <table class="col-md-12" border="1" cellspacing="0" cellpadding="0">
-																				    <tr>
-																				    <td align="center" colspan="2">
-																				      <div>리뷰수정하기</div> 
-																				   </td>
-																				   </tr>
-																				    
-																				<br>
-																				
-																				   <tr>
-																				    <td align="center" colspan="2">
-																				      <div class="star-rating space-x-4 mx-auto">
-																				         <input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
-																				         <label for="5-stars" class="star pr-4">★</label>
-																				         <input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
-																				         <label for="4-stars" class="star">★</label>
-																				         <input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
-																				         <label for="3-stars" class="star">★</label>
-																				         <input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
-																				         <label for="2-stars" class="star">★</label>
-																				         <input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-																				         <label for="1-star" class="star">★</label>
-																				      </div> 
-																				   </td>
-																				   </tr>
-																				   
-																				  <tr>
-																				    <td align="center" width="100%">
-																				     <textarea name="content" rows="13" cols="40" class="form-control" placeholder="매장에 대한 리뷰를 작성해주세요.(필수)"></textarea>
-																				     </td>
-																				  </tr> 
-																				  <tr>
-																				    <td width="100%">
-																				  	<div style='width:100px;float: left;'>
-																				       <label type="file" class ="input-file-button" for="imageFile">
-																				         업로드
-																				      <input type="file" size="40" maxlength="30" id="imageFile" name="imageFile " style = "display:none" accept="image/*">
-																				      </label></div>
-																				      
-																				      <div style='width:200px;float: right;'>
-																				  <input type="button" value="삭제" style="color:white" class="btn btn-check"
-																				  OnClick="showConfirm_delete();">
-																				     <script language="javascript">
-																				       function showConfirm_delete() {
-																				          if (confirm("리뷰 삭제를 하시겠습니까?")){
-																				               alert("리뷰 삭제를 완료했습니다.");
-																				            } 
-																				         else{
-																				                alert("취소 버튼을 눌렀습니다.");
-																				            }
-																				          }
-																				      </script>
-																				  <input type="button" value="수정" style="color:white" class="btn btn-check"
-																				  OnClick="showConfirm_modify();">
-																				     <script language="javascript">
-																				       function showConfirm_modify() {
-																				          if (confirm("리뷰 수정을 하시겠습니까?")){
-																				               alert("리뷰 수정을 완료했습니다.");
-																				            } 
-																				         else{
-																				                alert("취소 버튼을 눌렀습니다.");
-																				            }
-																				          }
-																				      </script>
-																				  <a href="mypage.jsp" onclick="window.close();" type="button"  style="color:white" class="btn btn-check">취소</a>
-																				  </div>
-																				  </td>
-																				  </tr>
-																				  
-																				  
-																				</form>      
-																				</table>    
-				                                                            </div>
-				                                                         </div>
-				                                                      </div>
-				                                                            
-				                                                   </div>
-                                                                  <td class="text-right">
-                                                                      2021.11.06 17:37
-                                                                  </td>
+                                                              </c:forEach>
                                                               
-                                                              </tr>
+                                                              
                                                              
                                                           </tbody>
                                                       </table>
                                                  	 </div>
-                                              
 		                                          </div>
 		                                      </div>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
+                        	</form>  
                                 
                                
                             </tbody>
@@ -806,6 +621,31 @@
 			  } 
 			 }
 		 </script>
+		 
+	<%--  <script>
+		  function showConfirm_delete() {
+			 if (confirm("리뷰 삭제를 하시겠습니까?")==true){
+				 window.open("../review_delete.dae?rev_id=<%=rev_id%>&user_id=<%=user_id%>", "rev_idDeleteWindow",
+					"width=480,height=180, left = 650, top=50");		
+		 } 
+			 else{
+				 alert("취소 버튼을 눌렀습니다.");
+				 return false;
+		 }
+	}
+	</script>	  --%>
+		 
+	<!--  <script language="javascript">
+		 function showConfirm_modify() {
+		 	if (confirm("리뷰 수정을 하시겠습니까?")){
+			 alert("리뷰 수정을 완료했습니다.");
+	 } 
+		else{
+			 alert("취소 버튼을 눌렀습니다.");
+		 }
+ }
+  </script>	  -->
+		 
 
     <!--============================= FOOTER =============================-->
     <%@include file ="/common/footer-center.jsp" %>
@@ -859,6 +699,9 @@
         }
         
     </script>
+    
+
+    
   
    <!--  <script >
       function showConfirm1() {

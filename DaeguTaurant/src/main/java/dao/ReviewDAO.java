@@ -423,4 +423,95 @@ public class ReviewDAO {
 	return reviewnicknameList;	
 
 	}
+public ArrayList<ReviewVO> selectReviewList(String user_id) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<ReviewVO> reviewList = null;
+		
+		
+		String sql = "select * from review where rev_user_id = ?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+		
+				reviewList = new ArrayList<ReviewVO>();
+				ReviewVO reviewVO = null;
+				
+				do {
+					
+
+					
+					reviewVO = new ReviewVO();
+					
+					reviewVO.setRev_user_id(rs.getString("rev_user_id"));
+					reviewVO.setRev_content(rs.getString("rev_content"));
+					reviewVO.setRev_id(rs.getInt("rev_id"));
+					reviewVO.setRev_writer(rs.getString("rev_writer"));
+					reviewVO.setRev_notice_date(rs.getTimestamp("rev_notice_date"));
+					reviewVO.setRes_score(rs.getDouble("res_score"));
+				
+					reviewList.add(reviewVO);
+					
+				} while (rs.next());
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		finally {
+			
+			close(rs);
+			close(pstmt);
+		}
+		
+		return reviewList;
+	}
+
+	
+	public int deleteReview(int rev_id, String user_id) {
+		
+		int deleteCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		
+		try {
+			pstmt = con.prepareStatement(""
+					+ "SELECT * FROM review");
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			
+			
+			sql = "DELETE from review "
+					+ "WHERE rev_id = ? and rev_user_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rev_id);
+			pstmt.setString(2, user_id);
+			deleteCount = pstmt.executeUpdate();
+				
+			
+			}
+	}
+			
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			close(rs);
+			close(pstmt);
+		}
+		return deleteCount;
+	}
 }
+
+
