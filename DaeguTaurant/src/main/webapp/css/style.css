@@ -29,6 +29,13 @@ Author: Surjith S M
   object-fit: cover;
 }
 
+/* 식당 리뷰 등록 시 선택하는 평점 크기 */
+#review{
+	
+	font-size: 25px;
+}
+
+
 /*비밀번호 변경 버튼  */
 #changePw{
 	

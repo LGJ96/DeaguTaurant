@@ -57,11 +57,11 @@
  
      <select name = "review" title ="평점" id = "review" class = "col-sm-3" >
      		<option value = "${reviewarticle.res_score}"style='background-color:#ababab' > ${reviewarticle.res_score}-지금평점 </option> 
-			<option value = "5.0" > 5.0 </option>
-			<option value = "4.0"> 4.0 </option>
-			<option value = "3.0" > 3.0 </option>
-			<option value = "2.0" > 2.0 </option>
-			<option value = "1.0" > 1.0 </option>
+			<option value = "5.0" > 5 </option>
+			<option value = "4.0"> 4 </option>
+			<option value = "3.0" > 3 </option>
+			<option value = "2.0" > 2 </option>
+			<option value = "1.0" > 1 </option>
 	</select>
   	 </div>
    	</td>

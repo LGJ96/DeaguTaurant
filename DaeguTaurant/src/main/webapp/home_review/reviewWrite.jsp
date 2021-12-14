@@ -85,7 +85,7 @@
   
   <tr>
     <td align="center" width="100%">
-     <textarea rows="13" cols="40" class="form-control" placeholder="매장에 대한 리뷰를 작성해주세요.(필수)" id = "rev_content" name ="rev_content"></textarea></td>
+     <textarea rows="13" cols="40" class="form-control" placeholder="매장에 대한 리뷰와 이미지를 등록해주세요.(필수)" id = "rev_content" name ="rev_content"></textarea></td>
   </tr> 
   <tr>
     <td  align="left" width="100%">
@@ -97,9 +97,9 @@
   
   <tr>      
  <td colspan=2 " align="center"> 
-   <input type="submit" value="등록" style="color:white" class="btn btn-check" OnClick="showConfirm1()" >
+   <input type="submit" value="등록" class="btn btn-check" OnClick="showConfirm1()" >
   
-    <input type="button" class="btn btn-check" style="color:white" value="취소"
+    <input type="button" class="btn btn-check" value="취소"
  	 OnClick="window.close();">
   
   </td></tr>

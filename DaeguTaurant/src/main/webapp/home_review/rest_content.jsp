@@ -128,13 +128,6 @@
 								</c:if> 
 							</c:if>  
 
-							<div class='RatingStar_res1'>
-								<div class='RatingScore_res1'>
-									<div class='outer-star'>
-										<div class='inner-star' float="right;"></div>
-									</div>
-								</div>
-							</div>
 						</div>
 						
 						<div class="col-md-3">
