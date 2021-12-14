@@ -8,6 +8,8 @@ import java.util.List;
 
 import servicecenter.vo.FaqVO;
 import servicecenter.vo.OtoVO;
+import vo.ReviewVO;
+import vo.UserVO;
 
 public class OtoDAO {
 	
@@ -31,16 +33,17 @@ private Connection con;
 	      this.con = con;
 	   }
 
-	public int insertArticle(OtoVO otoVO) throws Exception {
+	public int insertArticle(OtoVO otoVO, UserVO userVO) throws Exception {
 		// TODO Auto-generated method stub
 		int insertCount = 0;
-	      PreparedStatement pstmt = null;
-	      ResultSet rs = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
 	      
 	      int cus_oto_number = otoVO.getCus_oto_number();
 	      int cus_ref = otoVO.getCus_ref();
 	      int cus_re_step = otoVO.getCus_re_step();
 	      int cus_re_level = otoVO.getCus_re_level();
+	      String oto_user_id = userVO.getUser_id();
 	      
 	      int number =0;
 	      String sql = "";
@@ -79,8 +82,8 @@ private Connection con;
 	          }
 	         
 	         sql = "INSERT INTO OTO(cus_oto_number, cus_oto_title, cus_oto_date"
-	               + ", cus_oto_content, user_nickname, cus_ref, cus_re_step, cus_re_level)"
-	               + "VALUES(OTO_seq.nextval,?,?,?,?,?,?,?)";
+	               + ", cus_oto_content, user_nickname, cus_ref, cus_re_step, cus_re_level, oto_user_id)"
+	               + "VALUES(OTO_seq.nextval,?,?,?,?,?,?,?,?)";
 	         
 	         pstmt = con.prepareStatement(sql);
 	         pstmt.setString(1, otoVO.getCus_oto_title());
@@ -90,6 +93,7 @@ private Connection con;
 	         pstmt.setInt(5, cus_ref);
 	         pstmt.setInt(6, cus_re_step);
 	         pstmt.setInt(7, cus_re_level);
+	         pstmt.setString(8, oto_user_id);
 	         
 	         insertCount = pstmt.executeUpdate();
 	         
@@ -286,4 +290,94 @@ private Connection con;
 
 		return otosearchword;
 	}
+
+	public ArrayList<OtoVO> selectMyOtoList(String user_id) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<OtoVO> myOtoList = null;
+		
+		
+		String sql = "select * from oto where oto_user_id = ?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+		
+				myOtoList = new ArrayList<OtoVO>();
+				OtoVO otoVO = null;
+				
+				do {
+					
+					otoVO = new OtoVO();
+					
+					otoVO.setCus_oto_content(rs.getString("cus_oto_content"));
+					otoVO.setUser_nickname(rs.getString("user_nickname"));
+					otoVO.setCus_oto_date(rs.getTimestamp("cus_oto_date"));
+					otoVO.setCus_oto_number(rs.getInt("cus_oto_number"));
+					otoVO.setCus_oto_title(rs.getString("cus_oto_title"));
+					otoVO.setOto_user_id(rs.getString("oto_user_id"));
+					
+				
+					myOtoList.add(otoVO);
+					
+				} while (rs.next());
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		finally {
+			
+			close(rs);
+			close(pstmt);
+		}
+		
+		return myOtoList;
+	}
+
+	public int deleteMyOto(int cus_oto_number, String user_id) {
+	
+		int deleteCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		
+		try {
+			pstmt = con.prepareStatement(""
+					+ "SELECT * FROM oto");
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			
+			
+			sql = "DELETE from oto "
+					+ "WHERE cus_oto_number = ? and oto_user_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cus_oto_number);
+			pstmt.setString(2, user_id);
+			deleteCount = pstmt.executeUpdate();
+				
+			
+			}
+	}
+			
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			close(rs);
+			close(pstmt);
+		}
+		return deleteCount;
+	}
+		
+	
 }

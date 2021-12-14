@@ -6,17 +6,18 @@ import java.sql.Connection;
 
 import dao.OtoDAO;
 import servicecenter.vo.OtoVO;
+import vo.UserVO;
 
 public class Oto_WriteProService {
 
-	public boolean registArticle(OtoVO otoVO) throws Exception {
+	public boolean registArticle(OtoVO otoVO, UserVO userVO) throws Exception {
 		// TODO Auto-generated method stub
 				boolean registSuccess = false;
 		        Connection con = getConnection();
 		        OtoDAO otoDAO = OtoDAO.getInstance();
 		        otoDAO.setConnection(con);
 		        
-		        int insertCount = otoDAO.insertArticle(otoVO);
+		        int insertCount = otoDAO.insertArticle(otoVO, userVO);
 		        if(insertCount > 0) {
 		           registSuccess = true;
 		           commit(con);

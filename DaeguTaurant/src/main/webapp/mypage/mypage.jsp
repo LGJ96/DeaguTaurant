@@ -1,3 +1,4 @@
+<%@page import="servicecenter.vo.OtoVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="vo.ReviewVO"%>
 <%@page import="vo.UserVO"%>
@@ -13,6 +14,9 @@
 	
 	ArrayList<ReviewVO> reviewList = (ArrayList<ReviewVO>)session.getAttribute("reviewList");
 	String rev_id = (String)session.getAttribute("rev_id");
+	
+	ArrayList<OtoVO> myOtoList = (ArrayList<OtoVO>)session.getAttribute("myOtoList");
+	String cus_oto_number = (String)session.getAttribute("cus_oto_number");
 
 %>     
     
@@ -285,167 +289,100 @@
                                     </td>
                                 </tr>
 <!-- ============================회원 문의 목록============================= -->
-
-                                <tr>
-                                    <td>
-                                        <button class="btn btn-block btn-outline-dark" data-toggle="collapse" data-target="#faq2">
-                                            
-                                          회원 문의 목록
-                                         </button>
-                                         <div id="faq2" class="collapse show" data-parent="#accordion">
-                                            <div class="card-body">
-                                                <div class="col-sm-13" style="float: center;">
-                                          <div class="card" id="title-content">
-                                              
-                                              
-                                                  <div class="table-responsive">
-                                                      <table class="table">
-                                                          <thead class=" text-primary">
-                                                              <th colspan="1">
-                                                                  번호
-                                                              </th>
-                                                              <th colspan="2">
-                                                                  제목
-                                                              </th>
-                                                              <th  class="text-right">
-                                                                  작성 시간
-                                                              </th>
-                                                          </thead>
-                                                          <tbody>
-                                                              <tr>
-                                                                  <td>
-                                                                      1
-                                                                  </td>
-                                                                  <td colspan="2">
-                                                                      
-				                                                   <a href=#none id="show_OTO_1" onclick="if(hide_OTO_1.style.display=='none') {hide_OTO_1.style.display='';show_OTO_1.innerText='비밀번호 찾기 문의'} else {hide_OTO_1.style.display='none';show_OTO_1.innerText='비밀번호 찾기 문의'}">
-				                                                   비밀번호 찾기 문의</a>
-				                                                      <div id="hide_OTO_1" style="display: none">
-				                                                         <div class="card" id="title-content">
-				                                                            <div class="col-sm-13">
-				                                                               <div class="text-left">
-				                                                               글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인<br />
-				                                                               비밀번호를 찾고 싶습니다.<br />
-				                                                               </div>
-				                                                                  <div class="col-sm-2" style="float: right;">
-				                                                                  
-						                                                              <a href="mypage.jsp"  type="button"  style="color:black" OnClick="showConfirm_delete();">삭제</a>
-						                                                                 <script language="javascript">
-						                                                                   function showConfirm_delete() {
-						                                                                      if (confirm("삭제 하시겠습니까?")){
-						                                                                           alert("삭제 완료했습니다.");
-						                                                                        } 
-						                                                                     else{
-						                                                                            alert("취소 버튼을 눌렀습니다.");
-						                                                                        }
-						                                                                      }
-						                                                                  </script>
-						                                                              <a>|</a>
-						                                                              <a href="mypage.jsp" onclick="window.close();" type="button" style="color:black">취소</a>
-				                                                               </div>
-				                                                            </div>
-				                                                         </div>
-				                                                      </div>
-				                                                            
-				                                                   </div>
-                                                                  <td class="text-right">
-                                                                      2021.11.04 15:37
-                                                                  </td>
-                                                              
-                                                              </tr>
-                                                               <tr>
-                                                                  <td>
-                                                                      2
-                                                                  </td>
-                                                                  <td colspan="2">
-                                                                      
-				                                                   <a href=#none id="show_OTO_2" onclick="if(hide_OTO_2.style.display=='none') {hide_OTO_2.style.display='';show_OTO_2.innerText='식당 찾기 문의'} else {hide_OTO_2.style.display='none';show_OTO_2.innerText='식당 찾기 문의'}">
-				                                                   식당 찾기 문의</a>
-				                                                      <div id="hide_OTO_2" style="display: none">
-				                                                         <div class="card" id="title-content">
-				                                                            <div class="col-sm-12">
-				                                                               <div class="text-left">
-				                                                               글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인<br />
-				                                                               식당 위치가 정확하지 않습니다.<br />
-				                                                               </div>
-				                                                                  <div class="col-sm-2" style="float: right;">
-				                                                                  
-						                                                              <a href="mypage.jsp"  type="button"  style="color:black" OnClick="showConfirm_delete();">삭제</a>
-						                                                                 <script language="javascript">
-						                                                                   function showConfirm_delete() {
-						                                                                      if (confirm("삭제 하시겠습니까?")){
-						                                                                           alert("삭제 완료했습니다.");
-						                                                                        } 
-						                                                                     else{
-						                                                                            alert("취소 버튼을 눌렀습니다.");
-						                                                                        }
-						                                                                      }
-						                                                                  </script>
-						                                                              <a>|</a>
-						                                                              <a href="mypage.jsp" onclick="window.close();" type="button" style="color:black">취소</a>
-				                                                               </div>
-				                                                            </div>
-				                                                         </div>
-				                                                      </div>
-				                                                            
-				                                                   </div>
-                                                                  <td class="text-right">
-                                                                      2021.11.05 16:37
-                                                                  </td>
-                                                              
-                                                              </tr>
-                                                               <tr>
-                                                                  <td>
-                                                                      3
-                                                                  </td>
-                                                                  <td colspan="2">
-                                                                      
-				                                                   <a href=#none id="show_OTO_3" onclick="if(hide_OTO_3.style.display=='none') {hide_OTO_3.style.display='';show_OTO_3.innerText='회원 탈퇴 문의'} else {hide_OTO_3.style.display='none';show_OTO_3.innerText='회원 탈퇴 문의'}">
-				                                                   회원 탈퇴 문의</a>
-				                                                      <div id="hide_OTO_3" style="display: none">
-				                                                         <div class="card" id="title-content">
-				                                                            <div class="col-sm-12">
-				                                                               <div class="text-left">
-				                                                               글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인글 길이 확인<br />
-				                                                               회원 탈퇴하고 싶습니다.<br />
-				                                                               </div>
-				                                                                  <div class="col-sm-2" style="float: right;">
-				                                                                  
-						                                                              <a href="mypage.jsp"  type="button"  style="color:black" OnClick="showConfirm_delete();">삭제</a>
-						                                                                 <script language="javascript">
-						                                                                   function showConfirm_delete() {
-						                                                                      if (confirm("삭제 하시겠습니까?")){
-						                                                                           alert("삭제 완료했습니다.");
-						                                                                        } 
-						                                                                     else{
-						                                                                            alert("취소 버튼을 눌렀습니다.");
-						                                                                        }
-						                                                                      }
-						                                                                  </script>
-						                                                              <a>|</a>
-						                                                              <a href="mypage.jsp" onclick="window.close();" type="button" style="color:black">취소</a>
-				                                                               </div>
-				                                                            </div>
-				                                                         </div>
-				                                                      </div>
-				                                                            
-				                                                   </div>
-                                                                  <td class="text-right">
-                                                                      2021.11.06 17:37
-                                                                  </td>
-                                                              
-                                                              </tr>
-                                                             
-                                                          </tbody>
-                                                      </table>
-                                                  </div>
-                                              
-                                          </div>
-                                      </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+ <form action="#" method="POST" name = "myOtoList">
+      <tr>
+        <td>
+          <button class="btn btn-block btn-outline-dark" data-toggle="collapse" data-target="#faq2">           
+            회원 문의 목록
+          </button>
+            <div id="faq2" class="collapse show" data-parent="#accordion"> 
+            <div class="card-body">
+              <div class="col-sm-13" style="float: center;">
+                <div class="card" id="title-content">
+                   <div class="table-responsive">
+                     <table class="table">
+                        <thead class=" text-primary">
+                           <th colspan="1">
+                             번호
+                           </th>
+                          <th colspan="2">
+                            제목
+                          </th>
+                          <th  class="text-right">
+                           작성 시간
+                          </th>
+                       </thead>
+       				<tbody>
+       				
+                     <c:forEach begin="0" var="myOtoList" items="${myOtoList}" varStatus="status">
+                        <tr>
+                         <td>
+                        	${myOtoList.cus_oto_number}
+                         </td>
+                         <td colspan="2">
+                       
+                        <a href=#?cus_oto_number=${myOtoList.cus_oto_number } id="show${myOtoList.cus_oto_number }" 
+                        onclick="if(hide${myOtoList.cus_oto_number }.style.display=='none'){hide${myOtoList.cus_oto_number }.style.display='';show${myOtoList.cus_oto_number }.innerText='${myOtoList.cus_oto_content }'} 
+                        else {hide${myOtoList.cus_oto_number }.style.display='none';show${myOtoList.cus_oto_number }.innerText='${myOtoList.cus_oto_content }'}">
+				        ${myOtoList.cus_oto_title }</a>
+				        
+				         <div id="hide${myOtoList.cus_oto_number }" style="display: none">
+				          <div class="card" id="title-content">
+				            <div class="col-sm-13">
+				             <div class="text-left">
+				          		<br/>
+				          </div>
+				          <!--  <div class="col-sm-2" style="float: right;"> -->
+				              <div class="card" id="title-content">
+				           <div class="col-sm-12">
+				            <table class="col-md-12" border="1" cellspacing="0" cellpadding="0"> 
+							<tr>
+							<td align="center" colspan="2">
+							 <div>${myOtoList.cus_oto_title }</div> 
+							</td>
+							</tr>
+							
+							<tr>
+							<td align="center" width="100%">
+							<textarea name="content" rows="13" cols="40" class="form-control" 
+							readonly>${myOtoList.cus_oto_content }
+							 </textarea>
+																				     
+							</td>
+							<tr>
+						<td width="100%">
+							
+						<input type="button" value="삭제" class="btn btn-check"
+	    				OnClick="window.open('${pageContext.request.contextPath }/myOto_delete.dae?cus_oto_number=${myOtoList.cus_oto_number }&user_id=<%=user_id%>', 'cus_oto_numberDeleteWindow','width=480,height=180, left = 650, top=50');">
+							
+					   
+						 <input type="submit" value="취소" class = "btn btn-check"
+						onclick="opener.location.reload();window.close();">
+						  </td>
+						  </tr>
+				         </table>
+				         </div>
+				         </div>
+						</div>
+						</div>
+						</div>
+				         </td>
+				         
+               <td class="text-right">
+                   ${myOtoList.cus_oto_date }
+               </td>
+               </tr>
+   			 </c:forEach>
+         </tbody>
+    </table>
+   </div>
+  </div>
+ </div>
+</div>
+</div>
+</td>
+</tr>
+</form>  
 
 <!-- ============================회원 리뷰 목록============================= -->     
 
@@ -482,10 +419,10 @@
                                                          
                                                               <tr>
                                                                   <td>
-                                                                      1
+                                                                   ${reviewList.rev_id}
                                                                   </td>
                                                                   <td colspan="2">
-                                                                      	<input type="text" name="rev_id" value="${reviewList.rev_id}"/>	
+                                                                      	
                                                                       
  																	<a href=#?rev_id=${reviewList.rev_id } id="show${reviewList.rev_id }" 
 																		onclick="if(hide${reviewList.rev_id}.style.display=='none') {hide${reviewList.rev_id}.style.display='';show${reviewList.rev_id}.innerText='${reviewList.rev_content }'} 
@@ -532,13 +469,15 @@
 																				      </label></div> -->
 																				      
 																				   <div style='width:200px;float: right;'>
-																				  <input type="button" value="삭제" style="color:white" class="btn btn-check"
+																				  <input type="button" value="삭제" class="btn btn-check"
 																				  OnClick="window.open('${pageContext.request.contextPath }/review_delete.dae?rev_id=${reviewList.rev_id}&user_id=<%=user_id%>', 'rev_idDeleteWindow','width=480,height=180, left = 650, top=50');">
 																				   
-																				  <input type="button" value="수정" style="color:white" class="btn btn-check"
+																				  <input type="button" value="수정"  class="btn btn-check"
 																				  OnClick="window.open('${pageContext.request.contextPath }/reviewupdate.dae?rev_id=${reviewList.rev_id}','','width=430,height=500,left=700,top =200 ,location=no,status=no,scrollbars=yes');">
 																				    
-																				  <a href="mypage.jsp" onclick="window.close();" type="button"  style="color:white" class="btn btn-check">취소</a>
+																				    
+						 															<input type="submit" value="취소" class = "btn btn-check"
+																					onclick="opener.location.reload();window.close();">
 																				  </div>
 																				  </td>
 																				  </tr>

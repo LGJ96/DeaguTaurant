@@ -18,6 +18,7 @@ import login.action.UserLoginAction;
 import login.action.UserLogoutAction;
 import login.action.UserNicknameCheckAction;
 import login.action.UserPwSearchResultAction;
+import mypage.action.MyOtODeleteAction;
 import mypage.action.MyReviewListAction;
 import mypage.action.ReviewDeleteAction;
 import mypage.action.ReviewUpdateAction;
@@ -611,7 +612,19 @@ public class DaeguTaurantFrontController extends HttpServlet {
 				}
 			}
 		
-		
+			
+			else if(command.equals("/myOto_delete.dae")) {
+				action = new MyOtODeleteAction();
+				
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+	
+	
 		
 		
 		

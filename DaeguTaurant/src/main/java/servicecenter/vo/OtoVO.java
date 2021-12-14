@@ -15,6 +15,8 @@ public class OtoVO {
 	private int cus_ref;
 	private int cus_re_step;
 	private Timestamp cus_oto_reply_date;
+	private String oto_user_id;
+	
 	
 	public int getCus_oto_number() {
 		return cus_oto_number;
@@ -88,6 +90,13 @@ public class OtoVO {
 	public void setCus_re_step(int cus_re_step) {
 		this.cus_re_step = cus_re_step;
 	}
+	public String getOto_user_id() {
+		return oto_user_id;
+	}
+	public void setOto_user_id(String oto_user_id) {
+		this.oto_user_id = oto_user_id;
+	}
+	
 	
 	
 }

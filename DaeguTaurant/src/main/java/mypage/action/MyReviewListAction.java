@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Info.action.Action;
+import mypage.service.MyOtoListService;
 import mypage.service.ReviewListService;
 import rest.service.RestListService;
+import servicecenter.vo.OtoVO;
 import vo.ActionForward;
 import vo.RestVO;
 import vo.ReviewVO;
@@ -22,11 +24,14 @@ public class MyReviewListAction implements Action {
 		 String user_id = request.getParameter("user_id");
 		 
 		  ReviewListService reviewListService = new ReviewListService();
+		  MyOtoListService myOtoListService = new MyOtoListService();
 
 	      ArrayList<ReviewVO> reviewList = reviewListService.getReviewList(user_id);
+	      ArrayList<OtoVO> myOtoList = myOtoListService.getMyOtoList(user_id);
 	  	 // HttpSession session = request.getSession();
 	      //session.setAttribute("restList", restList);
 	      request.setAttribute("reviewList", reviewList);
+	      request.setAttribute("myOtoList", myOtoList);
 	      
 	     ActionForward forward = new ActionForward();
 	      

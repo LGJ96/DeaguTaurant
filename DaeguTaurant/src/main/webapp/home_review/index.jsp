@@ -121,7 +121,7 @@
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
                    
-                         <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}" >
+                         <a href = "${pageContext.request.contextPath }/rest_content.dae?res_id=${rest.res_id}&user_id=${loginUser.user_id}" >
                   			<img src ="${pageContext.request.contextPath }/images/res_pic/${rest.res_pic }.jpg" class = "index" />
               
                             <span class="featured-rating-orange">${rest.res_totalscore }</span>
