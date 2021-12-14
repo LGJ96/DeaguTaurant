@@ -85,7 +85,8 @@ int com_pageCount = commPageVO.getCom_pageCount();
             <form class="form-wrap mt-4" method = "POST" action="#" name = "comsearchform" >
                 <div class="btn-group" role="group" aria-label="Basic example">
                 
-                    <input type="text" placeholder="검색창" class="btn-group" name ="searchword" id="searchword"/>
+                    <input type="text" placeholder="검색창" class="btn-group" name ="searchword" id="searchword"
+                    onkeypress="if(event.keyCode == 13) enterkey()"/>
                     <button type="button" class="btn-form2" onclick="comsearch()"> 검   색</button>
                      <button type="button" class="btn-form" onclick="location.href='comm_writeForm.dae';"> 글쓰기</button>
                   	
@@ -109,11 +110,11 @@ int com_pageCount = commPageVO.getCom_pageCount();
       </thead>
       
          <c:if test="${empty comArticleBestList}">
-							<table width="400" border="1" cellpadding="0" cellspacing="0">
-								    <td align="center">
-								    게시판에 저장된 글이 없습니다.
-								    </td>
-							</table>
+			<table width="400" cellpadding="0" cellspacing="0" align="center">
+				<td align="center">
+				 <h14> 게시판에 저장된 글이 없습니다.</h14>
+				 </td>
+			</table>
 		</c:if>
       </thead>
       
@@ -162,9 +163,9 @@ int com_pageCount = commPageVO.getCom_pageCount();
         </tr>
         
        <c:if test="${empty comArticleBestList}">
-				<table width="400" border="1" cellpadding="0" cellspacing="0">
+				<table width="400" cellpadding="0" cellspacing="0" align="center">
 					<td align="center">
-						게시판에 저장된 글이 없습니다.
+						<h14>게시판에 저장된 글이 없습니다.</h14>
 					</td>
 				</table>
 		</c:if>
@@ -201,7 +202,7 @@ int com_pageCount = commPageVO.getCom_pageCount();
  <!--============================= 글 목록 =============================-->
 <div class = "col-md-10"  id ="comm-content">
     <div class="card-body" style="text-align:center">
-        <h5 class="card-title" style="text-align:center">글 목록</h5>
+        <h16 class="card-title" style="text-align:center">글 목록</h16>
         <div class="table-responsive "  >
             <table  class="table" >
                 <thead class ="bg-warning text-white" > 
@@ -216,9 +217,9 @@ int com_pageCount = commPageVO.getCom_pageCount();
                     </tr>
                 </thead>
 						<c:if test="${empty comArticleList}">
-							<table width="1440" border="1" cellpadding="0" cellspacing="0">
+							<table width="1440"  cellpadding="0" cellspacing="0">
 								    <td align="center">
-								    게시판에 저장된 글이 없습니다.
+								    <h14>게시판에 저장된 글이 없습니다.</h14>
 								    </td>
 							</table>
 						</c:if>
@@ -327,6 +328,18 @@ int com_pageCount = commPageVO.getCom_pageCount();
     	} 
     }
     </script> 
+    
+    <script>
+    function enterkey() {
+        if (window.event.keyCode == 13) {
+        	
+        	comsearch();
+        }
+    }
+
+    </script>
+    
+    
 
 </body>
 </html>

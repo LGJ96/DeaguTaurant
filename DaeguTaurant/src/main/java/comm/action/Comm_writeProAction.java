@@ -22,8 +22,8 @@ public class Comm_writeProAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		String realFolder = "";
-		String saveFolder = "/images";	//»çÁøÀ» ÀúÀåÇÒ °æ·Î
-		String encType = "UTF-8";		//º¯È¯Çü½Ä
+		String saveFolder = "/images";	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+		String encType = "UTF-8";		//ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½
 		int maxSize = 5 * 1024 * 1024;	// 5mb
 		ServletContext context = request.getServletContext();
 		realFolder = context.getRealPath(saveFolder);
@@ -64,7 +64,7 @@ public class Comm_writeProAction implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('µî·Ï½ÇÆĞ')");
+			out.println("alert('ë“±ë¡ì‹¤íŒ¨')");
 			out.println("history.back");
 			out.println("</script>");
 			

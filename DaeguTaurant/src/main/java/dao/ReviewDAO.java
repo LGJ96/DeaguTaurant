@@ -453,6 +453,7 @@ public ArrayList<ReviewVO> selectReviewList(String user_id) {
 					reviewVO.setRev_writer(rs.getString("rev_writer"));
 					reviewVO.setRev_notice_date(rs.getTimestamp("rev_notice_date"));
 					reviewVO.setRes_score(rs.getDouble("res_score"));
+					reviewVO.setRev_res_id(rs.getInt("rev_res_id"));
 				
 					reviewList.add(reviewVO);
 					

@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <body>
-	<form action="#" method="POST" name = "searchform2" >
+	<form action="#" method="GET" name = "searchform2" >
 <div class="dark-hg sticky-top">
         <div class="container-fluid">
             <div class="row">
@@ -30,7 +32,7 @@
 						<li><a href = "${pageContext.request.contextPath }/logout.dae" class="logout-text top-btn"  >로그아웃</a></li>
 					
 											
-<li><a href = "${pageContext.request.contextPath }/myreviewlist.dae?user_id=${loginUser.user_id}" class="btn btn-outline-light top-btn" id = "login-text">${loginUser.user_nickname }</a></li> 								
+<li><a href = "myreviewlist.dae?user_id=${loginUser.user_id}" class="btn btn-outline-light top-btn" id = "login-text">${loginUser.user_nickname }</a></li> 							
 						</c:if>					
 					
 						<c:if test="${loginUser.user_id == null }">

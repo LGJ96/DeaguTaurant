@@ -53,7 +53,7 @@
 </head>
 <body>
     <!--============================= HEADER =============================-->
-    <%--  <%@include file ="/common/header.jsp" %> --%>
+    
     
     <div class="dark-hg sticky-top">
         <div class="container-fluid">
@@ -80,7 +80,7 @@
 						<li><a href = "${pageContext.request.contextPath }/logout.dae" class="logout-text top-btn"  >로그아웃</a></li>
 											
 											
- 						<li><a href = "${pageContext.request.contextPath }/mypage/mypage.jsp" class="btn btn-outline-light top-btn" id = "login-text"><%=loginUser.getUser_nickname()%></a></li>
+ 						<li><a href = "myreviewlist.dae?user_id=${loginUser.user_id}" class="btn btn-outline-light top-btn" id = "login-text"><%=loginUser.getUser_nickname()%></a></li>
  						
 												
 						<%
@@ -317,14 +317,15 @@
                      <c:forEach begin="0" var="myOtoList" items="${myOtoList}" varStatus="status">
                         <tr>
                          <td>
-                        	${myOtoList.cus_oto_number}
+                        	 ${myOtoList.cus_oto_number}
                          </td>
                          <td colspan="2">
                        
                         <a href=#?cus_oto_number=${myOtoList.cus_oto_number } id="show${myOtoList.cus_oto_number }" 
-                        onclick="if(hide${myOtoList.cus_oto_number }.style.display=='none'){hide${myOtoList.cus_oto_number }.style.display='';show${myOtoList.cus_oto_number }.innerText='${myOtoList.cus_oto_content }'} 
-                        else {hide${myOtoList.cus_oto_number }.style.display='none';show${myOtoList.cus_oto_number }.innerText='${myOtoList.cus_oto_content }'}">
-				        ${myOtoList.cus_oto_title }</a>
+                        onclick="if(hide${myOtoList.cus_oto_number }.style.display=='none'){hide${myOtoList.cus_oto_number }.style.display='';show${myOtoList.cus_oto_number }.innerText='${myOtoList.cus_oto_title  }'} 
+                        else {hide${myOtoList.cus_oto_number }.style.display='none';show${myOtoList.cus_oto_number }.innerText='${myOtoList.cus_oto_title  }'}">
+				        <h15>${myOtoList.cus_oto_title }</h15>
+				        </a>
 				        
 				         <div id="hide${myOtoList.cus_oto_number }" style="display: none">
 				          <div class="card" id="title-content">
@@ -404,7 +405,7 @@
                                                       <table class="table">
                                                           <thead class=" text-primary">
                                                               <th colspan="1">
-                                                                  번호
+                                                                  식당 번호
                                                               </th>
                                                               <th colspan="2">
                                                                   제목
@@ -418,16 +419,22 @@
                                                           <c:forEach  begin="0" var="reviewList" items="${reviewList}" varStatus="status">
                                                          
                                                               <tr>
-                                                                  <td>
-                                                                   ${reviewList.rev_id}
-                                                                  </td>
+                                                                <td>
+                                                                
+                                                              <a href="${pageContext.request.contextPath }/rest_content.dae?res_id=${reviewList.rev_res_id }" title="식당내용">
+                                                                <h15> ${reviewList.rev_res_id}</h15>
+                                                                 
+                                                               </a>
+                                                                </td>
+                                                                  
                                                                   <td colspan="2">
                                                                       	
                                                                       
  																	<a href=#?rev_id=${reviewList.rev_id } id="show${reviewList.rev_id }" 
 																		onclick="if(hide${reviewList.rev_id}.style.display=='none') {hide${reviewList.rev_id}.style.display='';show${reviewList.rev_id}.innerText='${reviewList.rev_content }'} 
 																		 else {hide${reviewList.rev_id}.style.display='none';show${reviewList.rev_id}.innerText='${reviewList.rev_content }'}">
-																		 ${reviewList.rev_content }</a>
+																		<h15> ${reviewList.rev_content } </h15>
+																		 </a>
 				                                                      <div id="hide${reviewList.rev_id}" style="display: none">
 				                                                         <div class="card" id="title-content">
 				                                                            <div class="col-sm-12">

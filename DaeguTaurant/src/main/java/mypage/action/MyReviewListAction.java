@@ -32,8 +32,8 @@ public class MyReviewListAction implements Action {
 	      //session.setAttribute("restList", restList);
 	      request.setAttribute("reviewList", reviewList);
 	      request.setAttribute("myOtoList", myOtoList);
-	      
-	     ActionForward forward = new ActionForward();
+	
+	      ActionForward forward = new ActionForward();
 	      
 	      forward.setUrl("mypage/mypage.jsp");
 	    

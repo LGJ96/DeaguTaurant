@@ -860,6 +860,20 @@ h14{
 	font-size: 28px;
 }
 
+h15{
+	
+	font-size: 17px;
+	color: #000;
+}
+h15:hover{
+	color: #B86824;
+	
+}
+
+h16{
+	font-family: "one";
+	font-size: 40px;
+}
 
 /* 아이디, 닉네임 중복체크 링크 밑줄 제거 */
 #a1{
