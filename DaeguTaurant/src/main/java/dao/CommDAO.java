@@ -149,7 +149,7 @@ public class CommDAO {
 	        ResultSet rs = null;
 	        CommVO comArticle = null;
 	        try {
-	        	//Á¶È¸ ¼ö Áõ°¡ ÀÛ¾÷
+	        	//ï¿½ï¿½È¸ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
 	        	pstmt = con.prepareStatement(""
 	        			+ "UPDATE comm_register SET com_readcount = com_readcount + 1 / 2 WHERE com_number = ?");
 	        	pstmt.setInt(1, com_number);
@@ -407,45 +407,45 @@ public class CommDAO {
 			return comsearchwordList;
 		}
 
-		 public List<CommVO> selectArticBestList(int com_startRow, int com_pageSize) {
-	         // TODO Auto-generated method stub
-	         PreparedStatement pstmt = null;
-	            ResultSet rs = null;
-	            List<CommVO> comBestArticleList = null;
-	            try {
-	             
-	               pstmt = con.prepareStatement(""
-	                     + "SELECT list2.* FROM (SELECT ROWNUM r, list1.* "
-	                     + " FROM (SELECT * FROM comm_register ORDER BY com_readcount DESC) list1)"
-	                     + " list2 WHERE r BETWEEN ? AND ?");
-	               pstmt.setInt(1, com_startRow);
-	               pstmt.setInt(2, com_startRow+com_pageSize-1);
-	               rs = pstmt.executeQuery();
-	               
-	               if(rs.next()) {
-	            	   comBestArticleList = new ArrayList<CommVO>();
-	                  do {
-	                     CommVO commVO = new CommVO();
-	                     commVO.setCom_number(rs.getInt("com_number"));
-	                     commVO.setCom_title(rs.getString("com_title"));
-	                     commVO.setCom_date(rs.getTimestamp("com_date"));
-	                     commVO.setCom_subject(rs.getString("com_subject"));
-	                     commVO.setCom_content(rs.getString("com_content"));
-	                     commVO.setUser_nickname(rs.getString("user_nickname"));
-	                     commVO.setCom_readcount(rs.getInt("com_readcount"));
-	                     comBestArticleList.add(commVO);
-	                  } while (rs.next());
-	               }
-	               
-	            } catch (Exception e) {
-	               // TODO: handle exception
-	               e.printStackTrace();
-	            }
-	            finally {
-	               close(rs);
-	               close(pstmt);
-	            }
-	            return comBestArticleList;
-	      }
+		public List<CommVO> selectArticBestList(int com_startRow, int com_pageSize) {
+			// TODO Auto-generated method stub
+			PreparedStatement pstmt = null;
+		      ResultSet rs = null;
+		      List<CommVO> comArticleBestList = null;
+		      try {
+		    	
+		         pstmt = con.prepareStatement(""
+		               + "SELECT list2.* FROM (SELECT ROWNUM r, list1.* "
+		               + " FROM (SELECT * FROM comm_register ORDER BY com_readcount DESC) list1)"
+		               + " list2 WHERE r BETWEEN ? AND ?");
+		         pstmt.setInt(1, com_startRow);
+		         pstmt.setInt(2, com_startRow+com_pageSize-1);
+		         rs = pstmt.executeQuery();
+		         
+		         if(rs.next()) {
+		        	 comArticleBestList = new ArrayList<CommVO>();
+		            do {
+		            	CommVO commVO = new CommVO();
+		            	commVO.setCom_number(rs.getInt("com_number"));
+		            	commVO.setCom_title(rs.getString("com_title"));
+		            	commVO.setCom_date(rs.getTimestamp("com_date"));
+		            	commVO.setCom_subject(rs.getString("com_subject"));
+		            	commVO.setCom_content(rs.getString("com_content"));
+		            	commVO.setUser_nickname(rs.getString("user_nickname"));
+		            	commVO.setCom_readcount(rs.getInt("com_readcount"));
+		            	comArticleBestList.add(commVO);
+		            } while (rs.next());
+		         }
+		         
+		      } catch (Exception e) {
+		         // TODO: handle exception
+		         e.printStackTrace();
+		      }
+		      finally {
+		         close(rs);
+		         close(pstmt);
+		      }
+		      return comArticleBestList;
+		}
 
 }

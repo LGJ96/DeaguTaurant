@@ -45,7 +45,7 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
 </head>
-<%-- <%
+<%
 List<CommVO> comArticleList = (List<CommVO>)request.getAttribute("comArticleList");
 CommPageVO commPageVO = (CommPageVO)request.getAttribute("commPageVO");
 int com_count = commPageVO.getCom_count();
@@ -54,7 +54,7 @@ int com_startPage = commPageVO.getCom_startPage();
 int com_number = commPageVO.getCom_number();
 int com_endPage = commPageVO.getCom_endPage();
 int com_pageCount = commPageVO.getCom_pageCount();
-%> --%>
+%>
 <body>
     <!--============================= HEADER =============================-->
    <%@include file ="/common/header-content.jsp" %>
@@ -97,8 +97,6 @@ int com_pageCount = commPageVO.getCom_pageCount();
  </div>
   <!--============================= 추천글, BEST 글(표) =============================-->
     
-    <!--============================= 추천글, BEST 글(표) =============================-->
-    
   <div class="col-md-10" id = "comm-content1" >
     <div class="col-md-6" style="float: left ;"  >
     <table class="table" >
@@ -106,43 +104,46 @@ int com_pageCount = commPageVO.getCom_pageCount();
         <tr>
             <th colspan="1">조회수</th>
             <th colspan="1">말머리</th>
-            <th align="right" colspan="4" style = "text-align: center;" > 베스트 게시글</th>
+            <th align="right" colspan="4" style = "text-align: center;" > Best 정보 게시판</th>
         </tr>
       </thead>
       
-      					<c:if test="${empty comBestArticleList}">
-							<table width="710" border="1" cellpadding="0" cellspacing="0">
+         <c:if test="${empty comArticleBestList}">
+							<table width="400" border="1" cellpadding="0" cellspacing="0">
 								    <td align="center">
 								    게시판에 저장된 글이 없습니다.
 								    </td>
 							</table>
-						</c:if>
+		</c:if>
+      </thead>
       
       <tbody>
-               <c:if test="${not empty comArticleList}">
-                     <c:set var = "number" value = "${commPageVO.com_number }"></c:set>
-                     
-					 
-                     <c:forEach var = "comArticle" items = "${comArticleList }">
-                     
-            	   <c:if test="${ '정보' eq comArticle.com_subject }">
-				
-                     
+					<c:if test="${not empty comArticleBestList}">
+							<c:set var = "number" value = "${commPageVO.com_number }"></c:set>
+							<%-- <c:forEach var = "comArticle" items = "${comArticleBestList }"> --%> 
+							<c:forEach begin="0" end ="6" var="comArticle" items="${comArticleBestList}" varStatus="status">
+							
+					
+					<c:if test="${ '정보' eq comArticle.com_subject }">
+
+							
                     <tr height="30">
-                  <td align="center"  width="50">${comArticle.com_readcount }</td>
-                        <td align="center"  width="100" >${comArticle.com_subject }</td>
+						<td align="center"  width="50">${comArticle.com_readcount }</td>
+                        <td align="center"  width="100">${comArticle.com_subject }</td>
                         
-                        <td align="center"  width="250"><a href="comment.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}" style="color: black">
+                        <td align="center"  width="250"><a href="comment.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}">
                         ${comArticle.com_title }</a></td>
                         
-                       
+                    	<%-- <td align="center"  width="250"><a href = "${pageContext.request.contextPath }/commBestList.dae?com_number=${commPageVO.com_number}" >
+                  		${comArticle.com_title }</a></td> --%>
+                    	
                     </tr>
+                    
                     </c:if>
                     
                     </c:forEach>
-                    
                          
-                     </c:if>
+                  	</c:if>
       </tbody>
       
       
@@ -157,22 +158,38 @@ int com_pageCount = commPageVO.getCom_pageCount();
       <thead  class="bg-warning text-white">
         <tr>
             <th colspan="1">번호</th>
-            <th align="right" colspan="4" style = "text-align: center;" > Best 글</th>
+            <th align="right" colspan="4" style = "text-align: center;" > Best 자유 게시판</th>
         </tr>
+        
+       <c:if test="${empty comArticleBestList}">
+				<table width="400" border="1" cellpadding="0" cellspacing="0">
+					<td align="center">
+						게시판에 저장된 글이 없습니다.
+					</td>
+				</table>
+		</c:if>
+        
       </thead>
+      
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td colspan="4">제목 길게 하세요 제발</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td colspan="4">Mark</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="4">Mark</td>
-        </tr>
+        			<c:if test="${not empty comArticleBestList}">
+					<c:set var = "number" value = "${commPageVO.com_number }"></c:set>
+					<c:forEach var = "comArticle" items = "${comArticleBestList }">
+					
+					<c:if test="${ '자유' eq comArticle.com_subject }">
+							
+                    <tr height="30">
+						<td align="center"  width="50">${comArticle.com_readcount }</td>
+                        <td align="center"  width="100">${comArticle.com_subject }</td>
+                        
+                        <td align="center"  width="250"><a href="comment.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}">
+                        ${comArticle.com_title }</a></td>
+                        
+                    </tr>
+                    
+                    </c:if>
+                    </c:forEach>
+                  	</c:if>
       </tbody>
     </table>
     </div>
@@ -231,7 +248,7 @@ int com_pageCount = commPageVO.getCom_pageCount();
 </tbody>
 </table>
 </div>
-                    <%-- <%
+                    <%
 						    if (com_count > 0) {
 						        
 						        if (com_startPage > 10) { %>
@@ -246,8 +263,8 @@ int com_pageCount = commPageVO.getCom_pageCount();
 						<%
 						        }
 						    }
-						%> --%>
-                    <c:if test="commPageVO.com_count > 0">
+						%>
+                    <%-- <c:if test="commPageVO.com_count > 0">
 						
 						    <c:if test="${commPageVO.com_startPage }">
 						        <a href="commList.dae?com_pageNum=${commPageVO.com_startPage - 10 }">[이전]</a>
@@ -258,7 +275,7 @@ int com_pageCount = commPageVO.getCom_pageCount();
 						    <c:if test="${commPageVO.com_endPage < commPageVO.com_pageCount }">
 						        <a href="commList.dae?com_pageNum=${commPageVO.com_startPage + 10}">[다음]</a>
 						    </c:if>
-					</c:if>
+					</c:if> --%>
 						
 </div>
 </div>

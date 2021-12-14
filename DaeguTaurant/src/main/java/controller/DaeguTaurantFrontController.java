@@ -13,6 +13,7 @@ import Info.action.Action;
 import Info.action.UserInfoDeleteAction;
 import Info.action.UserInfoDeleteProAction;
 import Info.action.UserRegistAction;
+import comm.action.CommBestList;
 import comm.action.CommContentAction;
 import comm.action.CommDeleteFormAction;
 import comm.action.CommDeleteProAction;
@@ -729,6 +730,19 @@ public class DaeguTaurantFrontController extends HttpServlet {
 						e.printStackTrace();
 					}
 				}
+				
+				//=============== 커뮤니티 베스트 게시판
+				else if(command.equals("/commBestList.dae")) {
+					action = new CommBestList();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			
 			//======================== 마이페이지 ==============================
 			
 				else if(command.equals("/userPw_UpdatePro.dae")) {
@@ -764,7 +778,7 @@ public class DaeguTaurantFrontController extends HttpServlet {
 					}
 				}
 		
-		
+				
 		
 		
 		

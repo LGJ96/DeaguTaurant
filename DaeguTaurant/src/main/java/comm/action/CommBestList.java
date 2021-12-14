@@ -6,12 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Info.action.Action;
-import comm.service.CommListService;
+import comm.service.CommBestListService;
 import comm.vo.CommPageVO;
 import comm.vo.CommVO;
 import vo.ActionForward;
 
-public class CommList implements Action {
+public class CommBestList implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -30,12 +30,12 @@ public class CommList implements Action {
 		int com_count = 0;
 		int com_number = 0;
 		
-		CommListService commListService =  new CommListService();
-		List<CommVO> comArticleList = null;
-		com_count = commListService.getArticleCount();
+		CommBestListService commBestListService =  new CommBestListService();
+		List<CommVO> comArticleBestList = null;
+		com_count = commBestListService.getArticleCount();
 		
 		if(com_count > 0) {
-			comArticleList = commListService.getArticleCount(com_startRow, com_pageSize);
+			comArticleBestList = commBestListService.getArticleCount(com_startRow, com_pageSize);
 			
 		}
 		
@@ -58,7 +58,7 @@ public class CommList implements Action {
 			}
 		}
 		
-		request.setAttribute("comArticleList", comArticleList);
+		request.setAttribute("comArticleBestList", comArticleBestList);
 		CommPageVO commPageVO = new CommPageVO();
 			
 		commPageVO.setCom_currentPage(com_currentPage);
@@ -70,7 +70,7 @@ public class CommList implements Action {
 			
 		request.setAttribute("commPageVO", commPageVO);
 		ActionForward forward = new ActionForward();
-		forward.setUrl("commBestList.dae");
+		forward.setUrl("comm/comm.jsp");
 		return forward;
 	}
 
