@@ -192,8 +192,8 @@ int com_currentPage = comPageVO.getCom_currentPage();
    <div class="container" >
     <div class="col-lg-12" align="right">
    <c:if test = "${loginUser.user_nickname == comArticle.user_nickname or loginUser.user_level == 9}">
-	 <a href="comm_updateForm.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}"><button class="btn btn-warning1" > 수정</button></a>
-	 <a href="comm_deletePro.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}"><button class="btn btn-warning1" > 삭제</button></a>
+	 <a href="comm_updateForm.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}"><button class="btn btn-warning1"  style="cursor:pointer"> 수정</button></a>
+	 <a href="comm_deletePro.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}"><button class="btn btn-warning1"  style="cursor:pointer"> 삭제</button></a>
 	</c:if>
 	</div>
 	 <div class="col-lg-12">
@@ -251,7 +251,7 @@ int com_currentPage = comPageVO.getCom_currentPage();
                   
                    	<textarea class="form-control" id = "form-control1" name="comment_content" maxlength="500" ></textarea>
                   	<!-- <button type="submit" class="btn btn-regist" style = "float: right;"> 등록 </button> -->
-                  	<button type="submit" class="btn btn-regist" style = "float: right;"> 등록 </button>
+                  	<button type="submit" class="btn btn-regist" style = "float: right; cursor:pointer"> 등록 </button>
                   </div>
          	    </div>
           	   </div>
@@ -274,7 +274,7 @@ int com_currentPage = comPageVO.getCom_currentPage();
             		<c:if test="${empty commentArticleList}">
 							<table width="1000" border="1" cellpadding="0" cellspacing="0">
 								    <td align="center">
-								    게시판에 저장된 글이 없습니다.
+								     <h14>작성된 댓글이 없습니다.</h14>
 								    </td>
 							</table>
 					</c:if>
@@ -323,10 +323,10 @@ int com_currentPage = comPageVO.getCom_currentPage();
 					        </div>
     					</div> --%>
     					
-             			<a onclick="window.open('comment_updateForm.dae?comment_number=${commentArticle.comment_number}','','width=430,height=280,location=no,status=no,scrollbars=yes');" role="button" class="comment_info_button" style = "float: right; margin-righ: 50px;">
+             			<a onclick="window.open('comment_updateForm.dae?comment_number=${commentArticle.comment_number}','','width=430,height=280,location=no,status=no,scrollbars=yes');" role="button" class="comment_info_button" style = "float: right; margin-righ: 50px; cursor:pointer">
         					수정
     					</a>
-             			<a href="comment_deletePro.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}&comment_number=${commentArticle.comment_number}" role="button" class="comment_info_button" style = "float: right; margin-righ: 50px; color: black">
+             			<a href="comment_deletePro.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}&comment_number=${commentArticle.comment_number}" role="button" class="comment_info_button" style = "float: right; margin-righ: 50px; color: black; cursor:pointer">
         					삭제   |
     					</a>
     					

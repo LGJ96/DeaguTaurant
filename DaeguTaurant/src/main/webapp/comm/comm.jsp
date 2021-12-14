@@ -87,8 +87,8 @@ int com_pageCount = commPageVO.getCom_pageCount();
                 
                     <input type="text" placeholder="검색창" class="btn-group" name ="searchword" id="searchword"
                     onkeypress="if(event.keyCode == 13) enterkey()"/>
-                    <button type="button" class="btn-form2" onclick="comsearch()"> 검   색</button>
-                     <button type="button" class="btn-form" onclick="location.href='comm_writeForm.dae';"> 글쓰기</button>
+                    <button type="button" class="btn-form2" onclick="comsearch()"  style="cursor:pointer"> 검   색</button>
+                     <button type="button" class="btn-form" onclick="location.href='comm_writeForm.dae';"  style="cursor:pointer"> 글쓰기</button>
                   	
                </div>
            </form>
@@ -122,7 +122,7 @@ int com_pageCount = commPageVO.getCom_pageCount();
 					<c:if test="${not empty comArticleBestList}">
 							<c:set var = "number" value = "${commPageVO.com_number }"></c:set>
 							<%-- <c:forEach var = "comArticle" items = "${comArticleBestList }"> --%> 
-							<c:forEach begin="0" end ="6" var="comArticle" items="${comArticleBestList}" varStatus="status">
+							<c:forEach begin="0" end ="2" var="comArticle" items="${comArticleBestList}" varStatus="status">
 							
 					
 					<c:if test="${ '정보' eq comArticle.com_subject }">
@@ -175,7 +175,7 @@ int com_pageCount = commPageVO.getCom_pageCount();
       <tbody>
         			<c:if test="${not empty comArticleBestList}">
 					<c:set var = "number" value = "${commPageVO.com_number }"></c:set>
-					<c:forEach var = "comArticle" items = "${comArticleBestList }">
+					<c:forEach begin="0" end ="2" var = "comArticle" items = "${comArticleBestList }">
 					
 					<c:if test="${ '자유' eq comArticle.com_subject }">
 							
@@ -253,14 +253,20 @@ int com_pageCount = commPageVO.getCom_pageCount();
 						    if (com_count > 0) {
 						        
 						        if (com_startPage > 10) { %>
-						        <a href="commList.dae?com_pageNum=<%= com_startPage - 10 %>" >[이전]</a>
+						        <a href="commList.dae?com_pageNum=<%= com_startPage - 10 %>" >
+						       <h8> [이전]</h8>
+						        </a>
 						<%      }
 						        for (int i = com_startPage ; i <= com_endPage ; i++) {  %>
-						        <a href="commList.dae?com_pageNum=<%= i %>">[<%= i %>]</a>
+						        <a href="commList.dae?com_pageNum=<%= i %>">
+						        <h8>[<%= i %>] </h8>
+						        </a>
 						<%
 						        }
 						        if (com_endPage < com_pageCount) { %>
-						        <a href="commList.dae?com_pageNum=<%= com_startPage + 10 %>">[다음]</a>
+						        <a href="commList.dae?com_pageNum=<%= com_startPage + 10 %>">
+						       <h8> [다음]</h8>
+						        </a>
 						<%
 						        }
 						    }

@@ -66,7 +66,7 @@
                                     <div class="btn-group" role="group" aria-label="Basic example" onkeypress="if(event.keyCode == 13) enterkey()">
                                         <input type="text" placeholder="검색창" class="btn-group" name ="searchword" id="searchword" 
                                            />
-                                        <button type="button" class="btn-form1" onclick="search()">SEARCH</button>
+                                        <button type="button" class="btn-form1" onclick="search()"  style="cursor:pointer">SEARCH</button>
                                     </div>
                                 </form>
                                 

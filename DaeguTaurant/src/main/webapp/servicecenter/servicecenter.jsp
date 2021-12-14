@@ -122,7 +122,7 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
  					<c:if test="${loginUser.user_level == 9}">
 			            <div class="col-md-11" style="text-align : right;">
 			 				<div class="container">
-			       				<button class="btn" onclick="location.href='notice_writeForm.dae';"  > 등록</button>
+			       				<button class="btn" onclick="location.href='notice_writeForm.dae';"  style="cursor:pointer" > 등록</button>
 			            	</div>
 			            </div>
 			        </c:if>
@@ -221,14 +221,20 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
 						    if (count > 0) {
 						        
 						        if (startPage > 10) { %>
-						        <a href="serviceCenterList.dae?pageNum=<%= startPage - 10 %>">[이전]</a>
+						        <a href="serviceCenterList.dae?pageNum=<%= startPage - 10 %>">
+						        <h8>[이전] </h8>
+						        </a>
 						<%      }
 						        for (int i = startPage ; i <= endPage ; i++) {  %>
-						        <a href="serviceCenterList.dae?pageNum=<%= i %>">[<%= i %>]</a>
+						        <a href="serviceCenterList.dae?pageNum=<%= i %>">
+						       <h8>  [<%= i %>] </h8>
+						        </a>
 						<%
 						        }
 						        if (endPage < pageCount) { %>
-						        <a href="serviceCenterList.dae?pageNum=<%= startPage + 10 %>">[다음]</a>
+						        <a href="serviceCenterList.dae?pageNum=<%= startPage + 10 %>">
+						        <h8> [다음] </h8>
+						        </a>
 						<%
 						        }
 						    }

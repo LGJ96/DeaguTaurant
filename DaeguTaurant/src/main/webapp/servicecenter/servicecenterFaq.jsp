@@ -217,7 +217,7 @@ int faq_pageCount = faqPageVO.getFaq_pageCount();
  				<c:if test="${loginUser.user_level == 9}">
 		       		<div class="col-md-11" style="text-align : right;">
 		 				<div class="container">
-		       				<button class="btn" onclick="location.href='faq_writeForm.dae';"  > 등록</button>
+		       				<button class="btn" onclick="location.href='faq_writeForm.dae';" style="cursor:pointer"  > 등록</button>
 		            	</div>
 		            </div>
 		        </c:if>

@@ -24,7 +24,7 @@
                            <c:if test="${loginUser.user_level == 9}"> 
                             <li><input type="text" placeholder="검색창" class="btn" name ="searchword1" id="searchword1" 
                             onkeypress="if(event.keyCode == 13) enterkey()"></li>
-                       		<li><button type="button" class="btn" onclick="search2()" style = "margin-right: 50px;">검색</button></li>
+                       		<li><button type="button" class="btn" onclick="search2()" style = "margin-right: 50px; cursor:pointer">검색</button></li>
                         	</c:if>
                         	
                     	<c:if test="${loginUser.user_id != null }">

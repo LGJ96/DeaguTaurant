@@ -66,7 +66,7 @@ int rest_endPage = restpageVO.getRest_endPage();
                
                     <input type="text" placeholder="검색" class="btn-group" name ="searchword" id="searchword" 
                      onkeypress="if(event.keyCode == 13) enterkey()"/>
-                    <button type="button" class="btn-form2" onclick="search1()">검색</button>
+                    <button type="button" class="btn-form2" onclick="search1()"  style="cursor:pointer">검색</button>
       	
                </div>
            </form>
@@ -140,7 +140,7 @@ int rest_endPage = restpageVO.getRest_endPage();
                  <div class="styled-heading1">
 
                 <div class = "col-md-12" style = "margin-top: 1px;">
-                    <span><input type="button" value="확인" onclick="checka()" class = "btn btn-block1"/></span>      
+                    <span><input type="button" value="확인" onclick="checka()" class = "btn btn-block1"  style="cursor:pointer"/></span>      
    					
                  </div>
              

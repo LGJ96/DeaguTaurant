@@ -81,7 +81,7 @@
 	 <!-- <a href="../comm/comm.html"><button class="btn btn-warning1" > 삭제</button></a> -->
 	 <a href="#" type="button"  style="color:black" 
 	 onclick="window.open('oto_deleteForm.dae?cus_oto_number=<%=otoArticle.getCus_oto_number()%>&pageNum=<%=oto_pageNum%>','','width=330,height=100,left=780,top =350,location=no,status=no,scrollbars=yes');">
-	 <button class="btn btn-warning1" >삭제</button></a>
+	 <button class="btn btn-warning1" style="cursor:pointer" >삭제</button></a>
 	</div>
 	 <div class="col-lg-12">
 		<form method="post" action="writeAction.jsp">
