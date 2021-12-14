@@ -83,10 +83,16 @@
     <div class="container" style = "margin-top : 50px;" >
 	 <div class="col-lg-12">
 		<select name = "com_subject" title ="말머리" id = "content-head" class = "col-lg-3" >
+			<c:if test="${ '자유' eq comArticle.com_subject }">
 			<option value = "자유" > 자유 </option>
-			<option value = "정보"> 정보 </option>
+			<option value = "정보" > 정보 </option>
+			</c:if>
+			<c:if test="${ '정보' eq comArticle.com_subject }">
+			<option value = "정보" > 정보 </option>
+			<option value = "자유" > 자유 </option>
+			</c:if>
+			<%-- <option value = "정보"> <c:if test="${ '정보' eq comArticle.com_subject }"></c:if> 정보 </option> --%>
 		</select>
-	
 	
 		<input type="text"  placeholder="글 제목" name="com_title" maxlength="100" id = "title"
 		value = "<%=comArticle.getCom_title()%>">
