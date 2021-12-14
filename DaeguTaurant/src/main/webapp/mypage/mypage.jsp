@@ -536,7 +536,7 @@
 																				  OnClick="window.open('${pageContext.request.contextPath }/review_delete.dae?rev_id=${reviewList.rev_id}&user_id=<%=user_id%>', 'rev_idDeleteWindow','width=480,height=180, left = 650, top=50');">
 																				   
 																				  <input type="button" value="수정" style="color:white" class="btn btn-check"
-																				  OnClick="showConfirm_modify();">
+																				  OnClick="window.open('${pageContext.request.contextPath }/reviewupdate.dae?rev_id=${reviewList.rev_id}','','width=430,height=500,left=700,top =200 ,location=no,status=no,scrollbars=yes');">
 																				    
 																				  <a href="mypage.jsp" onclick="window.close();" type="button"  style="color:white" class="btn btn-check">취소</a>
 																				  </div>

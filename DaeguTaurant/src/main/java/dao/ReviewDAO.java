@@ -1,8 +1,7 @@
 package dao;
 
-import static db.JdbcUtil.close;
-import static db.JdbcUtil.commit;
-import static db.JdbcUtil.rollback;
+import static db.JdbcUtil.*;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -511,6 +510,83 @@ public ArrayList<ReviewVO> selectReviewList(String user_id) {
 			close(pstmt);
 		}
 		return deleteCount;
+	}
+
+	public ReviewVO selectUpdateReviewArticle(int rev_id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ReviewVO reviewarticle = null;
+		try {
+				
+			pstmt = con.prepareStatement(""
+					+ "SELECT * FROM review WHERE rev_id = ?");
+			pstmt.setInt(1, rev_id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				reviewarticle = new ReviewVO();
+				reviewarticle.setRes_score(rs.getDouble("res_score"));
+				reviewarticle.setRev_content(rs.getString("rev_content"));
+				reviewarticle.setRev_id(rs.getInt("rev_id"));
+				reviewarticle.setRev_like(rs.getInt("rev_like"));
+				reviewarticle.setRev_notice_date(rs.getTimestamp("rev_notice_date"));
+				reviewarticle.setRev_pic(rs.getString("rev_pic"));
+				reviewarticle.setRev_re_step(rs.getInt("rev_re_step"));
+				reviewarticle.setRev_res_id(rs.getInt("rev_res_id"));
+				reviewarticle.setRev_user_id("rev_user_id");
+				reviewarticle.setRev_writer("rev_writer");
+
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return reviewarticle;	
+	}
+
+	public int updateReviewArticle(ReviewVO reviewVO) {
+		int reviewupdateCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "";
+	
+		try {
+			pstmt = con.prepareStatement(""
+					+ "SELECT * FROM review WHERE rev_id = ?");
+			pstmt.setInt(1, reviewVO.getRev_id());
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			
+					
+					sql = "UPDATE review SET rev_content = ?,res_score = ?"
+							+ " WHERE rev_id = ? ";
+					pstmt = con.prepareStatement(sql);
+				
+					pstmt.setString(1, reviewVO.getRev_content());
+					pstmt.setDouble(2, reviewVO.getRes_score());
+
+					pstmt.setInt(3, reviewVO.getRev_id());
+					reviewupdateCount = pstmt.executeUpdate();
+					
+				}
+		}
+			
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			close(rs);
+			close(pstmt);
+		}
+		return reviewupdateCount;
 	}
 }
 
