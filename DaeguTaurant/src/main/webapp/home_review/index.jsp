@@ -75,7 +75,7 @@
                                     <a href="${pageContext.request.contextPath }/rest_Searchlist.dae" id="regtheme">지역/테마</a>
                                     
                                     <c:if test="${loginUser.user_id != null }">
-                                    <a href="${pageContext.request.contextPath }/comm/comm.jsp">커뮤니티</a>
+                                    <a href="${pageContext.request.contextPath }/commList.dae">커뮤니티</a>
                                     
                                    	</c:if>
                                     <c:if test="${loginUser.user_id == null }">

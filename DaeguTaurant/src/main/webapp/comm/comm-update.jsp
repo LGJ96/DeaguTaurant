@@ -41,8 +41,8 @@
 </head>
 
 <%
- CommReplyVO commReplyVO = (CommReplyVO)request.getAttribute("commReplyVO");
- 	int com_number = commReplyVO.getCom_number();
+	CommVO comArticle = (CommVO)request.getAttribute("comArticle");
+    String com_pageNum = (String)request.getAttribute("com_pageNum");
  %>
 
  
@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="col-md-12">
                          <div class="dark-cbg">
-                         <h2>커뮤니티 - 글쓰기</h2>
+                         <h2>커뮤니티 - 글수정</h2>
                        
                     </div>
                 </div>
@@ -76,8 +76,9 @@
     
     <!-- 글쓰기 본문 -->
     
-		<form method="post" name = "comm-write" action="comm_writePro.dae" onsubmit="return writeSave()" enctype="multipart/form-data">
-		<input type="hidden" name="com_number" value="<%=com_number%>">
+		<form method="post" name = "comm-update" action="comm_updatePro.dae" onsubmit="return writeSave()" enctype="multipart/form-data">
+		<input type="hidden" name="com_number" value="<%=comArticle.getCom_number()%>">
+		<input type="hidden" name="com_pageNum" value="<%=com_pageNum%>">
 		<input type="hidden" name="user_nickname" value="${loginUser.user_nickname}<%-- <%=loginUser.getUser_nickname()%> --%>">
     <div class="container" style = "margin-top : 50px;" >
 	 <div class="col-lg-12">
@@ -87,20 +88,19 @@
 		</select>
 	
 	
-		<input type="text"  placeholder="글 제목" name="com_title" maxlength="100" id = "title">
+		<input type="text"  placeholder="글 제목" name="com_title" maxlength="100" id = "title"
+		value = "<%=comArticle.getCom_title()%>">
 
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 				<tbody>
 						<tr>
-							<td><textarea class="form-control" placeholder="글 내용" name="com_content" maxlength="2048" style="height: 350px;"></textarea></td>
-						</tr>
-						<tr>
+							<td><textarea class="form-control" placeholder="글 내용" name="com_content" maxlength="2048" style="height: 350px;"><%=comArticle.getCom_content()%></textarea></td>
 						</tr>
 					</tbody>
 				</table>
 				
 				<div style = "border: 1px solid #dddddd "> 
-				<input multiple="multiple" type="file" name="com_pic" id="com_pic" accept="image/*">
+				<input type="file" name="com_pic" id="com_pic" accept="image/*">
 				</div>
 			</div>
 			</div>

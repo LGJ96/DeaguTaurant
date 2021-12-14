@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "comm.vo.CommVO"%>
+<%@ page import = "comm.vo.CommPageVO"%>
+<%@ page import = "comm.vo.CommSearchPageVO"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,23 +24,32 @@
     <!-- Page Title -->
    <title>DaeguTaruant</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
     <!-- Simple line Icon -->
-    <link rel="stylesheet" href="../css/simple-line-icons.css">
+    <link rel="stylesheet" href="css/simple-line-icons.css">
     <!-- Themify Icon -->
-    <link rel="stylesheet" href="../css/themify-icons.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
     <!-- Hover Effects -->
-    <link rel="stylesheet" href="../css/set1.css">
+    <link rel="stylesheet" href="css/set1.css">
     <!-- Swipper Slider -->
-    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
+<%-- <%
+List<CommVO> comArticleList = (List<CommVO>)request.getAttribute("comArticleList");
+CommPageVO commPageVO = (CommPageVO)request.getAttribute("commPageVO");
+int com_count = commPageVO.getCom_count();
+int com_currentPage = commPageVO.getCom_currentPage();
+int com_startPage = commPageVO.getCom_startPage();
+int com_number = commPageVO.getCom_number();
+int com_endPage = commPageVO.getCom_endPage();
+int com_pageCount = commPageVO.getCom_pageCount();
+%> --%>
 <body>
     <!--============================= HEADER =============================-->
      <%@include file ="/common/header-content.jsp" %>
@@ -59,13 +77,12 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-md-8" align="right">
-            <form class="form-wrap mt-4">
+           <form class="form-wrap mt-4" method = "POST" action="#" name = "comsearchform" >
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <input type="text" placeholder="검색창" class="btn-group"/>
-                    <button type="submit" class="btn-form2"> 검   색</button>
-   
-                     <button type="button" class="btn-form" onclick="location.href='../comm/comm-write.jsp';"> 글쓰기</button>
-                  	
+                
+                    <input type="text" placeholder="검색창" class="btn-group" name ="searchword" id="searchword"/>
+                    <button type="button" class="btn-form2" onclick="comsearch()"> 검   색</button>
+                     <button type="button" class="btn-form" onclick="location.href='comm_writeForm.dae';"> 글쓰기</button>
                   	
                </div>
            </form>
@@ -93,145 +110,85 @@
                         <th>조회수</th>
                     </tr>
                 </thead>
+                <c:if test="${empty comListt && empty comsearchword}">
+							<table width="1440" border="1" cellpadding="0" cellspacing="0">
+								    <td align="center">
+								    게시판에 저장된 글이 없습니다.
+								    </td>
+							</table>
+						</c:if>
                 <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
+                    	
+                <c:if test="${not empty comListt}">
+						<c:if test="${searchword == null }">
+						<c:forEach var="com" items="${comListt}" varStatus="status">
+							<c:set var = "number" value = "${com.com_number }"></c:set>
+                    <tr height="30">
+                 		  
+                        <td align="center"  width="50">${number }</td>
+							<c:set var = "number" value = "${number -1}"></c:set>
+                        <td align="center"  width="100">${com.com_subject }</td>
+                        <td align="center"  width="250"><a href="comment.dae?com_number=${com.com_number}&com_pageNum=${commSearchPageVO.sea_currentPage}" style="color: black">
+                        ${com.com_title }</a></td>
+                        <td align="center"  width="100">${com.user_nickname }</td>
+                        <td align="center"  width="150">${com.com_date }</td>
+                        <td align="center"  width="50">${com.com_readcount }</td>
                     </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        <td>2009/01/12</td>
-                        <td>$86,000</td>
-                    </tr>
-                    <tr>
-                        <td>Cedric Kelly</td>
-                        <td>Senior Javascript Developer</td>
-                        <td>Edinburgh</td>
-                        <td>22</td>
-                        <td>2012/03/29</td>
-                        <td>$433,060</td>
-                    </tr>
-                    <tr>
-                        <td>Airi Satou</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>33</td>
-                        <td>2008/11/28</td>
-                        <td>$162,700</td>
-                    </tr>
-                    <tr>
-                        <td>Brielle Williamson</td>
-                        <td>Integration Specialist</td>
-                        <td>New York</td>
-                        <td>61</td>
-                        <td>2012/12/02</td>
-                        <td>$372,000</td>
-                    </tr>
-                    <tr>
-                        <td>Herrod Chandler</td>
-                        <td>Sales Assistant</td>
-                        <td>San Francisco</td>
-                        <td>59</td>
-                        <td>2012/08/06</td>
-                        <td>$137,500</td>
-                    </tr>
-                    <tr>
-                        <td>Rhona Davidson</td>
-                        <td>Integration Specialist</td>
-                        <td>Tokyo</td>
-                        <td>55</td>
-                        <td>2010/10/14</td>
-                        <td>$327,900</td>
-                    </tr>
-                    <tr>
-                        <td>Colleen Hurst</td>
-                        <td>Javascript Developer</td>
-                        <td>San Francisco</td>
-                        <td>39</td>
-                        <td>2009/09/15</td>
-                        <td>$205,500</td>
-                    </tr>
-                    <tr>
-                        <td>Sonya Frost</td>
-                        <td>Software Engineer</td>
-                        <td>Edinburgh</td>
-                        <td>23</td>
-                        <td>2008/12/13</td>
-                        <td>$103,600</td>
-                    </tr>
-                    <tr>
-                        <td>Jena Gaines</td>
-                        <td>Office Manager</td>
-                        <td>London</td>
-                        <td>30</td>
-                        <td>2008/12/19</td>
-                        <td>$90,560</td>
-                    </tr>
-                    <tr>
-                        <td>Quinn Flynn</td>
-                        <td>Support Lead</td>
-                        <td>Edinburgh</td>
-                        <td>22</td>
-                        <td>2013/03/03</td>
-                        <td>$342,000</td>
-                    </tr>
-                    <tr>
-                        <td>Charde Marshall</td>
-                        <td>Regional Director</td>
-                        <td>San Francisco</td>
-                        <td>36</td>
-                        <td>2008/10/16</td>
-                        <td>$470,600</td>
-                    </tr>
-                    <tr>
-                        <td>Haley Kennedy</td>
-                        <td>Senior Marketing Designer</td>
-                        <td>London</td>
-                        <td>43</td>
-                        <td>2012/12/18</td>
-                        <td>$313,500</td>
-                    </tr>
-                    <tr>
-                        <td>Tatyana Fitzpatrick</td>
-                        <td>Regional Director</td>
-                        <td>London</td>
-                        <td>19</td>
-                        <td>2010/03/17</td>
-                        <td>$385,750</td>
-                    </tr>
-                    <tr>
-                        <td>Michael Silva</td>
-                        <td>Marketing Designer</td>
-                        <td>London</td>
-                        <td>66</td>
-                        <td>2012/11/27</td>
-                        <td>$198,500</td>
-                    </tr>
-                    <tr>
-                        <td>Paul Byrd</td>
-                        <td>Chief Financial Officer (CFO)</td>
-                        <td>New York</td>
-                        <td>64</td>
-                        <td>2010/06/09</td>
-                        <td>$725,000</td>
-                    </tr>
+                </c:forEach>
+                </c:if>
                 
-                    
+                
+                </c:if>
+						<c:if test="${searchword != null }">
+						<c:forEach begin="0" var="com" items="${comsearchword}" varStatus="status">
+							<c:set var = "number" value = "${com.com_number }"></c:set>
+                    <tr height="30">
+                 		  
+                        <td align="center"  width="50">${number }</td>
+							<c:set var = "number" value = "${number -1}"></c:set>
+                        <td align="center"  width="100">${com.com_subject }</td>
+                        <td align="center"  width="250"><a href="comment.dae?com_number=${com.com_number}&com_pageNum=${commSearchPageVO.sea_currentPage}" style="color: black">
+                        ${com.com_title }</a></td>
+                        <td align="center"  width="100">${com.user_nickname }</td>
+                        <td align="center"  width="150">${com.com_date }</td>
+                        <td align="center"  width="50">${com.com_readcount }</td>
+                    </tr>
+                </c:forEach>
+                </c:if>
+                
+                
+						
+                
+                
+                
+             		   <%-- <%
+						    if (com_count > 0) {
+						        
+						        if (com_startPage > 10) { %>
+						        <a href="commList.dae?com_pageNum=<%= com_startPage - 10 %>">[이전]</a>
+						<%      }
+						        for (int i = com_startPage ; i <= com_endPage ; i++) {  %>
+						        <a href="commList.dae?com_pageNum=<%= i %>">[<%= i %>]</a>
+						<%
+						        }
+						        if (com_endPage < com_pageCount) { %>
+						        <a href="commList.dae?com_pageNum=<%= com_startPage + 10 %>">[다음]</a>
+						<%
+						        }
+						    }
+						%>  --%>
+						<c:if test="com_count > 0">
+						
+						    <c:if test="${com_startPage }">
+						        <a href="commList.dae?com_pageNum=${com_startPage - 10 }">[이전]</a>
+							</c:if>
+								<c:forEach begin = "${com_startPage }" end="${com_endPage}" var = "i">
+						       		 <a href="commList.dae?com_pageNum=${i }">[${i }]</a>
+						   		</c:forEach>
+						    <c:if test="${com_endPage < com_pageCount }">
+						        <a href="commList.dae?com_pageNum=${com_startPage + 10}">[다음]</a>
+						    </c:if>
+					</c:if>
 </tbody>
 </table>
 </div>
@@ -267,5 +224,24 @@
             },
         });
     </script>
+    <script>
+    
+    function comsearch(){
+    	var searchinputv = document.getElementById("searchword").value;
+    	
+    	 if(searchinputv == ""){
+    		document.comsearchform.target = "_self";
+         	document.comsearchform.action="comm_Searchlist.dae";
+         	document.comsearchform.submit();
+    		
+    	}
+    	else{
+    		document.comsearchform.target = "_self";
+        	document.comsearchform.action="comm_Search.dae";
+        	document.comsearchform.submit();
+    	} 
+    }
+    
+    </script> 
 </body>
 </html>

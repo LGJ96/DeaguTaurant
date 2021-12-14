@@ -13,6 +13,22 @@ import Info.action.Action;
 import Info.action.UserInfoDeleteAction;
 import Info.action.UserInfoDeleteProAction;
 import Info.action.UserRegistAction;
+import comm.action.CommContentAction;
+import comm.action.CommDeleteFormAction;
+import comm.action.CommDeleteProAction;
+import comm.action.CommList;
+import comm.action.CommSearchAction;
+import comm.action.CommSearchListAction;
+import comm.action.CommUpdateFormAction;
+import comm.action.CommUpdateProAction;
+import comm.action.Comm_writeFormAction;
+import comm.action.Comm_writeProAction;
+import comm.action.CommentDeleteProAction;
+import comm.action.CommentList;
+import comm.action.CommentUpdateFormAction;
+import comm.action.CommentUpdateProAction;
+import comm.action.Comment_writeFormAction;
+import comm.action.Comment_writeProAction;
 import login.action.UserIdCheckAction;
 import login.action.UserLoginAction;
 import login.action.UserLogoutAction;
@@ -550,7 +566,169 @@ public class DaeguTaurantFrontController extends HttpServlet {
 						e.printStackTrace();
 					}
 				}
-			
+			//======================== 커뮤니티 ==============================
+				else if(command.equals("/comm_writeForm.dae")) {
+					action = new Comm_writeFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/comm_writePro.dae")) {
+					action = new Comm_writeProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/commList.dae")) {
+					action = new CommList();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/commContent.dae")) {
+					action = new CommContentAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/comm_updateForm.dae")) {
+					action = new CommUpdateFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/comm_updatePro.dae")) {
+					action = new CommUpdateProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/comm_deleteForm.dae")) {
+					action = new CommDeleteFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/comm_deletePro.dae")) {
+					action = new CommDeleteProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			//======================== 커뮤니티 검색 ==============================
+				else if(command.equals("/comm_Searchlist.dae")) {
+		        	action = new CommSearchListAction();
+		        	
+		        	try {
+		        		forward = action.execute(request, response);
+		        	} catch (Exception e) {
+		        		// TODO Auto-generated catch block
+		        		e.printStackTrace();
+		        	}
+		        }
+				else if(command.equals("/comm_Search.dae")) {
+					action = new CommSearchAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			//======================== 커뮤니티 댓글 ==============================
+				else if(command.equals("/comment_writePro.dae")) {
+					action = new Comment_writeProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/comment_writeForm.dae")) {
+					action = new Comment_writeFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/comment.dae")) {
+					action = new CommentList();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/comment_updateForm.dae")) {
+					action = new CommentUpdateFormAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/comment_updatePro.dae")) {
+					action = new CommentUpdateProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				else if(command.equals("/comment_deletePro.dae")) {
+					action = new CommentDeleteProAction();
+					
+					try {
+						forward = action.execute(request, response);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 			//======================== 마이페이지 ==============================
 			
 				else if(command.equals("/userPw_UpdatePro.dae")) {
