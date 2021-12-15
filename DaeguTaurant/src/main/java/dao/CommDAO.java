@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import comm.vo.CommVO;
+import vo.UserVO;
 
 public class CommDAO {
 
@@ -30,13 +31,14 @@ public class CommDAO {
 	     this.con = con;
 		 }
 
-		public int insertArticle(CommVO commVO) {
+		public int insertArticle(CommVO commVO, UserVO userVO) {
 			// TODO Auto-generated method stub
 			int insertCount = 0;
 		      PreparedStatement pstmt = null;
 		      ResultSet rs = null;
 		      
 		      int com_number = commVO.getCom_number();
+		      String com_user_id = userVO.getUser_id();
 		      
 		      
 		      int number =0;
@@ -56,8 +58,8 @@ public class CommDAO {
 		         }
 		         
 		         sql = "INSERT INTO comm_register(com_number, com_title, com_date"
-		               + ", com_subject, com_content, user_nickname, com_pic)"
-		               + "VALUES(comm_register_seq.nextval,?,?,?,?,?,?)";
+		               + ", com_subject, com_content, user_nickname, com_pic, com_user_id)"
+		               + "VALUES(comm_register_seq.nextval,?,?,?,?,?,?,?)";
 		         
 		         pstmt = con.prepareStatement(sql);
 		         pstmt.setString(1, commVO.getCom_title());
@@ -66,6 +68,7 @@ public class CommDAO {
 		         pstmt.setString(4, commVO.getCom_content());
 		         pstmt.setString(5, commVO.getUser_nickname());
 		         pstmt.setString(6, commVO.getCom_pic());
+		         pstmt.setString(7, com_user_id);
 		         
 		         
 		         insertCount = pstmt.executeUpdate();
@@ -448,5 +451,55 @@ public class CommDAO {
 	            }
 	            return comBestArticleList;
 	      }
+
+		public ArrayList<CommVO> selectMyComList(String user_id) {
+			// TODO Auto-generated method stub
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			ArrayList<CommVO> myComList = null;
+			
+			
+			String sql = "select * from comm_register where com_user_id = ?";
+
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, user_id);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+			
+					myComList = new ArrayList<CommVO>();
+					CommVO commVO = null;
+					
+					do {
+						
+						commVO = new CommVO();
+						
+						commVO.setCom_number(rs.getInt("com_number"));
+						commVO.setCom_title(rs.getString("com_title"));
+						commVO.setCom_date(rs.getTimestamp("com_date"));
+						commVO.setCom_subject(rs.getString("com_subject"));
+						commVO.setCom_content(rs.getString("com_content"));
+						commVO.setUser_nickname(rs.getString("user_nickname"));
+						commVO.setCom_pic(rs.getString("com_pic"));
+						commVO.setCom_user_id(rs.getString("com_user_id"));
+						
+						myComList.add(commVO);
+						
+					} while (rs.next());
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			finally {
+				
+				close(rs);
+				close(pstmt);
+			}
+			
+			return myComList;
+		}
 
 }

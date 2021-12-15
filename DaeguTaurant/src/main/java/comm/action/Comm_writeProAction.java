@@ -15,6 +15,7 @@ import Info.action.Action;
 import comm.service.CommWriteProService;
 import comm.vo.CommVO;
 import vo.ActionForward;
+import vo.UserVO;
 
 public class Comm_writeProAction implements Action {
 
@@ -22,8 +23,8 @@ public class Comm_writeProAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		String realFolder = "";
-		String saveFolder = "/images/com_pic";	//������ ������ ���
-		String encType = "UTF-8";		//��ȯ����
+		String saveFolder = "/images";	
+		String encType = "UTF-8";		
 		int maxSize = 5 * 1024 * 1024;	// 5mb
 		ServletContext context = request.getServletContext();
 		realFolder = context.getRealPath(saveFolder);
@@ -32,6 +33,7 @@ public class Comm_writeProAction implements Action {
 				new DefaultFileRenamePolicy());
 		
 		CommVO commVO = new CommVO();
+		UserVO userVO = new UserVO();
 		String fileName = multi.getFilesystemName("com_pic");
 		int index = fileName.indexOf(".");
 		String fileNameWithoutExt = fileName.substring(0, index);
@@ -41,18 +43,21 @@ public class Comm_writeProAction implements Action {
 		
 		HttpSession session = request.getSession();
 	      session.setAttribute("commVO", commVO);
+	      userVO.setUser_id((String)session.getAttribute("user_id"));
 		
+	      
 		commVO.setCom_number(Integer.parseInt(multi.getParameter("com_number")));
 		commVO.setCom_title(multi.getParameter("com_title"));
 		commVO.setCom_date(new Timestamp(System.currentTimeMillis()));
 		commVO.setCom_subject(multi.getParameter("com_subject"));
 		commVO.setCom_content(multi.getParameter("com_content"));
 		commVO.setUser_nickname(multi.getParameter("user_nickname"));
+		commVO.setCom_user_id(multi.getParameter("com_user_id"));
 		
 		
 		
 		CommWriteProService commWriteProService = new CommWriteProService();
-		boolean registSucess = commWriteProService.registArticle(commVO);
+		boolean registSucess = commWriteProService.registArticle(commVO, userVO);
 
 		ActionForward forward = null;
 		if(registSucess) {

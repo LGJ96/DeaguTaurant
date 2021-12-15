@@ -206,6 +206,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
+                        <form action="#" method="POST" name = "myComList">
                             <tbody>
                                 <tr>
                                     <td>
@@ -217,69 +218,70 @@
                                             <div class="card-body">
                                                 <div class="col-sm-13" style="float: center;">
                                           <div class="card" id="title-content">
-                                              
+                                          
                                               
                                                   <div class="table-responsive">
                                                       <table class="table">
                                                           <thead class=" text-primary">
-                                                              <th>
+                                                              <th var colspan="1" width="100">
                                                                   번호
                                                               </th>
-                                                              <th colspan="2">
+                                                              <th colspan="2" width="600">
                                                                   제목
                                                               </th>
                                                               <th  class="text-right">
                                                                   작성 시간
                                                               </th>
                                                           </thead>
-                                                          <tbody>
-                                                              <tr>
-                                                          <div>
                                                           
-                                                                  <td >
-                                                                      1
+				                                                <%-- <c:if test="${empty comArticleList}">
+																	<table width="1000"  cellpadding="0" cellspacing="0">
+																		    <td align="center">
+																		    <h14>게시판에 저장된 글이 없습니다.</h14>
+																		    </td>
+																	</table>
+																</c:if> --%>
+																
+                                                          <tbody>
+                                                          <c:if test="${not empty myComList}">
+                                                          <c:set var = "number" value = "${commPageVO.number }"></c:set>
+													      <c:forEach var = "myComList" items = "${myComList }">
+                                                          <tr>
+                                                          <div>
+                                                                  <c:set var = "number" value = "${number+1}"></c:set>
+                                                                  <td var colspan="1" width="100">
+                                                                      ${number }
+                                                                  </td>
+                                                                  <td colspan="2" width="600" >
+                                                                     <a href="comment.dae?com_number=${myComList.com_number}&com_pageNum=${commPageVO.com_currentPage}" style="color: black">
+                       													 ${myComList.com_title }</a>
                                                                   </td>
                                                                   
-                                                                  <td colspan="2">
-                                                                  <a href="comm_content.jsp" title="회원 글 목록1">
-                                                                      대구 달서구 양식 맛집 목록입니다!
-                                                                  </td>
-                                                                  </a>
-                                                                  
                                                                   <td class="text-right">
-                                                                      2021.11.04 15:37
+                                                                      ${myComList.com_date }
                                                                   </td>
-                                                              
+                                                              </div>
                                                               </tr>
-                                                               <tr>
-                                                                  <td>
-                                                                      2
-                                                                  </td>
-                                                                  <td colspan="2">
-                                                                  <a href="comm_content.jsp" title="회원 글 목록1">
-                                                                      대구 중구 양식 맛집 목록입니다!
-                                                                  </td>
-                                                                  </a>
-                                                                  <td class="text-right">
-                                                                      2021.11.05 16:37
-                                                                  </td>
-                                                              </tr>
-                                                              <tr>
-                                                                  <td>
-                                                                      3
-                                                                  </td>
-                                                                  <td colspan="2">
-                                                                  <a href="comm_content.jsp" title="회원 글 목록1">
-                                                                      대구 북구 양식 맛집 목록입니다!
-                                                                  </td>
-                                                                  </a>
-                                                                  <td class="text-right">
-                                                                      2021.11.06 17:37
-                                                                  </td>
-                                                              </tr>
-                                                             
+                                                              </c:forEach>
+                                                              </c:if>
+                                                            
+                                                            
                                                           </tbody>
+															
+                                                          
                                                       </table>
+                                                            <c:if test="commPageVO.com_count > 0">
+						
+																    <c:if test="${commPageVO.com_startPage }">
+																        <a href="myreviewlist.dae?com_pageNum=${commPageVO.com_startPage - 10 }">[이전]</a>
+																	</c:if>
+																		<c:forEach begin = "${commPageVO.com_startPage }" end="${commPageVO.com_endPage}" var = "i">
+																       		 <a href="myreviewlist.dae?com_pageNum=${i }">[${i }]</a>
+																   		</c:forEach>
+																    <c:if test="${commPageVO.com_endPage < commPageVO.com_pageCount }">
+																        <a href="myreviewlist.dae?com_pageNum=${commPageVO.com_startPage + 10}">[다음]</a>
+																    </c:if>
+															</c:if>
                                                   </div>
                                               
                                           </div>
@@ -288,6 +290,8 @@
                                         </div>
                                     </td>
                                 </tr>
+                                </tbody>
+                                </form>
 <!-- ============================회원 문의 목록============================= -->
  <form action="#" method="POST" name = "myOtoList">
       <tr>
