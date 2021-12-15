@@ -35,8 +35,11 @@ import login.action.UserLoginAction;
 import login.action.UserLogoutAction;
 import login.action.UserNicknameCheckAction;
 import login.action.UserPwSearchResultAction;
+import mypage.action.MyOtODeleteAction;
 import mypage.action.MyReviewListAction;
 import mypage.action.ReviewDeleteAction;
+import mypage.action.ReviewUpdateAction;
+import mypage.action.ReviewUpdateProAction;
 import mypage.action.UserPwUpdateProAction;
 
 import rest.action.Rest1EachCheckSearchAction;
@@ -743,7 +746,7 @@ public class DaeguTaurantFrontController extends HttpServlet {
                }
             }
          
-         //======================== 마이페이지 ==============================
+//======================== 마이페이지 ==============================
          
             else if(command.equals("/userPw_UpdatePro.dae")) {
                action = new UserPwUpdateProAction();
@@ -777,6 +780,39 @@ public class DaeguTaurantFrontController extends HttpServlet {
                   e.printStackTrace();
                }
             }
+            else if(command.equals("/reviewupdate.dae")) {
+               action = new ReviewUpdateAction();
+               
+               try {
+                  forward = action.execute(request, response);
+               } catch (Exception e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+               }
+            }
+         
+         else if(command.equals("/reviewupdatePro.dae")) {
+            action = new ReviewUpdateProAction();
+            
+            try {
+               forward = action.execute(request, response);
+            } catch (Exception e) {
+               // TODO Auto-generated catch block
+               e.printStackTrace();
+            }
+         }
+      
+         else if(command.equals("/myOto_delete.dae")) {
+        	 action = new MyOtODeleteAction();
+        	 
+        	 try {
+        		 forward = action.execute(request, response);
+        	 } catch (Exception e) {
+        		 // TODO Auto-generated catch block
+        		 e.printStackTrace();
+        	 }
+         }
+         
       
             
       

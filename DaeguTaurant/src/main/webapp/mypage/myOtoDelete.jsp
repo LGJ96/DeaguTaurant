@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
-
+<meta charset="UTF-8">
 <title>나의 문의 삭제</title>
 </head>
 <body>

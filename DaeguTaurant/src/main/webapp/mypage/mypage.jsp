@@ -370,7 +370,8 @@
 				         </td>
 				         
                <td class="text-right">
-                   ${myOtoList.cus_oto_date }
+                 <%--   ${myOtoList.cus_oto_date } --%>
+    	 <fmt:formatDate value="${myOtoList.cus_oto_date }" pattern="yyyy-MM-dd HH:mm"/>
                </td>
                </tr>
    			 </c:forEach>
@@ -499,9 +500,9 @@
 				                                              
                                                                   <td class="text-right">
                                                                   
-                                                                ${reviewList.rev_notice_date }
+                                                        <%--         ${reviewList.rev_notice_date } --%>
                                                                 
-                                                                  <%-- <fmt:formatDate value=" ${reviewList.rev_notice_date }" pattern="yyyy-MM-dd HH:mm"/> --%>
+                                                               <fmt:formatDate value="${reviewList.rev_notice_date }" pattern="yyyy-MM-dd HH:mm"/>
                                                                   
                                                                   </td>
                                                               

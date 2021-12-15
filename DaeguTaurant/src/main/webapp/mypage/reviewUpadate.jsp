@@ -82,9 +82,9 @@
   
   <tr>      
  <td colspan=2 " align="center"> 
-   <input type="submit" value="수정" style="color:white" class="btn btn-check" >
+   <input type="submit" value="수정"  class="btn btn-check" >
   
-    <input type="button" class="btn btn-check" style="color:white" value="취소"
+    <input type="button" class="btn btn-check" value="취소"
  	 OnClick="window.close();">
   
   </td></tr>
