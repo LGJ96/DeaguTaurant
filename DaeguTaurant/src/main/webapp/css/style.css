@@ -493,6 +493,7 @@ label{
 
 /*커뮤니티 글 내용 조회 말머리 칸 */
  #title1{
+
  float : left; 
  text-align:center;
   width : 180px; 
@@ -521,6 +522,7 @@ label{
  /* 커뮤니티 글 내용 조회 제목 칸 */
  #title2{
  float : right; 
+  text-align:center;
  border: 1px solid #dddddd;
  height : 50px;
  font-size: 25px;

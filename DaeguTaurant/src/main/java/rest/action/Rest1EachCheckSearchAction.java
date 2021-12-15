@@ -18,10 +18,7 @@ public class Rest1EachCheckSearchAction implements Action {
 		
 		String area = request.getParameter("area");
 		String category = request.getParameter("category");
-		System.out.println(area);
-		System.out.println(category);
 
-		
 		
 		RestCheckSearchService restCheckSearchservice = new RestCheckSearchService();
 		ArrayList<RestVO> rest1eachchecksearch = restCheckSearchservice.getRest1EachCheckSearch(area,category);

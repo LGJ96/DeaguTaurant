@@ -29,3 +29,10 @@ CREATE SEQUENCE comm_register_seq;
  * 			게시글 번호를 순차적으로 할당*/
 
 select * from comm_register;
+
+update comm_register
+set com_user_id = 'admin1@naver.com'
+where com_number =42;
+
+delete from comm_register
+where com_number=43;

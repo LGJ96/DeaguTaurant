@@ -188,7 +188,8 @@ int com_currentPage = comPageVO.getCom_currentPage();
     <!--//END 커뮤니티 헤더 -->
     
     <!-- 글쓰기 본문 -->
-    
+    <div style = "padding: 20px;">
+    </div>
    <div class="container" >
     <div class="col-lg-12" align="right">
    <c:if test = "${loginUser.user_nickname == comArticle.user_nickname or loginUser.user_level == 9}">
@@ -218,7 +219,7 @@ int com_currentPage = comPageVO.getCom_currentPage();
 							<td>
 							<div contentEditable="true" style = "text-align: left;">
 							  ${fn:replace(comArticle.com_content, cn, br)}<br>
-							  <img src = "images/${comArticle.com_pic}.jpg"
+							  <img src = "images/com_pic/${comArticle.com_pic}.jpg"
                				   class = "productImage" width = "300px;" height = "300px;"/>
 							</div>
 							<%-- <textarea class="form-control" readonly placeholder="글 내용" name="bbsContent" maxlength="2048" style="height: 350px;"><%=comArticle.getCom_content() %></textarea> --%>

@@ -28,7 +28,7 @@ public class UserPwUpdateProAction implements Action {
 		userVO.setUser_id(user_id);
 		userVO.setUser_pw(request.getParameter("user_pw1"));  //내가 입력한 비밀번호
 		
-		System.out.println(userVO.getUser_id());
+
 		
 		PwUpdateProService pwUpdateProService = new PwUpdateProService();
 		      
