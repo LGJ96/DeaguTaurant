@@ -122,7 +122,7 @@ int com_pageCount = commPageVO.getCom_pageCount();
 					<c:if test="${not empty comArticleBestList}">
 							<c:set var = "number" value = "${commPageVO.com_number }"></c:set>
 							<%-- <c:forEach var = "comArticle" items = "${comArticleBestList }"> --%> 
-							<c:forEach begin="0" end ="2" var="comArticle" items="${comArticleBestList}" varStatus="status">
+							<c:forEach begin="0" end ="3" var="comArticle" items="${comArticleBestList}" varStatus="status">
 							
 					
 					<c:if test="${ '정보' eq comArticle.com_subject }">
@@ -158,7 +158,8 @@ int com_pageCount = commPageVO.getCom_pageCount();
     <table class="table" >
       <thead  class="bg-warning text-white">
         <tr>
-            <th colspan="1">번호</th>
+            <th colspan="1">조회수</th>
+            <th colspan="1">말머리</th>
             <th align="right" colspan="4" style = "text-align: center;" > Best 자유 게시판</th>
         </tr>
         
@@ -175,7 +176,7 @@ int com_pageCount = commPageVO.getCom_pageCount();
       <tbody>
         			<c:if test="${not empty comArticleBestList}">
 					<c:set var = "number" value = "${commPageVO.com_number }"></c:set>
-					<c:forEach begin="0" end ="2" var = "comArticle" items = "${comArticleBestList }">
+					<c:forEach begin="0" end ="3" var = "comArticle" items = "${comArticleBestList }">
 					
 					<c:if test="${ '자유' eq comArticle.com_subject }">
 							
@@ -239,7 +240,11 @@ int com_pageCount = commPageVO.getCom_pageCount();
                         <td align="center"  width="250"><a href="comment.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}" style="color: black">
                         ${comArticle.com_title }</a></td>
                         <td align="center"  width="100">${comArticle.user_nickname }</td>
-                        <td align="center"  width="150">${comArticle.com_date }</td>
+                        <td align="center"  width="150">
+                      <%--   ${comArticle.com_date } --%>
+                        <fmt:formatDate value="${comArticle.com_date }" pattern="yyyy-MM-dd HH:mm"/>
+                        </td>
+                        
                         <td align="center"  width="50">${comArticle.com_readcount }</td>
                     </tr>
                     </c:forEach>

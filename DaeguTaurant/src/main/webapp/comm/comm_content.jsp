@@ -9,6 +9,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
  
 <%
     // 줄바꿈 
@@ -301,43 +302,37 @@ int com_currentPage = comPageVO.getCom_currentPage();
              			</p>
              			</div>
              			
+             			
+             			
+             		<div class="comment_info_box">
+             			<span class="comment_info_date">
+             			<%-- ${commentArticle.comment_date } --%>
+             			<fmt:formatDate value="${commentArticle.comment_date}" pattern="yyyy-MM-dd HH:mm"/>
+
+             			</span>
+             	
+             		
+             		
+             		
              			<c:if test = "${loginUser.user_nickname == commentArticle.user_nickname or loginUser.user_level == 9}">
-             			
-             			<div class="comment_info_box">
-             			<span class="comment_info_date">${commentArticle.comment_date }</span>
-             			
-				
-             			
-             			<%-- <a href="#?comment_number=${commentArticle.comment_number}" style = "float: right; margin-righ: 50px; color: black"
-                                        id="show${commentArticle.comment_number}" onclick="if(hide${commentArticle.comment_number}.style.display=='none') {hide${commentArticle.comment_number}.style.display='';show${commentArticle.comment_number}.innerText='취소'} else {hide${commentArticle.comment_number}.style.display='none';show${commentArticle.comment_number}.innerText='수정'}">
-										수정 </a>
-										
-    					<div id="hide${commentArticle.comment_number}" style="display: none">
-        					<div class="card" id="title-content">
-					          <div class="col-sm-15">
-					              <div class="text-left">
-					                  <textarea class="form-control" id = "form-control1" name="comment_content" maxlength="450" >${commentArticle.comment_content}</textarea>
-					                  <button type="submit" class="btn btn-regist" style = "float: right;" 
-					                  onclick="location.href='comment_updatePro.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}#?&comment_number=${commentArticle.comment_number}';"  > 수정 </button>
-					              </div>
-					          </div>
-					        </div>
-    					</div> --%>
-    					
-             			<a onclick="window.open('comment_updateForm.dae?comment_number=${commentArticle.comment_number}','','width=430,height=280,location=no,status=no,scrollbars=yes');" role="button" class="comment_info_button" style = "float: right; margin-righ: 50px; cursor:pointer">
+             			<a onclick="window.open('comment_updateForm.dae?comment_number=${commentArticle.comment_number}','','width=430,height=280,left=700,top=300,location=no,status=no,scrollbars=yes');" role="button" class="comment_info_button" style = "float: right; margin-righ: 50px; cursor:pointer">
         					수정
     					</a>
              			<a href="comment_deletePro.dae?com_number=${comArticle.com_number}&com_pageNum=${commPageVO.com_currentPage}&comment_number=${commentArticle.comment_number}" role="button" class="comment_info_button" style = "float: right; margin-righ: 50px; color: black; cursor:pointer">
         					삭제   |
     					</a>
+    					</c:if>
     					
     					</div>
-    					</c:if>
-             			</li>
+    				</li>
             			</ul>
+    					</c:if>
+    					
+             			
+            			</c:forEach>
              			</c:if>
-    					</c:forEach>
-             			</c:if>
+    					
+             			
              			</div>
              
               </div>

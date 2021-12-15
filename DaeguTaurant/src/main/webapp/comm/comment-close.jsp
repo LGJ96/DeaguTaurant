@@ -17,25 +17,22 @@
     <meta name="keywords" content="#">
     <!-- Favicons -->
     <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/style.css">
     <!-- Page Title -->
    <title>DaeguTaruant</title>
     
 </head>
 
 <body>
-  	
-   <table width="250" border = "1" cellspacing="0" cellpadding="0"
-   align="center">
-    <tr>
-    <td align="center" colspan="2">
-      <div>요청이 처리 되었습니다.</div> 
-   </td>
-   </tr>
+   <div align="center">
+   <h14>요청이 처리되었습니다.</h14> 
+  </div>
     
 <br>
-  <tr>      
- <td colspan=2 " align="center"> 
-  <input type="submit" style="color:black" class="btn btn-check" value = "확인" onclick="pclose1();">
+ 
+<div align="center" >
+  <input type="submit" id = "question-check" class="btn" value = "확인" onclick="pclose1();">
+  </div>
   <script>
 	  function pclose1(){
 	    opener.location.reload(10);

@@ -97,7 +97,7 @@ int com_pageCount = commPageVO.getCom_pageCount();
  <!--============================= 글 목록 =============================-->
 
     <div class="card-body">
-        <h5 class="card-title" style="text-align:center">글 목록</h5>
+        <h16 class="card-title" style="text-align:center">글 목록</h16>
         <div class="table-responsive " id ="comm-content" >
             <table id="zero_config" class="table">
                 <thead class ="bg-warning text-white">
@@ -150,7 +150,9 @@ int com_pageCount = commPageVO.getCom_pageCount();
                         <td align="center"  width="250"><a href="comment.dae?com_number=${com.com_number}&com_pageNum=${commSearchPageVO.sea_currentPage}" style="color: black">
                         ${com.com_title }</a></td>
                         <td align="center"  width="100">${com.user_nickname }</td>
-                        <td align="center"  width="150">${com.com_date }</td>
+                        <td align="center"  width="150"><%-- ${com.com_date } --%>
+                          <fmt:formatDate value="${com.com_date }" pattern="yyyy-MM-dd HH:mm"/>
+                          </td>
                         <td align="center"  width="50">${com.com_readcount }</td>
                     </tr>
                 </c:forEach>

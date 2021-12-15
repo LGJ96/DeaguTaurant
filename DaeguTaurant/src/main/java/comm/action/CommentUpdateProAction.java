@@ -41,7 +41,7 @@ public class CommentUpdateProAction implements Action {
 	       response.setContentType("text/html;charset=UTF-8");
 	       PrintWriter out = response.getWriter();
 	       out.println("<script>");
-	       out.println("alert('µî·Ï½ÇÆÐ')");
+	       out.println("alert('ìˆ˜ì •ì‹¤íŒ¨')");
 	       out.println("history.back();");
 	       out.println("</script>");
 	    }
