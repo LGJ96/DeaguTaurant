@@ -233,7 +233,7 @@
 										
 										// 주소-좌표 변환 객체를 생성합니다
 										var geocoder = new kakao.maps.services.Geocoder();
-										var loca = "${restVO.res_Addr2 }";
+										var loca = "${restVO.res_Addr2}";
 											//"${restVO.res_Addr2 }";
 										// 주소로 좌표를 검색합니다
 										geocoder.addressSearch(loca, function(result, status) {

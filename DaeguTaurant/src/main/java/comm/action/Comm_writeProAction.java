@@ -23,7 +23,7 @@ public class Comm_writeProAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		String realFolder = "";
-		String saveFolder = "/images";	
+		String saveFolder = "/images/com_pic";	
 		String encType = "UTF-8";		
 		int maxSize = 5 * 1024 * 1024;	// 5mb
 		ServletContext context = request.getServletContext();
